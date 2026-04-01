@@ -7,7 +7,7 @@ jobs:
   upsert-apex-cname:
     runs-on: ubuntu-latest
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_DNS_API_TOKEN }}
       CLOUDFLARE_ZONE_ID: 28d2e5c7ea18e2e76bb69790c9916b81
       RECORD_NAME: unlockintelligencehq.com
       RECORD_CONTENT: unlock-intelligence-hq.pages.dev
@@ -16,7 +16,7 @@ jobs:
       - name: Verify token is present
         run: |
           if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
-            echo "Missing CLOUDFLARE_API_TOKEN repository secret."
+            echo "Missing CLOUDFLARE_DNS_API_TOKEN repository secret."
             exit 1
           fi
 
