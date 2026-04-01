@@ -42,7 +42,7 @@ jobs:
 
             success="$(echo "$response" | jq -r '.success // false')"
             if [ "$success" != "true" ]; then
-              echo "$response" | jq .
+              echo "$response" | jq . >&2
               exit 1
             fi
 
