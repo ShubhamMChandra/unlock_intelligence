@@ -41,7 +41,6 @@ export function HowItWorks() {
     <SectionWrapper id="how-it-works" theme="light">
       <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <span className="font-mono text-xs tracking-wider text-muted-foreground">// the-program</span>
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Program</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Eight Hours to Authority.</h2>
           <p className="text-muted-foreground">Structured for professionals. Built around real outcomes.</p>
@@ -56,8 +55,8 @@ export function HowItWorks() {
               <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{session.tag}</p>
               <h3 className="mt-3 text-lg font-semibold">{session.title}</h3>
               <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{session.description}</p>
-              <div className="mt-5 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3">
-                <span className="block text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+              <div className="mt-5 rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3">
+                <span className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {session.deliverableLabel}
                 </span>
                 <span className="text-sm font-medium">{session.deliverable}</span>
@@ -73,8 +72,8 @@ export function HowItWorks() {
             <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{outcome.tag}</p>
             <h3 className="mt-3 text-lg font-semibold">{outcome.title}</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{outcome.description}</p>
-            <div className="mt-5 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3">
-              <span className="block text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+            <div className="mt-5 rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3">
+              <span className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 {outcome.deliverableLabel}
               </span>
               <span className="text-sm font-medium">{outcome.deliverable}</span>

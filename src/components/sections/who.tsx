@@ -29,7 +29,6 @@ export function Who() {
       <SectionWrapper id="who" theme="light">
         <ScrollReveal>
           <div className="mb-12 space-y-2">
-            <span className="font-mono text-xs tracking-wider text-muted-foreground">// who-its-for</span>
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">Who It&rsquo;s For</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">This Is Built for You If&hellip;</h2>
           </div>

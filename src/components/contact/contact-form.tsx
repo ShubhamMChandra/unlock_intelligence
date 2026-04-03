@@ -46,12 +46,12 @@ export function ContactForm() {
     formData.set("interest", interest);
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://formspree.io/f/xwpkgjbr", {
         method: "POST",
         body: formData,
+        headers: { Accept: "application/json" },
       });
-      const data = await res.json();
-      if (data.success) {
+      if (res.ok) {
         setState("success");
       } else {
         throw new Error("Submission failed");
@@ -110,9 +110,7 @@ export function ContactForm() {
   return (
     <GlassCard>
       <form onSubmit={handleSubmit} noValidate>
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-        <input type="hidden" name="subject" value="New enquiry from Unlock Intelligence" />
-        <input type="checkbox" name="botcheck" className="sr-only" tabIndex={-1} autoComplete="off" />
+        <input type="hidden" name="_subject" value="New enquiry from Unlock Intelligence" />
 
         <div className="space-y-5">
           <div>
@@ -156,12 +154,28 @@ export function ContactForm() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="individual">Individual Seat</SelectItem>
-                <SelectItem value="corporate">Corporate License (5+ seats)</SelectItem>
-                <SelectItem value="question">General Question</SelectItem>
+                <SelectItem value="corporate">Train my team</SelectItem>
+                <SelectItem value="individual">Attend myself first</SelectItem>
+                <SelectItem value="question">Just learning more</SelectItem>
               </SelectContent>
             </Select>
           </div>
+          {interest === "corporate" && (
+            <div>
+              <Label htmlFor="team-size">Team Size</Label>
+              <Select name="team_size" onValueChange={() => {}}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select team size" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="5-10">5–10 people</SelectItem>
+                  <SelectItem value="11-25">11–25 people</SelectItem>
+                  <SelectItem value="26-50">26–50 people</SelectItem>
+                  <SelectItem value="50+">50+ people</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
           <div>
             <Label htmlFor="message">Message</Label>
             <Textarea
@@ -176,7 +190,7 @@ export function ContactForm() {
             disabled={state === "submitting"}
             className="w-full bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-medium hover:opacity-90 rounded-lg"
           >
-            {state === "submitting" ? "Sending..." : "Send Message \u2192"}
+            {state === "submitting" ? "Sending..." : "Start a Conversation \u2192"}
           </Button>
         </div>
       </form>

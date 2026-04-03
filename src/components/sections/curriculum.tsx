@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GradientDivider } from "@/components/ui/gradient-divider";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -107,7 +109,6 @@ export function Curriculum() {
       <SectionWrapper id="curriculum" theme="dark">
         <ScrollReveal>
           <div className="mb-12 space-y-2">
-            <span className="font-mono text-xs tracking-wider text-muted-foreground">// curriculum</span>
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">Curriculum</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What You&rsquo;ll Actually Learn</h2>
             <p className="text-muted-foreground">No fluff. No theory for theory&rsquo;s sake. Everything maps to your job.</p>
@@ -118,6 +119,18 @@ export function Curriculum() {
           <SessionColumn session={sessionOne} />
           <SessionColumn session={sessionTwo} delay={150} />
         </div>
+
+        <ScrollReveal delay={200}>
+          <div className="mt-12 text-center">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
+              render={<Link href="/contact" />}
+            >
+              See How This Maps to Your Team &rarr;
+            </Button>
+          </div>
+        </ScrollReveal>
       </SectionWrapper>
     </>
   );

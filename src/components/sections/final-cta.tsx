@@ -6,8 +6,8 @@ import { GradientText } from "@/components/ui/gradient-text";
 import { Button } from "@/components/ui/button";
 
 const metaItems = [
-  "Next cohort: April 2026",
-  "Limited seats available",
+  "Founding cohort: Spring 2026",
+  "Limited seats",
   "No technical background required",
 ];
 
@@ -17,17 +17,17 @@ export function FinalCTA() {
       <div className="mx-auto max-w-[1120px] px-6 text-center">
         <ScrollReveal>
           <h2 className="mx-auto max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            The AI era isn&rsquo;t coming.
+            The Companies Investing in AI Fluency Now
             <br />
-            <GradientText>It&rsquo;s already here.</GradientText>
+            <GradientText>Will Lead.</GradientText>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            The question isn&rsquo;t whether AI will change your field.
+            The rest will spend the next two years playing catch-up.
             <br className="hidden sm:block" />
-            It&rsquo;s whether you&rsquo;ll be the one who shapes how it does.
+            Don&rsquo;t let your team be one of them.
           </p>
         </ScrollReveal>
 
@@ -38,7 +38,7 @@ export function FinalCTA() {
               className="bg-gradient-to-r from-indigo-500 to-violet-500 px-8 py-3 text-base text-white hover:from-indigo-600 hover:to-violet-600"
               render={<Link href="/contact" />}
             >
-              Join the Next Cohort &rarr;
+              Bring This to Your Team &rarr;
             </Button>
           </div>
         </ScrollReveal>

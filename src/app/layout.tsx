@@ -23,6 +23,17 @@ export const metadata: Metadata = {
   },
   description:
     "Two focused live sessions. Eight hours total. Go from curious professional to the go-to AI authority in your organization.",
+  openGraph: {
+    title: "Unlock Intelligence — AI Training for Teams",
+    description: "Make your team AI-fluent in 8 hours. A live, cohort-based program built for companies.",
+    type: "website",
+    url: "https://unlockintelligence.co",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Unlock Intelligence — AI Training for Teams",
+    description: "Make your team AI-fluent in 8 hours. A live, cohort-based program built for companies.",
+  },
 };
 
 export default function RootLayout({

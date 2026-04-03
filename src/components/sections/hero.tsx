@@ -7,23 +7,19 @@ import { ParallaxOrbs } from "@/components/ui/parallax-orbs";
 import { Button } from "@/components/ui/button";
 
 const headlineWords = [
-  { text: "Become", gradient: false },
-  { text: "the", gradient: false },
-  { text: "AI\u00a0Expert", gradient: true },
-  { text: "\n", gradient: false },
+  { text: "Make", gradient: false },
   { text: "Your", gradient: false },
-  { text: "Company", gradient: false },
-  { text: "Didn\u2019t", gradient: false },
-  { text: "Know", gradient: false },
+  { text: "Team", gradient: false },
   { text: "\n", gradient: false },
-  { text: "It", gradient: false },
-  { text: "Needed.", gradient: false },
+  { text: "AI\u2011Fluent", gradient: true },
+  { text: "in", gradient: false },
+  { text: "8\u00a0Hours.", gradient: false },
 ];
 
 const trustItems = [
   "No technical background needed",
   "Certificate of completion",
-  "Lifetime resource access",
+  "Tailored to your team's roles",
 ];
 
 const container = {
@@ -47,7 +43,7 @@ const wordVariant = {
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-dvh flex items-center justify-center overflow-hidden">
       <ParallaxOrbs />
 
       <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-32 text-center">
@@ -58,11 +54,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-          </span>
-          <span>Cohort 5 &mdash; Now Enrolling</span>
+          <span>Founding Cohort &mdash; Spring 2026</span>
         </motion.div>
 
         {/* Headline */}
@@ -98,9 +90,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          Two focused sessions. Eight hours. The practical AI mastery
-          that turns curious professionals into the go-to authority
-          in any room &mdash; without writing a single line of code.
+          A live, cohort-based program that gives your people practical AI
+          skills they&rsquo;ll use on Monday morning. No technical background
+          required. No months-long commitment.
         </motion.p>
 
         {/* CTAs */}
@@ -115,7 +107,7 @@ export function Hero() {
             className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600 px-6 py-3 text-base"
             render={<Link href="/contact" />}
           >
-            Join the Next Cohort &rarr;
+            Bring This to Your Team &rarr;
           </Button>
           <Button
             variant="ghost"

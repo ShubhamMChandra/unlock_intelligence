@@ -31,9 +31,6 @@ export function Why() {
     <SectionWrapper id="why">
       <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <span className="font-mono text-xs tracking-wider text-muted-foreground">
-            // why-us
-          </span>
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             Why This Program
           </p>

@@ -15,8 +15,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-[1120px] px-6">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="label-mono">// get-in-touch</span>
-            <p className="mt-1 text-sm text-muted-foreground">Contact</p>
+            <p className="text-sm text-muted-foreground">Contact</p>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">Let&rsquo;s Talk</h1>
             <p className="mt-4 text-lg text-muted-foreground max-w-lg">
               Tell us about yourself and we&rsquo;ll get back within one business day.

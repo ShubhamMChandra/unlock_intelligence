@@ -47,9 +47,6 @@ export function FAQ() {
     <SectionWrapper id="faq">
       <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <span className="font-mono text-xs tracking-wider text-muted-foreground">
-            // faq
-          </span>
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             FAQ
           </p>

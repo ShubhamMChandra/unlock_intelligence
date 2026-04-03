@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -8,12 +10,12 @@ import { GradientDivider } from "@/components/ui/gradient-divider";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const negativeItems = [
-  "Used ChatGPT a few times, unsure why",
-  "Watched an AI webinar, forgot it next week",
-  "Feels like everyone else \u201Cgets it\u201D",
-  "Avoids AI conversations in meetings",
-  "Treating AI as just a search engine",
-  "No system, no strategy, no confidence",
+  "Teams using AI sporadically with no shared framework",
+  "AI \u2018strategy\u2019 means someone shared a ChatGPT link in Slack",
+  "No internal standard for evaluating AI output quality",
+  "Competitors building AI into workflows while your team watches",
+  "Training options are either 8-week courses nobody finishes or YouTube",
+  "The gap between AI-curious and AI-competent keeps growing",
 ];
 
 export function Problem() {
@@ -25,26 +27,23 @@ export function Problem() {
           {/* Copy column */}
           <ScrollReveal>
             <div className="space-y-6">
-              <div className="space-y-1">
-                <span className="font-mono text-xs tracking-wider text-muted-foreground">// the-reality</span>
-                <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Reality</p>
-              </div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Reality</p>
 
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Everyone&rsquo;s talking about AI.<br />Most people are falling behind.
+                Your Organisation&rsquo;s AI Adoption<br />Is Stalling.
               </h2>
 
               <p className="text-muted-foreground leading-relaxed">
-                AI isn&rsquo;t replacing people &mdash; it&rsquo;s replacing people who don&rsquo;t know how to use it. While the tools multiply daily, most professionals are stuck in the same loop: watching tutorials that don&rsquo;t stick, experimenting with ChatGPT without a real strategy, and quietly wondering if the person in the next meeting actually knows more than they do.
+                You&rsquo;ve seen the potential. Leadership is talking about AI transformation. But across the organisation, adoption looks the same: a handful of early adopters experimenting in isolation, no shared playbook, and no way to measure whether the output is actually good.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                The gap between AI-aware and AI-fluent is widening fast. The ones who cross it first don&rsquo;t just survive the transition &mdash; they get promoted, they lead the strategy, they become indispensable.
+                The gap between &ldquo;we should use AI&rdquo; and &ldquo;we use AI well&rdquo; doesn&rsquo;t close on its own. It closes when someone gives your people a shared framework, practical reps, and a standard to work from. That&rsquo;s what this program delivers.
               </p>
 
               <blockquote className="border-l-2 border-indigo-400/50 pl-5 italic text-foreground/80">
-                &ldquo;You don&rsquo;t need to become an engineer.
-                You need to become <GradientText>dangerous</GradientText> with the tools
+                &ldquo;Your people don&rsquo;t need to become engineers.
+                They need to become <GradientText>dangerous</GradientText> with the tools
                 engineers build.&rdquo;
               </blockquote>
             </div>
@@ -54,7 +53,7 @@ export function Problem() {
           <ScrollReveal delay={200}>
             <GlassCard className="border-red-500/10 bg-red-500/[0.02]">
               <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Where most professionals actually are
+                What&rsquo;s actually happening across teams
               </p>
               <ul className="space-y-3">
                 {negativeItems.map((item) => (
@@ -67,6 +66,18 @@ export function Problem() {
             </GlassCard>
           </ScrollReveal>
         </div>
+
+        <ScrollReveal delay={300}>
+          <div className="mt-12 text-center">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
+              render={<Link href="/contact" />}
+            >
+              Let&rsquo;s Talk About Your Team &rarr;
+            </Button>
+          </div>
+        </ScrollReveal>
       </SectionWrapper>
     </>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Plus } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -30,9 +29,6 @@ export function Team() {
     <SectionWrapper id="team">
       <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <span className="font-mono text-xs tracking-wider text-muted-foreground">
-            // your-instructors
-          </span>
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             Your Instructors
           </p>
@@ -42,7 +38,7 @@ export function Team() {
         </div>
       </ScrollReveal>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {members.map((member, i) => (
           <ScrollReveal key={member.name} delay={i * 100}>
             <GlassCard className="h-full overflow-hidden p-0">
@@ -54,7 +50,7 @@ export function Team() {
                     fill
                     className="object-cover"
                     style={member.imageStyle}
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>
@@ -70,16 +66,6 @@ export function Team() {
             </GlassCard>
           </ScrollReveal>
         ))}
-
-        {/* Coming Soon placeholder */}
-        <ScrollReveal delay={200}>
-          <div className="flex h-full min-h-[380px] items-center justify-center rounded-xl border-2 border-dashed border-white/[0.08]">
-            <div className="flex flex-col items-center gap-3 text-muted-foreground">
-              <Plus className="h-8 w-8" />
-              <span className="text-sm font-medium">Coming Soon</span>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </SectionWrapper>
   );

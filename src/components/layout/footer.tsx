@@ -22,16 +22,16 @@ export function Footer() {
           </Link>
           <nav className="flex flex-wrap gap-6" aria-label="Footer navigation">
             {footerLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm text-[#71717A] hover:text-[#FAFAFA] transition-colors">
+              <Link key={link.href} href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm">
                 {link.label}
               </Link>
             ))}
           </nav>
         </div>
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.06] text-xs text-[#71717A]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.06] text-xs text-muted-foreground">
           <span>&copy; {new Date().getFullYear()} Unlock Intelligence. All rights reserved.</span>
           <span className="hidden md:inline">Built for humans. Powered by the future.</span>
-          <a href="mailto:hello@unlockintelligence.co" className="text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors">
+          <a href="mailto:hello@unlockintelligence.co" className="text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm">
             hello@unlockintelligence.co
           </a>
         </div>

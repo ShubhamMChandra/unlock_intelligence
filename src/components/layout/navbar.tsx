@@ -32,8 +32,8 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "top-3 mx-auto max-w-[860px] rounded-full border border-white/[0.06] bg-[#09090B]/88 shadow-lg shadow-black/20 backdrop-blur-xl"
-          : "border-b border-white/[0.06] bg-[#09090B]/80 backdrop-blur-lg"
+          ? "top-3 mx-auto max-w-[860px] rounded-full border border-white/[0.06] bg-background/88 shadow-lg shadow-black/20 backdrop-blur-xl"
+          : "border-b border-white/[0.06] bg-background/80 backdrop-blur-lg"
       )}
       style={{ height: scrolled ? 52 : 64 }}
     >
@@ -54,7 +54,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm text-[#A1A1AA] transition-colors hover:text-[#FAFAFA]"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm"
               >
                 {link.label}
               </Link>
@@ -66,20 +66,20 @@ export function Navbar() {
           <Link href="/contact" className="hidden md:inline-flex">
             <Button
               size={scrolled ? "sm" : "default"}
-              className="bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-medium hover:opacity-90 transition-opacity rounded-full"
+              className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full"
             >
-              Reserve Your Seat
+              Get in Touch
             </Button>
           </Link>
 
           {/* Mobile menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              render={<button className="md:hidden p-2 text-[#A1A1AA] hover:text-white" aria-label="Open menu" />}
+              render={<button className="md:hidden p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-md" aria-label="Open menu" />}
             >
               <Menu size={20} />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 bg-[#09090B] border-white/[0.06]">
+            <SheetContent side="right" className="w-72 bg-background border-white/[0.06]">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <div className="flex flex-col gap-6 pt-8">
                 {navLinks.map((link) => (
@@ -87,14 +87,14 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-lg text-[#A1A1AA] hover:text-white transition-colors"
+                    className="text-lg text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm"
                   >
                     {link.label}
                   </Link>
                 ))}
                 <Link href="/contact" onClick={() => setOpen(false)}>
-                  <Button className="w-full bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-medium rounded-full">
-                    Reserve Your Seat
+                  <Button className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full">
+                    Get in Touch
                   </Button>
                 </Link>
               </div>

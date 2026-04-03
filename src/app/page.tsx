@@ -3,7 +3,6 @@ import { ProofBar } from "@/components/sections/proof-bar";
 import { Problem } from "@/components/sections/problem";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Curriculum } from "@/components/sections/curriculum";
-import { Who } from "@/components/sections/who";
 import { Why } from "@/components/sections/why";
 import { Team } from "@/components/sections/team";
 import { Enroll } from "@/components/sections/enroll";
@@ -16,11 +15,10 @@ export default function Home() {
       <Hero />
       <ProofBar />
       <Problem />
+      <Team />
       <HowItWorks />
       <Curriculum />
-      <Who />
       <Why />
-      <Team />
       <Enroll />
       <FAQ />
       <FinalCTA />
