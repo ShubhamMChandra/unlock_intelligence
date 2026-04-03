@@ -31,7 +31,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "top-3 mx-auto max-w-[860px] rounded-full border border-white/[0.06] bg-background/88 shadow-lg shadow-black/20 backdrop-blur-xl"
+          ? "top-3 mx-3 md:mx-auto max-w-[860px] rounded-full border border-white/[0.06] bg-background/88 shadow-lg shadow-black/20 backdrop-blur-xl"
           : "border-b border-white/[0.06] bg-background/80 backdrop-blur-lg"
       )}
       style={{ height: scrolled ? 52 : 64 }}
@@ -74,25 +74,25 @@ export function Navbar() {
           {/* Mobile menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              render={<button className="md:hidden p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-md" aria-label="Open menu" />}
+              render={<button className="md:hidden flex items-center justify-center min-h-[44px] min-w-[44px] p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-md" aria-label="Open menu" />}
             >
-              <Menu size={20} />
+              <Menu size={22} />
             </SheetTrigger>
             <SheetContent side="right" className="w-72 bg-background border-white/[0.06]">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-              <div className="flex flex-col gap-6 pt-8">
+              <div className="flex flex-col gap-2 pt-8">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-lg text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm"
+                    className="flex items-center min-h-[44px] text-lg text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm"
                   >
                     {link.label}
                   </Link>
                 ))}
-                <Link href="/contact" onClick={() => setOpen(false)}>
-                  <Button className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full">
+                <Link href="/contact" onClick={() => setOpen(false)} className="mt-4">
+                  <Button className="w-full min-h-[44px] bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full">
                     Get a Proposal
                   </Button>
                 </Link>

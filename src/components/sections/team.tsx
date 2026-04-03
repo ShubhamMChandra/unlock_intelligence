@@ -9,7 +9,7 @@ const members = [
   {
     name: "Shubham Chandra",
     role: "Head of Curriculum",
-    image: "/images/team/team-member-2.png",
+    image: "/images/team/team-member-2.jpg",
     bio: "Teaches AI-driven entrepreneurship at the University of Chicago. Builds AI automation systems at Digital Realty, where he implements the kind of workflows he teaches in this program. Previously led business strategy at Garner Health.",
     imageStyle: { objectPosition: "center 20%" },
   },
@@ -40,7 +40,7 @@ export function Team() {
         {members.map((member, i) => (
           <ScrollReveal key={member.name} delay={i * 100}>
             <GlassCard className="h-full overflow-hidden p-0">
-              <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <div className="relative aspect-square w-full overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}

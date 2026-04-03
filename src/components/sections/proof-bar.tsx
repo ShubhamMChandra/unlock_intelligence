@@ -3,9 +3,9 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const institutions = [
-  { name: "University of Chicago", logo: "/images/logos/uchicago.png" },
-  { name: "Digital Realty", logo: "/images/logos/digital-realty.png" },
-  { name: "Garner Health", logo: "/images/logos/garner-health.svg" },
+  { name: "University of Chicago", logo: "/images/logos/uchicago.png", invert: true },
+  { name: "Digital Realty", logo: "/images/logos/digital-realty.png", invert: true },
+  { name: "Garner Health", logo: "/images/logos/garner-health.svg", invert: false },
 ];
 
 export function ProofBar() {
@@ -16,14 +16,16 @@ export function ProofBar() {
           <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Our instructors have built AI systems at
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
             {institutions.map((inst) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={inst.name}
                 src={inst.logo}
                 alt={inst.name}
-                className="h-8 w-auto brightness-0 invert opacity-60"
+                className={`h-7 md:h-8 w-auto max-w-[140px] md:max-w-none opacity-60 ${
+                  inst.invert ? "brightness-0 invert" : ""
+                }`}
               />
             ))}
           </div>

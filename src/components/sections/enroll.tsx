@@ -69,7 +69,7 @@ export function Enroll() {
             </ul>
             <Button
               size="lg"
-              className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
+              className="w-full min-h-[44px] bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
               render={<Link href="/contact?type=corporate" />}
             >
               Get Your Team&rsquo;s Proposal &rarr;
@@ -103,7 +103,7 @@ export function Enroll() {
             <Button
               size="lg"
               variant="outline"
-              className="w-full"
+              className="w-full min-h-[44px]"
               render={<Link href="/contact" />}
             >
               Get Started &rarr;

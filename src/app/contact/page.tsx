@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="pt-28 pb-24">
+    <main className="pt-28 pb-[max(6rem,calc(1.5rem+env(safe-area-inset-bottom)))]">
       <div className="mx-auto max-w-[1120px] px-6">
         <ScrollReveal>
           <div className="mb-12">

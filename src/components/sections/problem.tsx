@@ -71,7 +71,7 @@ export function Problem() {
           <div className="mt-12 text-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
+              className="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
               render={<Link href="/contact" />}
             >
               Talk to Us About Your Team &rarr;

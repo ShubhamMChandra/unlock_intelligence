@@ -188,7 +188,7 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={state === "submitting"}
-            className="w-full bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-medium hover:opacity-90 rounded-lg"
+            className="w-full min-h-[44px] bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-medium hover:opacity-90 rounded-lg"
           >
             {state === "submitting" ? "Sending..." : "Start a Conversation \u2192"}
           </Button>

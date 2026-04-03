@@ -104,7 +104,7 @@ export function Hero() {
         >
           <Button
             size="lg"
-            className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600 px-6 py-3 text-base"
+            className="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600 px-6 py-3 text-base"
             render={<Link href="/contact" />}
           >
             Get a Custom Proposal &rarr;
@@ -112,7 +112,7 @@ export function Hero() {
           <Button
             variant="ghost"
             size="lg"
-            className="border border-white/[0.1] px-6 py-3 text-base"
+            className="w-full sm:w-auto min-h-[44px] border border-white/[0.1] px-6 py-3 text-base"
             render={<a href="#curriculum" />}
           >
             See the Curriculum &darr;
