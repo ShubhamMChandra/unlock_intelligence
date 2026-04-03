@@ -28,6 +28,7 @@ interface RelatedArticle {
 interface ArticleLayoutProps {
   title: string;
   subtitle: string;
+  author: string;
   category: string;
   readingTime: string;
   keyTakeaways: string[];
@@ -44,6 +45,7 @@ interface ArticleLayoutProps {
 export function ArticleLayout({
   title,
   subtitle,
+  author,
   category,
   readingTime,
   keyTakeaways,
@@ -105,6 +107,12 @@ export function ArticleLayout({
           <p className="mt-4 max-w-[720px] text-pretty text-lg leading-relaxed text-muted-foreground">
             {subtitle}
           </p>
+
+          {author && (
+            <p className="mt-4 text-sm text-muted-foreground">
+              By {author}
+            </p>
+          )}
         </header>
       </ScrollReveal>
 

@@ -65,6 +65,7 @@ export default async function InsightArticlePage({
       <ArticleLayout
         title={article.title}
         subtitle={article.subtitle}
+        author={article.author}
         category={article.category}
         readingTime={article.readingTime}
         keyTakeaways={article.keyTakeaways}

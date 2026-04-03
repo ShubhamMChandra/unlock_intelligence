@@ -9,6 +9,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import {
   Accordion,
   AccordionItem,
@@ -86,7 +87,7 @@ function SessionColumn({ session }: { session: typeof sessionOne }) {
       <Accordion>
         {session.modules.map((mod) => (
           <AccordionItem key={mod.number} className="border-white/[0.06]">
-            <AccordionTrigger className="py-4 text-sm font-medium hover:no-underline">
+            <AccordionTrigger className="py-4 text-sm font-medium">
               <span>
                 <span className="mr-2 font-mono text-xs text-muted-foreground">
                   Module {mod.number}:
@@ -107,11 +108,13 @@ function SessionColumn({ session }: { session: typeof sessionOne }) {
 export function Curriculum() {
   return (
     <SectionWrapper id="curriculum" theme="dark" className="tone-curriculum">
+          <ScrollReveal>
           <div className="mb-12 space-y-2">
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">Curriculum</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What You&rsquo;ll Learn</h2>
             <p className="text-muted-foreground">Eight modules. Everything maps to your job.</p>
           </div>
+          </ScrollReveal>
 
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           <SessionColumn session={sessionOne} />
@@ -124,7 +127,7 @@ export function Curriculum() {
               className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F]"
               render={<Link href="/contact" />}
             >
-              Request a Curriculum Walkthrough &rarr;
+              Request a Curriculum Walkthrough <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
             </Button>
           </div>
       </SectionWrapper>

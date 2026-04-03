@@ -41,7 +41,7 @@ export function FinalCTA() {
               className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] px-8 py-3 text-base text-white hover:bg-[#15293F]"
               render={<Link href="/contact" />}
             >
-              Get Your Custom Proposal &rarr;
+              Get Your Custom Proposal <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
             </Button>
           </div>
 

@@ -8,6 +8,7 @@
 
 import Link from "next/link";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import {
   Accordion,
   AccordionItem,
@@ -102,6 +103,7 @@ const participantFaqs: FaqEntry[] = [
 export function FAQ() {
   return (
     <SectionWrapper id="faq" className="tone-faq">
+        <ScrollReveal>
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             FAQ
@@ -110,6 +112,7 @@ export function FAQ() {
             Common Questions
           </h2>
         </div>
+        </ScrollReveal>
 
         <div className="mx-auto max-w-3xl">
           <Accordion>

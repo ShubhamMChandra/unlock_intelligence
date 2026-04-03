@@ -1,11 +1,13 @@
 /**
  * What: Two-session structure and timing explanation.
  * Why: Clarifies format before curriculum detail below.
- * How: Numbered steps with left-border accent, no glass cards.
- * Deps: SectionWrapper.
+ * How: Numbered steps with left-border accent, ScrollReveal on heading.
+ * Deps: SectionWrapper, ScrollReveal.
  */
+"use client";
 
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const sessions = [
   {
@@ -41,16 +43,18 @@ const outcome = {
 export function HowItWorks() {
   return (
     <SectionWrapper id="how-it-works" theme="light">
+        <ScrollReveal>
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Program</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Two Sessions. Real Deliverables.</h2>
           <p className="text-muted-foreground">Structured for working professionals, built around what they&rsquo;ll use after.</p>
         </div>
+        </ScrollReveal>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {sessions.map((session) => (
-          <div key={session.number} className="h-full flex flex-col border-l-2 border-[var(--navy-deep)]/30 pl-6">
-            <span className="text-2xl font-bold text-[var(--navy-deep)]">{session.number}</span>
+          <div key={session.number} className="h-full flex flex-col border-l-2 border-[var(--navy-deep)]/20 pl-6">
+            <span className="text-5xl font-extralight tracking-tight text-[var(--navy-deep)]/25 md:text-6xl">{session.number}</span>
             <p className="mt-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">{session.tag}</p>
             <h3 className="mt-3 text-lg font-semibold">{session.title}</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{session.description}</p>
@@ -65,7 +69,7 @@ export function HowItWorks() {
 
         {/* Outcome step */}
         <div className="h-full flex flex-col border-l-2 border-[var(--navy-deep)] pl-6">
-          <span className="text-2xl font-bold text-[var(--navy-deep)]">{outcome.number}</span>
+          <span className="text-5xl font-extralight tracking-tight text-[var(--navy-deep)]/25 md:text-6xl">{outcome.number}</span>
           <p className="mt-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">{outcome.tag}</p>
           <h3 className="mt-3 text-lg font-semibold">{outcome.title}</h3>
           <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{outcome.description}</p>

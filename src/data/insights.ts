@@ -33,6 +33,7 @@ export interface InsightArticle {
   slug: string;
   title: string;
   subtitle: string;
+  author: string;
   readingTime: string;
   category: string;
   keyTakeaways: string[];
@@ -53,6 +54,7 @@ export const insights: InsightArticle[] = [
     title: "Your AI Training Budget Is a Line Item, Not a Strategy",
     subtitle:
       "86% of companies are spending more on AI training. Only 35% see results.",
+    author: "Shubham Chandra, Head of Curriculum",
     readingTime: "8 min read",
     category: "Workforce Strategy",
     keyTakeaways: [
@@ -122,6 +124,7 @@ export const insights: InsightArticle[] = [
     title: "Stop Teaching People to Prompt. Teach Them to Build.",
     subtitle:
       "Prompting is a tactic. Building custom AI tools is the skill that sticks.",
+    author: "Shubham Chandra, Head of Curriculum",
     readingTime: "8 min read",
     category: "Training Design",
     keyTakeaways: [
@@ -202,6 +205,7 @@ export const insights: InsightArticle[] = [
     title: "Why AI Adoption Dies in Three Weeks",
     subtitle:
       "The pattern is predictable. The fix isn't more training. It's a different kind.",
+    author: "Shubham Chandra, Head of Curriculum",
     readingTime: "8 min read",
     category: "AI Adoption",
     keyTakeaways: [
@@ -263,12 +267,13 @@ export const insights: InsightArticle[] = [
     slug: "same-mistake-everyone-makes",
     title: "The Same Mistake Everyone Makes With AI",
     subtitle:
-      "It happens in university classrooms and Fortune 500 conference rooms. The error is identical.",
+      "It happens in university classrooms and Fortune 500 conference rooms. The error is the same.",
+    author: "Shubham Chandra, Head of Curriculum",
     readingTime: "7 min read",
     category: "AI Adoption",
     keyTakeaways: [
-      "The biggest barrier to AI adoption isn't the technology. It's the mental model. People treat AI like a search engine and evaluate it on search engine terms.",
-      "This pattern is identical across university students and enterprise executives. Seniority doesn't fix it. Only structured practice does.",
+      "The biggest barrier to AI adoption isn't the technology. It's the mental model. People treat AI like a search engine and judge it on search engine terms.",
+      "This pattern is the same across students and executives. Seniority doesn't fix it. Structured practice does.",
       "AI isn't search. It's a capable but context-starved collaborator. Brief it like a colleague, not a search bar.",
     ],
     sections: [
@@ -279,16 +284,17 @@ export const insights: InsightArticle[] = [
           { value: "56%", label: "salary premium for AI-literate professionals", source: "PwC, 2026" },
         ],
         paragraphs: [
-          "Ask AI a vague question. Get a surface-level answer. Conclude \"AI isn't that useful.\" Stop using it. This takes about forty-eight hours, and it plays out the same way everywhere.",
-          "I've seen it in a University of Chicago classroom with graduate students and in a Fortune 500 conference room with executives managing billion-dollar P&Ls. The error is the same regardless of title, industry, or background. Students ask AI to \"analyze this\" and get back observations they already knew. They accept it as the ceiling. So do VPs. The twenty-two-year-old and the C-suite executive both walk away thinking \"it's just giving me what I already know.\" Neither realizes the problem is the question, not the answer.",
-          "The hiring managers who prioritize AI skills aren't looking for prompting. They're looking for judgment: where AI fits into real work, when to trust its output, when to push back. That doesn't come from a tutorial. It comes from practice with real stakes.",
+          "Ask AI a vague question. Get a surface-level answer. Conclude it's not that useful. Stop using it. This takes about forty-eight hours.",
+          "I've seen it in a University of Chicago classroom and in a Fortune 500 conference room. Students ask AI to \"analyze this\" and get back observations they already knew. They accept it as the ceiling. So do VPs.",
+          "The twenty-two-year-old and the C-suite executive walk away thinking the same thing: \"it's just giving me what I already know.\" Neither realizes the problem is the question, not the answer.",
+          "While 81% of hiring managers say they prioritize AI skills, what they mean is judgment: where AI fits in real work, when to trust its output, when to push back. That doesn't come from a tutorial.",
         ],
       },
       {
         heading: "Why the search engine metaphor breaks everything",
         paragraphs: [
-          "Google rewards keywords. AI rewards context. Google gives you THE answer. AI gives you A starting point. These are fundamentally different interaction models, but most people apply the first model to the second tool and then blame the tool when it underperforms.",
-          "When people treat AI like search, they write queries instead of having conversations. They provide no context about who they are, what they're trying to accomplish, or what constraints matter. They accept the first result instead of iterating. They evaluate the output like a Google snippet (is this the right answer?) instead of asking the better question: is this a useful starting point I can refine?",
+          "Google rewards keywords. AI rewards context. Google gives you THE answer. AI gives you A starting point. Most people apply the first model to the second tool, then blame the tool.",
+          "When people treat AI like search, they write queries instead of having conversations. No context about who they are or what they need. They accept the first result instead of iterating.",
           "So you end up with professionals who tried AI once, got a mediocre result, and now quietly think it's overhyped. They're wrong, but for an understandable reason. Nobody corrected the metaphor.",
         ],
         callout:
@@ -297,17 +303,17 @@ export const insights: InsightArticle[] = [
       {
         heading: "The reframe that helps",
         paragraphs: [
-          "AI isn't a search engine and it's not a calculator. Think of it as a capable but context-starved collaborator who just walked into the room. Willing to work, fast on their feet, but completely unaware of your situation, your constraints, your definition of \"good,\" and everything you've already tried.",
-          "Brief it like you'd brief a smart colleague on their first day. Your role, your audience, what success looks like, what you've already considered, and what specifically you need help with. When people make this shift, output quality jumps from generic to genuinely useful. Not because the technology improved. Because the input improved.",
-          "Most training programs never teach this because they start with \"here are the features of ChatGPT\" instead of \"here's how to think about what you're doing when you interact with AI.\" The features change every quarter. The mental model compounds for years. And enterprise leaders keep telling me the same thing: the barrier isn't the tool. It's how people think about the tool.",
+          "Think of AI as a capable but context-starved collaborator who just walked into the room. Fast on their feet, but unaware of your situation, your constraints, and your definition of \"good.\"",
+          "Brief it like you'd brief a smart colleague on their first day. Your role, your audience, what success looks like, what you've already tried. When people make this shift, output quality jumps from generic to useful. Not because the technology improved. Because the input improved.",
+          "Most training programs skip this. They start with \"here are the features of ChatGPT\" instead of \"here's how to think about what you're doing.\" Features change every quarter. The mental model compounds for years.",
         ],
       },
       {
         heading: "What this means for training",
         paragraphs: [
-          "Most AI training starts with \"here are the tools.\" But the tools work fine. ChatGPT, Copilot, Claude, Gemini are all capable enough. The mental model is what's broken, and you can't fix a mental model with a lunch-and-learn.",
-          "You fix it with structured practice on real problems. Not hypothetical scenarios from a curriculum designer who's never done the participant's job. The work sitting on someone's desk right now: the report due Friday, the analysis the board wants next week, the proposal that's been half-written for a month. When someone takes a task they care about and solves it with AI in the room, the mental model shifts in real time. You can't get that from a video.",
-          "PwC reports a 56% salary premium for AI-literate professionals. That premium isn't for knowing what buttons to click. It's for knowing when and how to use AI as a thinking partner, for having the mental model that turns a generic tool into a strategic advantage. The professionals who command that premium didn't get there by completing an online course. They got there by doing the work differently, repeatedly, until the new way became the default.",
+          "The tools work fine. ChatGPT, Copilot, Claude, Gemini are all capable enough. The mental model is what's broken. You can't fix a mental model with a lunch-and-learn.",
+          "You fix it with practice on real problems. The report due Friday. The analysis the board wants next week. The proposal that's been half-written for a month. When someone works through a real task with AI, the mental model shifts.",
+          "PwC reports a 56% salary premium for AI-literate professionals. That premium isn't for knowing what buttons to click. It's for knowing when AI helps and when it doesn't. The people earning that premium got there by doing the work differently, over and over, until the new way became the default.",
         ],
       },
     ],
@@ -327,58 +333,59 @@ export const insights: InsightArticle[] = [
       "What Do You Hate, Why Do You Hate It, and Who Do You Wish Could Do It?",
     subtitle:
       "The best AI training doesn't start with AI. It starts with a question.",
+    author: "Shubham Chandra, Head of Curriculum",
     readingTime: "8 min read",
     category: "Training Design",
     keyTakeaways: [
-      "The most effective AI training opens not with technology but with frustration: \"What do you hate about your job, why, and who do you wish could do it?\"",
-      "Group discussion surfaces shared pain points — the collective recognition that \"everyone hates this too\" creates the motivation to build solutions",
-      "Participants don't study AI in the abstract. They build tools for the specific problems they just named: custom assistants, automated workflows, role-specific playbooks",
-      "The enterprises with the highest AI ROI started with workflow pain points, not \"AI awareness.\" The Socratic method scales.",
+      "The most effective AI training opens with frustration, not technology: \"What do you hate about your job, why, and who do you wish could do it?\"",
+      "When an entire room realizes they all waste hours on the same kind of task, skepticism turns into urgency.",
+      "Participants build tools for the specific problems they just named: custom assistants, automated workflows, role-specific playbooks.",
+      "Organizations with the highest AI ROI started with workflow pain points, not \"AI awareness.\"",
     ],
     sections: [
       {
         heading: "The question that starts every program",
         paragraphs: [
-          "Nobody opens with \"what is a large language model.\" Nobody walks through a slide deck about the history of artificial intelligence from Turing to transformers. The first thing participants hear is three questions: What do you hate about your job? Why do you hate it? And who do you wish could do it?",
-          "The answers are remarkably consistent across roles, industries, and seniority levels. Repetitive, soul-draining work that someone wishes they could hand off. Tasks that eat hours every week but add no strategic value — reformatting data between systems, writing the same status update in three different formats, drafting boilerplate that nobody reads carefully but everyone demands.",
-          "That \"someone\" they wish could do it? More often than not, an AI can. But they've never been shown the connection between their frustration and the tools sitting on their desktop. Nobody drew the line between \"I hate writing weekly status reports\" and \"a custom assistant can generate those from your project notes in ninety seconds.\"",
+          "Nobody opens with \"what is a large language model.\" The first thing participants hear is three questions: What do you hate about your job? Why do you hate it? And who do you wish could do it?",
+          "The answers are consistent across roles and industries. Repetitive work that someone wishes they could hand off. Reformatting data between systems. Writing the same status update in three formats. Drafting boilerplate that nobody reads carefully but everyone demands.",
+          "That \"someone\" they wish could do it? More often than not, an AI can. But nobody has drawn the line between \"I hate writing weekly status reports\" and \"a custom assistant can generate those from your project notes in ninety seconds.\"",
         ],
       },
       {
         heading: "Why the Socratic method works for AI training",
         paragraphs: [
           "Borrowed from the University of Chicago tradition. Discussion, not lecture. Questions, not slides. The instructor's job isn't to hand people answers. It's to set up the conditions where they work through it themselves.",
-          "When a room full of professionals shares their pain points out loud, two things happen simultaneously. First, they realize the frustration is universal — it's not just them, it's structural. The operations manager hates the same kind of work the marketing director hates. Second, that shared recognition creates energy. Collective frustration becomes collective motivation. The room shifts from passive audience to active problem-solvers.",
-          "That energy is what carries people from \"I'm not sure AI is relevant to my work\" to \"I built a custom assistant for my team\" in a single day. You can't manufacture that momentum with a slide deck. It has to come from the participants themselves, and it only comes when you start with their problems, not your curriculum.",
+          "When a room full of professionals shares their pain points out loud, two things happen. First, they realize the frustration is universal. The operations manager hates the same kind of work the marketing director hates.",
+          "Second, that shared recognition creates energy. The room shifts from passive audience to active problem-solvers. That energy carries people from \"I'm not sure AI is relevant\" to \"I built a custom assistant for my team\" in a single day.",
         ],
         callout:
-          "The moment an entire room realizes they all waste three hours a week on the same kind of task — that's when skepticism turns into urgency.",
+          "The moment a room realizes they all waste three hours a week on the same kind of task, skepticism turns into urgency.",
       },
       {
         heading: "From pain to product in 8 hours",
         paragraphs: [
-          "The arc is simple. Identify the pain. Understand why AI fits. Build the solution. Leave with something real. The first hour is all frustration and discovery. The next two are calibration: here's what AI is good at, here's what it isn't, here's why your first attempt probably disappointed you. The rest is building.",
-          "Participants don't study AI in the abstract. They build AI tools for the specific problems they articulated that morning. By the end of the day, three deliverables walk out the door with them:",
+          "The first hour is frustration and discovery. The next two are calibration: what AI is good at, what it isn't, why your first attempt probably disappointed you. The rest is building.",
+          "By the end of the day, three deliverables walk out the door:",
         ],
         bullets: [
-          { bold: "A prompt playbook", text: "designed for their actual role and recurring tasks — not generic templates, but prompts built around the work they described that morning" },
-          { bold: "A workflow map", text: "showing exactly where AI fits in their daily work, which tasks to automate, and which to augment" },
-          { bold: "A 90-day AI strategy", text: "they can implement without waiting for IT approval or vendor procurement — concrete actions with timelines" },
+          { bold: "A prompt playbook", text: "built around their role and recurring tasks, not generic templates" },
+          { bold: "A workflow map", text: "showing where AI fits in their daily work, which tasks to automate, which to augment" },
+          { bold: "A 90-day AI strategy", text: "concrete actions with timelines, no IT approval needed" },
         ],
       },
       {
         heading: "Why this scales",
         paragraphs: [
-          "Organizations seeing measurable improvements in AI ROI share a common starting point. They didn't begin with \"AI awareness\" campaigns or feature tours of the latest platform. They started by identifying repetitive, high-friction tasks and working backward to the solution.",
-          "The Socratic method isn't just a classroom technique. It scales from ten people in a room to a thousand-person rollout. The question is always the same: what do you hate, and who do you wish could do it? The answers change by department. The pattern holds. When people name their own problem, they own the solution.",
+          "Organizations with the strongest AI ROI share a starting point. They didn't begin with \"AI awareness\" campaigns. They started by identifying repetitive, time-consuming tasks and working backward to the solution.",
+          "The Socratic method scales from ten people in a room to a thousand-person rollout. The question is always the same: what do you hate, and who do you wish could do it? When people name their own problem, they own the solution.",
         ],
       },
       {
         heading: "Why this is the article to forward to your boss",
         paragraphs: [
-          "If your team can answer \"what do you hate\" but can't answer \"what AI tools have you built to fix it,\" that tells you where the gap is. The awareness exists. The tools exist. What's missing is the bridge between frustration and solution.",
-          "The market for AI training is projected to grow from $1.2 billion to $6 billion by 2033 (22.5% CAGR). Most of that spend will go to platforms nobody finishes and workshops nobody remembers. The programs that deliver ROI will be the ones that start with real problems and end with real tools people use the following week.",
-          "The gap isn't awareness. Everyone knows AI exists. The gap is between knowing and doing, between \"AI could probably help with this\" and \"here's the tool I built last Tuesday that saves me three hours a week.\"",
+          "If your team can answer \"what do you hate\" but can't answer \"what AI tools have you built to fix it,\" that tells you where the gap is.",
+          "The AI training market is projected to grow from $1.2 billion to $6 billion by 2033. Most of that spend will go to platforms nobody finishes. The programs that deliver ROI start with real problems and end with tools people use the following week.",
+          "The gap isn't awareness. It's the bridge between \"AI could probably help\" and \"here's the tool I built last Tuesday that saves me three hours a week.\"",
         ],
       },
     ],

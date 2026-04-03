@@ -8,6 +8,18 @@ Unimplemented suggestions from agent reviews, prioritized by potential impact. C
 
 These directly affect conversion or credibility. Prioritize before launch or immediately after founding cohort.
 
+### URGENT -- Pre-Launch Credibility Assets (2026-04-03)
+
+These outrank further design work for conversion impact. Identified during the visual polish grill-me session.
+
+- [ ] `[URGENT]` **60-second teaching video clip** -- Record Shubham teaching a real concept (from UChicago material or purpose-recorded). A laptop webcam recording of good teaching beats a polished sizzle reel. Single highest-impact asset for the site. Proves the product is real. Embed in Hero or Team section. _Source: Business Analyst + Visual Polish Session, 2026-04-03._
+
+- [ ] `[URGENT]` **Session photos** -- Photos from UChicago teaching sessions, Zoom grids, whiteboards, post-its. Anything that shows the program happening in the real world. Even informal candid shots. Breaks the text-wall and signals "this has been delivered." _Source: Visual Polish Session, 2026-04-03._
+
+- [ ] `[URGENT]` **One named testimonial** -- A UChicago student, beta participant, or colleague who can say with their real name and title: "Shubham's teaching changed how I use AI." Even 2 sentences. This does more for credibility than any design change. _Source: Business Analyst + Visual Polish Session, 2026-04-03._
+
+---
+
 - [ ] **Pricing anchor on site** -- Even without exact pricing, add a comparison: "Less than sending one person to a two-day conference." HR buyers need budget context before they'll reach out. Without it, the contact form feels like a trap. _Source: Business Analyst, Round 1._
 
 - [ ] **Lead magnet / curriculum PDF download** -- Email-gated curriculum overview PDF. Captures interested-but-not-ready visitors. The HR buying cycle is 30-90 days; without a lead magnet, visitors who aren't ready to buy today are lost forever. _Source: Growth Agent, Round 3._
@@ -16,11 +28,11 @@ These directly affect conversion or credibility. Prioritize before launch or imm
 
 - [ ] **Video sample lesson** -- A 10-15 minute clip of Shubham teaching. Proves teaching ability more than any bio paragraph can. Embed on the landing page above the fold or in the How It Works section. _Source: Visionary, Round 2._
 
-- [ ] **ROI quantification on the live page** -- Surface the $9,750/year per employee productivity gain figure directly on the page. HR champions need copy-pasteable business case ammunition for internal budget requests. Without it, the buyer has to build the ROI case themselves, and most won't bother. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
+- [x] **ROI quantification on the live page** -- Surface the $9,750/year per employee productivity gain figure directly on the page. HR champions need copy-pasteable business case ammunition for internal budget requests. Without it, the buyer has to build the ROI case themselves, and most won't bother. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
 
-- [ ] **ProofBar honesty reframe** -- Reframe the credibility bar to be honest about UChicago context (TA who teaches 75 students, not faculty). Pre-launch credibility depends on accuracy — an HR buyer who discovers embellishment loses trust in everything else on the page. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
+- [x] **ProofBar honesty reframe** -- Reframe the credibility bar to be honest about UChicago context (TA who teaches 75 students, not faculty). Pre-launch credibility depends on accuracy — an HR buyer who discovers embellishment loses trust in everything else on the page. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
 
-- [ ] **Design elevation batch** -- Strip glass cards from HowItWorks/Deliverables/Why sections, break heading monotony (font-light for editorial, bold for structural, extrabold for conversion), editorial treatment for Problem section, reduce scroll animations from 30+ to 3, gradient text only on hero "AI-Fluent," assign color roles (indigo=interactive, emerald=proof), remove parallax orbs. Fixes the root cause of "template feel" identified as structural monotony. _Source: 3-Agent Design Elevation Debate, 2026-04-03._
+- [x] **Design elevation batch** -- Strip glass cards from HowItWorks/Deliverables/Why sections, break heading monotony (font-light for editorial, bold for structural, extrabold for conversion), editorial treatment for Problem section, reduce scroll animations from 30+ to 3, gradient text only on hero "AI-Fluent," assign color roles (indigo=interactive, emerald=proof), remove parallax orbs. Fixes the root cause of "template feel" identified as structural monotony. _Source: 3-Agent Design Elevation Debate, 2026-04-03._
 
 ---
 

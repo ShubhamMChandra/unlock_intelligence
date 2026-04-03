@@ -49,7 +49,7 @@ export function ProofBar() {
                 key={inst.name}
                 src={inst.logo}
                 alt={inst.name}
-                className={`h-7 md:h-8 w-auto max-w-[140px] md:max-w-none opacity-60 ${
+                className={`h-8 md:h-10 w-auto max-w-[140px] md:max-w-none opacity-80 ${
                   inst.invert ? "brightness-0 invert" : ""
                 }`}
               />

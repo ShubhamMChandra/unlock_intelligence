@@ -9,6 +9,7 @@
 import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const members = [
   {
@@ -30,6 +31,7 @@ const members = [
 export function Team() {
   return (
     <SectionWrapper id="team" className="tone-team">
+        <ScrollReveal>
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             Your Instructors
@@ -38,7 +40,9 @@ export function Team() {
             Who&rsquo;s Teaching
           </h2>
         </div>
+        </ScrollReveal>
 
+      <ScrollReveal>
       <div className="grid gap-6 md:grid-cols-2">
         {members.map((member) => (
             <GlassCard key={member.name} className="h-full overflow-hidden p-0">
@@ -47,7 +51,7 @@ export function Team() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
                   style={member.imageStyle}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -64,6 +68,7 @@ export function Team() {
             </GlassCard>
         ))}
       </div>
+      </ScrollReveal>
     </SectionWrapper>
   );
 }

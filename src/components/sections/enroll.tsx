@@ -34,6 +34,7 @@ const corporateFeatures = [
 export function Enroll() {
   return (
     <SectionWrapper id="enroll" className="tone-enroll">
+        <ScrollReveal>
         <div className="mb-12 space-y-2 text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             Enroll
@@ -48,18 +49,21 @@ export function Enroll() {
             a business day.
           </p>
         </div>
+        </ScrollReveal>
 
+        <ScrollReveal>
         <div className="mx-auto mb-8 flex items-center justify-center gap-2 text-sm">
           <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--sage)]" aria-hidden="true" />
           <span className="font-medium text-foreground/90">
             {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} founding spots remaining
           </span>
         </div>
+        </ScrollReveal>
 
       <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
         {/* Corporate License */}
         <ScrollReveal>
-          <GlassCard className="relative h-full border-[var(--navy)]/30 bg-[var(--navy)]/[0.06]">
+          <GlassCard className="relative h-full border-[var(--navy)]/30 bg-[var(--navy)]/[0.06] hover:border-[var(--navy)]/50">
             <span className="mb-4 inline-block rounded-full bg-[var(--navy)]/10 px-3 py-1 text-xs font-medium text-[var(--navy)]">
               Recommended for Organizations
             </span>
@@ -96,7 +100,7 @@ export function Enroll() {
               className="w-full min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F]"
               render={<Link href="/contact?type=corporate" />}
             >
-              Get Your Team&rsquo;s Proposal &rarr;
+              Get Your Team&rsquo;s Proposal <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
             </Button>
           </GlassCard>
         </ScrollReveal>
@@ -142,7 +146,7 @@ export function Enroll() {
               className="w-full min-h-[44px]"
               render={<Link href="/contact" />}
             >
-              Get Started &rarr;
+              Get Started <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
             </Button>
           </GlassCard>
         </ScrollReveal>

@@ -11,6 +11,7 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GradientDivider } from "@/components/ui/gradient-divider";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const negativeItems = [
   "Teams experimenting with AI individually, with no shared approach",
@@ -80,18 +81,17 @@ export function Problem() {
           </div>
         </div>
 
-        {/* ROI framing — ammunition for the champion to forward */}
-        <div className="mt-12 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] px-6 py-5 text-center">
-          <p className="text-lg font-medium text-foreground/90">
-            The average knowledge worker spends{" "}
-            <span className="font-bold text-[var(--navy-deep)]">
-              2.5 hours per week
-            </span>{" "}
-            on tasks AI could handle.
+        {/* ROI framing — the number the champion forwards to their VP */}
+        <div className="mt-14 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] px-6 py-8 text-center">
+          <p className="text-5xl font-bold tracking-tight text-[var(--navy-deep)] md:text-6xl">
+            $9,750
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            At $75/hour, that&rsquo;s $9,750 per employee per year in
-            recoverable time.
+          <p className="mt-2 text-base text-foreground/80">
+            per employee, per year in recoverable time
+          </p>
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            The average knowledge worker spends 2.5 hours/week on tasks AI
+            could handle. At $75/hour, this adds up fast.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ export function Problem() {
             className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F]"
             render={<Link href="/contact" />}
           >
-            Talk to Us About Your Team &rarr;
+            Talk to Us About Your Team <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
           </Button>
         </div>
       </SectionWrapper>

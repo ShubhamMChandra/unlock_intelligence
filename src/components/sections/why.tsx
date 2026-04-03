@@ -5,9 +5,13 @@
  * Deps: lucide, SectionWrapper, GradientDivider, cn.
  */
 
-import { Monitor, Target, Clock } from "lucide-react";
+"use client";
+
+import { Monitor, Target, Clock, Check } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { GlassCard } from "@/components/ui/glass-card";
 import { GradientDivider } from "@/components/ui/gradient-divider";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 const comparisonRows = [
@@ -43,6 +47,7 @@ export function Why() {
     <>
       <GradientDivider direction="dark-to-light" />
       <SectionWrapper id="why" theme="light">
+          <ScrollReveal>
           <div className="mb-12 space-y-2">
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
               Why This Program
@@ -51,10 +56,12 @@ export function Why() {
               Why This Program Works
             </h2>
           </div>
+          </ScrollReveal>
 
+        <ScrollReveal>
         <div className="grid gap-6 md:grid-cols-3">
           {cards.map((card) => (
-            <div key={card.title} className="rounded-xl border-t-2 border-foreground/[0.08] bg-foreground/[0.02] pt-6 px-5 pb-6">
+            <GlassCard key={card.title} className="pt-6 px-5 pb-6">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/[0.04]">
                 <card.icon className="h-5 w-5 text-foreground/60" />
               </div>
@@ -62,9 +69,10 @@ export function Why() {
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {card.description}
               </p>
-            </div>
+            </GlassCard>
           ))}
         </div>
+        </ScrollReveal>
 
           <h3 className="mt-16 mb-6 text-center text-2xl font-bold tracking-tight">
             How We Compare
@@ -105,6 +113,7 @@ export function Why() {
                       i % 2 === 0 && "bg-[var(--navy-deep)]/[0.08]"
                     )}
                   >
+                    <Check className="mr-1 inline h-4 w-4 text-[var(--sage-deep)]" />
                     {row.us}
                   </div>
                   <div
@@ -143,7 +152,7 @@ export function Why() {
                 <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {row.dimension}
                 </p>
-                <p className="text-sm font-medium text-[var(--navy-deep)]">{row.us}</p>
+                <p className="text-sm font-medium text-[var(--navy-deep)]"><Check className="mr-1 inline h-4 w-4 text-[var(--sage-deep)]" />{row.us}</p>
                 <div className="mt-2 space-y-1 text-xs text-muted-foreground">
                   <p>GA: {row.ga}</p>
                   <p>Coursera: {row.coursera}</p>
