@@ -33,12 +33,13 @@ export function Enroll() {
             Enroll
           </p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Join the Founding Cohort
+            Enroll Your Team
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            We&rsquo;re assembling our first cohort of companies. Pricing is
-            tailored to team size and needs &mdash; reach out and we&rsquo;ll
-            build a proposal within one business day.
+            Our Spring 2026 cohort is open for enrollment. Founding cohort
+            members get the lowest pricing we&rsquo;ll ever offer and direct
+            access to the instructors for curriculum customization. Reach out
+            and we&rsquo;ll send a proposal within one business day.
           </p>
         </div>
       </ScrollReveal>
@@ -48,9 +49,9 @@ export function Enroll() {
         <ScrollReveal>
           <GlassCard className="relative h-full border-indigo-500/30 bg-indigo-500/[0.04]">
             <span className="mb-4 inline-block rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-400">
-              For Teams
+              Most Popular
             </span>
-            <h3 className="mb-2 text-xl font-bold">Corporate License</h3>
+            <h3 className="mb-2 text-xl font-bold">Team Training</h3>
             <p className="mb-6 text-sm text-muted-foreground">
               Bring the program to your team. We tailor the curriculum to your
               industry and run a private cohort for your people.
@@ -71,7 +72,7 @@ export function Enroll() {
               className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
               render={<Link href="/contact?type=corporate" />}
             >
-              Get a Proposal &rarr;
+              Get Your Team&rsquo;s Proposal &rarr;
             </Button>
           </GlassCard>
         </ScrollReveal>
@@ -82,7 +83,7 @@ export function Enroll() {
             <span className="mb-4 inline-block rounded-full bg-white/[0.06] px-3 py-1 text-xs font-medium text-muted-foreground">
               For Individuals
             </span>
-            <h3 className="mb-2 text-xl font-bold">Professional Seat</h3>
+            <h3 className="mb-2 text-xl font-bold">Individual Enrollment</h3>
             <p className="mb-6 text-sm text-muted-foreground">
               Join an upcoming cohort as an individual. You&rsquo;ll work
               alongside a cohort of peers from different industries &mdash;

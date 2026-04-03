@@ -11,9 +11,9 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const negativeItems = [
   "Teams using AI sporadically with no shared framework",
-  "AI \u2018strategy\u2019 means someone shared a ChatGPT link in Slack",
+  "No shared vocabulary or framework for how to use AI well",
   "No internal standard for evaluating AI output quality",
-  "Competitors building AI into workflows while your team watches",
+  "Other companies in your industry are training their teams \u2014 creating a gap that widens every quarter",
   "Training options are either 8-week courses nobody finishes or YouTube",
   "The gap between AI-curious and AI-competent keeps growing",
 ];
@@ -30,11 +30,11 @@ export function Problem() {
               <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Reality</p>
 
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Your Organisation&rsquo;s AI Adoption<br />Is Stalling.
+                The AI Skills Gap Is Already<br />Costing You.
               </h2>
 
               <p className="text-muted-foreground leading-relaxed">
-                You&rsquo;ve seen the potential. Leadership is talking about AI transformation. But across the organisation, adoption looks the same: a handful of early adopters experimenting in isolation, no shared playbook, and no way to measure whether the output is actually good.
+                You&rsquo;ve seen the potential. Leadership is talking about AI transformation. But across the organization, adoption looks the same: a handful of early adopters experimenting in isolation, no shared playbook, and no way to measure whether the output is actually good.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
@@ -43,7 +43,7 @@ export function Problem() {
 
               <blockquote className="border-l-2 border-indigo-400/50 pl-5 italic text-foreground/80">
                 &ldquo;Your people don&rsquo;t need to become engineers.
-                They need to become <GradientText>dangerous</GradientText> with the tools
+                They need to become <GradientText>confident, competent users</GradientText> of the tools
                 engineers build.&rdquo;
               </blockquote>
             </div>
@@ -74,7 +74,7 @@ export function Problem() {
               className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600"
               render={<Link href="/contact" />}
             >
-              Let&rsquo;s Talk About Your Team &rarr;
+              Talk to Us About Your Team &rarr;
             </Button>
           </div>
         </ScrollReveal>

@@ -10,19 +10,19 @@ const cards = [
     icon: Monitor,
     title: "Live, Not Recorded",
     description:
-      "This isn\u2019t a course you watch alone at 2am. It\u2019s a live, cohort-based experience with real-time instruction, peer exercises, and direct feedback.",
+      "Every session is instructor-led with real-time Q&A, group exercises, and live feedback. Your team learns together, not in isolation.",
   },
   {
     icon: Target,
     title: "Outcomes, Not Theory",
     description:
-      "You leave with a prompt playbook, a workflow map, and a 90-day AI strategy document \u2014 all built around your actual role.",
+      "Participants leave with a prompt playbook, a workflow automation map, and a 90-day AI strategy document \u2014 all customized to their roles.",
   },
   {
     icon: Clock,
     title: "8 Hours, Not 8 Weeks",
     description:
-      "Designed for busy professionals. Two focused sessions, no homework, no prerequisites. From zero to authority in a single weekend.",
+      "Two half-day sessions. No weeks of self-paced modules that never get finished. Your team is trained and applying skills within one week.",
   },
 ];
 
@@ -35,7 +35,7 @@ export function Why() {
             Why This Program
           </p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Built Different. On Purpose.
+            Why This Program Works
           </h2>
         </div>
       </ScrollReveal>

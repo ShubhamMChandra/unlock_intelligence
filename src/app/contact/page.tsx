@@ -16,7 +16,7 @@ export default function ContactPage() {
         <ScrollReveal>
           <div className="mb-12">
             <p className="text-sm text-muted-foreground">Contact</p>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">Let&rsquo;s Talk</h1>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">Get in Touch</h1>
             <p className="mt-4 text-lg text-muted-foreground max-w-lg">
               Tell us about yourself and we&rsquo;ll get back within one business day.
             </p>

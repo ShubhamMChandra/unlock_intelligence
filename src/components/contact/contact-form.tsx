@@ -154,9 +154,9 @@ export function ContactForm() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="corporate">Train my team</SelectItem>
-                <SelectItem value="individual">Attend myself first</SelectItem>
-                <SelectItem value="question">Just learning more</SelectItem>
+                <SelectItem value="corporate">Ready to train my team</SelectItem>
+                <SelectItem value="individual">Attend as an individual first</SelectItem>
+                <SelectItem value="question">Evaluating for a future quarter</SelectItem>
               </SelectContent>
             </Select>
           </div>

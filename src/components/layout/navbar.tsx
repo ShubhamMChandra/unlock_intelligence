@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Curriculum", href: "/#curriculum" },
-  { label: "Who It's For", href: "/#who" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -68,7 +67,7 @@ export function Navbar() {
               size={scrolled ? "sm" : "default"}
               className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full"
             >
-              Get in Touch
+              Get a Proposal
             </Button>
           </Link>
 
@@ -94,7 +93,7 @@ export function Navbar() {
                 ))}
                 <Link href="/contact" onClick={() => setOpen(false)}>
                   <Button className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full">
-                    Get in Touch
+                    Get a Proposal
                   </Button>
                 </Link>
               </div>

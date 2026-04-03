@@ -13,7 +13,7 @@ const sessions = [
     description:
       "Build the mental model. Learn the real vocabulary. Master prompting as a discipline, not a guessing game.",
     deliverableLabel: "Deliverable",
-    deliverable: "Prompt playbook tailored to your role",
+    deliverable: "Prompt playbook customized to your team\u2019s workflows",
   },
   {
     number: "02",
@@ -22,18 +22,18 @@ const sessions = [
     description:
       "Go beyond individual tools into systems. Automate your workflows. Walk into any room and lead the AI conversation.",
     deliverableLabel: "Deliverable",
-    deliverable: "Workflow map for your specific job",
+    deliverable: "Workflow automation map for your team\u2019s operations",
   },
 ];
 
 const outcome = {
   number: "\u2726",
   tag: "The Result",
-  title: "Your AI Authority Profile",
+  title: "What Your Team Leaves With",
   description:
-    "Leave with a certified skill set, a personal AI strategy document, and the confidence to own every AI conversation in your organisation.",
-  deliverableLabel: "You leave as",
-  deliverable: "The AI expert your company relies on",
+    "Every participant leaves with a certified skill set, a personal AI strategy document, and role-specific prompts and workflows they can use immediately.",
+  deliverableLabel: "For your records",
+  deliverable: "Executive summary of team-wide competency gains",
 };
 
 export function HowItWorks() {
@@ -42,7 +42,7 @@ export function HowItWorks() {
       <ScrollReveal>
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Program</p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Eight Hours to Authority.</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Two Sessions. Real Deliverables.</h2>
           <p className="text-muted-foreground">Structured for professionals. Built around real outcomes.</p>
         </div>
       </ScrollReveal>
