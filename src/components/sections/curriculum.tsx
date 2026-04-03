@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { GradientDivider } from "@/components/ui/gradient-divider";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import {
   Accordion,
@@ -17,27 +16,27 @@ const sessionOne = {
   modules: [
     {
       number: 1,
-      title: "How AI Actually Works (Without the Math)",
+      title: "How AI Works (Without the Math)",
       description:
-        "The mental model every non-technical professional needs. Why AI is probabilistic, not deterministic \u2014 and why that changes how you use it.",
+        "The mental model you need to make sense of AI. Why it\u2019s probabilistic, not deterministic, and why that changes how you should use it.",
     },
     {
       number: 2,
       title: "The Prompt Engineering Discipline",
       description:
-        "From guessing to precision. The anatomy of a great prompt. Role-framing, context injection, and chain-of-thought techniques that actually work.",
+        "How to go from guessing to precision. The anatomy of a great prompt. Role-framing, context injection, and chain-of-thought \u2014 the techniques worth learning.",
     },
     {
       number: 3,
       title: "Your AI Toolkit",
       description:
-        "Beyond ChatGPT. Mapping the landscape: writing, analysis, images, voice, research, and automation tools. Know what to reach for and when.",
+        "What\u2019s out there besides ChatGPT. Writing, analysis, image, voice, research, and automation tools \u2014 and when to use which.",
     },
     {
       number: 4,
       title: "Building Your First AI Workflow",
       description:
-        "Live workshop: replace a recurring manual task with an AI system. You leave with one real, working workflow built around your actual job.",
+        "Live workshop: pick a task you do every week and replace it with an AI-assisted workflow. You leave with something that works.",
     },
   ],
 };
@@ -49,25 +48,25 @@ const sessionTwo = {
       number: 5,
       title: "AI Strategy for Your Role",
       description:
-        "How to position yourself as the AI driver in your team. Framework: Identify \u2192 Automate \u2192 Amplify \u2192 Lead. Practical, role-specific playbooks.",
+        "How to become the person who drives AI adoption on your team. A four-step framework: Identify \u2192 Automate \u2192 Amplify \u2192 Lead.",
     },
     {
       number: 6,
       title: "Advanced Prompting & Evaluation",
       description:
-        "Quality control for AI output. How to spot hallucinations. Iteration techniques and output calibration so you trust what AI gives you.",
+        "How to check AI output. How to spot hallucinations. Iteration and calibration techniques so you can trust what you get back.",
     },
     {
       number: 7,
       title: "Leading AI Adoption",
       description:
-        "How to bring AI into your team without resistance. The 5-minute AI pitch. The basics of ethics and trust that every AI champion needs.",
+        "How to bring AI into your team without getting pushback. The 5-minute pitch to your manager. Ethics and trust basics.",
     },
     {
       number: 8,
       title: "Your Personal AI Authority Plan",
       description:
-        "Build your 90-day AI implementation roadmap. Certificate session and peer review of your strategy documents. Leave with a plan, not just notes.",
+        "Build a 90-day roadmap for how you\u2019ll use AI. Certificate session and peer review of your strategy. You walk out with a plan.",
     },
   ],
 };
@@ -104,14 +103,12 @@ function SessionColumn({ session, delay = 0 }: { session: typeof sessionOne; del
 
 export function Curriculum() {
   return (
-    <>
-      <GradientDivider direction="light-to-dark" />
-      <SectionWrapper id="curriculum" theme="dark">
+    <SectionWrapper id="curriculum" theme="dark">
         <ScrollReveal>
           <div className="mb-12 space-y-2">
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">Curriculum</p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What You&rsquo;ll Actually Learn</h2>
-            <p className="text-muted-foreground">No fluff. No theory for theory&rsquo;s sake. Everything maps to your job.</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What You&rsquo;ll Learn</h2>
+            <p className="text-muted-foreground">Everything here maps directly to your job.</p>
           </div>
         </ScrollReveal>
 
@@ -132,6 +129,5 @@ export function Curriculum() {
           </div>
         </ScrollReveal>
       </SectionWrapper>
-    </>
   );
 }

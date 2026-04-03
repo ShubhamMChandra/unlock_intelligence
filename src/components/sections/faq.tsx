@@ -10,7 +10,57 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-const faqs = [
+interface FaqEntry {
+  question: string;
+  answer: string | React.ReactNode;
+}
+
+const buyerFaqs: FaqEntry[] = [
+  {
+    question: "Is there a corporate or team option?",
+    answer: (
+      <p>
+        Yes. For teams of 5 or more, we offer custom scheduling, role-specific
+        curriculum tailoring, and volume pricing.{" "}
+        <Link
+          href="/contact?type=corporate"
+          className="text-indigo-400 underline underline-offset-4 hover:text-indigo-300"
+        >
+          Reach out directly
+        </Link>{" "}
+        and we&rsquo;ll put together a proposal.
+      </p>
+    ),
+  },
+  {
+    question: "How do you measure outcomes?",
+    answer:
+      "Everyone takes a confidence assessment before and after the program. Your team then receives an executive summary with aggregated results, completion tracking, and competency gains \u2014 data you can hand straight to L&D.",
+  },
+  {
+    question: "What does the executive summary include?",
+    answer:
+      "It covers team-wide competency scores, individual progress, skills demonstrated, and recommended next steps. Basically, it gives your leadership a clear picture of what the team gained.",
+  },
+  {
+    question: "How does scheduling work for distributed teams?",
+    answer:
+      "Sessions run live over video and we can schedule across time zones. For larger teams, we can run multiple cohorts. Reach out and we\u2019ll figure out what works.",
+  },
+  {
+    question: "Is this affiliated with the University of Chicago?",
+    answer: (
+      <p>
+        Unlock Intelligence is an independent program. Our Head of Curriculum,
+        Shubham Chandra, teaches AI and entrepreneurship at the University of
+        Chicago and brings that same rigor here. The curriculum is original
+        and built for working professionals.
+      </p>
+    ),
+  },
+];
+
+const participantFaqs: FaqEntry[] = [
   {
     question: "Do I need any technical background?",
     answer:
@@ -29,16 +79,18 @@ const faqs = [
   {
     question: "How is this different from watching YouTube tutorials?",
     answer:
-      "Passive consumption doesn\u2019t build skills. This is a live, structured cohort with exercises, real-time feedback, and peer accountability. You leave with deliverables \u2014 a prompt playbook, a workflow map, a personal AI strategy \u2014 not just notes you\u2019ll never read again.",
+      "Watching videos doesn\u2019t build skills. This is a live cohort with exercises, feedback, and accountability. You leave with a prompt playbook, a workflow map, and a personal AI strategy \u2014 things you\u2019ll open again on Monday.",
+  },
+  {
+    question:
+      "We already have Coursera/LinkedIn Learning. Why do we need this?",
+    answer:
+      "Those platforms are good reference libraries, but self-paced AI courses see 5\u201315% completion rates. This program is live and built around exercises your team does together. You leave with a prompt playbook, a workflow automation map, and a strategy document, plus a shared vocabulary your whole team can use.",
   },
   {
     question: "Will AI replace my job while I\u2019m taking this course?",
     answer:
-      "Probably not in 8 hours. But the professionals who learn to use AI as leverage are the ones who become harder to replace \u2014 and first in line for the roles AI creates. That\u2019s exactly what this program is built to do.",
-  },
-  {
-    question: "Is there a corporate or team option?",
-    answer: null, // rendered with JSX below for the link
+      "Probably not in 8 hours. But the people who learn to use AI well are the ones who get harder to replace. That\u2019s the bet this program makes.",
   },
 ];
 
@@ -59,26 +111,40 @@ export function FAQ() {
       <ScrollReveal>
         <div className="mx-auto max-w-3xl">
           <Accordion>
-            {faqs.map((faq, i) => (
+            {buyerFaqs.map((faq, i) => (
               <AccordionItem key={i} className="border-white/[0.06]">
                 <AccordionTrigger className="text-base">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  {faq.answer ? (
+                  {typeof faq.answer === "string" ? (
                     <p>{faq.answer}</p>
                   ) : (
-                    <p>
-                      Yes. For teams of 5 or more, we offer custom scheduling,
-                      role-specific curriculum tailoring, and volume pricing.{" "}
-                      <Link
-                        href="/contact?type=corporate"
-                        className="text-indigo-400 underline underline-offset-4 hover:text-indigo-300"
-                      >
-                        Reach out directly
-                      </Link>{" "}
-                      and we&rsquo;ll put together a proposal.
-                    </p>
+                    faq.answer
+                  )}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <div className="mt-10 mb-4">
+            <span className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+              About the Program
+            </span>
+            <div className="mt-2 h-px bg-white/[0.06]" />
+          </div>
+
+          <Accordion>
+            {participantFaqs.map((faq, i) => (
+              <AccordionItem key={i} className="border-white/[0.06]">
+                <AccordionTrigger className="text-base">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {typeof faq.answer === "string" ? (
+                    <p>{faq.answer}</p>
+                  ) : (
+                    faq.answer
                   )}
                 </AccordionContent>
               </AccordionItem>

@@ -11,7 +11,7 @@ const sessions = [
     tag: "Session 1 \u00B7 4 Hours",
     title: "Foundation & Fluency",
     description:
-      "Build the mental model. Learn the real vocabulary. Master prompting as a discipline, not a guessing game.",
+      "Build the mental model. Learn the vocabulary. Get good at prompting \u2014 treat it as a discipline, not guesswork.",
     deliverableLabel: "Deliverable",
     deliverable: "Prompt playbook customized to your team\u2019s workflows",
   },
@@ -20,7 +20,7 @@ const sessions = [
     tag: "Session 2 \u00B7 4 Hours",
     title: "Strategy & Mastery",
     description:
-      "Go beyond individual tools into systems. Automate your workflows. Walk into any room and lead the AI conversation.",
+      "Move from individual tools to systems. Automate your workflows. Become the person your team turns to on AI.",
     deliverableLabel: "Deliverable",
     deliverable: "Workflow automation map for your team\u2019s operations",
   },
@@ -31,9 +31,9 @@ const outcome = {
   tag: "The Result",
   title: "What Your Team Leaves With",
   description:
-    "Every participant leaves with a certified skill set, a personal AI strategy document, and role-specific prompts and workflows they can use immediately.",
-  deliverableLabel: "For your records",
-  deliverable: "Executive summary of team-wide competency gains",
+    "Everyone leaves with a certificate, a personal AI strategy, and tools specific to their role that they can use right away.",
+  deliverableLabel: "Keep scrolling",
+  deliverable: "See everything your team receives",
 };
 
 export function HowItWorks() {
@@ -43,7 +43,7 @@ export function HowItWorks() {
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Program</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Two Sessions. Real Deliverables.</h2>
-          <p className="text-muted-foreground">Structured for professionals. Built around real outcomes.</p>
+          <p className="text-muted-foreground">Structured for working professionals, built around what they&rsquo;ll use after.</p>
         </div>
       </ScrollReveal>
 

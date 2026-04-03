@@ -5,6 +5,7 @@ import { GradientText } from "@/components/ui/gradient-text";
 const footerLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Curriculum", href: "/#curriculum" },
+  { label: "Insights", href: "/insights" },
   { label: "Enroll", href: "/contact" },
   { label: "FAQ", href: "/#faq" },
 ];
@@ -30,7 +31,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.06] text-xs text-muted-foreground">
           <span>&copy; {new Date().getFullYear()} Unlock Intelligence. All rights reserved.</span>
-          <span className="hidden md:inline">Built for humans. Powered by the future.</span>
+          <span className="hidden md:inline">Chicago, IL</span>
           <a href="mailto:hello@unlockintelligence.co" className="text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm inline-flex items-center min-h-[44px]">
             hello@unlockintelligence.co
           </a>

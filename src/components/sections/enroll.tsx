@@ -6,6 +6,7 @@ import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
+import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from "@/lib/constants";
 
 const professionalFeatures = [
   "Both live sessions (8 hours total)",
@@ -36,11 +37,20 @@ export function Enroll() {
             Enroll Your Team
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            Our Spring 2026 cohort is open for enrollment. Founding cohort
-            members get the lowest pricing we&rsquo;ll ever offer and direct
-            access to the instructors for curriculum customization. Reach out
-            and we&rsquo;ll send a proposal within one business day.
+            Spring 2026 cohort is open. Founding members get our lowest
+            price and direct access to the instructors to shape the
+            curriculum. Reach out and we&rsquo;ll send a proposal within
+            a business day.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="mx-auto mb-8 flex items-center justify-center gap-2 text-sm">
+          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+          <span className="font-medium text-foreground/90">
+            {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} founding spots remaining
+          </span>
         </div>
       </ScrollReveal>
 
@@ -49,13 +59,25 @@ export function Enroll() {
         <ScrollReveal>
           <GlassCard className="relative h-full border-indigo-500/30 bg-indigo-500/[0.04]">
             <span className="mb-4 inline-block rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-400">
-              Most Popular
+              Recommended for Organizations
             </span>
             <h3 className="mb-2 text-xl font-bold">Team Training</h3>
-            <p className="mb-6 text-sm text-muted-foreground">
-              Bring the program to your team. We tailor the curriculum to your
-              industry and run a private cohort for your people.
+            <p className="mb-4 text-sm text-muted-foreground">
+              Bring the program to your team. We&rsquo;ll tailor the curriculum
+              to your industry and run a private cohort.
             </p>
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-bold tracking-tight">Starting at $1,095</span>
+                <span className="text-sm text-muted-foreground">/seat</span>
+              </div>
+              <p className="mt-1 text-xs font-medium text-indigo-400">
+                Founding cohort rate
+              </p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Increases to $1,595/seat after Spring 2026
+              </p>
+            </div>
             <ul className="mb-8 space-y-3">
               {corporateFeatures.map((item) => (
                 <li
@@ -84,11 +106,23 @@ export function Enroll() {
               For Individuals
             </span>
             <h3 className="mb-2 text-xl font-bold">Individual Enrollment</h3>
-            <p className="mb-6 text-sm text-muted-foreground">
-              Join an upcoming cohort as an individual. You&rsquo;ll work
-              alongside a cohort of peers from different industries &mdash;
-              which makes the learning richer.
+            <p className="mb-4 text-sm text-muted-foreground">
+              Join an upcoming cohort on your own. You&rsquo;ll work
+              alongside peers from different industries, which tends to
+              make the conversations better.
             </p>
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-3xl font-bold tracking-tight">$1,295</span>
+                <span className="text-sm text-muted-foreground">per person</span>
+              </div>
+              <p className="mt-1 text-xs font-medium text-indigo-400">
+                Founding cohort rate
+              </p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Increases to $1,995 after Spring 2026
+              </p>
+            </div>
             <ul className="mb-8 space-y-3">
               {professionalFeatures.map((item) => (
                 <li
@@ -122,9 +156,9 @@ export function Enroll() {
             </p>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
-            If your team completes both sessions and doesn&rsquo;t feel
-            they&rsquo;ve gained immediately applicable skills, we&rsquo;ll
-            refund you. No questions, no forms, no friction.
+            If your team finishes both sessions and doesn&rsquo;t feel
+            they gained usable skills, we&rsquo;ll refund you. No
+            paperwork.
           </p>
         </div>
       </ScrollReveal>

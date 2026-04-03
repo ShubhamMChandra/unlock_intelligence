@@ -4,6 +4,14 @@ import { Monitor, Target, Clock } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { cn } from "@/lib/utils";
+
+const comparisonRows = [
+  { dimension: "Format", us: "Live, instructor-led", ga: "Live online", coursera: "Self-paced video", harvard: "In-person seminar" },
+  { dimension: "Duration", us: "8 hours (2 sessions)", ga: "32 hours", coursera: "40+ hours", harvard: "3\u20135 days" },
+  { dimension: "Deliverables", us: "3 custom documents", ga: "Certificate only", coursera: "Certificate only", harvard: "Certificate only" },
+  { dimension: "Customization", us: "Industry-tailored", ga: "Generic", coursera: "Generic", harvard: "Limited" },
+];
 
 const cards = [
   {
@@ -16,13 +24,13 @@ const cards = [
     icon: Target,
     title: "Outcomes, Not Theory",
     description:
-      "Participants leave with a prompt playbook, a workflow automation map, and a 90-day AI strategy document \u2014 all customized to their roles.",
+      "Your team leaves with documents they\u2019ll use Monday morning, not notes they\u2019ll forget by Tuesday. Every deliverable is tailored to your team\u2019s workflows.",
   },
   {
     icon: Clock,
     title: "8 Hours, Not 8 Weeks",
     description:
-      "Two half-day sessions. No weeks of self-paced modules that never get finished. Your team is trained and applying skills within one week.",
+      "Two half-day sessions. None of the self-paced modules that never get finished. Your team is up and running within a week.",
   },
 ];
 
@@ -55,6 +63,95 @@ export function Why() {
           </ScrollReveal>
         ))}
       </div>
+
+      <ScrollReveal>
+        <h3 className="mt-16 mb-6 text-center text-2xl font-bold tracking-tight">
+          How We Compare
+        </h3>
+
+        {/* Desktop: CSS grid table */}
+        <div className="hidden sm:block">
+          <div className="grid grid-cols-5 text-sm">
+            {/* Header row */}
+            <div className="p-3" />
+            <div className="p-3 text-center font-semibold text-indigo-400">
+              Unlock Intelligence
+            </div>
+            <div className="p-3 text-center text-muted-foreground">
+              General Assembly
+            </div>
+            <div className="p-3 text-center text-muted-foreground">
+              Coursera
+            </div>
+            <div className="p-3 text-center text-muted-foreground">
+              Harvard Exec Ed
+            </div>
+
+            {/* Data rows */}
+            {comparisonRows.map((row, i) => (
+              <div key={row.dimension} className="col-span-5 grid grid-cols-5">
+                <div
+                  className={cn(
+                    "p-3 text-xs font-medium uppercase tracking-wider text-muted-foreground",
+                    i % 2 === 0 && "bg-white/[0.02]"
+                  )}
+                >
+                  {row.dimension}
+                </div>
+                <div
+                  className={cn(
+                    "p-3 text-center font-medium text-indigo-300 bg-indigo-500/[0.04]",
+                    i % 2 === 0 && "bg-indigo-500/[0.06]"
+                  )}
+                >
+                  {row.us}
+                </div>
+                <div
+                  className={cn(
+                    "p-3 text-center text-muted-foreground",
+                    i % 2 === 0 && "bg-white/[0.02]"
+                  )}
+                >
+                  {row.ga}
+                </div>
+                <div
+                  className={cn(
+                    "p-3 text-center text-muted-foreground",
+                    i % 2 === 0 && "bg-white/[0.02]"
+                  )}
+                >
+                  {row.coursera}
+                </div>
+                <div
+                  className={cn(
+                    "p-3 text-center text-muted-foreground",
+                    i % 2 === 0 && "bg-white/[0.02]"
+                  )}
+                >
+                  {row.harvard}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: stacked cards */}
+        <div className="space-y-4 sm:hidden">
+          {comparisonRows.map((row) => (
+            <div key={row.dimension} className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-4">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {row.dimension}
+              </p>
+              <p className="text-sm font-medium text-indigo-300">{row.us}</p>
+              <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+                <p>GA: {row.ga}</p>
+                <p>Coursera: {row.coursera}</p>
+                <p>Harvard: {row.harvard}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
     </SectionWrapper>
   );
 }

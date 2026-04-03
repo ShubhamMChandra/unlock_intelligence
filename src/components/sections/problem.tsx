@@ -10,12 +10,12 @@ import { GradientDivider } from "@/components/ui/gradient-divider";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const negativeItems = [
-  "Teams using AI sporadically with no shared framework",
-  "No shared vocabulary or framework for how to use AI well",
-  "No internal standard for evaluating AI output quality",
-  "Other companies in your industry are training their teams \u2014 creating a gap that widens every quarter",
-  "Training options are either 8-week courses nobody finishes or YouTube",
-  "The gap between AI-curious and AI-competent keeps growing",
+  "Teams experimenting with AI individually, with no shared approach",
+  "People prompting differently, no way to share what works",
+  "No standard for judging whether AI output is good enough to use",
+  "Competitors in your space are training their teams, and the gap widens every quarter",
+  "The only options are 8-week courses nobody finishes, or YouTube",
+  "Your best people are figuring it out alone and keeping it to themselves",
 ];
 
 export function Problem() {
@@ -34,16 +34,16 @@ export function Problem() {
               </h2>
 
               <p className="text-muted-foreground leading-relaxed">
-                You&rsquo;ve seen the potential. Leadership is talking about AI transformation. But across the organization, adoption looks the same: a handful of early adopters experimenting in isolation, no shared playbook, and no way to measure whether the output is actually good.
+                You&rsquo;ve seen the potential. Leadership is talking about AI transformation. But across the org, adoption looks the same everywhere: a handful of early adopters experimenting alone, no shared playbook, and no way to tell if the output is any good.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                The gap between &ldquo;we should use AI&rdquo; and &ldquo;we use AI well&rdquo; doesn&rsquo;t close on its own. It closes when someone gives your people a shared framework, practical reps, and a standard to work from. That&rsquo;s what this program delivers.
+                The gap between &ldquo;we should use AI&rdquo; and &ldquo;we use AI well&rdquo; doesn&rsquo;t close on its own. It closes when someone gives your people a shared framework, hands-on practice, and a standard to measure against.
               </p>
 
               <blockquote className="border-l-2 border-indigo-400/50 pl-5 italic text-foreground/80">
                 &ldquo;Your people don&rsquo;t need to become engineers.
-                They need to become <GradientText>confident, competent users</GradientText> of the tools
+                They need to become <GradientText>good users</GradientText> of the tools
                 engineers build.&rdquo;
               </blockquote>
             </div>
@@ -67,7 +67,30 @@ export function Problem() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal delay={300}>
+        {/* Industry stats strip */}
+        <ScrollReveal delay={250}>
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {[
+              { value: "82%", label: "of enterprises invest in AI training, yet 59% still report a skills gap", source: "DataCamp, 2026" },
+              { value: "$5.5T", label: "in market performance at risk from the global AI skills gap", source: "IDC, 2026" },
+              { value: "2\u00d7", label: "higher AI ROI for organizations with mature upskilling programs", source: "DataCamp, 2026" },
+            ].map((stat) => (
+              <div key={stat.value} className="text-center sm:text-left">
+                <GradientText className="text-2xl font-bold md:text-3xl">
+                  {stat.value}
+                </GradientText>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {stat.label}
+                </p>
+                <p className="mt-1 text-xs italic text-foreground/40">
+                  {stat.source}
+                </p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={400}>
           <div className="mt-12 text-center">
             <Button
               size="lg"

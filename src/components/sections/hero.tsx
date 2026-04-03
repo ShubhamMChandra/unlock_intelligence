@@ -5,6 +5,8 @@ import { Check } from "lucide-react";
 import Link from "next/link";
 import { ParallaxOrbs } from "@/components/ui/parallax-orbs";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from "@/lib/constants";
 
 const headlineWords = [
   { text: "Make", gradient: false },
@@ -17,9 +19,9 @@ const headlineWords = [
 ];
 
 const trustItems = [
-  "Led by a University of Chicago instructor",
-  "Completion certificate for L&D records",
-  "Curriculum customized to your industry",
+  { text: "Taught by a University of Chicago instructor", emphasis: true },
+  { text: "Completion certificate for L&D records", emphasis: false },
+  { text: "Curriculum customized to your industry", emphasis: false },
 ];
 
 const container = {
@@ -54,7 +56,8 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
         >
-          <span>Founding Cohort &mdash; Spring 2026</span>
+          <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+          <span>Founding Cohort &mdash; Spring 2026 &mdash; {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} Spots</span>
         </motion.div>
 
         {/* Headline */}
@@ -90,9 +93,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          A live, instructor-led program that turns AI-curious professionals
-          into confident, daily users. Two half-day sessions. Real tools.
-          Real workflows. No technical background required.
+          A live, instructor-led program that gets your team using AI
+          confidently. Two half-day sessions, built around the tools and
+          workflows they already use. No coding required.
         </motion.p>
 
         {/* CTAs */}
@@ -127,9 +130,20 @@ export function Hero() {
           className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground"
         >
           {trustItems.map((item) => (
-            <span key={item} className="inline-flex items-center gap-1.5">
-              <Check className="h-3.5 w-3.5 text-emerald-500" />
-              {item}
+            <span
+              key={item.text}
+              className={cn(
+                "inline-flex items-center gap-1.5",
+                item.emphasis && "text-foreground/90 font-medium"
+              )}
+            >
+              <Check
+                className={cn(
+                  "h-3.5 w-3.5",
+                  item.emphasis ? "text-indigo-400" : "text-emerald-500"
+                )}
+              />
+              {item.text}
             </span>
           ))}
         </motion.div>
