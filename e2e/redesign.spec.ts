@@ -1,3 +1,9 @@
+/**
+ * What: Homepage structure, copy, and regression guard tests.
+ * Why: Locks key marketing claims and layout contracts in CI.
+ * How: Playwright asserts sections, text absence, link targets.
+ * Deps: Playwright, localhost marketing homepage build.
+ */
 import { test, expect } from "@playwright/test";
 
 // ---------------------------------------------------------------------------

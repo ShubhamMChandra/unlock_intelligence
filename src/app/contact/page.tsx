@@ -1,3 +1,9 @@
+/**
+ * What: Contact page with form and process cards.
+ * Why: Dedicated route for inbound leads and questions.
+ * How: Server page renders heading plus ContactForm layout.
+ * Deps: contact components, ScrollReveal, Next.js.
+ */
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/contact/contact-form";

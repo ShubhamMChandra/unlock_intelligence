@@ -1,3 +1,9 @@
+/**
+ * What: Client contact form with validation and submit UX.
+ * Why: Captures leads with accessible controlled inputs.
+ * How: React state, search params prefill, fetch to endpoint.
+ * Deps: next/navigation, shadcn Input Label Select Button.
+ */
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
@@ -70,14 +76,14 @@ export function ContactForm() {
   if (state === "success") {
     return (
       <GlassCard className="text-center py-16">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-emerald-500/30">
-          <Check className="h-6 w-6 text-emerald-400" />
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--sage)]/30">
+          <Check className="h-6 w-6 text-[var(--sage)]" />
         </div>
         <h3 className="text-xl font-semibold">Message Sent</h3>
         <p className="mt-2 text-muted-foreground">
           We&rsquo;ll review your details and get back to you within one business day.
         </p>
-        <Link href="/" className="mt-6 inline-block text-sm text-[#818CF8] hover:underline">
+        <Link href="/" className="mt-6 inline-block text-sm text-[var(--navy)] hover:underline">
           Back to Home &rarr;
         </Link>
       </GlassCard>
@@ -93,13 +99,13 @@ export function ContactForm() {
         <h3 className="text-xl font-semibold">Something Went Wrong</h3>
         <p className="mt-2 text-muted-foreground">
           Please try again, or email us directly at{" "}
-          <a href="mailto:hello@unlockintelligence.co" className="text-[#818CF8] hover:underline">
+          <a href="mailto:hello@unlockintelligence.co" className="text-[var(--navy)] hover:underline">
             hello@unlockintelligence.co
           </a>
         </p>
         <button
           onClick={() => setState("idle")}
-          className="mt-6 text-sm text-[#818CF8] hover:underline"
+          className="mt-6 text-sm text-[var(--navy)] hover:underline"
         >
           Try Again
         </button>
@@ -188,7 +194,7 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={state === "submitting"}
-            className="w-full min-h-[44px] bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-medium hover:opacity-90 rounded-lg"
+            className="w-full min-h-[44px] bg-[var(--navy-deep)] text-white font-medium hover:bg-[#15293F] rounded-lg"
           >
             {state === "submitting" ? "Sending..." : "Start a Conversation \u2192"}
           </Button>

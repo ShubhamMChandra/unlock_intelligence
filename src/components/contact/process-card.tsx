@@ -1,3 +1,9 @@
+/**
+ * What: Three-step timeline card for contact flow.
+ * Why: Sets expectations after form submission visually.
+ * How: Maps static steps array into GlassCard subsections.
+ * Deps: GlassCard, lucide-react Star icon.
+ */
 import { GlassCard } from "@/components/ui/glass-card";
 import { Star } from "lucide-react";
 
@@ -15,7 +21,7 @@ export function ProcessCard() {
         <ol className="space-y-6">
           {steps.map((step) => (
             <li key={step.number} className="flex gap-4">
-              <span className="font-mono text-sm text-[#818CF8] font-medium">{step.number}</span>
+              <span className="font-mono text-sm text-[var(--navy)] font-medium">{step.number}</span>
               <div>
                 <strong className="text-sm font-medium">{step.title}</strong>
                 <p className="text-sm text-muted-foreground mt-0.5">{step.desc}</p>
@@ -26,7 +32,7 @@ export function ProcessCard() {
       </GlassCard>
 
       <div className="flex gap-3 text-sm text-muted-foreground">
-        <Star className="h-5 w-5 text-[#6366F1] shrink-0 mt-0.5" />
+        <Star className="h-5 w-5 text-[var(--navy-deep)] shrink-0 mt-0.5" />
         <p>
           If you complete both sessions and don&rsquo;t feel you&rsquo;ve gained immediately
           applicable skills, we&rsquo;ll refund you. No questions, no forms, no friction.
@@ -35,7 +41,7 @@ export function ProcessCard() {
 
       <div className="text-sm">
         <p className="text-muted-foreground">Prefer email?</p>
-        <a href="mailto:hello@unlockintelligence.co" className="text-[#818CF8] hover:underline">
+        <a href="mailto:hello@unlockintelligence.co" className="text-[var(--navy)] hover:underline">
           hello@unlockintelligence.co
         </a>
       </div>

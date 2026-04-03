@@ -1,9 +1,13 @@
-"use client";
+/**
+ * What: Three pillars why this program differs, plus comparison table.
+ * Why: Differentiation after features and curriculum blocks.
+ * How: Light theme section with top-border accent cards, responsive comparison grid.
+ * Deps: lucide, SectionWrapper, GradientDivider, cn.
+ */
 
 import { Monitor, Target, Clock } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { GlassCard } from "@/components/ui/glass-card";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { GradientDivider } from "@/components/ui/gradient-divider";
 import { cn } from "@/lib/utils";
 
 const comparisonRows = [
@@ -36,122 +40,120 @@ const cards = [
 
 export function Why() {
   return (
-    <SectionWrapper id="why">
-      <ScrollReveal>
-        <div className="mb-12 space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
-            Why This Program
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Why This Program Works
-          </h2>
-        </div>
-      </ScrollReveal>
+    <>
+      <GradientDivider direction="dark-to-light" />
+      <SectionWrapper id="why" theme="light">
+          <div className="mb-12 space-y-2">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+              Why This Program
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Why This Program Works
+            </h2>
+          </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {cards.map((card, i) => (
-          <ScrollReveal key={card.title} delay={i * 100}>
-            <GlassCard className="h-full">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10">
-                <card.icon className="h-5 w-5 text-indigo-400" />
+        <div className="grid gap-6 md:grid-cols-3">
+          {cards.map((card) => (
+            <div key={card.title} className="rounded-xl border-t-2 border-foreground/[0.08] bg-foreground/[0.02] pt-6 px-5 pb-6">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/[0.04]">
+                <card.icon className="h-5 w-5 text-foreground/60" />
               </div>
               <h3 className="mb-2 text-lg font-semibold">{card.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {card.description}
               </p>
-            </GlassCard>
-          </ScrollReveal>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
 
-      <ScrollReveal>
-        <h3 className="mt-16 mb-6 text-center text-2xl font-bold tracking-tight">
-          How We Compare
-        </h3>
+          <h3 className="mt-16 mb-6 text-center text-2xl font-bold tracking-tight">
+            How We Compare
+          </h3>
 
-        {/* Desktop: CSS grid table */}
-        <div className="hidden sm:block">
-          <div className="grid grid-cols-5 text-sm">
-            {/* Header row */}
-            <div className="p-3" />
-            <div className="p-3 text-center font-semibold text-indigo-400">
-              Unlock Intelligence
-            </div>
-            <div className="p-3 text-center text-muted-foreground">
-              General Assembly
-            </div>
-            <div className="p-3 text-center text-muted-foreground">
-              Coursera
-            </div>
-            <div className="p-3 text-center text-muted-foreground">
-              Harvard Exec Ed
-            </div>
+          {/* Desktop: CSS grid table */}
+          <div className="hidden sm:block">
+            <div className="grid grid-cols-5 text-sm">
+              {/* Header row */}
+              <div className="p-3" />
+              <div className="p-3 text-center font-semibold text-[var(--navy-deep)]">
+                Unlock Intelligence
+              </div>
+              <div className="p-3 text-center text-muted-foreground">
+                General Assembly
+              </div>
+              <div className="p-3 text-center text-muted-foreground">
+                Coursera
+              </div>
+              <div className="p-3 text-center text-muted-foreground">
+                Harvard Exec Ed
+              </div>
 
-            {/* Data rows */}
-            {comparisonRows.map((row, i) => (
-              <div key={row.dimension} className="col-span-5 grid grid-cols-5">
-                <div
-                  className={cn(
-                    "p-3 text-xs font-medium uppercase tracking-wider text-muted-foreground",
-                    i % 2 === 0 && "bg-white/[0.02]"
-                  )}
-                >
+              {/* Data rows */}
+              {comparisonRows.map((row, i) => (
+                <div key={row.dimension} className="col-span-5 grid grid-cols-5">
+                  <div
+                    className={cn(
+                      "p-3 text-xs font-medium uppercase tracking-wider text-muted-foreground",
+                      i % 2 === 0 && "bg-foreground/[0.02]"
+                    )}
+                  >
+                    {row.dimension}
+                  </div>
+                  <div
+                    className={cn(
+                      "p-3 text-center font-medium text-[var(--navy-deep)] bg-[var(--navy-deep)]/[0.06]",
+                      i % 2 === 0 && "bg-[var(--navy-deep)]/[0.08]"
+                    )}
+                  >
+                    {row.us}
+                  </div>
+                  <div
+                    className={cn(
+                      "p-3 text-center text-muted-foreground",
+                      i % 2 === 0 && "bg-foreground/[0.02]"
+                    )}
+                  >
+                    {row.ga}
+                  </div>
+                  <div
+                    className={cn(
+                      "p-3 text-center text-muted-foreground",
+                      i % 2 === 0 && "bg-foreground/[0.02]"
+                    )}
+                  >
+                    {row.coursera}
+                  </div>
+                  <div
+                    className={cn(
+                      "p-3 text-center text-muted-foreground",
+                      i % 2 === 0 && "bg-foreground/[0.02]"
+                    )}
+                  >
+                    {row.harvard}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: stacked cards */}
+          <div className="space-y-4 sm:hidden">
+            {comparisonRows.map((row) => (
+              <div key={row.dimension} className="rounded-lg border border-foreground/[0.06] bg-foreground/[0.02] p-4">
+                <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {row.dimension}
-                </div>
-                <div
-                  className={cn(
-                    "p-3 text-center font-medium text-indigo-300 bg-indigo-500/[0.04]",
-                    i % 2 === 0 && "bg-indigo-500/[0.06]"
-                  )}
-                >
-                  {row.us}
-                </div>
-                <div
-                  className={cn(
-                    "p-3 text-center text-muted-foreground",
-                    i % 2 === 0 && "bg-white/[0.02]"
-                  )}
-                >
-                  {row.ga}
-                </div>
-                <div
-                  className={cn(
-                    "p-3 text-center text-muted-foreground",
-                    i % 2 === 0 && "bg-white/[0.02]"
-                  )}
-                >
-                  {row.coursera}
-                </div>
-                <div
-                  className={cn(
-                    "p-3 text-center text-muted-foreground",
-                    i % 2 === 0 && "bg-white/[0.02]"
-                  )}
-                >
-                  {row.harvard}
+                </p>
+                <p className="text-sm font-medium text-[var(--navy-deep)]">{row.us}</p>
+                <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+                  <p>GA: {row.ga}</p>
+                  <p>Coursera: {row.coursera}</p>
+                  <p>Harvard: {row.harvard}</p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Mobile: stacked cards */}
-        <div className="space-y-4 sm:hidden">
-          {comparisonRows.map((row) => (
-            <div key={row.dimension} className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-4">
-              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                {row.dimension}
-              </p>
-              <p className="text-sm font-medium text-indigo-300">{row.us}</p>
-              <div className="mt-2 space-y-1 text-xs text-muted-foreground">
-                <p>GA: {row.ga}</p>
-                <p>Coursera: {row.coursera}</p>
-                <p>Harvard: {row.harvard}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </ScrollReveal>
-    </SectionWrapper>
+      </SectionWrapper>
+      <GradientDivider direction="light-to-dark" />
+    </>
   );
 }

@@ -1,9 +1,14 @@
+/**
+ * What: Instructor bios with photos and credentials.
+ * Why: Human trust for a high-touch education product.
+ * How: next/image cards inside GlassCard grid layout.
+ * Deps: next/image, SectionWrapper, GlassCard, ScrollReveal.
+ */
 "use client";
 
 import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const members = [
   {
@@ -24,8 +29,7 @@ const members = [
 
 export function Team() {
   return (
-    <SectionWrapper id="team">
-      <ScrollReveal>
+    <SectionWrapper id="team" className="tone-team">
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             Your Instructors
@@ -34,12 +38,10 @@ export function Team() {
             Who&rsquo;s Teaching
           </h2>
         </div>
-      </ScrollReveal>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {members.map((member, i) => (
-          <ScrollReveal key={member.name} delay={i * 100}>
-            <GlassCard className="h-full overflow-hidden p-0">
+        {members.map((member) => (
+            <GlassCard key={member.name} className="h-full overflow-hidden p-0">
               <div className="relative aspect-square w-full overflow-hidden">
                 <Image
                   src={member.image}
@@ -52,7 +54,7 @@ export function Team() {
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold">{member.name}</h3>
-                <p className="mb-3 text-sm font-medium text-indigo-400">
+                <p className="mb-3 text-sm font-medium text-[var(--navy)]">
                   {member.role}
                 </p>
                 <p className="text-sm leading-relaxed text-muted-foreground">
@@ -60,7 +62,6 @@ export function Team() {
                 </p>
               </div>
             </GlassCard>
-          </ScrollReveal>
         ))}
       </div>
     </SectionWrapper>

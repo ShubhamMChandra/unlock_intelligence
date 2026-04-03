@@ -1,3 +1,9 @@
+/**
+ * What: Site footer with logo and anchor links.
+ * Why: Repeat navigation and brand at page bottom.
+ * How: Static link grid using shared footer link list.
+ * Deps: next/link, Logo, GradientText.
+ */
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { GradientText } from "@/components/ui/gradient-text";

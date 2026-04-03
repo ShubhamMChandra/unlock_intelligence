@@ -1,3 +1,9 @@
+/**
+ * What: Fixed site header with links and mobile sheet.
+ * Why: Persistent navigation on every marketing page.
+ * How: Scroll listener toggles compact style; Sheet for mobile.
+ * Deps: next/link, lucide, Logo, Button, Sheet primitives.
+ */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,6 +18,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Curriculum", href: "/#curriculum" },
+  { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -65,7 +72,7 @@ export function Navbar() {
           <Link href="/contact" className="hidden md:inline-flex">
             <Button
               size={scrolled ? "sm" : "default"}
-              className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full"
+              className="bg-[var(--navy-deep)] text-white font-medium hover:bg-[#15293F] transition-colors rounded-full"
             >
               Get a Proposal
             </Button>
@@ -92,7 +99,7 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Link href="/contact" onClick={() => setOpen(false)} className="mt-4">
-                  <Button className="w-full min-h-[44px] bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-medium hover:from-indigo-600 hover:to-violet-600 transition-colors rounded-full">
+                  <Button className="w-full min-h-[44px] bg-[var(--navy-deep)] text-white font-medium hover:bg-[#15293F] transition-colors rounded-full">
                     Get a Proposal
                   </Button>
                 </Link>

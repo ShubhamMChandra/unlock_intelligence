@@ -1,3 +1,9 @@
+/**
+ * What: Frosted bordered card container for marketing blocks.
+ * Why: Reusable surface style across sections and insights.
+ * How: Applies shared Tailwind glass classes via cn merge.
+ * Deps: cn utility, ReactNode children prop.
+ */
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 

@@ -1,3 +1,9 @@
+/**
+ * What: Standard section padding, width, optional light theme.
+ * Why: Keeps vertical rhythm consistent across homepage sections.
+ * How: Section tag plus centered max-width div and theme class.
+ * Deps: cn utility, React children only.
+ */
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -18,7 +24,7 @@ export function SectionWrapper({ children, id, theme = "dark", className }: Sect
         className
       )}
     >
-      <div className="mx-auto max-w-[1120px] px-6">
+      <div className="mx-auto min-w-0 max-w-[1120px] px-6">
         {children}
       </div>
     </section>

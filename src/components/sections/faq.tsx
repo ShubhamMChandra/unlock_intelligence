@@ -1,8 +1,13 @@
+/**
+ * What: Accordion FAQ tied to enroll and logistics.
+ * Why: Handles objections without cluttering hero narrative.
+ * How: Accordion items with optional link CTAs inside answers.
+ * Deps: next/link, Accordion, SectionWrapper, ScrollReveal.
+ */
 "use client";
 
 import Link from "next/link";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import {
   Accordion,
   AccordionItem,
@@ -24,7 +29,7 @@ const buyerFaqs: FaqEntry[] = [
         curriculum tailoring, and volume pricing.{" "}
         <Link
           href="/contact?type=corporate"
-          className="text-indigo-400 underline underline-offset-4 hover:text-indigo-300"
+          className="text-[var(--navy)] underline underline-offset-4 hover:text-white"
         >
           Reach out directly
         </Link>{" "}
@@ -96,8 +101,7 @@ const participantFaqs: FaqEntry[] = [
 
 export function FAQ() {
   return (
-    <SectionWrapper id="faq">
-      <ScrollReveal>
+    <SectionWrapper id="faq" className="tone-faq">
         <div className="mb-12 space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
             FAQ
@@ -106,9 +110,7 @@ export function FAQ() {
             Common Questions
           </h2>
         </div>
-      </ScrollReveal>
 
-      <ScrollReveal>
         <div className="mx-auto max-w-3xl">
           <Accordion>
             {buyerFaqs.map((faq, i) => (
@@ -151,7 +153,6 @@ export function FAQ() {
             ))}
           </Accordion>
         </div>
-      </ScrollReveal>
     </SectionWrapper>
   );
 }

@@ -1,9 +1,14 @@
+/**
+ * What: Above-the-fold hero headline, CTAs, trust row.
+ * Why: Primary conversion and positioning on homepage.
+ * How: Framer Motion word animation plus links and pills.
+ * Deps: framer-motion, lucide, next/link, Button, ParallaxOrbs.
+ */
 "use client";
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Link from "next/link";
-import { ParallaxOrbs } from "@/components/ui/parallax-orbs";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from "@/lib/constants";
@@ -45,9 +50,7 @@ const wordVariant = {
 
 export function Hero() {
   return (
-    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16">
-      <ParallaxOrbs />
-
+    <section id="hero" className="tone-hero relative flex items-center justify-center overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16">
       <div className="relative z-10 mx-auto max-w-[1120px] px-6 text-center">
         {/* Cohort pill */}
         <motion.div
@@ -56,7 +59,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
         >
-          <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+          <span className="inline-flex h-2 w-2 rounded-full bg-[var(--sage)]" aria-hidden="true" />
           <span>Founding Cohort &mdash; Spring 2026 &mdash; {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} Spots</span>
         </motion.div>
 
@@ -76,7 +79,7 @@ export function Hero() {
                 variants={wordVariant}
                 className={`inline-block mr-[0.25em] ${
                   word.gradient
-                    ? "bg-gradient-to-br from-[#818CF8] to-[#C4B5FD] bg-clip-text text-transparent"
+                    ? "bg-gradient-to-br from-[#94BDE0] to-[#C49A3C] bg-clip-text text-transparent"
                     : ""
                 }`}
               >
@@ -107,7 +110,7 @@ export function Hero() {
         >
           <Button
             size="lg"
-            className="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600 px-6 py-3 text-base"
+            className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F] px-6 py-3 text-base"
             render={<Link href="/contact" />}
           >
             Get a Custom Proposal &rarr;
@@ -140,7 +143,7 @@ export function Hero() {
               <Check
                 className={cn(
                   "h-3.5 w-3.5",
-                  item.emphasis ? "text-indigo-400" : "text-emerald-500"
+                  item.emphasis ? "text-[var(--navy)]" : "text-[var(--sage)]"
                 )}
               />
               {item.text}

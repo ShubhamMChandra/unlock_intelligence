@@ -99,53 +99,52 @@ import { FinalCTA } from "../final-cta";
 
 // ─── Hero ─────────────────────────────────────────
 describe("Hero", () => {
-  it("renders cohort pill text", () => {
+  it("renders cohort pill text with spots remaining", () => {
     render(<Hero />);
-    expect(screen.getByText(/Cohort 5/)).toBeInTheDocument();
-    expect(screen.getByText(/Now Enrolling/)).toBeInTheDocument();
+    expect(screen.getByText(/Founding Cohort/)).toBeInTheDocument();
+    expect(screen.getByText(/Spring 2026/)).toBeInTheDocument();
+    expect(screen.getByText(/7 of 10 Spots/)).toBeInTheDocument();
   });
 
   it("renders all headline words", () => {
     render(<Hero />);
-    expect(screen.getByText("Become")).toBeInTheDocument();
-    expect(screen.getByText("Needed.")).toBeInTheDocument();
+    expect(screen.getByText("Make")).toBeInTheDocument();
+    expect(screen.getByText(/AI\u2011Fluent/)).toBeInTheDocument();
+    expect(screen.getByText(/8.Hours\./)).toBeInTheDocument();
   });
 
   it("renders subtitle text", () => {
     render(<Hero />);
-    expect(screen.getByText(/Two focused sessions/)).toBeInTheDocument();
-    expect(screen.getByText(/without writing a single line of code/)).toBeInTheDocument();
+    expect(screen.getByText(/live, instructor-led program/)).toBeInTheDocument();
+    expect(screen.getByText(/No coding required/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons", () => {
     render(<Hero />);
-    expect(screen.getByText(/Join the Next Cohort/)).toBeInTheDocument();
+    expect(screen.getByText(/Get a Custom Proposal/)).toBeInTheDocument();
     expect(screen.getByText(/See the Curriculum/)).toBeInTheDocument();
   });
 
   it("renders trust indicators", () => {
     render(<Hero />);
-    expect(screen.getByText("No technical background needed")).toBeInTheDocument();
-    expect(screen.getByText("Certificate of completion")).toBeInTheDocument();
-    expect(screen.getByText("Lifetime resource access")).toBeInTheDocument();
+    expect(screen.getByText(/Taught by a University of Chicago instructor/)).toBeInTheDocument();
+    expect(screen.getByText("Completion certificate for L&D records")).toBeInTheDocument();
+    expect(screen.getByText("Curriculum customized to your industry")).toBeInTheDocument();
   });
 });
 
 // ─── ProofBar ─────────────────────────────────────
 describe("ProofBar", () => {
-  it("renders all roles", () => {
+  it("renders proof points", () => {
     render(<ProofBar />);
-    expect(screen.getByText("VP Marketing")).toBeInTheDocument();
-    expect(screen.getByText("HR Directors")).toBeInTheDocument();
-    expect(screen.getByText("Project Managers")).toBeInTheDocument();
-    expect(screen.getByText("Senior Consultants")).toBeInTheDocument();
-    expect(screen.getByText("Operations Leads")).toBeInTheDocument();
-    expect(screen.getByText("C-Suite Executives")).toBeInTheDocument();
+    expect(screen.getByText("University of Chicago")).toBeInTheDocument();
+    expect(screen.getByText("8 Hours")).toBeInTheDocument();
+    expect(screen.getByText("3 Deliverables")).toBeInTheDocument();
   });
 
   it("renders label", () => {
     render(<ProofBar />);
-    expect(screen.getByText(/Built for professionals from/)).toBeInTheDocument();
+    expect(screen.getByText(/Our team teaches at the University of Chicago/)).toBeInTheDocument();
   });
 });
 
@@ -153,25 +152,25 @@ describe("ProofBar", () => {
 describe("Problem", () => {
   it("renders section heading", () => {
     render(<Problem />);
-    expect(screen.getByText(/Everyone.s talking about AI/)).toBeInTheDocument();
-  });
-
-  it("renders label", () => {
-    render(<Problem />);
-    expect(screen.getByText("// the-reality")).toBeInTheDocument();
-    expect(screen.getByText("The Reality")).toBeInTheDocument();
+    expect(screen.getByText(/AI Skills Gap Is Already/)).toBeInTheDocument();
   });
 
   it("renders negative checklist items", () => {
     render(<Problem />);
-    expect(screen.getByText("Used ChatGPT a few times, unsure why")).toBeInTheDocument();
-    expect(screen.getByText("No system, no strategy, no confidence")).toBeInTheDocument();
+    expect(screen.getByText(/Teams experimenting with AI individually/)).toBeInTheDocument();
+    expect(screen.getByText(/No standard for judging/)).toBeInTheDocument();
   });
 
   it("renders blockquote", () => {
     render(<Problem />);
-    expect(screen.getByText(/You don.t need to become an engineer/)).toBeInTheDocument();
-    expect(screen.getByText("dangerous")).toBeInTheDocument();
+    expect(screen.getByText(/don.t need to become engineers/)).toBeInTheDocument();
+    expect(screen.getByText(/good users/)).toBeInTheDocument();
+  });
+
+  it("renders ROI framing", () => {
+    render(<Problem />);
+    expect(screen.getByText(/2.5 hours per week/)).toBeInTheDocument();
+    expect(screen.getByText(/\$9,750 per employee/)).toBeInTheDocument();
   });
 });
 
@@ -179,8 +178,8 @@ describe("Problem", () => {
 describe("HowItWorks", () => {
   it("renders section header", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Eight Hours to Authority.")).toBeInTheDocument();
-    expect(screen.getByText("// the-program")).toBeInTheDocument();
+    expect(screen.getByText("Two Sessions. Real Deliverables.")).toBeInTheDocument();
+    expect(screen.getByText("The Program")).toBeInTheDocument();
   });
 
   it("renders session cards", () => {
@@ -191,14 +190,14 @@ describe("HowItWorks", () => {
 
   it("renders deliverables", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Prompt playbook tailored to your role")).toBeInTheDocument();
-    expect(screen.getByText("Workflow map for your specific job")).toBeInTheDocument();
+    expect(screen.getByText(/Prompt playbook customized to your team/)).toBeInTheDocument();
+    expect(screen.getByText(/Workflow automation map/)).toBeInTheDocument();
   });
 
   it("renders outcome card", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Your AI Authority Profile")).toBeInTheDocument();
-    expect(screen.getByText("The AI expert your company relies on")).toBeInTheDocument();
+    expect(screen.getByText("What Your Team Leaves With")).toBeInTheDocument();
+    expect(screen.getByText(/role-specific tools/)).toBeInTheDocument();
   });
 });
 
@@ -206,13 +205,13 @@ describe("HowItWorks", () => {
 describe("Curriculum", () => {
   it("renders section header", () => {
     render(<Curriculum />);
-    expect(screen.getByText("// curriculum")).toBeInTheDocument();
-    expect(screen.getByText(/What You.ll Actually Learn/)).toBeInTheDocument();
+    expect(screen.getByText("Curriculum")).toBeInTheDocument();
+    expect(screen.getByText(/What You.ll Learn/)).toBeInTheDocument();
   });
 
   it("renders all 8 module titles", () => {
     render(<Curriculum />);
-    expect(screen.getByText("How AI Actually Works (Without the Math)")).toBeInTheDocument();
+    expect(screen.getByText("How AI Works (Without the Math)")).toBeInTheDocument();
     expect(screen.getByText("The Prompt Engineering Discipline")).toBeInTheDocument();
     expect(screen.getByText("Your AI Toolkit")).toBeInTheDocument();
     expect(screen.getByText("Building Your First AI Workflow")).toBeInTheDocument();
@@ -233,7 +232,7 @@ describe("Curriculum", () => {
 describe("Who", () => {
   it("renders section header", () => {
     render(<Who />);
-    expect(screen.getByText("// who-its-for")).toBeInTheDocument();
+    expect(screen.getByText(/Who It.s For/)).toBeInTheDocument();
     expect(screen.getByText(/This Is Built for You If/)).toBeInTheDocument();
   });
 
@@ -260,8 +259,8 @@ describe("Who", () => {
 describe("Why", () => {
   it("renders section header", () => {
     render(<Why />);
-    expect(screen.getByText("// why-us")).toBeInTheDocument();
-    expect(screen.getByText("Built Different. On Purpose.")).toBeInTheDocument();
+    expect(screen.getByText("Why This Program")).toBeInTheDocument();
+    expect(screen.getByText("Why This Program Works")).toBeInTheDocument();
   });
 
   it("renders all three cards", () => {
@@ -273,9 +272,9 @@ describe("Why", () => {
 
   it("renders card descriptions", () => {
     render(<Why />);
-    expect(screen.getByText(/cohort-based experience/)).toBeInTheDocument();
-    expect(screen.getByText(/prompt playbook, a workflow map/)).toBeInTheDocument();
-    expect(screen.getByText(/From zero to authority in a single weekend/)).toBeInTheDocument();
+    expect(screen.getByText(/instructor-led with real-time Q&A/)).toBeInTheDocument();
+    expect(screen.getByText(/documents they.ll use Monday morning/)).toBeInTheDocument();
+    expect(screen.getByText(/Two half-day sessions/)).toBeInTheDocument();
   });
 });
 
@@ -283,8 +282,8 @@ describe("Why", () => {
 describe("Team", () => {
   it("renders section header", () => {
     render(<Team />);
-    expect(screen.getByText("// your-instructors")).toBeInTheDocument();
-    expect(screen.getByText("Built by Practitioners")).toBeInTheDocument();
+    expect(screen.getByText("Your Instructors")).toBeInTheDocument();
+    expect(screen.getByText(/Who.s Teaching/)).toBeInTheDocument();
   });
 
   it("renders Shubham Chandra card", () => {
@@ -298,13 +297,8 @@ describe("Team", () => {
   it("renders JT O'Connor card", () => {
     render(<Team />);
     expect(screen.getByText(/J\.T\. O.Connor/)).toBeInTheDocument();
-    expect(screen.getByText("Head of Partnerships")).toBeInTheDocument();
-    expect(screen.getByText(/public equities and real estate/)).toBeInTheDocument();
-  });
-
-  it("renders coming soon placeholder", () => {
-    render(<Team />);
-    expect(screen.getByText("Coming Soon")).toBeInTheDocument();
+    expect(screen.getByText("Program Director")).toBeInTheDocument();
+    expect(screen.getByText(/operations and business development/)).toBeInTheDocument();
   });
 
   it("renders team member images", () => {
@@ -318,37 +312,42 @@ describe("Team", () => {
 describe("Enroll", () => {
   it("renders section header", () => {
     render(<Enroll />);
-    expect(screen.getByText("// enroll")).toBeInTheDocument();
-    expect(screen.getByText("One Decision That Pays for Itself")).toBeInTheDocument();
+    expect(screen.getByText("Enroll")).toBeInTheDocument();
+    expect(screen.getByText("Enroll Your Team")).toBeInTheDocument();
   });
 
-  it("renders Professional Seat card", () => {
+  it("renders spots remaining indicator", () => {
     render(<Enroll />);
-    expect(screen.getByText("Professional Seat")).toBeInTheDocument();
+    expect(screen.getByText(/7 of 10 founding spots remaining/)).toBeInTheDocument();
+  });
+
+  it("renders Individual Enrollment card", () => {
+    render(<Enroll />);
+    expect(screen.getByText("Individual Enrollment")).toBeInTheDocument();
     expect(screen.getByText("For Individuals")).toBeInTheDocument();
     expect(screen.getByText("Both live sessions (8 hours total)")).toBeInTheDocument();
     expect(screen.getByText("Certificate of completion")).toBeInTheDocument();
   });
 
-  it("renders Corporate License card", () => {
+  it("renders Team Training card", () => {
     render(<Enroll />);
-    expect(screen.getByText("Corporate License")).toBeInTheDocument();
-    expect(screen.getByText("For Teams")).toBeInTheDocument();
+    expect(screen.getByText("Team Training")).toBeInTheDocument();
+    expect(screen.getByText("Recommended for Organizations")).toBeInTheDocument();
     expect(screen.getByText("5+ seats, custom scheduling")).toBeInTheDocument();
     expect(screen.getByText(/Volume pricing/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons with correct links", () => {
     render(<Enroll />);
-    const reserveBtn = screen.getByText(/Reserve Your Seat/);
-    expect(reserveBtn.closest("a")).toHaveAttribute("href", "/contact");
-    const contactBtn = screen.getByText(/Contact Us/);
-    expect(contactBtn.closest("a")).toHaveAttribute("href", "/contact?type=corporate");
+    const proposalBtn = screen.getByText(/Get Your Team.s Proposal/);
+    expect(proposalBtn.closest("a")).toHaveAttribute("href", "/contact?type=corporate");
+    const startedBtn = screen.getByText(/Get Started/);
+    expect(startedBtn.closest("a")).toHaveAttribute("href", "/contact");
   });
 
   it("renders money-back guarantee", () => {
     render(<Enroll />);
-    expect(screen.getByText(/refund you. No questions, no forms, no friction/)).toBeInTheDocument();
+    expect(screen.getByText(/refund you. No/)).toBeInTheDocument();
   });
 });
 
@@ -356,7 +355,7 @@ describe("Enroll", () => {
 describe("FAQ", () => {
   it("renders section header", () => {
     render(<FAQ />);
-    expect(screen.getByText("// faq")).toBeInTheDocument();
+    expect(screen.getByText("FAQ")).toBeInTheDocument();
     expect(screen.getByText("Common Questions")).toBeInTheDocument();
   });
 
@@ -388,26 +387,25 @@ describe("FAQ", () => {
 describe("FinalCTA", () => {
   it("renders heading", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/AI era isn.t coming/)).toBeInTheDocument();
-    expect(screen.getByText(/already here/)).toBeInTheDocument();
+    expect(screen.getByText(/Companies Investing in AI Fluency/)).toBeInTheDocument();
+    expect(screen.getByText(/Lead\./)).toBeInTheDocument();
   });
 
   it("renders subtitle", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/whether AI will change your field/)).toBeInTheDocument();
-    expect(screen.getByText(/you.ll be the one who shapes/)).toBeInTheDocument();
+    expect(screen.getByText(/Early-moving teams build the workflows/)).toBeInTheDocument();
   });
 
   it("renders CTA button linking to contact", () => {
     render(<FinalCTA />);
-    const cta = screen.getByText(/Join the Next Cohort/);
+    const cta = screen.getByText(/Get Your Custom Proposal/);
     expect(cta.closest("a")).toHaveAttribute("href", "/contact");
   });
 
   it("renders metadata line", () => {
     render(<FinalCTA />);
-    expect(screen.getByText("Next cohort: April 2026")).toBeInTheDocument();
-    expect(screen.getByText("Limited seats available")).toBeInTheDocument();
+    expect(screen.getByText(/Founding cohort: Spring 2026/)).toBeInTheDocument();
+    expect(screen.getByText(/Limited to 10 teams/)).toBeInTheDocument();
     expect(screen.getByText("No technical background required")).toBeInTheDocument();
   });
 });

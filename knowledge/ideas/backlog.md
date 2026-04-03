@@ -16,6 +16,12 @@ These directly affect conversion or credibility. Prioritize before launch or imm
 
 - [ ] **Video sample lesson** -- A 10-15 minute clip of Shubham teaching. Proves teaching ability more than any bio paragraph can. Embed on the landing page above the fold or in the How It Works section. _Source: Visionary, Round 2._
 
+- [ ] **ROI quantification on the live page** -- Surface the $9,750/year per employee productivity gain figure directly on the page. HR champions need copy-pasteable business case ammunition for internal budget requests. Without it, the buyer has to build the ROI case themselves, and most won't bother. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
+
+- [ ] **ProofBar honesty reframe** -- Reframe the credibility bar to be honest about UChicago context (TA who teaches 75 students, not faculty). Pre-launch credibility depends on accuracy — an HR buyer who discovers embellishment loses trust in everything else on the page. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
+
+- [ ] **Design elevation batch** -- Strip glass cards from HowItWorks/Deliverables/Why sections, break heading monotony (font-light for editorial, bold for structural, extrabold for conversion), editorial treatment for Problem section, reduce scroll animations from 30+ to 3, gradient text only on hero "AI-Fluent," assign color roles (indigo=interactive, emerald=proof), remove parallax orbs. Fixes the root cause of "template feel" identified as structural monotony. _Source: 3-Agent Design Elevation Debate, 2026-04-03._
+
 ---
 
 ## Medium Impact -- Do When You Have Scale
@@ -37,7 +43,7 @@ These require assets, case studies, or volume that we don't have yet. Revisit af
 Nice-to-haves for when the core business is running. Don't build these before product-market fit.
 
 - [ ] Self-service Stripe checkout for individual seats (build only after price validation with 3+ cohorts)
-- [ ] Blog / thought leadership section for LinkedIn content repurposing
+- [x] ~~Blog / thought leadership section for LinkedIn content repurposing~~ **Shipped as /insights — McKinsey-style articles, not a blog. 2026-04-03.**
 - [ ] NPS survey integration post-cohort
 - [ ] Alumni community / Slack channel for cohort graduates
 - [ ] Referral program for corporate champions who bring in new teams
@@ -60,6 +66,18 @@ Keep this list. It prevents relitigating decisions.
 **Who suggested it:** Visionary, Round 1.
 **Who killed it:** Design Excellence Auditor, Round 2.
 **Why rejected:** Dark theme has strong precedent in professional education (Reforge, Maven, Brilliant). The issue was not the dark theme itself but developer-aesthetic decoration (code-style fonts, terminal vibes). Consensus: keep dark, strip the developer decoration, add warmth through typography and spacing.
+
+### Serif headlines pre-launch
+
+**Who suggested it:** Visionary and Creative Director, Design Elevation Debate.
+**Who killed it:** Business Analyst, same debate.
+**Why rejected:** 5 of 7 proposed design changes were invisible to the actual buyer. HR directors don't parse serif vs. sans-serif. The risk-reward ratio of a typeface change pre-launch is poor — if the serif choice feels wrong, it damages first impressions with no brand equity to fall back on. Revisit post-launch when brand recognition exists and the stakes of experimentation are lower.
+
+### Full subtractive design pre-launch
+
+**Who suggested it:** Visionary, Design Elevation Debate.
+**Who killed it:** Business Analyst, same debate.
+**Why rejected:** Current visual energy (gradients, animations, decorative elements) is compensating for the absence of social proof (testimonials, client logos, case studies). Stripping decoration before having substance to replace it leaves "one person with a landing page." Minimalism is earned through substance, not applied in its absence. Deferred until post-launch when proof assets exist.
 
 ### Separate "Who It's For" section
 

@@ -1,106 +1,99 @@
 # Unlock Intelligence
 
-Marketing website for [Unlock Intelligence](https://unlockintelligence.co) — a cohort-based AI mastery program that transforms curious professionals into AI authorities in a single weekend.
+Marketing website for [Unlock Intelligence](https://unlockintelligence.co) — a cohort-based AI program that helps teams build real AI fluency in focused live sessions.
 
-## Tech Stack
+## Tech stack
 
-- **Framework:** [Next.js 15](https://nextjs.org/) (App Router, TypeScript)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Forms:** [Web3Forms](https://web3forms.com/) (free tier)
-- **Fonts:** Inter + JetBrains Mono via `next/font`
-- **Deployment:** [Cloudflare Pages](https://pages.cloudflare.com/) via GitHub Actions
+| Area | Choice |
+|------|--------|
+| Framework | [Next.js 16](https://nextjs.org/) (App Router, TypeScript, static export) |
+| UI | [React 19](https://react.dev/), [Tailwind CSS v4](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/) (Base UI) |
+| Motion | [Framer Motion](https://www.framer.com/motion/) |
+| Forms | [Web3Forms](https://web3forms.com/) (free tier) |
+| Fonts | Inter + JetBrains Mono via `next/font` |
+| Unit tests | [Vitest](https://vitest.dev/) + Testing Library |
+| E2E | [Playwright](https://playwright.dev/) (`e2e/`) |
 
-## Getting Started
+Output is a **static site** (`output: "export"` → `out/`), suitable for static hosts.
+
+## Getting started
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Run tests
-npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Project Structure
+### Scripts
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Next.js dev server |
+| `npm run build` | Production build → `out/` |
+| `npm run start` | Serves production build locally (after `build`) |
+| `npm run lint` | ESLint |
+| `npm test` | Vitest (unit / component tests) |
+| `npm run vercel` | Vercel CLI (pass args after `--`) |
+| `npm run vercel:env` | Pull dev env from linked Vercel project → `.env.local` |
+| `npm run vercel:pull` | Sync Vercel project settings for local `vercel build` |
+
+**Playwright:** start the dev server, then e.g. `npx playwright test` (or target `e2e/*.spec.ts`).
+
+## Project structure
 
 ```
 src/
-├── app/
-│   ├── layout.tsx          # Root layout (fonts, metadata, navbar, footer)
-│   ├── page.tsx            # Landing page
-│   ├── globals.css         # Design system (Tailwind + shadcn theme)
-│   └── contact/
-│       └── page.tsx        # Contact/enrollment page
+├── app/                    # App Router pages & layouts
+│   ├── layout.tsx          # Root layout (fonts, metadata, shell)
+│   ├── page.tsx            # Marketing homepage
+│   ├── globals.css         # Tokens, Tailwind, utilities
+│   ├── contact/            # Contact / lead page
+│   └── insights/           # Thought-leadership articles (SSG)
 ├── components/
-│   ├── layout/
-│   │   ├── navbar.tsx      # Fixed nav with scroll-to-pill animation
-│   │   └── footer.tsx      # Site footer
-│   ├── sections/           # Landing page sections
-│   │   ├── hero.tsx
-│   │   ├── proof-bar.tsx
-│   │   ├── problem.tsx
-│   │   ├── how-it-works.tsx
-│   │   ├── curriculum.tsx
-│   │   ├── who.tsx
-│   │   ├── why.tsx
-│   │   ├── team.tsx
-│   │   ├── enroll.tsx
-│   │   ├── faq.tsx
-│   │   └── final-cta.tsx
-│   ├── contact/            # Contact page components
-│   │   ├── contact-form.tsx
-│   │   └── process-card.tsx
-│   └── ui/                 # Shared UI primitives
-│       ├── glass-card.tsx
-│       ├── gradient-divider.tsx
-│       ├── gradient-text.tsx
-│       ├── logo.tsx
-│       ├── parallax-orbs.tsx
-│       ├── scroll-reveal.tsx
-│       ├── section-wrapper.tsx
-│       └── ... (shadcn components)
+│   ├── layout/             # Navbar, footer, sticky mobile CTA
+│   ├── sections/           # Homepage sections (hero, curriculum, enroll, …)
+│   ├── insights/           # Article layout, cards, CTAs
+│   ├── contact/            # Contact form & process steps
+│   └── ui/                 # Shared primitives (custom + shadcn)
+├── data/
+│   └── insights.ts         # Article content & types (no CMS)
 └── lib/
-    └── utils.ts            # cn() helper
+    ├── utils.ts            # `cn()` helper
+    └── constants.ts        # Pricing / cohort copy constants
 ```
 
-## Design System
+Agent-facing conventions also live in [`CLAUDE.md`](./CLAUDE.md). Optional Cursor rules are under [`.cursor/rules/`](./.cursor/rules/).
 
-The site uses a dark-first design with indigo/violet accent colors:
+## Design system
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--background` | `#09090B` | Page background |
-| `--primary` | `#818CF8` | Indigo accent |
-| `--accent` | `#A78BFA` | Violet accent |
-| `--emerald` | `#34D399` | Success/positive |
-| Gradient | `#6366F1 → #8B5CF6` | CTAs, highlights |
+Dark-first UI with indigo / violet accents. Key ideas:
 
-Light sections use `.theme-light` class to override CSS variables locally.
+- CSS variables: `bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`
+- Brand helpers: `text-[var(--indigo)]`, `text-[var(--violet)]`, `text-[var(--emerald)]`
+- Light blocks: wrap with `.theme-light` to flip tokens locally
 
 ## Deployment
 
-Pushes to `main` automatically deploy to Cloudflare Pages via GitHub Actions.
+**Primary:** [Cloudflare Pages](https://pages.cloudflare.com/) — push to `main` runs [GitHub Actions](.github/workflows/deploy-pages.yml) (`npm ci && npm run build`, publish `out/`).
 
-**Required secrets:**
+**GitHub Actions secrets**
+
 - `CLOUDFLARE_ACCOUNT_ID`
 - `CLOUDFLARE_API_TOKEN`
 
-## Environment Variables
+**Optional:** the repo can be linked to Vercel for previews or a second host (`vercel link`, `.vercel/` gitignored). Production in this repo is still oriented around Cloudflare + static `out/`.
+
+## Environment variables
 
 Create `.env.local` for local development:
 
 ```env
-# Web3Forms (get a free key at https://web3forms.com)
+# Web3Forms — https://web3forms.com
 NEXT_PUBLIC_WEB3FORMS_KEY=your_access_key_here
 ```
+
+If you use Vercel env sync, `npm run vercel:env` can populate `.env.local` from the linked project (never commit secrets).
 
 ## License
 

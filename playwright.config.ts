@@ -1,3 +1,9 @@
+/**
+ * What: Playwright E2E runner and browser projects.
+ * Why: Automates layout checks across desktop and mobile.
+ * How: Sets baseURL, chromium plus mobile viewport project.
+ * Deps: @playwright/test, local dev server on 3000.
+ */
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({

@@ -1,3 +1,9 @@
+/**
+ * What: Fit matrix for ideal versus poor-fit buyers.
+ * Why: Qualifies leads and sets expectations honestly.
+ * How: Two GlassCard columns with check and X icon rows.
+ * Deps: lucide, SectionWrapper, GlassCard, GradientDivider, ScrollReveal.
+ */
 "use client";
 
 import { Check, X } from "lucide-react";

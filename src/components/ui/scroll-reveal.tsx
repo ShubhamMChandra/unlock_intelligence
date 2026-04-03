@@ -1,3 +1,9 @@
+/**
+ * What: Fade-up on scroll using Framer Motion inView.
+ * Why: Progressive disclosure without hurting static export.
+ * How: motion.div animates when entering viewport once.
+ * Deps: framer-motion, React children, optional delay prop.
+ */
 "use client";
 
 import { motion } from "framer-motion";

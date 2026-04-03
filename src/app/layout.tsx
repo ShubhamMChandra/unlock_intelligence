@@ -1,7 +1,14 @@
+/**
+ * What: Root HTML shell, fonts, chrome around pages.
+ * Why: Shared metadata, viewport, nav, footer everywhere.
+ * How: Wraps children with Navbar, Footer, StickyCTABar.
+ * Deps: next/font, layout components, globals.css.
+ */
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { StickyCTABar } from "@/components/layout/sticky-cta-bar";
 import "./globals.css";
 
 const inter = Inter({
@@ -49,10 +56,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
-      <body className="min-h-screen bg-background text-foreground font-sans">
+      <body className="min-h-screen overflow-x-clip bg-background font-sans text-foreground">
         <Navbar />
         {children}
         <Footer />
+        <StickyCTABar />
       </body>
     </html>
   );

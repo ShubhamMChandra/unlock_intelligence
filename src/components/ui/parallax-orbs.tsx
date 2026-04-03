@@ -1,3 +1,9 @@
+/**
+ * What: Decorative blurred orbs parallax on scroll.
+ * Why: Adds depth behind hero without heavy imagery.
+ * How: useScroll maps scrollY to motion div translateY values.
+ * Deps: framer-motion useScroll, useTransform, motion.
+ */
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
