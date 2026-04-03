@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 
 const metaItems = [
   "Founding cohort: Spring 2026",
-  "Limited seats",
+  "Limited to 10 teams",
   "No technical background required",
 ];
 
 export function FinalCTA() {
   return (
-    <section className="relative py-32 md:py-40 overflow-hidden">
+    <section className="relative py-16 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1120px] px-6 text-center">
         <ScrollReveal>
           <h2 className="mx-auto max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -25,9 +25,9 @@ export function FinalCTA() {
 
         <ScrollReveal delay={100}>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            The rest will spend the next two years playing catch-up.
+            Early-moving teams build the workflows, habits, and institutional knowledge
             <br className="hidden sm:block" />
-            Don&rsquo;t let your team be one of them.
+            that late adopters spend years trying to replicate.
           </p>
         </ScrollReveal>
 
@@ -38,7 +38,7 @@ export function FinalCTA() {
               className="bg-gradient-to-r from-indigo-500 to-violet-500 px-8 py-3 text-base text-white hover:from-indigo-600 hover:to-violet-600"
               render={<Link href="/contact" />}
             >
-              Bring This to Your Team &rarr;
+              Get Your Custom Proposal &rarr;
             </Button>
           </div>
         </ScrollReveal>

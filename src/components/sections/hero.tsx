@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ChevronDown } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
 import { ParallaxOrbs } from "@/components/ui/parallax-orbs";
 import { Button } from "@/components/ui/button";
@@ -17,9 +17,9 @@ const headlineWords = [
 ];
 
 const trustItems = [
-  "No technical background needed",
-  "Certificate of completion",
-  "Tailored to your team's roles",
+  "Led by a University of Chicago instructor",
+  "Completion certificate for L&D records",
+  "Curriculum customized to your industry",
 ];
 
 const container = {
@@ -43,10 +43,10 @@ const wordVariant = {
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-dvh flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16">
       <ParallaxOrbs />
 
-      <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-32 text-center">
+      <div className="relative z-10 mx-auto max-w-[1120px] px-6 text-center">
         {/* Cohort pill */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -90,9 +90,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          A live, cohort-based program that gives your people practical AI
-          skills they&rsquo;ll use on Monday morning. No technical background
-          required. No months-long commitment.
+          A live, instructor-led program that turns AI-curious professionals
+          into confident, daily users. Two half-day sessions. Real tools.
+          Real workflows. No technical background required.
         </motion.p>
 
         {/* CTAs */}
@@ -107,7 +107,7 @@ export function Hero() {
             className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:from-indigo-600 hover:to-violet-600 px-6 py-3 text-base"
             render={<Link href="/contact" />}
           >
-            Bring This to Your Team &rarr;
+            Get a Custom Proposal &rarr;
           </Button>
           <Button
             variant="ghost"
@@ -135,21 +135,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown className="h-5 w-5 text-muted-foreground/50" />
-        </motion.div>
-      </motion.div>
+      {/* Scroll indicator removed — no longer needed without min-h-dvh */}
     </section>
   );
 }

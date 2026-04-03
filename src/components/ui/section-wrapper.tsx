@@ -13,7 +13,7 @@ export function SectionWrapper({ children, id, theme = "dark", className }: Sect
     <section
       id={id}
       className={cn(
-        "relative py-24 md:py-32",
+        "relative py-16 md:py-24",
         theme === "light" && "theme-light",
         className
       )}
