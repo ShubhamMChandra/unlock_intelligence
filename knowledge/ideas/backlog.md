@@ -28,7 +28,7 @@ These outrank further design work for conversion impact. Identified during the v
 
 - [ ] **Video sample lesson** -- A 10-15 minute clip of Shubham teaching. Proves teaching ability more than any bio paragraph can. Embed on the landing page above the fold or in the How It Works section. _Source: Visionary, Round 2._
 
-- [x] **ROI quantification on the live page** -- Surface the $9,750/year per employee productivity gain figure directly on the page. HR champions need copy-pasteable business case ammunition for internal budget requests. Without it, the buyer has to build the ROI case themselves, and most won't bother. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
+- [x] **ROI quantification on the live page** -- Surface the $9,750/year per employee productivity gain figure directly on the page. HR champions need copy-pasteable business case ammunition for internal budget requests. Without it, the buyer has to build the ROI case themselves, and most won't bother. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._ **Refined 2026-04-06:** Reframed card so $9,750 reads as cost-of-inaction, not program price. Left-aligned, shrunk number, added TrendingDown icon and lead-in text. Also diversified stat sources (swapped duplicate DataCamp for Deloitte).
 
 - [x] **ProofBar honesty reframe** -- Reframe the credibility bar to be honest about UChicago context (TA who teaches 75 students, not faculty). Pre-launch credibility depends on accuracy — an HR buyer who discovers embellishment loses trust in everything else on the page. _Source: Business Analyst, Design Elevation Debate, 2026-04-03._
 

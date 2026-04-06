@@ -29,6 +29,7 @@ A shared repository of learnings, strategies, playbooks, and artifacts from buil
 ## Index
 
 ### Learnings
+- [2026-04-06: ROI Card Reads as Price Tag](learnings/2026-04-06-roi-card-ux-fix.md) — $9,750 stat mistaken for program cost; UX fix + source diversity rule
 - [2026-04-02: Multi-Agent Design Review](learnings/2026-04-02-design-review.md) — 10 agents reviewed the site, debated each other, and reshaped the entire messaging strategy
 
 ### Strategy

@@ -53,6 +53,14 @@ Run this checklist on any marketing copy before publishing -- website pages, ema
 
 ---
 
+## Visual / UX
+
+- [ ] **Large dollar figures must be framed as costs or savings, never standalone.** A big number in a card looks like a price tag. Always add lead-in text that establishes context BEFORE the eye hits the number. Left-align data callouts — center-aligned bordered cards read as pricing cards.
+- [ ] **No all-caps text.** Not even small uppercase labels. Sentence-case everything. The site's tone is editorial, not SaaS.
+- [ ] **Don't cite the same source twice in a stat strip.** Three stats, three sources. Repeating a source undermines the "multiple independent signals" framing.
+
+---
+
 ## Quick Reference: Common Mistakes We've Made
 
 | Mistake | Example | Fix |
@@ -63,3 +71,5 @@ Run this checklist on any marketing copy before publishing -- website pages, ema
 | Unverifiable claim | "Cohort 5 -- Now Enrolling" | "Founding Cohort -- Spring 2026" |
 | British spelling | "Organisation" | "Organization" |
 | Vague deliverable | "practical tools" | "AI Integration Blueprint for your workflows" |
+| Dollar figure as price tag | "$9,750" centered in a bordered card | Left-align, add "What inaction costs" lead-in, shrink number |
+| Same source twice | "DataCamp, 2026" on 2 of 3 stats | Diversify: DataCamp, IDC, Deloitte |
