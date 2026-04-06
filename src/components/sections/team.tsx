@@ -7,6 +7,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -68,6 +69,17 @@ export function Team() {
             </GlassCard>
         ))}
       </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="mt-8 text-center">
+          <Link
+            href="/team"
+            className="text-sm font-medium text-[var(--indigo)] transition-colors hover:text-[var(--indigo)]/80"
+          >
+            Meet your full team &rarr;
+          </Link>
+        </div>
       </ScrollReveal>
     </SectionWrapper>
   );
