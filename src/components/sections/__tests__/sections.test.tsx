@@ -169,8 +169,9 @@ describe("Problem", () => {
 
   it("renders ROI framing", () => {
     render(<Problem />);
-    expect(screen.getByText(/2.5 hours per week/)).toBeInTheDocument();
-    expect(screen.getByText(/\$9,750 per employee/)).toBeInTheDocument();
+    expect(screen.getByText(/2.5 hours\/week/)).toBeInTheDocument();
+    expect(screen.getByText(/\$9,750/)).toBeInTheDocument();
+    expect(screen.getByText(/What inaction costs/)).toBeInTheDocument();
   });
 });
 
@@ -190,7 +191,7 @@ describe("HowItWorks", () => {
 
   it("renders deliverables", () => {
     render(<HowItWorks />);
-    expect(screen.getByText(/Prompt playbook customized to your team/)).toBeInTheDocument();
+    expect(screen.getByText(/AI Integration Blueprint for your team/)).toBeInTheDocument();
     expect(screen.getByText(/Workflow automation map/)).toBeInTheDocument();
   });
 
@@ -211,14 +212,14 @@ describe("Curriculum", () => {
 
   it("renders all 8 module titles", () => {
     render(<Curriculum />);
-    expect(screen.getByText("How AI Works (Without the Math)")).toBeInTheDocument();
-    expect(screen.getByText("The Prompt Engineering Discipline")).toBeInTheDocument();
-    expect(screen.getByText("Your AI Toolkit")).toBeInTheDocument();
+    expect(screen.getByText("The Process Matrix")).toBeInTheDocument();
+    expect(screen.getByText("The AI Toolkit")).toBeInTheDocument();
+    expect(screen.getByText("Reading a Process")).toBeInTheDocument();
     expect(screen.getByText("Building Your First AI Workflow")).toBeInTheDocument();
-    expect(screen.getByText("AI Strategy for Your Role")).toBeInTheDocument();
-    expect(screen.getByText(/Advanced Prompting/)).toBeInTheDocument();
-    expect(screen.getByText("Leading AI Adoption")).toBeInTheDocument();
-    expect(screen.getByText("Your Personal AI Authority Plan")).toBeInTheDocument();
+    expect(screen.getByText("AI Strategy for Your Team")).toBeInTheDocument();
+    expect(screen.getByText("Workflow Guardrails")).toBeInTheDocument();
+    expect(screen.getByText("Building AI Culture")).toBeInTheDocument();
+    expect(screen.getByText(/90-Day AI Roadmap/)).toBeInTheDocument();
   });
 
   it("renders session titles", () => {

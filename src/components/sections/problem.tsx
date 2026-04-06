@@ -7,7 +7,7 @@
 "use client";
 
 import Link from "next/link";
-import { X } from "lucide-react";
+import { TrendingDown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GradientDivider } from "@/components/ui/gradient-divider";
@@ -82,8 +82,12 @@ export function Problem() {
         </div>
 
         {/* ROI framing — the number the champion forwards to their VP */}
-        <div className="mt-14 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] px-6 py-8 text-center">
-          <p className="text-5xl font-bold tracking-tight text-[var(--navy-deep)] md:text-6xl">
+        <div className="mt-14 border-l-2 border-[var(--navy-deep)]/30 rounded-r-lg bg-foreground/[0.02] px-6 py-8 text-left">
+          <p className="text-base font-medium text-foreground/70">
+            What inaction costs, per person, per year
+          </p>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-[var(--navy-deep)] md:text-4xl">
+            <TrendingDown className="mr-2 inline h-6 w-6 text-red-500/70" />
             $9,750
           </p>
           <p className="mt-2 text-base text-foreground/80">
@@ -111,10 +115,10 @@ export function Problem() {
               source: "IDC, 2026",
             },
             {
-              value: "2\u00d7",
+              value: "86%",
               label:
-                "higher AI ROI for organizations with mature upskilling programs",
-              source: "DataCamp, 2026",
+                "of companies are increasing their AI budgets this year",
+              source: "Deloitte, 2026",
             },
           ].map((stat) => (
             <div key={stat.value} className="text-center sm:text-left">
