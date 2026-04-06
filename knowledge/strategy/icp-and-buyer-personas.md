@@ -9,7 +9,7 @@
 **What they need to see on the site:**
 - Organizational capability framing — "your company needs this," not "you need this"
 - Instructor credibility they can verify (UChicago, Digital Realty)
-- Tangible deliverables their team gets (prompt playbook, workflow map, 90-day strategy)
+- Tangible deliverables their team gets (AI integration blueprint, workflow map, 90-day strategy)
 - Risk reversal (refund guarantee)
 - Something they can forward to their VP without embarrassment
 

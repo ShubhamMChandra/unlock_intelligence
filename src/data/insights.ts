@@ -368,7 +368,7 @@ export const insights: InsightArticle[] = [
           "By the end of the day, three deliverables walk out the door:",
         ],
         bullets: [
-          { bold: "A prompt playbook", text: "built around their role and recurring tasks, not generic templates" },
+          { bold: "An AI integration blueprint", text: "mapping where AI fits in their team\u2019s actual processes, not generic templates" },
           { bold: "A workflow map", text: "showing where AI fits in their daily work, which tasks to automate, which to augment" },
           { bold: "A 90-day AI strategy", text: "concrete actions with timelines, no IT approval needed" },
         ],

@@ -15,16 +15,16 @@ const sessions = [
     tag: "Session 1 \u00B7 4 Hours",
     title: "Foundation & Fluency",
     description:
-      "Build the mental model. Learn the vocabulary. Get good at prompting \u2014 treat it as a discipline, not guesswork.",
+      "Build the mental model. Learn the vocabulary. Map where AI fits in your team\u2019s actual processes \u2014 not just as a tool, but as part of the workflow.",
     deliverableLabel: "Deliverable",
-    deliverable: "Prompt playbook customized to your team\u2019s workflows",
+    deliverable: "AI Integration Blueprint for your team\u2019s workflows",
   },
   {
     number: "02",
     tag: "Session 2 \u00B7 4 Hours",
     title: "Strategy & Mastery",
     description:
-      "Move from individual tools to systems. Automate your workflows. Become the person your team turns to on AI.",
+      "Go from one redesigned process to an organization-wide strategy. Add guardrails, build the culture for adoption, and leave with a 90-day roadmap.",
     deliverableLabel: "Deliverable",
     deliverable: "Workflow automation map for your team\u2019s operations",
   },

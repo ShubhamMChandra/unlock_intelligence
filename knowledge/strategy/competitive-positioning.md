@@ -48,7 +48,7 @@ After analyzing 25+ competitors across Chicago and nationally, Unlock Intelligen
 
 - **8-hour live format** (not 6-21 weeks)
 - **Non-technical audience** (not engineers)
-- **3 tangible deliverables** (prompt playbook, workflow automation map, 90-day AI strategy)
+- **3 tangible deliverables** (AI integration blueprint, workflow automation map, 90-day AI strategy)
 - **University of Chicago instructor credential** (teaches AI-driven entrepreneurship at UChicago, 75+ students guided)
 - **Enterprise practitioner experience** (builds AI workflows at Digital Realty, a $40B+ data center REIT)
 - **Mid-market pricing** (not $75,000+ consulting engagements)
@@ -420,7 +420,7 @@ Harvard validates the exact format (live, half-day sessions, no coding required,
 
 ### 7.1 Competitive Positioning Statement
 
-> **For corporate L&D leaders and non-technical teams** who need their people AI-competent quickly, **Unlock Intelligence** is the only live, instructor-led AI training program that makes your team AI-fluent in 8 hours with three custom deliverables (prompt playbook, workflow automation map, and 90-day AI strategy). **Unlike** self-paced platforms (which have 5-15% completion rates), multi-week university programs (which pull people away from work for months), and consulting workshops (which cost $75K+), **Unlock Intelligence** delivers structured team training with measurable outcomes in two half-day sessions, led by a University of Chicago instructor who implements these same AI systems in enterprise environments.
+> **For corporate L&D leaders and non-technical teams** who need their people AI-competent quickly, **Unlock Intelligence** is the only live, instructor-led AI training program that makes your team AI-fluent in 8 hours with three custom deliverables (AI integration blueprint, workflow automation map, and 90-day AI strategy). **Unlike** self-paced platforms (which have 5-15% completion rates), multi-week university programs (which pull people away from work for months), and consulting workshops (which cost $75K+), **Unlock Intelligence** delivers structured team training with measurable outcomes in two half-day sessions, led by a University of Chicago instructor who implements these same AI systems in enterprise environments.
 
 ### 7.2 Five Messaging Angles Competitors Aren't Using
 
@@ -512,7 +512,7 @@ Shubham is a Teaching Assistant at UChicago, not faculty. However, the credentia
 
 **Change 7: Add "What You Leave With" Deliverables Section**
 - New section component after Curriculum, before Why
-- Visually prominent grid: Prompt Playbook, Workflow Automation Map, 90-Day AI Strategy, Completion Certificate, Executive Summary, 6-Month Community Access
+- Visually prominent grid: AI Integration Blueprint, Workflow Automation Map, 90-Day AI Strategy, Completion Certificate, Executive Summary, 6-Month Community Access
 - Impact: Makes value concrete. Deliverables are scattered across sections — consolidate.
 
 **Change 8: Add Sticky CTA Bar on Mobile**
@@ -590,7 +590,7 @@ Shubham is a Teaching Assistant at UChicago, not faculty. However, the credentia
 | ROI Calculator (team size + salary -> savings) | Very High | Medium-High | No competitor has this |
 | "Business Case for AI Training" Template (editable deck) | High | Low | Maven only has email template |
 | Free 30-Min "AI Audit" Consultation | High | Low | Calendar booking |
-| Sample Prompt Playbook (3-5 role-specific prompts) | Medium | Low | Taste of the deliverable |
+| Sample AI Integration Blueprint (3-5 role-specific prompts) | Medium | Low | Taste of the deliverable |
 | "2026 AI Skills Gap Report" Download | Medium | Medium | Original data |
 
 #### 7-Email Nurture Drip Sequence

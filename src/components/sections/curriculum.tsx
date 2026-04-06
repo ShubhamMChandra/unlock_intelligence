@@ -22,27 +22,27 @@ const sessionOne = {
   modules: [
     {
       number: 1,
-      title: "How AI Works (Without the Math)",
+      title: "The Process Matrix",
       description:
-        "The mental model you need. Why AI is probabilistic, not deterministic, and what that means for how you use it.",
+        "The framework you need before any tool is useful. Most AI training thinks in verticals \u2014 give a person a tool, hope for productivity. We think in horizontals: map the process across people, tools, trainings, guardrails, and metrics.",
     },
     {
       number: 2,
-      title: "The Prompt Engineering Discipline",
+      title: "The AI Toolkit",
       description:
-        "How to go from guessing to precision. The anatomy of a great prompt. Role-framing, context injection, and chain-of-thought \u2014 the techniques worth learning.",
+        "Prompting, agents, and specialized tools \u2014 and where each one fits in a process. Structured prompting techniques, automation capabilities, and a decision framework for evaluating new tools as they appear.",
     },
     {
       number: 3,
-      title: "Your AI Toolkit",
+      title: "Reading a Process",
       description:
-        "What\u2019s out there besides ChatGPT. Writing, analysis, image, voice, research, and automation tools \u2014 and when to use which.",
+        "How to map a real business process end to end: the steps, the people, the systems, the handoffs. You\u2019ll mark AI insertion points and estimate where the time savings live.",
     },
     {
       number: 4,
       title: "Building Your First AI Workflow",
       description:
-        "Live workshop: pick a task you do every week and replace it with an AI-assisted workflow. You leave with something that works.",
+        "Take the process you mapped and build the AI-assisted version. During the session. Enterprise case studies, then hands-on. You leave with something that works.",
     },
   ],
 };
@@ -52,27 +52,27 @@ const sessionTwo = {
   modules: [
     {
       number: 5,
-      title: "AI Strategy for Your Role",
+      title: "AI Strategy for Your Team",
       description:
-        "A four-step framework for driving AI adoption on your team: Identify \u2192 Automate \u2192 Amplify \u2192 Lead.",
+        "From one redesigned process to many. Score your top 10 processes for AI leverage, prioritize with the Identify-Automate-Amplify-Lead framework, and draft the internal business case.",
     },
     {
       number: 6,
-      title: "Advanced Prompting & Evaluation",
+      title: "Workflow Guardrails",
       description:
-        "How to check AI output. How to spot hallucinations. Iteration and calibration techniques so you can trust what you get back.",
+        "How to build verification, quality gates, and governance into the process itself. Human review points, automated checks, data privacy boundaries, and hallucination detection as one guardrail among many.",
     },
     {
       number: 7,
-      title: "Leading AI Adoption",
+      title: "Building AI Culture",
       description:
-        "How to bring AI into your team without getting pushback. The 5-minute pitch to your manager. Ethics and trust basics.",
+        "Making AI use normal, visible, and safe to experiment with on your team. The first-follower strategy, sharing wins without alienating non-adopters, and ethics as shared values.",
     },
     {
       number: 8,
-      title: "Your Personal AI Authority Plan",
+      title: "Your Team\u2019s 90-Day AI Roadmap",
       description:
-        "Build a 90-day roadmap for how you\u2019ll use AI. Certificate session and peer review of your strategy. You walk out with a plan.",
+        "Build a 90-day implementation plan tied to the processes you mapped today. Peer review across the cohort. Certificate session. You walk out with a plan your team can execute next week.",
     },
   ],
 };

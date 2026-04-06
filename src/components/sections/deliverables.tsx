@@ -13,7 +13,7 @@ import { GradientDivider } from "@/components/ui/gradient-divider";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const deliverables = [
-  { icon: BookOpen, title: "Prompt Playbook", description: "Customized to your role and workflows" },
+  { icon: BookOpen, title: "AI Integration Blueprint", description: "Maps where AI fits in your team\u2019s processes" },
   { icon: GitBranch, title: "Workflow Automation Map", description: "Ready to implement Monday morning" },
   { icon: Map, title: "90-Day AI Strategy", description: "Your personal implementation roadmap" },
   { icon: Award, title: "Completion Certificate", description: "For L&D records and LinkedIn" },

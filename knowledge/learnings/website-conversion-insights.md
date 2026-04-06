@@ -28,7 +28,7 @@ Gathered from competitive website analysis and B2B conversion research, April 20
 2. ROI Calculator — no competitor has one (very high, medium-high effort)
 3. "Business Case for AI Training" template (high, low effort)
 4. Free 30-min "AI Audit" consultation (high, low effort)
-5. Sample Prompt Playbook (medium, low effort)
+5. Sample AI Integration Blueprint (medium, low effort)
 
 ### Competitive Content Gaps
 - Zero blog content = biggest competitive disadvantage (every competitor has a content engine)

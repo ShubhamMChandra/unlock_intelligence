@@ -20,7 +20,7 @@ const team = [
     name: "Shubham Chandra",
     role: "Head of Curriculum",
     image: "/images/team/team-member-2.jpg",
-    imagePosition: "center 20%",
+    imagePosition: "center 15%",
     paragraphs: [
       "Shubham teaches AI-driven entrepreneurship at the University of Chicago\u2019s Graduate Computer Science department, in Design, Build Launch, focusing on AI theory and real-world business application. His students learn about AI as they build functioning prototypes and deploy them before the quarter ends.",
       "By day, he builds AI automation systems at Digital Realty, one of the largest data center operators in the world. He architects the same kind of intelligent workflows he teaches in this program from automated data pipelines to AI-powered decision support tools supporting enterprise teams. Amongst other roles, he currently advises numerous Hedge Funds and start-ups on their AI strategies.",
@@ -31,7 +31,7 @@ const team = [
     name: "J.T. O\u2019Connor",
     role: "Program Director",
     image: "/images/team/team-member-1.JPEG",
-    imagePosition: "center 25%",
+    imagePosition: "center 15%",
     paragraphs: [
       "J.T. is your main point of contact from the first conversation through program delivery and beyond. With a background in operations and business development, he ensures that every cohort runs smoothly, from scheduling and logistics to post-program follow-up. He\u2019s worked with enterprise organizations from 20-person businesses to Fortune 500 companies across the nation to make sure your team is in good hands.",
       "J.T. has hands-on experience building AI-powered marketing and outreach systems, which means he understands the material and can help connect the curriculum to your team\u2019s actual workflows. When you have a question between sessions or need help applying a concept to your specific context, he\u2019s the person who picks up the phone.",

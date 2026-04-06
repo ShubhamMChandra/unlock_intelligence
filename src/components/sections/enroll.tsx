@@ -18,8 +18,8 @@ const professionalFeatures = [
   "Both live sessions (8 hours total)",
   "Full curriculum access + session recordings",
   "Private cohort community (6 months)",
-  "Prompt playbook tailored to your role",
-  "Personal AI Authority Plan (yours to keep)",
+  "AI Integration Blueprint for your workflows",
+  "90-Day AI Roadmap (yours to keep)",
   "Certificate of completion",
 ];
 

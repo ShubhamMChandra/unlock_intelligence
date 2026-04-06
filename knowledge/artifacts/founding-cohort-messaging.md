@@ -46,7 +46,7 @@ All finalized copy as of 2026-04-02. Reference this document when writing emails
 
 | Session | Deliverable |
 |---|---|
-| Session 1 | Prompt playbook customized to your team's workflows |
+| Session 1 | AI Integration Blueprint for your team's workflows |
 | Session 2 | Workflow automation map for your team's operations |
 
 **Outcome heading:** What Your Team Leaves With

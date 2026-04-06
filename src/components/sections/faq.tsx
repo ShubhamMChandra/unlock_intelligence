@@ -85,13 +85,13 @@ const participantFaqs: FaqEntry[] = [
   {
     question: "How is this different from watching YouTube tutorials?",
     answer:
-      "Watching videos doesn\u2019t build skills. This is a live cohort with exercises, feedback, and accountability. You leave with a prompt playbook, a workflow map, and a personal AI strategy \u2014 things you\u2019ll open again on Monday.",
+      "Watching videos doesn\u2019t build skills. This is a live cohort with exercises, feedback, and accountability. You leave with an AI integration blueprint, a workflow map, and a personal AI strategy \u2014 things you\u2019ll open again on Monday.",
   },
   {
     question:
       "We already have Coursera/LinkedIn Learning. Why do we need this?",
     answer:
-      "Those platforms are good reference libraries, but self-paced AI courses see 5\u201315% completion rates. This program is live and built around exercises your team does together. You leave with a prompt playbook, a workflow automation map, and a strategy document, plus a shared vocabulary your whole team can use.",
+      "Those platforms are good reference libraries, but self-paced AI courses see 5\u201315% completion rates. This program is live and built around exercises your team does together. You leave with an AI integration blueprint, a workflow automation map, and a strategy document, plus a shared vocabulary your whole team can use.",
   },
   {
     question: "Will AI replace my job while I\u2019m taking this course?",

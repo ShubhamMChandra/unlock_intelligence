@@ -33,7 +33,7 @@ Run this checklist on any marketing copy before publishing -- website pages, ema
 
 - [ ] **Replace vague claims with specific ones.** "Limited seats" -> "Limited to 10 teams". "Experienced instructor" -> "University of Chicago instructor". Vague = unverifiable = ignored.
 - [ ] **Replace aspirational words with outcome words.** "Authority" -> "Capability". "Mastery" -> "Competence". "Transform" -> "Build". Aspirational language over-promises; outcome language sets expectations correctly.
-- [ ] **Every deliverable should be named, not described.** "A prompt playbook customized to your team's workflows" -- not "practical tools and resources". Names are concrete; descriptions are forgettable.
+- [ ] **Every deliverable should be named, not described.** "An AI Integration Blueprint for your team's workflows" -- not "practical tools and resources". Names are concrete; descriptions are forgettable.
 
 ---
 
@@ -62,4 +62,4 @@ Run this checklist on any marketing copy before publishing -- website pages, ema
 | Startup-bro tone | "become dangerous with AI" | "become confident, competent users" |
 | Unverifiable claim | "Cohort 5 -- Now Enrolling" | "Founding Cohort -- Spring 2026" |
 | British spelling | "Organisation" | "Organization" |
-| Vague deliverable | "practical tools" | "Prompt playbook customized to your workflows" |
+| Vague deliverable | "practical tools" | "AI Integration Blueprint for your workflows" |
