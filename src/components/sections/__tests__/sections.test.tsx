@@ -161,12 +161,6 @@ describe("Problem", () => {
     expect(screen.getByText(/No standard for judging/)).toBeInTheDocument();
   });
 
-  it("renders blockquote", () => {
-    render(<Problem />);
-    expect(screen.getByText(/don.t need to become engineers/)).toBeInTheDocument();
-    expect(screen.getByText(/good users/)).toBeInTheDocument();
-  });
-
   it("renders ROI framing", () => {
     render(<Problem />);
     expect(screen.getByText(/2.5 hours\/week/)).toBeInTheDocument();

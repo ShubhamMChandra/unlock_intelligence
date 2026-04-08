@@ -49,17 +49,6 @@ export function Problem() {
               when someone gives your people a shared framework, hands-on
               practice, and a clear standard.
             </p>
-
-            <blockquote className="border-l-2 border-[var(--navy-deep)]/50 pl-6 py-2">
-              <p className="text-lg italic text-foreground/80 leading-relaxed">
-                &ldquo;Your people don&rsquo;t need to become engineers. They
-                need to become{" "}
-                <span className="font-medium text-[var(--navy-deep)]">
-                  good users
-                </span>{" "}
-                of the tools engineers build.&rdquo;
-              </p>
-            </blockquote>
           </div>
 
           {/* Negative checklist — no glass card, lighter treatment */}
