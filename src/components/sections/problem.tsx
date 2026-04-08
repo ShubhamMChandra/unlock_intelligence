@@ -71,12 +71,12 @@ export function Problem() {
         </div>
 
         {/* ROI framing — the number the champion forwards to their VP */}
-        <div className="mt-14 border-l-2 border-[var(--navy-deep)]/30 rounded-r-lg bg-foreground/[0.02] px-6 py-8 text-left">
+        <div className="mt-14 border-l-2 border-[var(--navy-deep)]/30 rounded-r-lg bg-foreground/[0.02] px-5 py-8 text-left sm:px-6">
           <p className="text-base font-medium text-foreground/70">
             What inaction costs, per person, per year
           </p>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-[var(--navy-deep)] md:text-4xl">
-            <TrendingDown className="mr-2 inline h-6 w-6 text-red-500/70" />
+          <p className="mt-2 text-2xl font-bold tracking-tight text-[var(--navy-deep)] sm:text-3xl md:text-4xl">
+            <TrendingDown className="mr-2 inline h-5 w-5 text-red-500/70 sm:h-6 sm:w-6" />
             $9,750
           </p>
           <p className="mt-2 text-base text-foreground/80">

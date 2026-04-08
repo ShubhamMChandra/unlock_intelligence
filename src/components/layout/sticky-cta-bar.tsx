@@ -55,7 +55,7 @@ export function StickyCTABar() {
         shouldShow ? "translate-y-0" : "translate-y-full"
       )}
     >
-      <div className="flex items-center justify-between gap-3">
+      <div className="relative flex items-center justify-between gap-3 pr-7">
         <div className="min-w-0 flex-1">
           <p className="truncate text-xs font-medium text-foreground/90">
             Spring 2026 Cohort
@@ -66,17 +66,18 @@ export function StickyCTABar() {
         </div>
         <Button
           size="sm"
-          className="shrink-0 min-h-[36px] rounded-full bg-[var(--navy-deep)] px-4 text-xs font-medium text-white hover:bg-[#15293F]"
+          className="h-9 shrink-0 rounded-none bg-foreground px-4 text-[12px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85"
           render={<Link href="/contact" />}
         >
-          Get Your Proposal
+          <span className="sm:hidden">Get proposal</span>
+          <span className="hidden sm:inline">Request a proposal</span>
         </Button>
         <button
           onClick={handleDismiss}
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground"
+          className="absolute -top-1 right-0 flex h-6 w-6 items-center justify-center rounded-full text-muted-foreground/70 transition-colors hover:text-foreground"
           aria-label="Dismiss"
         >
-          <X className="h-3.5 w-3.5" />
+          <X className="h-3 w-3" />
         </button>
       </div>
     </div>

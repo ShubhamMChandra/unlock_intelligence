@@ -135,8 +135,9 @@ export default async function InsightArticlePage({
 
             {/* Comparison table */}
             {section.comparison && (
-              <div className="my-6 w-full min-w-0 max-w-full overflow-x-auto rounded-xl border border-white/[0.06]">
-                <div className="min-w-[520px]">
+              <div className="relative my-6 w-full min-w-0 max-w-full rounded-xl border border-white/[0.06]">
+                <div className="overflow-x-auto rounded-xl [mask-image:linear-gradient(to_right,black_calc(100%-32px),transparent)] sm:[mask-image:none]">
+                  <div className="min-w-[520px]">
                   <div className="grid grid-cols-[1fr_1fr_1fr] text-sm">
                     <div className="border-b border-white/[0.06] bg-white/[0.03] px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground" />
                     <div className="border-b border-l border-white/[0.06] bg-white/[0.03] px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -158,6 +159,7 @@ export default async function InsightArticlePage({
                         </div>
                       </Fragment>
                     ))}
+                  </div>
                   </div>
                 </div>
               </div>

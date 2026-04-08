@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
-import { GradientText } from "@/components/ui/gradient-text";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -47,10 +46,11 @@ export function Navbar() {
         "mx-auto flex h-full items-center justify-between",
         scrolled ? "max-w-full px-6" : "max-w-[1120px] px-6"
       )}>
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Unlock Intelligence home">
+        <Link href="/" className="flex items-center gap-2 text-foreground" aria-label="Unlock Intelligence home">
           <Logo size={scrolled ? 22 : 28} />
-          <span className={cn("font-semibold tracking-tight transition-all", scrolled ? "text-sm" : "text-base")}>
-            Unlock <GradientText>Intelligence</GradientText>
+          <span className={cn("tracking-tight transition-all lowercase", scrolled ? "text-sm" : "text-base")}>
+            <span className="font-normal">unlock </span>
+            <span className="font-semibold">intelligence</span>
           </span>
         </Link>
 
@@ -72,9 +72,9 @@ export function Navbar() {
           <Link href="/contact" className="hidden md:inline-flex">
             <Button
               size={scrolled ? "sm" : "default"}
-              className="bg-[var(--navy-deep)] text-white font-medium hover:bg-[#15293F] transition-colors rounded-full"
+              className="h-9 rounded-none bg-foreground px-5 text-[13px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
             >
-              Get a Proposal
+              Request a proposal
             </Button>
           </Link>
 
@@ -85,7 +85,7 @@ export function Navbar() {
             >
               <Menu size={22} />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 bg-background border-white/[0.06]">
+            <SheetContent side="right" className="w-72 bg-background border-l border-white/10">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <div className="flex flex-col gap-2 pt-8">
                 {navLinks.map((link) => (
@@ -99,8 +99,8 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Link href="/contact" onClick={() => setOpen(false)} className="mt-4">
-                  <Button className="w-full min-h-[44px] bg-[var(--navy-deep)] text-white font-medium hover:bg-[#15293F] transition-colors rounded-full">
-                    Get a Proposal
+                  <Button className="w-full min-h-[44px] rounded-none bg-foreground px-5 text-[14px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85">
+                    Request a proposal
                   </Button>
                 </Link>
               </div>

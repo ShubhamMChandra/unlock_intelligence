@@ -17,14 +17,14 @@ const members = [
     name: "Shubham Chandra",
     role: "Head of Curriculum",
     image: "/images/team/team-member-2.jpg",
-    bio: "Teaches AI-driven entrepreneurship at the University of Chicago. Builds AI automation systems at Digital Realty, where he implements the kind of workflows he teaches in this program. Researches cutting edge AI technologies for large asset managers.",
+    bio: "Teaches AI-driven entrepreneurship at the University of Chicago. Builds AI automation systems at Digital Realty, where he implements the kind of workflows he teaches in this program. Researches cutting edge AI technologies for large asset managers. Holds a degree in Economics and an MS in Computer Science from the University of Chicago.",
     imageStyle: { objectPosition: "center 15%" },
   },
   {
     name: "J.T. O\u2019Connor",
     role: "Program Director",
     image: "/images/team/team-member-1.JPEG",
-    bio: "Your main point of contact from first conversation through program delivery. Background in operations and business development, with hands-on experience building AI-powered marketing and outreach systems.",
+    bio: "Your main point of contact from first conversation through program delivery. Background in operations and business development, with hands-on experience building AI-powered marketing and outreach systems. Holds a degree in Political Science from the University of Chicago.",
     imageStyle: { objectPosition: "center 15%" },
   },
 ];
@@ -47,7 +47,7 @@ export function Team() {
       <div className="grid gap-6 md:grid-cols-2">
         {members.map((member) => (
             <GlassCard key={member.name} className="h-full overflow-hidden p-0">
-              <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-[3/4]">
                 <Image
                   src={member.image}
                   alt={member.name}

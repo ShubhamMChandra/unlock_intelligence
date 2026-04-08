@@ -6,7 +6,6 @@
  */
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
-import { GradientText } from "@/components/ui/gradient-text";
 
 const footerLinks = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -21,13 +20,14 @@ export function Footer() {
     <footer className="border-t border-white/[0.06] py-12">
       <div className="mx-auto max-w-[1120px] px-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-10">
-          <Link href="/" className="flex items-center gap-2" aria-label="Unlock Intelligence home">
+          <Link href="/" className="flex items-center gap-2 text-foreground" aria-label="Unlock Intelligence home">
             <Logo size={24} />
-            <span className="font-semibold text-sm tracking-tight">
-              Unlock <GradientText>Intelligence</GradientText>
+            <span className="text-sm tracking-tight lowercase">
+              <span className="font-normal">unlock </span>
+              <span className="font-semibold">intelligence</span>
             </span>
           </Link>
-          <nav className="flex flex-wrap gap-x-6 gap-y-1" aria-label="Footer navigation">
+          <nav className="grid w-full grid-cols-2 gap-x-6 gap-y-0 md:flex md:w-auto md:flex-wrap md:gap-y-1" aria-label="Footer navigation">
             {footerLinks.map((link) => (
               <Link key={link.href} href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm inline-flex items-center min-h-[44px]">
                 {link.label}

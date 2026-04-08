@@ -78,8 +78,8 @@ export function Why() {
             How We Compare
           </h3>
 
-          {/* Desktop: CSS grid table */}
-          <div className="hidden sm:block">
+          {/* Desktop: CSS grid table (md+ so tablet portrait gets stacked cards instead of a cramped 5-col) */}
+          <div className="hidden md:block">
             <div className="grid grid-cols-5 text-sm">
               {/* Header row */}
               <div className="p-3" />
@@ -145,8 +145,8 @@ export function Why() {
             </div>
           </div>
 
-          {/* Mobile: stacked cards */}
-          <div className="space-y-4 sm:hidden">
+          {/* Mobile + tablet portrait: stacked cards */}
+          <div className="space-y-4 md:hidden">
             {comparisonRows.map((row) => (
               <div key={row.dimension} className="rounded-lg border border-foreground/[0.06] bg-foreground/[0.02] p-4">
                 <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">

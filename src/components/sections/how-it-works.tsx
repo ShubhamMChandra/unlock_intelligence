@@ -54,7 +54,7 @@ export function HowItWorks() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {sessions.map((session) => (
           <div key={session.number} className="h-full flex flex-col border-l-2 border-[var(--navy-deep)]/20 pl-6">
-            <span className="text-5xl font-extralight tracking-tight text-[var(--navy-deep)]/25 md:text-6xl">{session.number}</span>
+            <span className="text-4xl font-extralight tracking-tight text-[var(--navy-deep)]/25 sm:text-5xl md:text-6xl">{session.number}</span>
             <p className="mt-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">{session.tag}</p>
             <h3 className="mt-3 text-lg font-semibold">{session.title}</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{session.description}</p>
@@ -69,7 +69,7 @@ export function HowItWorks() {
 
         {/* Outcome step */}
         <div className="h-full flex flex-col border-l-2 border-[var(--navy-deep)] pl-6">
-          <span className="text-5xl font-extralight tracking-tight text-[var(--navy-deep)]/25 md:text-6xl">{outcome.number}</span>
+          <span className="text-4xl font-extralight tracking-tight text-[var(--navy-deep)]/25 sm:text-5xl md:text-6xl">{outcome.number}</span>
           <p className="mt-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">{outcome.tag}</p>
           <h3 className="mt-3 text-lg font-semibold">{outcome.title}</h3>
           <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{outcome.description}</p>
