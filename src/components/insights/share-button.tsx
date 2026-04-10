@@ -55,7 +55,7 @@ export function ShareButton({
       type="button"
       onClick={handleShare}
       className={cn(
-        "inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-[var(--navy)]",
+        "inline-flex items-center gap-1.5 text-sm text-foreground/70 transition-colors hover:text-foreground",
         className
       )}
     >

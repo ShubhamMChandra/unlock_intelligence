@@ -80,7 +80,7 @@ export default async function InsightArticlePage({
       >
         {article.sections.map((section) => (
           <div key={section.heading}>
-            <h2 className="mt-10 mb-4 text-2xl font-semibold">
+            <h2 className="mt-10 mb-4 text-2xl font-medium">
               {section.heading}
             </h2>
 
@@ -92,13 +92,13 @@ export default async function InsightArticlePage({
                     key={stat.label}
                     className="p-4 text-center"
                   >
-                    <p className="text-2xl font-bold text-[var(--navy)] md:text-3xl">
+                    <p className="text-2xl font-medium text-foreground md:text-3xl">
                       {stat.value}
                     </p>
-                    <p className="mt-1 text-xs leading-snug text-muted-foreground">
+                    <p className="mt-1 text-xs leading-snug text-foreground/70">
                       {stat.label}
                     </p>
-                    <p className="mt-1 text-[10px] uppercase tracking-wider text-foreground/30">
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-foreground/30">
                       {stat.source}
                     </p>
                   </GlassCard>
@@ -124,7 +124,7 @@ export default async function InsightArticlePage({
                     key={bullet.bold}
                     className="text-sm leading-relaxed text-foreground/80"
                   >
-                    <span className="font-semibold text-foreground">
+                    <span className="font-medium text-foreground">
                       {bullet.bold}:
                     </span>{" "}
                     {bullet.text}
@@ -139,11 +139,11 @@ export default async function InsightArticlePage({
                 <div className="overflow-x-auto rounded-xl [mask-image:linear-gradient(to_right,black_calc(100%-32px),transparent)] sm:[mask-image:none]">
                   <div className="min-w-[520px]">
                   <div className="grid grid-cols-[1fr_1fr_1fr] text-sm">
-                    <div className="border-b border-white/[0.06] bg-white/[0.03] px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground" />
-                    <div className="border-b border-l border-white/[0.06] bg-white/[0.03] px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    <div className="border-b border-white/[0.06] bg-white/[0.03] px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55" />
+                    <div className="border-b border-l border-white/[0.06] bg-white/[0.03] px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
                       {section.comparison.leftHeader}
                     </div>
-                    <div className="border-b border-l border-white/[0.06] bg-white/[0.03] px-4 py-3 text-xs font-semibold uppercase tracking-wider text-[var(--navy)]">
+                    <div className="border-b border-l border-white/[0.06] bg-white/[0.03] px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground">
                       {section.comparison.rightHeader}
                     </div>
                     {section.comparison.rows.map((row) => (
@@ -151,7 +151,7 @@ export default async function InsightArticlePage({
                         <div className="border-b border-white/[0.06] px-4 py-3 text-xs font-medium text-foreground/70">
                           {row.label}
                         </div>
-                        <div className="border-b border-l border-white/[0.06] px-4 py-3 text-xs text-muted-foreground">
+                        <div className="border-b border-l border-white/[0.06] px-4 py-3 text-xs text-foreground/70">
                           {row.left}
                         </div>
                         <div className="border-b border-l border-white/[0.06] px-4 py-3 text-xs text-foreground/90">

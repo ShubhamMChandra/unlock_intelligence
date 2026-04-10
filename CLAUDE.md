@@ -2,12 +2,12 @@
 
 ## Project Overview
 
-Marketing website for Unlock Intelligence, a cohort-based AI education program. Next.js 16 (App Router) with TypeScript, Tailwind CSS v4, shadcn/ui, and Framer Motion.
+Marketing website and internal cockpit for Unlock Intelligence, a cohort-based AI education program. Next.js 16 (App Router) with TypeScript, Tailwind CSS v4, shadcn/ui, Framer Motion, and Supabase.
 
 ## Commands
 
 - `npm run dev` — Start dev server (http://localhost:3000)
-- `npm run build` — Production build (static export to `out/`)
+- `npm run build` — Production build
 - `npm test` — Run tests with Vitest
 - `npm run lint` — ESLint
 - `npm run vercel` — Vercel CLI (pass subcommands after `--`, e.g. `npm run vercel -- deploy`)
@@ -20,7 +20,8 @@ Marketing website for Unlock Intelligence, a cohort-based AI education program. 
 - **Server Components by default** — Only add `"use client"` when the component needs browser APIs, state, or event handlers
 - **Section-based composition** — Landing page is composed of independent section components in `src/components/sections/`
 - **shadcn/ui** — UI primitives in `src/components/ui/`. Add new ones with `npx shadcn@latest add <component>`
-- **Static export** — Site builds to static HTML (`output: "export"` in next.config.ts). No server-side features (no Server Actions, no dynamic routes, no middleware)
+- **Hybrid rendering** — Marketing pages are statically generated. Cockpit routes (`/cockpit`) are dynamic with Supabase backend
+- **Route groups** — `(marketing)/` wraps public pages with Navbar/Footer/CTA. `cockpit/` has its own minimal layout
 
 ## Code Conventions
 
@@ -65,15 +66,21 @@ Marketing website for Unlock Intelligence, a cohort-based AI education program. 
 
 ```
 src/
-├── app/              # Pages and layouts (App Router)
+├── app/
+│   ├── (marketing)/  # Public pages with Navbar/Footer/CTA layout
+│   ├── cockpit/      # Internal task board (own layout)
+│   └── api/cockpit/  # Task CRUD API routes
 ├── components/
 │   ├── layout/       # Navbar, Footer, sticky CTA
 │   ├── sections/     # Landing page sections
 │   ├── insights/     # /insights article UI
+│   ├── cockpit/      # Cockpit task board UI
 │   ├── contact/      # Contact page components
 │   └── ui/           # Shared primitives (shadcn + custom)
 ├── data/             # Structured content (e.g. insights articles)
-├── lib/              # Utilities and site constants
+├── lib/
+│   ├── supabase/     # Supabase client, server, types
+│   └── utils.ts      # Utilities and site constants
 └── hooks/            # Custom React hooks (if needed)
 ```
 
@@ -85,6 +92,46 @@ src/
 - **Build:** `npm ci && npm run build`, deploy `out/` directory
 - **Vercel (optional):** Repo is linked via `vercel link` (`.vercel/` is gitignored). Use `npm run vercel -- deploy` for Vercel previews or a second host; `npm run vercel:env` syncs dashboard env vars to `.env.local`
 
+## Cockpit Task API
+
+The cockpit at `/cockpit` is a shared task board for the founding team. It uses Supabase for persistence.
+
+Claude Code can create and update tasks during sessions via these API routes:
+
+```
+# Create a task
+curl -X POST http://localhost:3000/api/cockpit/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title": "...", "category": "product", "owner": "shubham"}'
+
+# List tasks (supports filters: status, category, owner, priority)
+curl http://localhost:3000/api/cockpit/tasks?status=todo&owner=shubham
+
+# Update a task
+curl -X PATCH http://localhost:3000/api/cockpit/tasks/UUID \
+  -H "Content-Type: application/json" \
+  -d '{"status": "done"}'
+
+# Delete a task
+curl -X DELETE http://localhost:3000/api/cockpit/tasks/UUID
+```
+
+# Add a note to a task
+curl -X POST http://localhost:3000/api/cockpit/tasks/UUID/notes \
+  -H "Content-Type: application/json" \
+  -d '{"author": "claude", "content": "Updated the copy in beta-email.md"}'
+
+# List notes for a task
+curl http://localhost:3000/api/cockpit/tasks/UUID/notes
+```
+
+**Field values:**
+- category: `product`, `curriculum`, `business-gtm`, `ops`
+- status: `todo`, `in-progress`, `blocked`, `at-risk`, `postponed`, `complete`
+- priority: `low`, `medium`, `high`, `urgent`
+- owner: `shubham`, `jt`, or `null`
+- note author: `shubham`, `jt`, `claude`
+
 ## Do NOT
 
 - Add a CSS preprocessor (Sass, Less) — use Tailwind
@@ -92,7 +139,6 @@ src/
 - Add analytics/tracking code without explicit permission
 - Modify shadcn component source files in `ui/` — extend via wrapper components instead
 - Use `dangerouslySetInnerHTML` unless absolutely necessary
-- Add server-side features — this is a static export
 
 ## Knowledge Base
 

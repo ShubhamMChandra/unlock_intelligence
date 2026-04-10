@@ -35,8 +35,8 @@ export function Who() {
       <SectionWrapper id="who" theme="light">
         <ScrollReveal>
           <div className="mb-12 space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">Who It&rsquo;s For</p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">This Is Built for You If&hellip;</h2>
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">Who it&rsquo;s for</p>
+            <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">This is built for you if&hellip;</h2>
           </div>
         </ScrollReveal>
 
@@ -44,7 +44,7 @@ export function Who() {
           {/* Yes column */}
           <ScrollReveal>
             <GlassCard className="h-full">
-              <div className="mb-4 flex items-center gap-2 font-semibold">
+              <div className="mb-4 flex items-center gap-2 font-medium">
                 <Check className="h-5 w-5 text-emerald-500" />
                 You&rsquo;re in the right place
               </div>
@@ -62,13 +62,13 @@ export function Who() {
           {/* No column */}
           <ScrollReveal delay={150}>
             <GlassCard className="h-full">
-              <div className="mb-4 flex items-center gap-2 font-semibold text-muted-foreground">
+              <div className="mb-4 flex items-center gap-2 font-medium text-foreground/70">
                 <X className="h-5 w-5 text-gray-500" />
                 This isn&rsquo;t for you if&hellip;
               </div>
               <ul className="space-y-3">
                 {noItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <li key={item} className="flex items-start gap-3 text-sm text-foreground/70">
                     <X className="mt-0.5 h-4 w-4 shrink-0 text-gray-500" />
                     {item}
                   </li>
