@@ -193,22 +193,13 @@ describe("ArticleCta", () => {
     expect(button.closest("a")).toHaveAttribute("href", "/contact");
   });
 
-  it("renders the forward-to-team mailto link", () => {
+  it("renders the forward-to-team share button", () => {
     render(<ArticleCta {...props} />);
-    const forwardLink = screen.getByText("Forward to your team");
-    expect(forwardLink.closest("a")).toHaveAttribute(
-      "href",
-      expect.stringContaining("mailto:")
-    );
+    const forwardButton = screen.getByText("Forward to your team");
+    expect(forwardButton.closest("button")).toBeInTheDocument();
   });
 
-  it("includes articleTitle in mailto subject", () => {
-    render(<ArticleCta {...props} />);
-    const forwardLink = screen.getByText("Forward to your team").closest("a");
-    expect(forwardLink?.getAttribute("href")).toContain("The%20AI%20Skills%20Gap");
-  });
-
-  it("uses fallback subject when articleTitle is not provided", () => {
+  it("renders forward label when articleTitle is not provided", () => {
     render(
       <ArticleCta
         heading="Test"
@@ -217,10 +208,7 @@ describe("ArticleCta", () => {
         buttonHref="/test"
       />
     );
-    const forwardLink = screen.getByText("Forward to your team").closest("a");
-    expect(forwardLink?.getAttribute("href")).toContain(
-      "Unlock%20Intelligence%20article"
-    );
+    expect(screen.getByText("Forward to your team")).toBeInTheDocument();
   });
 });
 
@@ -392,19 +380,15 @@ describe("ArticleLayout", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders forward-to-team mailto link with article title", () => {
+  it("renders forward-to-team share buttons", () => {
     render(
       <ArticleLayout {...layoutProps}>
         <p>Body</p>
       </ArticleLayout>
     );
-    const forwardLinks = screen.getAllByText(/Forward.*team/);
-    expect(forwardLinks.length).toBeGreaterThan(0);
-    const mailtoLink = forwardLinks[0].closest("a");
-    expect(mailtoLink?.getAttribute("href")).toContain("mailto:");
-    expect(mailtoLink?.getAttribute("href")).toContain(
-      "Why%20AI%20Fluency%20Matters%20Now"
-    );
+    const forwardButtons = screen.getAllByText(/Forward.*team/);
+    expect(forwardButtons.length).toBeGreaterThan(0);
+    expect(forwardButtons[0].closest("button")).toBeInTheDocument();
   });
 
   it("renders the CTA block", () => {
