@@ -1,6 +1,6 @@
 # Discussion questions — 2026-04-12 beta (live round-table)
 
-**Purpose:** The verbal round-table at the end of Block 8. Three questions deliberately chosen to surface different kinds of feedback than the anonymous exit survey catches.
+**Purpose:** The verbal round-table at the end of Block 8. Three questions. These catch what the anonymous survey won't.
 
 **Format:** Round-the-table, ~5 minutes total. Each question gets maybe 90 seconds of group conversation. Don't force everyone to answer every question — let the energy go where it wants, but make sure you get at least one voice on each question before moving on.
 
@@ -14,18 +14,18 @@
 
 ### 1. "What's one thing from today you're actually going to try on your own work this week?"
 
-*(Concrete and future-oriented. Surfaces what landed as action, not just as idea.)*
+*(Concrete and future-oriented. Did anything land as a real to-do, not just a nice idea?)*
 
-This is the behavioral test in the room. If nobody can answer it specifically, the lesson produced vibes but not change. If everyone can answer it with a sentence and a specific task, the build phase worked.
+This is how you know if the lesson actually worked. If nobody can answer it specifically, the lesson produced vibes but not change. If everyone can answer it with a sentence and a specific task, the build phase worked.
 
 What to listen for:
 - Are people naming the *exact* task they built for, or something vaguer?
-- Is there any cross-reference ("I want to try what [other attendee] did")? That's the horizontal thesis landing.
+- Is there any cross-reference ("I want to try what [other attendee] did")? That means the cross-industry framing worked.
 - Is anyone hesitant? Listen for "I'll try..." versus "I probably should..." — they mean different things.
 
 ### 2. "What surprised you the most today — good or bad?"
 
-*(Emotional and reflective. Opens space for negative surprise without making it feel like a complaint.)*
+*(Emotional. "Good or bad" gives permission to raise a concern without it feeling like a complaint.)*
 
 Surprise is the memory hook. Whatever surprised someone is what they're going to remember in a week. "Good or bad" is important — it gives permission to raise a concern without it feeling like criticism.
 
@@ -36,15 +36,15 @@ What to listen for:
 
 ### 3. "What did someone else in the room build or show that made you think differently about your own work?"
 
-*(Social and cross-referential. Tests whether the horizontal thesis actually landed.)*
+*(Did watching someone else's build change how they think about their own work?)*
 
-This is the most important question, and the most fragile. The whole intellectual claim of Module 1 is that process thinking is universal — that a consultant watching a lawyer build a Project should see her own work differently. This question tests that claim directly.
+This is the question that matters most and the one most likely to get silence. The whole point of Module 1 is that process thinking crosses industries — a consultant watching a lawyer build a Project should see her own work differently. This question tests whether that actually happened.
 
 If nobody can answer it, the cross-industry framing didn't land. If two or three people can answer it with specifics, you've empirically proven the thesis in the room.
 
 What to listen for:
-- Does anyone reference the actor's or lawyer's Project specifically? Those are the "hardest case" wins you were hoping for.
-- Does anyone say "it hadn't occurred to me that..."? That's the thesis landing as a real cognitive shift, not just a positive reaction.
+- Does anyone reference Zeshawn's or Bill's Project specifically? Those are the "hardest case" wins you were hoping for.
+- Does anyone say "it hadn't occurred to me that..."? That's the real win — they're thinking differently, not just impressed.
 - Silence here is the scariest outcome. If it happens, say: *"OK, let me try a different version — what surprised you about what someone else did?"* and see if softening the question gets something.
 
 ---
@@ -61,4 +61,4 @@ What to listen for:
 
 **Close the block with:** *"Thank you. Now a short anonymous survey before you go. Five minutes. Please fill it out here — if you take it home, you won't."* Then hand out the survey.
 
-**After the run, capture the verbal answers in the retro section of the beta run file** (`2026-04-12-beta-cross-industry.md`). Paraphrase what each person said. The combination of the verbal notes and the anonymous survey is the full feedback record for this cohort — both go into the historical log.
+**After the run, capture the verbal answers in the retro section of the beta run file** (`runs/2026-04-12-beta/run-sheet.md`). Paraphrase what each person said. The combination of the verbal notes and the anonymous survey is the full feedback record for this cohort — both go into the historical log.

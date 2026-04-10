@@ -19,8 +19,8 @@ they use on Monday morning.
 | | |
 |---|---|
 | **Format** | Live, instructor-led (virtual or on-site) |
-| **Duration** | 8 hours across two half-day sessions |
-| **Class size** | Up to 25 participants per cohort |
+| **Duration** | 8–10 hours across two half-day sessions |
+| **Class size** | Up to 20 participants per cohort |
 | **Prerequisites** | None. No coding. No technical background. |
 | **Deliverables** | 6 artifacts your team keeps (see page 4) |
 | **Customization** | Curriculum tailored to your industry and workflows |
@@ -256,7 +256,7 @@ Build a 90-day implementation plan tied to the processes mapped throughout the d
 
 **Individual Enrollment** — **$1,295** (founding cohort rate)
 
-Both live sessions (8 hours total). Full curriculum access and session recordings. Private cohort community (6 months). AI Integration Blueprint for your workflows. 90-day AI strategy (yours to keep). Certificate of completion.
+Both live sessions (8–10 hours total). Full curriculum access and session recordings. Private cohort community (6 months). AI Integration Blueprint for your workflows. 90-day AI strategy (yours to keep). Certificate of completion.
 
 *Increases to $1,995 after the founding cohort.*
 
@@ -276,4 +276,4 @@ If your team completes both sessions and doesn't feel they've gained immediately
 
 **Request a curriculum walkthrough.** We'll walk through the program, discuss your team's specific needs, and put together a proposal.
 
-Contact: hello@unlockintelligence.ai
+Contact: hello@unlockintelligencehq.com

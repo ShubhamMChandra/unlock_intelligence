@@ -32,7 +32,7 @@ Five minutes. Anonymous. Brutal. Thank you.
 
 ---
 
-**2. What was the single best moment of the 75 minutes for you?**
+**2. What was the single best moment of today for you?**
 
 *(one sentence — specific is better than general)*
 
@@ -74,7 +74,7 @@ Five minutes. Anonymous. Brutal. Thank you.
 
 ---
 
-**6. If you had to pay full price ($1,295) for the 8-hour version of this program, would you?**
+**6. If you had to pay full price ($1,295) for the full program (8-10 hours across two half-day sessions), would you?**
 
 ☐ Yes
 
@@ -110,7 +110,7 @@ Five minutes. Anonymous. Brutal. Thank you.
 
 **What to look for when you read them later:**
 - If NPS is below 8 on average, you have a bigger problem than any single critique.
-- If Question 3 ("where did you check out") keeps naming the same beat, that beat is broken. The persona test predicted Block 2 (the framework/bad-prompt contrast) would be that beat. Check whether the real feedback agrees.
+- If Question 3 ("where did you check out") keeps naming the same beat, that beat is broken. The persona test predicted Block 3 (the matrix/framework) would be that beat. Check whether the real feedback agrees.
 - If Question 6 answers are mostly "maybe" with vague reasons, your value proposition is unclear. A "maybe" that says "because I need to see if my team would benefit" is a champion signal. A "maybe" that says "because I'm not sure it's worth it" is a positioning problem.
 - If Question 7 is mostly blank, people didn't feel safe enough to say the hard thing. Anonymous didn't work. Something about the in-person handout or the group dynamic killed the privacy.
 - If Question 5 is mostly "probably not," the lesson produced emotion but no behavior change. That's a failure mode worth taking seriously even if NPS is high.

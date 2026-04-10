@@ -44,9 +44,10 @@ This is how a generic lesson grows into a family of specialized lessons over tim
 
 **In `module-1/`:**
 
-- `run-of-show.md` — the canonical instructor plan for Module 1 (draft v0.1, pre-beta, to be refined after 2026-04-12)
-- `worksheet.md` — the participant-facing handout
-- `runs/2026-04-12-beta-cross-industry.md` — the first live run, cross-industry friends beta, with full detailed prep and to-do list
+- `run-of-show.md` — canonical instructor plan (draft v0.1, refined through persona testing and instructor review)
+- `worksheet.md` — 4-page participant handout (orientation, matrix, build reference, take-home)
+- `pre-class-setup.md`, `demo-prompts.md`, `discussion-questions.md`, `exit-survey.md`, `matrix-visual.md` — reusable teaching artifacts
+- `runs/2026-04-12-beta/` — first live run (cross-industry friends beta), with run sheet, personalized starters, prep checklist, and email
 - `audience-learnings/` — empty, starts filling in after the first few real runs
 
 ## What's missing (to build as the program develops)
@@ -55,6 +56,13 @@ This is how a generic lesson grows into a family of specialized lessons over tim
 - `module-1/instructor-notes.md` — general teaching craft for the module
 - `module-1/confidentiality-for-regulated-professions.md` — the one-pager flagged in the 2026-04-07 persona beta test as a deal-killer gap for lawyers
 - Shared exercise templates that get referenced across modules, probably in a future `shared/` subfolder
+
+## Module prep notes
+
+Notes on things to resolve when building each module's run-of-show.
+
+- **Module 4:** The closer in Module 1 promises "by Hour 4, each of you builds one of these" (a multi-step tool, not just a Project). Current thinking: attendees use Claude Code desktop app to build a real multi-step workflow. This requires a pre-Session-2 setup: download Claude Code + complete a dummy exercise overnight between Session 1 and Session 2, so they arrive ready to build. The overnight exercise serves the same function as Module 1's pre-work (Claude Pro signup) — eat the friction before class, not during. Needs: design the dummy exercise, write the pre-Session-2 setup doc, decide what "build a tool" actually means for non-technical people in Claude Code.
+- **Module 5:** The "Identify-Automate-Amplify-Lead" (IAAL) framework is named in the syllabus as the organizing structure for this module, but it's a placeholder name — not yet developed into a full teaching framework. When building the Module 5 run-of-show, decide whether to keep the IAAL name as-is (it's fine for prospects and reads well in the syllabus) or rename it. Either way, the framework needs to be fleshed out with: a clear definition of each stage, examples per stage, a worksheet or scoring rubric, and how it connects back to the process matrix from Module 1. The name ships in the current syllabus — the substance doesn't exist yet.
 
 ## Conventions
 

@@ -11,7 +11,7 @@ Sunday morning is 75 minutes of hands-on work with Claude. A few things to handl
 
 ## 1. Sign up for Claude Pro ($20, cancellable) — 5 min
 
-Go to [claude.ai](https://claude.ai) and upgrade to Pro. $20 for the month, cancel any time. I'm not asking you to commit to a subscription — I'm asking you to be in the room with me on the same tier, because we're going to use a paid feature called **Projects** during the build phase.
+Go to [claude.ai](https://claude.ai). Create a free account if you don't have one, then upgrade to Pro. $20 for the month, cancel any time. I'm not asking you to commit to a subscription — I'm asking you to be in the room with me on the same tier, because we're going to use a paid feature called **Projects** during the build phase.
 
 If you watch me drive instead of driving yourself, the workshop doesn't work.
 
@@ -31,6 +31,8 @@ Show up with one task in your head. Something you do every week, or every other 
 
 It doesn't have to be impressive. It doesn't have to be AI-shaped. It doesn't have to be work — it can be household admin or something personal you've been dreading. The more annoying it is, the better the lesson works.
 
+If you have a reference file for that task — a sample doc, a template, an email thread — toss it on your laptop. Totally optional, but it gives Claude more to work with.
+
 The build phase runs on you having one honest task to aim at. One is enough. Don't overthink it.
 
 ---
@@ -44,7 +46,7 @@ The build phase runs on you having one honest task to aim at. One is enough. Don
 ## What NOT to stress about
 
 - **You do not need to upload any confidential files.** Ever. I'll show you how to give Claude a paragraph of context instead of a document, and nobody is going to ask you to paste client data, patient info, or anything under an NDA.
-- **You do not need any pre-reading.** Show up curious. The lesson is front-loaded.
+- **You do not need any pre-reading.** Show up curious. We start building immediately.
 - **You do not need any prompting skills.** We're not going to teach you "10 ChatGPT hacks." We're going to teach you a pattern — a real, reusable thing that works after Sunday.
 
 ## If you hit a wall on setup

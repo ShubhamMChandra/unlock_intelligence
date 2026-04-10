@@ -4,31 +4,48 @@ The first hour of the Unlock Intelligence program. Teaches horizontal (process) 
 
 ## What's in this folder
 
-### `run-of-show.md` — the live plan
+### Canonical teaching materials
 
-How an instructor runs Module 1 today. Block-by-block, with teaching moves, key lines, materials, and pacing guardrails. This is the canonical version and should be edited as the lesson evolves.
+| File | What it is |
+|---|---|
+| `run-of-show.md` | How an instructor runs Module 1 today. Block-by-block, with teaching moves, key lines, and pacing guardrails. |
+| `worksheet.md` | Participant-facing handout. 4 pages: orientation, blank matrix, build-phase reference, take-home anatomy card. |
 
-### `worksheet.md` — the participant-facing handout
+### Reusable artifacts
 
-What attendees read and fill in during the hour. The bad-prompt-vs-good-prompt example, the deal-review second example, the weekly workflow audit exercise, the 5-component matrix, the "what comes next" table. This is attendee-facing content, not instructor notes.
+| File | What it is |
+|---|---|
+| `pre-class-setup.md` | Attendee-facing 1-pager sent before the session. Claude Pro signup, Google Doc link, "bring one task." |
+| `demo-prompts.md` | Pre-written prompts for the volunteer demo (Plans A/B/C) and the closer scraper demo. |
+| `discussion-questions.md` | Three round-table debrief questions with instructor listen-for notes. |
+| `exit-survey.md` | 7-question anonymous feedback survey with instructor analysis guide. |
+| `matrix-visual.md` | Content and design notes for the 5-component matrix slide (for Gamma or slide tool). |
 
 ### `runs/` — every time Module 1 has been taught
 
-A chronological log of live instances. Each file captures one cohort: pre-run context, the plan as executed, retro notes. This is where institutional memory lives. See `runs/README.md` for the naming and content conventions.
+A chronological log of live instances. Each run gets its own dated subfolder with cohort-specific files. See `runs/README.md` for conventions.
+
+| Run | Folder | Status |
+|---|---|---|
+| 2026-04-12 cross-industry friends beta | `runs/2026-04-12-beta/` | Pre-run |
+
+Each run folder contains:
+- `run-sheet.md` — cohort context, attendee profiles, risks, retro
+- `starters.md` — personalized Claude Project starters for that cohort
+- `todo.md` — prep checklist for that specific run
+- `email.md` — pre-work email sent to that cohort
 
 ### `audience-learnings/` — cross-cutting synthesis by profession
 
-What we've learned about running Module 1 for specific audiences. Starts empty and fills in as the module gets run for lawyers, accountants, consultants, healthcare workers, etc. Once an audience file accumulates enough distinct patterns, it becomes the basis for a dedicated variant — for example, a `module-1-accountants/` sibling folder with its own adapted run-of-show. See `audience-learnings/README.md`.
+What we've learned about running Module 1 for specific audiences. Starts empty and fills in after real runs. See `audience-learnings/README.md`.
 
 ## How the pieces fit
 
-The canonical run-of-show is the default. Every live run gets logged in `runs/` with a retro. Over time, cross-cutting patterns get pulled up into `audience-learnings/`. Eventually, when an audience accumulates enough distinct needs, the module forks.
+The canonical run-of-show and reusable artifacts are the default. Every live run gets its own subfolder in `runs/` with a retro. Over time, cross-cutting patterns get pulled up into `audience-learnings/`. Eventually, when an audience accumulates enough distinct needs, the module forks.
 
-Concrete example. Suppose Module 1 has been run three times for cohorts of accountants and the same stalls keep showing up — confidentiality concerns about client data, unfamiliarity with the default "weekly report" example, questions about audit trails, a preference for a journal-entry example over a status-report example. Those patterns go in `audience-learnings/accountants.md`. Once the patterns are rich enough that the standard run-of-show would need meaningful overrides to work, the team creates `knowledge/curriculum/module-1-accountants/` — a sibling folder — and forks the canonical run-of-show into an accountant-specific version.
-
-That's the mechanism for going from a generic lesson to a specialized one without losing the generic version or duplicating what's shared.
+Module-specific learnings from persona tests, instructor reviews, and retros live in `knowledge/learnings/` (not in this folder) because they're dated insights that reference Module 1 but aren't teaching materials.
 
 ## Missing (to be written)
 
-- `instructor-notes.md` — general teaching craft for this module (common stall points, recovery patterns, timing calibration across cohort sizes)
-- `confidentiality-for-regulated-professions.md` — the one-pager flagged in the 2026-04-07 persona beta test as a deal-killer gap for lawyers, and likely relevant for healthcare, finance, and anyone handling client data
+- `instructor-notes.md` — general teaching craft for this module (common stall points, recovery patterns, timing calibration)
+- `confidentiality-for-regulated-professions.md` — the one-pager flagged in the 2026-04-07 persona beta test as a deal-killer gap for lawyers
