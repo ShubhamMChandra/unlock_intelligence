@@ -36,14 +36,14 @@ export function Problem() {
               Costing You.
             </h2>
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-foreground/70 leading-relaxed">
               Leadership is talking about AI transformation. But across the
               org, adoption looks the same everywhere: a handful of early
               adopters experimenting alone, no shared playbook, and no way to
               tell if the output is any good.
             </p>
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-foreground/70 leading-relaxed">
               That gap between &ldquo;we should use AI&rdquo; and &ldquo;we
               use AI well&rdquo; doesn&rsquo;t close on its own. It closes
               when someone gives your people a shared framework, hands-on
@@ -53,7 +53,7 @@ export function Problem() {
 
           {/* Negative checklist — no glass card, lighter treatment */}
           <div className="rounded-xl border border-red-500/10 bg-red-500/[0.02] p-6">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               What&rsquo;s actually happening across teams
             </p>
             <ul className="space-y-4">
@@ -75,14 +75,14 @@ export function Problem() {
           <p className="text-base font-medium text-foreground/70">
             What inaction costs, per person, per year
           </p>
-          <p className="mt-2 text-2xl font-bold tracking-tight text-[var(--navy-deep)] sm:text-3xl md:text-4xl">
+          <p className="mt-2 text-2xl font-medium tracking-tight text-foreground sm:text-3xl md:text-4xl">
             <TrendingDown className="mr-2 inline h-5 w-5 text-red-500/70 sm:h-6 sm:w-6" />
             $9,750
           </p>
           <p className="mt-2 text-base text-foreground/80">
             per employee, per year in recoverable time
           </p>
-          <p className="mt-1.5 text-sm text-muted-foreground">
+          <p className="mt-1.5 text-sm text-foreground/55">
             The average knowledge worker spends 2.5 hours/week on tasks AI
             could handle. At $75/hour, this adds up fast.
           </p>
@@ -111,10 +111,10 @@ export function Problem() {
             },
           ].map((stat) => (
             <div key={stat.value} className="text-center sm:text-left">
-              <span className="text-2xl font-bold text-[var(--navy-deep)] md:text-3xl">
+              <span className="text-2xl font-medium text-foreground md:text-3xl">
                 {stat.value}
               </span>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-1 text-sm leading-relaxed text-foreground/70">
                 {stat.label}
               </p>
               <p className="mt-1 text-xs italic text-foreground/40">
@@ -127,10 +127,10 @@ export function Problem() {
         <div className="mt-12 text-center">
           <Button
             size="lg"
-            className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F]"
+            className="h-11 w-full sm:w-auto rounded-none bg-foreground px-7 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
             render={<Link href="/contact" />}
           >
-            Talk to Us About Your Team <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
+            Talk to us about your team
           </Button>
         </div>
       </SectionWrapper>

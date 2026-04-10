@@ -21,9 +21,9 @@ export default function ContactPage() {
       <div className="mx-auto max-w-[1120px] px-6">
         <ScrollReveal>
           <div className="mb-12">
-            <p className="text-sm text-muted-foreground">Contact</p>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">Get in Touch</h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-lg">
+            <p className="text-sm text-foreground/55">Contact</p>
+            <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-[-0.022em]">Get in touch</h1>
+            <p className="mt-4 text-lg text-foreground/70 max-w-lg">
               Tell us about yourself and we&rsquo;ll get back within one business day.
             </p>
           </div>

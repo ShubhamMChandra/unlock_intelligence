@@ -49,11 +49,11 @@ export function Why() {
       <SectionWrapper id="why" theme="light">
           <ScrollReveal>
           <div className="mb-12 space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               Why This Program
             </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Why This Program Works
+            <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
+              Why this program works
             </h2>
           </div>
           </ScrollReveal>
@@ -65,8 +65,8 @@ export function Why() {
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/[0.04]">
                 <card.icon className="h-5 w-5 text-foreground/60" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold">{card.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <h3 className="mb-2 text-lg font-medium">{card.title}</h3>
+              <p className="text-sm leading-relaxed text-foreground/70">
                 {card.description}
               </p>
             </GlassCard>
@@ -74,8 +74,8 @@ export function Why() {
         </div>
         </ScrollReveal>
 
-          <h3 className="mt-16 mb-6 text-center text-2xl font-bold tracking-tight">
-            How We Compare
+          <h3 className="mt-16 mb-6 text-center text-2xl font-medium tracking-[-0.022em]">
+            How we compare
           </h3>
 
           {/* Desktop: CSS grid table (md+ so tablet portrait gets stacked cards instead of a cramped 5-col) */}
@@ -83,16 +83,16 @@ export function Why() {
             <div className="grid grid-cols-5 text-sm">
               {/* Header row */}
               <div className="p-3" />
-              <div className="p-3 text-center font-semibold text-[var(--navy-deep)]">
+              <div className="p-3 text-center font-medium text-foreground">
                 Unlock Intelligence
               </div>
-              <div className="p-3 text-center text-muted-foreground">
+              <div className="p-3 text-center text-foreground/70">
                 General Assembly
               </div>
-              <div className="p-3 text-center text-muted-foreground">
+              <div className="p-3 text-center text-foreground/70">
                 Coursera
               </div>
-              <div className="p-3 text-center text-muted-foreground">
+              <div className="p-3 text-center text-foreground/70">
                 Harvard Exec Ed
               </div>
 
@@ -101,7 +101,7 @@ export function Why() {
                 <div key={row.dimension} className="col-span-5 grid grid-cols-5">
                   <div
                     className={cn(
-                      "p-3 text-xs font-medium uppercase tracking-wider text-muted-foreground",
+                      "p-3 text-xs font-medium uppercase tracking-wider text-foreground/55",
                       i % 2 === 0 && "bg-foreground/[0.02]"
                     )}
                   >
@@ -109,7 +109,7 @@ export function Why() {
                   </div>
                   <div
                     className={cn(
-                      "p-3 text-center font-medium text-[var(--navy-deep)] bg-[var(--navy-deep)]/[0.06]",
+                      "p-3 text-center font-medium text-foreground bg-[var(--navy-deep)]/[0.06]",
                       i % 2 === 0 && "bg-[var(--navy-deep)]/[0.08]"
                     )}
                   >
@@ -118,7 +118,7 @@ export function Why() {
                   </div>
                   <div
                     className={cn(
-                      "p-3 text-center text-muted-foreground",
+                      "p-3 text-center text-foreground/70",
                       i % 2 === 0 && "bg-foreground/[0.02]"
                     )}
                   >
@@ -126,7 +126,7 @@ export function Why() {
                   </div>
                   <div
                     className={cn(
-                      "p-3 text-center text-muted-foreground",
+                      "p-3 text-center text-foreground/70",
                       i % 2 === 0 && "bg-foreground/[0.02]"
                     )}
                   >
@@ -134,7 +134,7 @@ export function Why() {
                   </div>
                   <div
                     className={cn(
-                      "p-3 text-center text-muted-foreground",
+                      "p-3 text-center text-foreground/70",
                       i % 2 === 0 && "bg-foreground/[0.02]"
                     )}
                   >
@@ -149,11 +149,11 @@ export function Why() {
           <div className="space-y-4 md:hidden">
             {comparisonRows.map((row) => (
               <div key={row.dimension} className="rounded-lg border border-foreground/[0.06] bg-foreground/[0.02] p-4">
-                <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                <p className="mb-2 text-xs font-medium uppercase tracking-wider text-foreground/55">
                   {row.dimension}
                 </p>
-                <p className="text-sm font-medium text-[var(--navy-deep)]"><Check className="mr-1 inline h-4 w-4 text-[var(--sage-deep)]" />{row.us}</p>
-                <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+                <p className="text-sm font-medium text-foreground"><Check className="mr-1 inline h-4 w-4 text-[var(--sage-deep)]" />{row.us}</p>
+                <div className="mt-2 space-y-1 text-xs text-foreground/70">
                   <p>GA: {row.ga}</p>
                   <p>Coursera: {row.coursera}</p>
                   <p>Harvard: {row.harvard}</p>

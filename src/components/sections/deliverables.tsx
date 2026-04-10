@@ -28,13 +28,13 @@ export function Deliverables() {
       <SectionWrapper id="deliverables" className="tone-deliverables">
         <ScrollReveal>
           <div className="mb-8 space-y-2 text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               Deliverables
             </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              What You Leave With
+            <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
+              What you leave with
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
               Documents and tools, not just slides.
             </p>
           </div>
@@ -49,8 +49,8 @@ export function Deliverables() {
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--navy-deep)]/20">
                     <Icon className="h-5 w-5 text-[var(--navy)]" />
                   </div>
-                  <h3 className="text-base font-semibold">{item.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="text-base font-medium">{item.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-foreground/70">
                     {item.description}
                   </p>
                 </GlassCard>

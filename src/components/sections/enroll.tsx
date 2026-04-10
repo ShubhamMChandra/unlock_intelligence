@@ -36,13 +36,13 @@ export function Enroll() {
     <SectionWrapper id="enroll" className="tone-enroll">
         <ScrollReveal>
         <div className="mb-12 space-y-2 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
             Enroll
           </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Enroll Your Team
+          <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
+            Enroll your team
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
             Spring 2026 cohort is open. Founding members get our lowest
             price and direct access to the instructors to shape the
             curriculum. Reach out and we&rsquo;ll send a proposal within
@@ -63,28 +63,28 @@ export function Enroll() {
       <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
         {/* Corporate License */}
         <ScrollReveal>
-          <GlassCard className="relative h-full border-[var(--navy)]/30 bg-[var(--navy)]/[0.06] hover:border-[var(--navy)]/50">
+          <GlassCard className="relative flex h-full flex-col border-[var(--navy)]/30 bg-[var(--navy)]/[0.06] hover:border-[var(--navy)]/50">
             <span className="mb-4 inline-block rounded-full bg-[var(--navy)]/10 px-3 py-1 text-xs font-medium text-[var(--navy)]">
-              Recommended for Organizations
+              Recommended for organizations
             </span>
-            <h3 className="mb-2 text-xl font-bold">Team Training</h3>
-            <p className="mb-4 text-sm text-muted-foreground">
+            <h3 className="mb-2 text-xl font-medium">Team Training</h3>
+            <p className="mb-4 text-sm text-foreground/70">
               Bring the program to your team. We&rsquo;ll tailor the curriculum
               to your industry and run a private cohort.
             </p>
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
                 <span className="text-2xl font-bold tracking-tight">Starting at $1,095</span>
-                <span className="text-sm text-muted-foreground">/seat</span>
+                <span className="text-sm text-foreground/70">/seat</span>
               </div>
-              <p className="mt-1 text-xs font-medium text-[var(--navy)]">
+              <p className="mt-1 text-xs font-medium text-foreground/70">
                 Founding cohort rate
               </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
+              <p className="mt-0.5 text-xs text-foreground/55">
                 Increases to $1,595/seat after Spring 2026
               </p>
             </div>
-            <ul className="mb-8 space-y-3">
+            <ul className="mb-0 space-y-3">
               {corporateFeatures.map((item) => (
                 <li
                   key={item}
@@ -97,39 +97,39 @@ export function Enroll() {
             </ul>
             <Button
               size="lg"
-              className="w-full min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F]"
+              className="mt-auto h-11 w-full rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               render={<Link href="/contact?type=corporate" />}
             >
-              Get Your Team&rsquo;s Proposal <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
+              Request a proposal
             </Button>
           </GlassCard>
         </ScrollReveal>
 
         {/* Professional Seat */}
         <ScrollReveal delay={150}>
-          <GlassCard className="h-full">
-            <span className="mb-4 inline-block rounded-full bg-white/[0.06] px-3 py-1 text-xs font-medium text-muted-foreground">
-              For Individuals
+          <GlassCard className="flex h-full flex-col">
+            <span className="mb-4 inline-block rounded-full bg-white/[0.06] px-3 py-1 text-xs font-medium text-foreground/55">
+              For individuals
             </span>
-            <h3 className="mb-2 text-xl font-bold">Individual Enrollment</h3>
-            <p className="mb-4 text-sm text-muted-foreground">
+            <h3 className="mb-2 text-xl font-medium">Individual Enrollment</h3>
+            <p className="mb-4 text-sm text-foreground/70">
               Join an upcoming cohort on your own. You&rsquo;ll work
               alongside peers from different industries, which tends to
               make the conversations better.
             </p>
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-bold tracking-tight">$1,295</span>
-                <span className="text-sm text-muted-foreground">per person</span>
+                <span className="text-2xl font-bold tracking-tight">$1,295</span>
+                <span className="text-sm text-foreground/70">per person</span>
               </div>
-              <p className="mt-1 text-xs font-medium text-[var(--navy)]">
+              <p className="mt-1 text-xs font-medium text-foreground/70">
                 Founding cohort rate
               </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
+              <p className="mt-0.5 text-xs text-foreground/55">
                 Increases to $1,995 after Spring 2026
               </p>
             </div>
-            <ul className="mb-8 space-y-3">
+            <ul className="mb-0 space-y-3">
               {professionalFeatures.map((item) => (
                 <li
                   key={item}
@@ -143,10 +143,10 @@ export function Enroll() {
             <Button
               size="lg"
               variant="outline"
-              className="w-full min-h-[44px]"
+              className="mt-auto h-11 w-full rounded-none border-foreground/30 bg-transparent text-[15px] font-medium text-foreground transition-colors duration-150 hover:bg-foreground/5 hover:border-foreground/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               render={<Link href="/contact" />}
             >
-              Get Started <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
+              Get started
             </Button>
           </GlassCard>
         </ScrollReveal>
@@ -160,7 +160,7 @@ export function Enroll() {
               Risk-free guarantee
             </p>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-sm text-foreground/70">
             If your team finishes both sessions and doesn&rsquo;t feel
             they gained usable skills, we&rsquo;ll refund you. No
             paperwork.

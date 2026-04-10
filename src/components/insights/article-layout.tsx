@@ -15,7 +15,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { KeyTakeaways } from "@/components/insights/key-takeaways";
 import { ArticleCta } from "@/components/insights/article-cta";
 import { RelatedInsights } from "@/components/insights/related-insights";
-import { Mail } from "lucide-react";
+import { ShareButton } from "@/components/insights/share-button";
 
 interface RelatedArticle {
   slug: string;
@@ -60,18 +60,14 @@ export function ArticleLayout({
       : "https://unlockintelligence.co";
   const articleUrl = `${origin}${pathname}`;
 
-  const mailtoSubject = encodeURIComponent(`Worth reading: ${title}`);
-  const mailtoBody = encodeURIComponent(
-    `Thought this was worth sharing with our team:\n\n${title}\n${articleUrl}\n\n— via Unlock Intelligence`
-  );
-  const mailtoHref = `mailto:?subject=${mailtoSubject}&body=${mailtoBody}`;
+  const shareText = `Thought this was worth sharing with our team:\n\n${title}\n${articleUrl}\n\n— via Unlock Intelligence`;
 
   return (
     <SectionWrapper>
       {/* Breadcrumb */}
       <ScrollReveal className="min-w-0">
         <nav aria-label="Breadcrumb" className="mb-8 w-full min-w-0">
-          <ol className="flex min-w-0 items-center gap-1.5 text-sm text-muted-foreground">
+          <ol className="flex min-w-0 items-center gap-1.5 text-sm text-foreground/55">
             <li className="shrink-0">
               <Link
                 href="/insights"
@@ -92,24 +88,24 @@ export function ArticleLayout({
       <ScrollReveal className="min-w-0">
         <header className="mb-10 min-w-0">
           <div className="mb-4 flex items-center gap-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[var(--navy)]">
+            <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               {category}
             </span>
-            <span className="text-xs text-muted-foreground" aria-label={`${readingTime} read`}>
+            <span className="text-xs text-foreground/55" aria-label={`${readingTime} read`}>
               {readingTime}
             </span>
           </div>
 
-          <h1 className="max-w-[720px] text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="max-w-[720px] text-balance text-3xl font-medium tracking-[-0.022em] text-foreground sm:text-4xl">
             {title}
           </h1>
 
-          <p className="mt-4 max-w-[720px] text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-[720px] text-pretty text-lg leading-relaxed text-foreground/70">
             {subtitle}
           </p>
 
           {author && (
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-foreground/55">
               By {author}
             </p>
           )}
@@ -132,13 +128,11 @@ export function ArticleLayout({
 
       {/* Forward to team */}
       <div className="mx-auto my-8 min-w-0 max-w-[720px] text-center">
-        <a
-          href={mailtoHref}
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-[var(--navy)]"
-        >
-          <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-          Forward this article to your team
-        </a>
+        <ShareButton
+          title={title}
+          url={articleUrl}
+          text={shareText}
+        />
       </div>
 
       {/* CTA */}

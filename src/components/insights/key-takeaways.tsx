@@ -16,7 +16,7 @@ interface KeyTakeawaysProps {
 export function KeyTakeaways({ takeaways, className }: KeyTakeawaysProps) {
   return (
     <GlassCard className={cn("my-8", className)}>
-      <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
         Key Takeaways
       </p>
       <ul className="space-y-3" role="list">

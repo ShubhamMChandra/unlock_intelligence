@@ -30,7 +30,7 @@ const buyerFaqs: FaqEntry[] = [
         curriculum tailoring, and volume pricing.{" "}
         <Link
           href="/contact?type=corporate"
-          className="text-[var(--navy)] underline underline-offset-4 hover:text-white"
+          className="text-foreground/70 underline underline-offset-4 hover:text-white"
         >
           Reach out directly
         </Link>{" "}
@@ -105,11 +105,11 @@ export function FAQ() {
     <SectionWrapper id="faq" className="tone-faq">
         <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
             FAQ
           </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Common Questions
+          <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
+            Common questions
           </h2>
         </div>
         </ScrollReveal>
@@ -121,7 +121,7 @@ export function FAQ() {
                 <AccordionTrigger className="text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-foreground/70">
                   {typeof faq.answer === "string" ? (
                     <p>{faq.answer}</p>
                   ) : (
@@ -133,7 +133,7 @@ export function FAQ() {
           </Accordion>
 
           <div className="mt-10 mb-4">
-            <span className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+            <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               About the Program
             </span>
             <div className="mt-2 h-px bg-white/[0.06]" />
@@ -145,7 +145,7 @@ export function FAQ() {
                 <AccordionTrigger className="text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-foreground/70">
                   {typeof faq.answer === "string" ? (
                     <p>{faq.answer}</p>
                   ) : (

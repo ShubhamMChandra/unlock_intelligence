@@ -109,10 +109,10 @@ export function Curriculum() {
   return (
     <SectionWrapper id="curriculum" theme="dark" className="tone-curriculum">
           <ScrollReveal>
-          <div className="mb-12 space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">Curriculum</p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What You&rsquo;ll Learn</h2>
-            <p className="text-muted-foreground">Eight modules. Everything maps to your job.</p>
+          <div className="mb-12 space-y-3">
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">Curriculum</p>
+            <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl md:text-5xl">What you&rsquo;ll learn</h2>
+            <p className="text-foreground/65 max-w-[52ch]">Eight modules. Everything maps to your job.</p>
           </div>
           </ScrollReveal>
 
@@ -121,13 +121,13 @@ export function Curriculum() {
           <SessionColumn session={sessionTwo} />
         </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-12">
             <Button
               size="lg"
-              className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] text-white hover:bg-[#15293F]"
+              className="h-11 w-full sm:w-auto rounded-none bg-foreground px-7 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               render={<Link href="/contact" />}
             >
-              Request a Curriculum Walkthrough <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
+              Request a curriculum walkthrough
             </Button>
           </div>
       </SectionWrapper>

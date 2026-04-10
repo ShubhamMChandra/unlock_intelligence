@@ -17,21 +17,21 @@ export function ProcessCard() {
   return (
     <div className="space-y-8">
       <GlassCard>
-        <h3 className="text-lg font-semibold mb-6">What happens next</h3>
+        <h3 className="text-lg font-medium mb-6">What happens next</h3>
         <ol className="space-y-6">
           {steps.map((step) => (
             <li key={step.number} className="flex gap-4">
-              <span className="font-mono text-sm text-[var(--navy)] font-medium">{step.number}</span>
+              <span className="font-mono text-sm text-foreground/70 font-medium">{step.number}</span>
               <div>
                 <strong className="text-sm font-medium">{step.title}</strong>
-                <p className="text-sm text-muted-foreground mt-0.5">{step.desc}</p>
+                <p className="text-sm text-foreground/70 mt-0.5">{step.desc}</p>
               </div>
             </li>
           ))}
         </ol>
       </GlassCard>
 
-      <div className="flex gap-3 text-sm text-muted-foreground">
+      <div className="flex gap-3 text-sm text-foreground/70">
         <Star className="h-5 w-5 text-[var(--navy-deep)] shrink-0 mt-0.5" />
         <p>
           If you complete both sessions and don&rsquo;t feel you&rsquo;ve gained immediately
@@ -40,8 +40,8 @@ export function ProcessCard() {
       </div>
 
       <div className="text-sm">
-        <p className="text-muted-foreground">Prefer email?</p>
-        <a href="mailto:hello@unlockintelligence.co" className="text-[var(--navy)] hover:underline">
+        <p className="text-foreground/70">Prefer email?</p>
+        <a href="mailto:hello@unlockintelligence.co" className="text-foreground/70 hover:underline">
           hello@unlockintelligence.co
         </a>
       </div>

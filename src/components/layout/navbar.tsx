@@ -15,7 +15,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "How It Works", href: "/#how-it-works" },
+  { label: "How it works", href: "/#how-it-works" },
   { label: "Curriculum", href: "/#curriculum" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
@@ -60,7 +60,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm"
+                className="text-sm text-foreground/65 transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:underline focus-visible:underline-offset-[6px] focus-visible:decoration-foreground/60"
               >
                 {link.label}
               </Link>
@@ -93,7 +93,7 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center min-h-[44px] text-lg text-muted-foreground hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm"
+                    className="flex items-center min-h-[44px] text-lg text-foreground/70 hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:underline focus-visible:underline-offset-[6px] focus-visible:decoration-foreground/60"
                   >
                     {link.label}
                   </Link>

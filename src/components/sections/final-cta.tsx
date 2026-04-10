@@ -25,32 +25,32 @@ export function FinalCTA() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl"
+          className="mx-auto max-w-3xl text-4xl font-medium tracking-[-0.022em] sm:text-5xl md:text-6xl"
         >
           The Companies Investing in AI Fluency Now Will{" "}
           <span className="text-white">Lead.</span>
         </motion.h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-foreground/70 md:text-lg">
             Early-moving teams build the workflows, habits, and institutional knowledge that late adopters spend years trying to replicate.
           </p>
 
           <div className="mt-8">
             <Button
               size="lg"
-              className="w-full sm:w-auto min-h-[44px] bg-[var(--navy-deep)] px-8 py-3 text-base text-white hover:bg-[#15293F]"
+              className="h-11 w-full sm:w-auto rounded-none bg-foreground px-8 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               render={<Link href="/contact" />}
             >
-              Get Your Custom Proposal <span className="inline-block transition-transform duration-200 group-hover/button:translate-x-0.5" aria-hidden="true">&rarr;</span>
+              Request a proposal
             </Button>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-muted-foreground">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-foreground/70">
             {metaItems.map((item, i) => (
               <span key={item} className="inline-flex items-center gap-2">
                 {item}
                 {i < metaItems.length - 1 && (
-                  <span aria-hidden="true" className="text-muted-foreground/40">
+                  <span aria-hidden="true" className="text-foreground/40">
                     &middot;
                   </span>
                 )}

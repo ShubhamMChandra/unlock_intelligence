@@ -27,7 +27,7 @@ export function RelatedInsights({ articles, className }: RelatedInsightsProps) {
 
   return (
     <div className={cn("my-12", className)}>
-      <p className="mb-6 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
         Related Insights
       </p>
 

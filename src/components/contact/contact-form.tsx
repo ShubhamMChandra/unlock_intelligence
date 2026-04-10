@@ -79,12 +79,15 @@ export function ContactForm() {
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--sage)]/30">
           <Check className="h-6 w-6 text-[var(--sage)]" />
         </div>
-        <h3 className="text-xl font-semibold">Message Sent</h3>
-        <p className="mt-2 text-muted-foreground">
+        <h3 className="text-xl font-medium">Message Sent</h3>
+        <p className="mt-2 text-foreground/70">
           We&rsquo;ll review your details and get back to you within one business day.
         </p>
-        <Link href="/" className="mt-6 inline-block text-sm text-[var(--navy)] hover:underline">
-          Back to Home &rarr;
+        <Link
+          href="/"
+          className="mt-6 inline-block text-sm text-foreground/70 underline underline-offset-[6px] decoration-foreground/25 transition-colors hover:text-foreground hover:decoration-foreground/60"
+        >
+          Back to home
         </Link>
       </GlassCard>
     );
@@ -96,16 +99,16 @@ export function ContactForm() {
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-red-500/30">
           <X className="h-6 w-6 text-red-400" />
         </div>
-        <h3 className="text-xl font-semibold">Something Went Wrong</h3>
-        <p className="mt-2 text-muted-foreground">
+        <h3 className="text-xl font-medium">Something Went Wrong</h3>
+        <p className="mt-2 text-foreground/70">
           Please try again, or email us directly at{" "}
-          <a href="mailto:hello@unlockintelligence.co" className="text-[var(--navy)] hover:underline">
+          <a href="mailto:hello@unlockintelligence.co" className="text-foreground/70 hover:underline">
             hello@unlockintelligence.co
           </a>
         </p>
         <button
           onClick={() => setState("idle")}
-          className="mt-6 text-sm text-[var(--navy)] hover:underline"
+          className="mt-6 text-sm text-foreground/70 hover:underline"
         >
           Try Again
         </button>
@@ -194,9 +197,9 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={state === "submitting"}
-            className="w-full min-h-[44px] bg-[var(--navy-deep)] text-white font-medium hover:bg-[#15293F] rounded-lg"
+            className="h-11 w-full rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground disabled:opacity-60"
           >
-            {state === "submitting" ? "Sending..." : "Start a Conversation \u2192"}
+            {state === "submitting" ? "Sending\u2026" : "Start a conversation"}
           </Button>
         </div>
       </form>

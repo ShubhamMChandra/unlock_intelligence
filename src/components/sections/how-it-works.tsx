@@ -45,9 +45,9 @@ export function HowItWorks() {
     <SectionWrapper id="how-it-works" theme="light">
         <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">The Program</p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Two Sessions. Real Deliverables.</h2>
-          <p className="text-muted-foreground">Structured for working professionals, built around what they&rsquo;ll use after.</p>
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">The Program</p>
+          <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">Two sessions. Real deliverables.</h2>
+          <p className="text-foreground/70">Structured for working professionals, built around what they&rsquo;ll use after.</p>
         </div>
         </ScrollReveal>
 
@@ -55,11 +55,11 @@ export function HowItWorks() {
         {sessions.map((session) => (
           <div key={session.number} className="h-full flex flex-col border-l-2 border-[var(--navy-deep)]/20 pl-6">
             <span className="text-4xl font-extralight tracking-tight text-[var(--navy-deep)]/25 sm:text-5xl md:text-6xl">{session.number}</span>
-            <p className="mt-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">{session.tag}</p>
-            <h3 className="mt-3 text-lg font-semibold">{session.title}</h3>
-            <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{session.description}</p>
+            <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">{session.tag}</p>
+            <h3 className="mt-3 text-lg font-medium">{session.title}</h3>
+            <p className="mt-2 flex-1 text-sm text-foreground/70 leading-relaxed">{session.description}</p>
             <div className="mt-5 rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3">
-              <span className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
                 {session.deliverableLabel}
               </span>
               <span className="text-sm font-medium">{session.deliverable}</span>
@@ -70,11 +70,11 @@ export function HowItWorks() {
         {/* Outcome step */}
         <div className="h-full flex flex-col border-l-2 border-[var(--navy-deep)] pl-6">
           <span className="text-4xl font-extralight tracking-tight text-[var(--navy-deep)]/25 sm:text-5xl md:text-6xl">{outcome.number}</span>
-          <p className="mt-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">{outcome.tag}</p>
-          <h3 className="mt-3 text-lg font-semibold">{outcome.title}</h3>
-          <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{outcome.description}</p>
+          <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">{outcome.tag}</p>
+          <h3 className="mt-3 text-lg font-medium">{outcome.title}</h3>
+          <p className="mt-2 flex-1 text-sm text-foreground/70 leading-relaxed">{outcome.description}</p>
           <div className="mt-5 rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3">
-            <span className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               {outcome.deliverableLabel}
             </span>
             <span className="text-sm font-medium">{outcome.deliverable}</span>

@@ -30,13 +30,13 @@ export default function InsightsPage() {
         {/* Hero */}
         <ScrollReveal>
           <div className="mb-12">
-            <p className="text-sm uppercase tracking-wider text-foreground/70">
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
               Insights
             </p>
-            <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h1 className="mt-4 text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
               Perspectives on AI workforce development
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-foreground/70">
               From the classroom and the enterprise.
             </p>
           </div>
@@ -62,14 +62,14 @@ export default function InsightsPage() {
         {/* Subtle CTA */}
         <ScrollReveal delay={insights.length * 100}>
           <div className="mt-16 text-center">
-            <p className="text-muted-foreground">
+            <p className="text-foreground/70">
               Want to bring structured AI training to your team?
             </p>
             <Link
               href="/contact"
-              className="mt-2 inline-block text-sm font-medium text-[var(--navy)] transition-colors hover:text-white"
+              className="mt-2 inline-block text-sm font-medium text-foreground/70 transition-colors hover:text-white"
             >
-              Get in touch &rarr;
+              Get in touch
             </Link>
           </div>
         </ScrollReveal>

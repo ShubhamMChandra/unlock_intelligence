@@ -48,11 +48,11 @@ export default function TeamPage() {
       <div className="mx-auto max-w-[1120px] px-6">
         <ScrollReveal>
           <div className="mb-16">
-            <p className="text-sm text-muted-foreground">Your Instructors</p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-              Meet Your Team
+            <p className="text-sm text-foreground/55">Your Instructors</p>
+            <h1 className="mt-4 text-4xl font-medium tracking-[-0.022em] md:text-5xl">
+              Meet your team
             </h1>
-            <p className="mt-4 max-w-lg text-lg text-muted-foreground">
+            <p className="mt-4 max-w-lg text-lg text-foreground/70">
               Practitioners who build AI systems in production, and teach your
               team to do the same.
             </p>
@@ -75,11 +75,11 @@ export default function TeamPage() {
                   />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold">{member.name}</h2>
-                  <p className="mb-4 text-sm font-medium text-[var(--navy)]">
+                  <h2 className="text-2xl font-medium">{member.name}</h2>
+                  <p className="mb-4 text-sm font-medium text-foreground/70">
                     {member.role}
                   </p>
-                  <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                  <div className="space-y-4 text-[15px] leading-relaxed text-foreground/70">
                     {member.paragraphs.map((p, j) => (
                       <p key={j}>{p}</p>
                     ))}
@@ -92,14 +92,14 @@ export default function TeamPage() {
 
         <ScrollReveal>
           <div className="mt-20 text-center">
-            <p className="mb-6 text-lg text-muted-foreground">
+            <p className="mb-6 text-lg text-foreground/70">
               See how the program fits your team.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-lg bg-[var(--indigo)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--indigo)]/90"
+              className="inline-flex items-center rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground px-6 py-3"
             >
-              Get in Touch
+              Get in touch
             </Link>
           </div>
         </ScrollReveal>

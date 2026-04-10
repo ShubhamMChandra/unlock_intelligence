@@ -6,8 +6,8 @@
  */
 const proofPoints = [
   { metric: "University of Chicago", label: "Instructor" },
-  { metric: "8 Hours", label: "Two Half-Day Sessions" },
-  { metric: "3 Deliverables", label: "Customized to Your Team" },
+  { metric: "8 hours", label: "Two half-day sessions" },
+  { metric: "3 deliverables", label: "Customized to your team" },
 ];
 
 const institutions = [
@@ -18,20 +18,20 @@ const institutions = [
 
 export function ProofBar() {
   return (
-    <section className="relative border-y border-white/[0.04] bg-black/20 py-8" aria-label="Instructor credentials">
-        <div className="mx-auto max-w-[1120px] px-6 flex flex-col items-center gap-5">
-          {/* Proof points */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
+    <section className="relative border-y border-white/[0.04] bg-black/20 py-10" aria-label="Instructor credentials">
+        <div className="mx-auto max-w-[1120px] px-6 flex flex-col items-center gap-8">
+          {/* Proof points — quiet editorial row */}
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 md:gap-x-14">
             {proofPoints.map((point, i) => (
-              <div key={point.label} className="flex items-center gap-x-8 md:gap-x-12">
+              <div key={point.label} className="flex items-center gap-x-10 md:gap-x-14">
                 {i > 0 && (
-                  <div className="hidden md:block h-8 w-px bg-white/[0.08]" />
+                  <div className="hidden md:block h-6 w-px bg-white/[0.1]" />
                 )}
-                <div className="flex flex-col items-center text-center">
-                  <span className="text-lg font-bold text-foreground/90 md:text-xl">
+                <div className="flex flex-col items-center text-center gap-0.5">
+                  <span className="text-base font-medium text-foreground/90 md:text-[17px]">
                     {point.metric}
                   </span>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">
+                  <span className="text-[13px] text-foreground/55">
                     {point.label}
                   </span>
                 </div>
@@ -39,17 +39,17 @@ export function ProofBar() {
             ))}
           </div>
 
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <span className="text-[13px] text-foreground/55">
             Our team teaches at the University of Chicago and builds AI at
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 md:gap-x-14">
             {institutions.map((inst) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={inst.name}
                 src={inst.logo}
                 alt={inst.name}
-                className={`h-8 md:h-10 w-auto max-w-[140px] md:max-w-none opacity-80 ${
+                className={`h-7 md:h-8 w-auto max-w-[140px] md:max-w-none opacity-70 ${
                   inst.invert ? "brightness-0 invert" : ""
                 }`}
               />

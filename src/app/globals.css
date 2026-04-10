@@ -88,7 +88,7 @@
 :root {
   --nav-h: 64px;
   --navy: #94BDE0;
-  --navy-deep: #1E3A5F;
+  --navy-deep: #2C3E50;
   --amber: #C49A3C;
   --sage: #8FB8A3;
   --sage-deep: #6B9080;
@@ -138,6 +138,15 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--navy);
+}
+
+/* Soft halo ping — slightly larger reach than animate-ping (scales to 2.4x) */
+@keyframes halo-ping {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+.animate-halo-ping {
+  animation: halo-ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 /* Scroll reveal base */

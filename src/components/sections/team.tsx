@@ -34,11 +34,11 @@ export function Team() {
     <SectionWrapper id="team" className="tone-team">
         <ScrollReveal>
         <div className="mb-12 space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-wider text-foreground/70">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
             Your Instructors
           </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Who&rsquo;s Teaching
+          <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
+            Who&rsquo;s teaching
           </h2>
         </div>
         </ScrollReveal>
@@ -58,11 +58,11 @@ export function Team() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold">{member.name}</h3>
-                <p className="mb-3 text-sm font-medium text-[var(--navy)]">
+                <h3 className="text-lg font-medium">{member.name}</h3>
+                <p className="mb-3 text-sm font-medium text-foreground/70">
                   {member.role}
                 </p>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-foreground/70">
                   {member.bio}
                 </p>
               </div>
@@ -75,9 +75,9 @@ export function Team() {
         <div className="mt-8 text-center">
           <Link
             href="/team"
-            className="text-sm font-medium text-[var(--indigo)] transition-colors hover:text-[var(--indigo)]/80"
+            className="text-sm font-medium text-foreground/70 underline underline-offset-[6px] decoration-foreground/25 transition-colors hover:text-foreground hover:decoration-foreground/60"
           >
-            Meet your full team &rarr;
+            Meet your full team
           </Link>
         </div>
       </ScrollReveal>
