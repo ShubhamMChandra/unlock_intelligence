@@ -17,45 +17,55 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 
 ## Done (Friday so far)
 
-- [x] Pre-work email sent to all 5 attendees
-- [x] Followed up with Jess on demo path (awaiting response)
+- [x] Followed up with Jess on demo path (awaiting response — if no reply by Saturday 2pm, build dummy account with generic meetings)
 - [x] Texted Alan to show up with real project data + time allocation
 - [x] All curriculum artifacts reviewed, updated, and humanized (run-of-show, worksheet, pre-class setup, exit survey, discussion questions)
 - [x] Worksheet rewritten from scratch — 4-page session companion (orientation, matrix, build reference, take-home)
 - [x] Instructor agent review saved to `knowledge/learnings/2026-04-10-instructor-review-module-1.md`
 - [x] Syllabus updated (cohort cap 20, duration 8-10 hours, Module 4/5 prep notes)
+- [x] File structure reorganized — reusable artifacts at module level, cohort files in `runs/2026-04-12-beta/`
+- [x] Knowledge base updated with session learnings
 
-## Friday 4/10 — remaining (~1.5 hours)
+## Friday 4/10 — remaining (~1 hour)
 
+- [ ] **Send the pre-work email** to all 5 attendees. Template in `email.md`. Attach `../../pre-class-setup.md`. Google Doc link placeholder — say "link coming Saturday." *(10 min)*
 - [ ] **Text Bill McCue for a specific prospect name** — not Workday, a company he's selling TO. Public web presence needed for the scraper closer. *(5 min)*
 - [ ] **Confirm projector setup with JT** — HDMI or USB-C at 1 West Superior. *(5 min)*
-- [ ] **Decide demo path based on Jess's response.** If dummy account: create the dummy Google account and pre-populate her 3 real meetings. If live OAuth: confirm her work laptop allows it. *(5–30 min depending on path)*
 - [ ] **Pre-build the deliberate failure prompt.** Ask Claude about a cannabis state licensing transfer timeline or a 280E ruling — something in Zeshawn's domain that it'll fabricate. Test it, confirm it fabricates, save in a tab. *(15 min)*
 - [ ] **Script your opening 15 seconds.** Write down and memorize your first two sentences. *(10 min)*
 - [ ] **Script the closer bridge line.** Memorize: *"The distance between one step and six steps is not talent, and it's not code. It's the next three sessions. I'm showing you the destination, not showing off."* *(5 min)*
 - [ ] **Mental rehearsal: Zeshawn first, then Alan.** Stall patterns — Zeshawn reads everything ("paste it first, run it once, then edit"), Alan improvises ("what are you changing? Run it first"). *(20 min)*
-- [ ] **Update the starters** in `starters.md` with any last-minute context (Bill's prospect name, Alan's current project count, Tommy's current competitor, Jess's current client project). *(15 min)*
-- [ ] **Get building access / parking instructions from JT** for the pre-class setup doc. *(5 min)*
-- [ ] **Build Gamma artifacts** — matrix visual for projecting + designed worksheet for printing. *(with Claude)*
 - [ ] **Don't overdo it.** Save energy for Saturday's heavy block.
 
-## Saturday 4/11 — ~4 hours, evening
+## Saturday 4/11 — ~5 hours, evening
 
 **The heavy day. Block it now.**
 
-- [ ] **★ Copy the 5 starter Projects from `starters.md` into the shared Google Doc.** Paste each starter under the attendee's real name as a section heading. Order: Zeshawn, Alan, Tommy, Jess, Bill. Include the "Why this works" annotation block under each. **(~45 min)**
-- [ ] **★ Dry-run the volunteer demo on Jess's actual calendar (or the dummy).** Non-negotiable. Feel the OAuth flow if applicable, time the prompt run, judge whether the output is impressive or mediocre. If mediocre, fall back to Plan B (Drive folder) or Plan C (web research only). *(30 min)*
-- [ ] **Dry-run the scraper on Bill's real prospect.** Confirm the output is credible and impressive. If not, pick a different closer target (Tommy's competitor, Jess's peer institution, or a DLR-specific workflow). *(15 min)*
+- [ ] **★ Create the shared Google Doc.** Add each attendee's name as a section heading (Zeshawn, Alan, Tommy, Jess, Bill). Note: this is the link that goes in the pre-work email follow-up and on the worksheet's page 1. Fill in phone numbers/links section below once created.
+- [ ] **★ Copy the 5 starter Projects from `starters.md` into the Google Doc.** Include the "Why this works" annotation block under each. **(~45 min)**
+- [ ] **Send the Google Doc link to all 5 attendees** as a follow-up to the pre-work email. *(5 min)*
+- [ ] **Decide demo path** — if Jess still hasn't responded by 2pm, build the dummy account with generic meetings. *(5–30 min)*
+- [ ] **★ Rewrite the demo prompts** with JT. Current Plans A/B/C in `../../demo-prompts.md` need work. Test rewritten versions during the dry-run. *(30 min)*
+- [ ] **Update the starters** in `starters.md` with last-minute context (Bill's prospect name, Alan's current project count, Tommy's current competitor, Jess's current client project). *(15 min)*
+- [ ] **★ Dry-run the volunteer demo on Jess's actual calendar (or the dummy).** Non-negotiable. Time the prompt run, judge whether the output is impressive or mediocre. If mediocre, fall back to Plan B or C. *(30 min)*
+- [ ] **Dry-run the scraper on Bill's real prospect.** Confirm the output is credible and impressive. If not, pick a different closer target. *(15 min)*
 - [ ] **★ Test the deliberate failure prompt** you prepared Friday. Confirm it fabricates reliably. Have it ready in a browser tab for Sunday. *(10 min)*
 - [ ] **Test phone hotspot as wifi backup.** Run a Claude query via hotspot to verify bandwidth. *(10 min)*
-- [ ] **★ Test 2 simultaneous Claude sessions on venue wifi.** One query passing doesn't mean 5 concurrent sessions with web research will. Ask JT to let you test Saturday evening, or arrive early Sunday. *(15 min)*
-- [ ] **Print the 5-component matrix visual** — 6 copies (5 attendees + 1 spare). Hand out before Block 3 so they can hold it and follow along. *(5 min)*
+- [ ] **★ Test 2 simultaneous Claude sessions on venue wifi.** Ask JT to let you test Saturday evening, or plan to arrive early Sunday. *(15 min)*
+- [ ] **Get building access / parking instructions from JT** — update `../../pre-class-setup.md` with the details. *(5 min)*
+- [ ] **Finish the matrix visual** — either finalize Gamma deck or build in Google Slides/Keynote with JT. Need a projector version + a printable version. *(30 min)*
+- [ ] **Fill in worksheet page 1** — add wifi network/password and Google Doc link to `../../worksheet.md` before printing. *(2 min)*
+- [ ] **Print materials:**
+  - 6 copies of the worksheet (2 sheets double-sided per person)
+  - 6 copies of the matrix visual (if printing separately from the worksheet)
+  - 6 copies of the exit survey
+  - *(10 min)*
 - [ ] **Pack your bag:**
   - Laptop + charger
-  - Projector adapter (confirmed setup with JT)
+  - Projector adapter (confirm setup with JT first)
   - Phone (for hotspot)
   - Water bottle
-  - 6 printed exit surveys + 6 printed matrix visuals
+  - Printed worksheets, matrix visuals, exit surveys
   - Pens
   - Envelope or folder for collecting completed surveys
   - Food + coffee supplies (set out BEFORE people arrive, not near the projector)
@@ -74,7 +84,7 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
   - Tab 4: 5-component matrix visual
   - Tab 5: The run sheet open in a tab for glance reference
   - Tab 6: Pre-built deliberate failure prompt (ready to trigger during build phase)
-- [ ] **Paper materials out of the bag:** 6 exit surveys, 6 printed matrix visuals, pens, envelope ready at the door
+- [ ] **Paper materials out of the bag:** 6 worksheets, 6 exit surveys, 6 printed matrix visuals, pens, envelope ready at the door
 - [ ] **Food + coffee already set out** away from the projector area
 - [ ] **Phone hotspot pre-connected** as wifi backup
 - [ ] **Water + snack in front of you**
@@ -92,7 +102,7 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 | Block | What | Duration |
 |---|---|---|
 | 1. Welcome + frame | Name everyone, joke about the spread, set the "tools not prompts" expectation | ~3 min |
-| 2. ★ Live demo (Jess) | Calendar + web research on Jess's real meetings. Volunteer at projector. Drop the 30-sec theory beat mid-run. | ~15 min |
+| 2. ★ Live demo (Jess) | Calendar + web research on Jess's real meetings. Volunteer at projector. Theory beat AFTER the output, not mid-run. | ~15 min |
 | 3. Matrix | 5-column visual (People / Tools / Trainings / Guardrails / Metrics), before/after rows, tied to vertical vs horizontal | ~6–8 min |
 | 4. UI walkthrough | 60 sec on Claude Projects UI | ~1 min |
 | 5. ★ Build phase | Attendees find their starter in the Google Doc, personalize, run on real task. Circulate order: Zeshawn → Alan → others. **Deliberate failure moment in here.** | ~25–30 min |
@@ -104,12 +114,12 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 
 ---
 
-## Phone numbers / links (fill in Wednesday)
+## Phone numbers / links (fill in Saturday when Google Doc is created)
 
 - Jess: _______________
 - Bill: _______________
-- Venue contact (1 West Superior): _______________
-- Shared Google Doc link: _______________
+- JT / venue contact (1 West Superior): _______________
+- Shared Google Doc link: _______________ ← create this Saturday, then send link to all 5 attendees
 - Exit survey Google Form backup (if the paper version fails): _______________
 
 ---

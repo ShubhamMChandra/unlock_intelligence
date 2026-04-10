@@ -202,62 +202,9 @@ Pivot straight into the debrief.
 
 ---
 
-## Shubham's to-do list (chronological)
+## To-do list
 
-> Today is **Wednesday 2026-04-08**. Demo is **Sunday 2026-04-12**. You have 4 days plus Sunday morning.
-
-### WEDNESDAY 4/8 (today) — ~40 min total
-
-- [ ] **Send the pre-work email to all 5 attendees.** Template above. Attach the pre-class 1-pager. *(10 min)*
-- [ ] **Text Jess to lock the demo path:** *"Hey, for Sunday I want to demo Claude on your actual meetings. Two paths and you pick: (A) you authorize Claude to read your real Google Calendar in the room (only works if your work laptop allows it), or (B) you text me 3 real meetings you have next week — names, people, organizations — and I'll set up a dummy account with those exact meetings on it. Either works. Which is easier?"* *(5 min)*
-- [ ] **Confirm 1 West Superior is available/booked** for Sunday 10:30am–11:45am CT *(5 min)*
-- [ ] **Text Bill McCue** to ask for a real account name he's trying to close (public web presence). Needed for the scraper closer — don't want to be guessing live. *(3 min)*
-- [ ] **Check everyone has Claude Pro** — by Thursday at latest *(passive)*
-- [ ] **Block Saturday evening 4/11** for heavy prep *(1 min)*
-
-### THURSDAY 4/9 — ~1 hour
-
-- [ ] **Decide demo path based on Jess's Wednesday response.** If dummy-account path, create the dummy Google account today and pre-populate her 3 real meetings. Verify Claude authorizes on the dummy. *(30 min)*
-- [ ] **Build the 1-page 5-component matrix visual** — Google Drawing or Figma frame. 5 columns (People / Tools / Trainings / Guardrails / Metrics). Before/after rows mapped to Jess's workflow. *(20 min)*
-- [ ] **Print the exit survey** — 6 copies plus an envelope for collection at the door *(5 min)*
-- [ ] **Test the competitive intel scraper** on a sample firm to confirm it still works *(15 min)*
-- [ ] **Skim the discussion questions file** so you're not reading from the page Sunday *(3 min)*
-
-### FRIDAY 4/10 — ~45 min light day
-
-- [ ] **Mental rehearsal: Zeshawn first, Alan second.** Spend 20 min thinking through what you'd say when you walk over to each of them during the build phase. The starters are already drafted — you just need to know how to unstick each of them if their first run produces something mediocre. *(20 min)*
-- [ ] **Update the starters in this file** with any last-minute context you've learned this week (Bill's account name, Alan's current project count, Tommy's current competitor focus, Jess's current client project) *(15 min)*
-- [ ] **Light day.** Don't overdo prep. Save Saturday energy for the heavy block.
-
-### SATURDAY 4/11 — ~4 hours (the heavy day, evening)
-
-- [ ] **Copy the 5 starter Projects from this file into the shared Google Doc.** The starters are already drafted above — your job is to paste them into the doc, format them cleanly, and put each one under the attendee's real name as a section heading so it's easy for them to find on Sunday. **(~1 hour)**
-- [ ] **★ DRY-RUN THE VOLUNTEER DEMO** on Jess's actual calendar (or the dummy account). Non-negotiable. Feel the OAuth flow if applicable, time the prompt run, judge whether the output is impressive or mediocre. *(30 min)*
-- [ ] **Dry-run the scraper** on Bill's real account *(15 min)*
-- [ ] **Test phone hotspot as wifi backup.** Run a Claude query via hotspot to verify bandwidth. *(10 min)*
-- [ ] **Pack your bag:** laptop, charger, projector adapter (HDMI/USB-C — know 1 West Superior's setup), phone, water bottle, 6 printed exit surveys, pens, envelope for collection *(10 min)*
-- [ ] **Sleep well.** Don't stay up past midnight prepping. Your Sunday-morning self needs rest more than marginal prep.
-
-### SUNDAY 4/12 morning — ~30 min before 10:30am start
-
-- [ ] **Arrive at 1 West Superior by 10:00am**
-- [ ] **Test the projector** — connect laptop, mirror, verify Claude renders
-- [ ] **Test the wifi** — run a Claude query with a connector to verify bandwidth
-- [ ] **Re-test connector OAuth** — don't assume Saturday's auth is still live
-- [ ] **Open all tabs in order:**
-  - Tab 1: Claude (logged in, projector account)
-  - Tab 2: Shared Google Doc with the 5 starters
-  - Tab 3: Pre-written demo prompts doc
-  - Tab 4: 5-component matrix visual
-  - Tab 5: This run sheet open for glance reference
-- [ ] **Paper materials out of the bag:** 6 printed exit surveys, pens, envelope ready at the door
-- [ ] **Phone hotspot ready as backup.** Pre-connected, ready to switch if room wifi dies.
-- [ ] **Water + snack. Breathe.** You've prepped. The lesson is good. Your friends are already rooting for you.
-
-### SUNDAY 4/12 post-lesson
-
-- [ ] **Help any stalled attendees finish their Projects** in the 15-min stay-after window (you offered this in Block 5)
-- [ ] **Write yourself a 5-bullet retro that evening** while it's fresh. Save it in the Retro section at the bottom of this file (not a separate file).
+**Canonical to-do list is at `todo.md` (same folder).** This section was the original to-do but is now superseded. Use `todo.md` for all prep tracking.
 
 ---
 
