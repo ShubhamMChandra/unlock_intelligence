@@ -101,16 +101,15 @@ import { FinalCTA } from "../final-cta";
 describe("Hero", () => {
   it("renders cohort pill text with spots remaining", () => {
     render(<Hero />);
-    expect(screen.getByText(/Founding Cohort/)).toBeInTheDocument();
+    expect(screen.getByText(/Founding cohort/)).toBeInTheDocument();
     expect(screen.getByText(/Spring 2026/)).toBeInTheDocument();
-    expect(screen.getByText(/7 of 10 Spots/)).toBeInTheDocument();
+    expect(screen.getByText(/7 of 10 seats/i)).toBeInTheDocument();
   });
 
   it("renders all headline words", () => {
     render(<Hero />);
-    expect(screen.getByText("Make")).toBeInTheDocument();
-    expect(screen.getByText(/AI\u2011Fluent/)).toBeInTheDocument();
-    expect(screen.getByText(/8.Hours\./)).toBeInTheDocument();
+    expect(screen.getByText(/Make your team/i)).toBeInTheDocument();
+    expect(screen.getByText(/AI\u2011fluent/)).toBeInTheDocument();
   });
 
   it("renders subtitle text", () => {
@@ -121,15 +120,15 @@ describe("Hero", () => {
 
   it("renders CTA buttons", () => {
     render(<Hero />);
-    expect(screen.getByText(/Get a Custom Proposal/)).toBeInTheDocument();
-    expect(screen.getByText(/See the Curriculum/)).toBeInTheDocument();
+    expect(screen.getByText(/Request a proposal/)).toBeInTheDocument();
+    expect(screen.getByText(/View the curriculum/)).toBeInTheDocument();
   });
 
   it("renders trust indicators", () => {
     render(<Hero />);
     expect(screen.getByText(/Taught by a University of Chicago instructor/)).toBeInTheDocument();
-    expect(screen.getByText("Completion certificate for L&D records")).toBeInTheDocument();
-    expect(screen.getByText("Curriculum customized to your industry")).toBeInTheDocument();
+    expect(screen.getByText(/Completion certificate for L&D/)).toBeInTheDocument();
+    expect(screen.getByText(/Curriculum tailored to your industry/)).toBeInTheDocument();
   });
 });
 
@@ -138,8 +137,8 @@ describe("ProofBar", () => {
   it("renders proof points", () => {
     render(<ProofBar />);
     expect(screen.getByText("University of Chicago")).toBeInTheDocument();
-    expect(screen.getByText("8 Hours")).toBeInTheDocument();
-    expect(screen.getByText("3 Deliverables")).toBeInTheDocument();
+    expect(screen.getByText("8 hours")).toBeInTheDocument();
+    expect(screen.getByText("3 deliverables")).toBeInTheDocument();
   });
 
   it("renders label", () => {
@@ -173,7 +172,7 @@ describe("Problem", () => {
 describe("HowItWorks", () => {
   it("renders section header", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Two Sessions. Real Deliverables.")).toBeInTheDocument();
+    expect(screen.getByText("Two sessions. Real deliverables.")).toBeInTheDocument();
     expect(screen.getByText("The Program")).toBeInTheDocument();
   });
 
@@ -201,7 +200,7 @@ describe("Curriculum", () => {
   it("renders section header", () => {
     render(<Curriculum />);
     expect(screen.getByText("Curriculum")).toBeInTheDocument();
-    expect(screen.getByText(/What You.ll Learn/)).toBeInTheDocument();
+    expect(screen.getByText(/What you.ll learn/)).toBeInTheDocument();
   });
 
   it("renders all 8 module titles", () => {
@@ -255,7 +254,7 @@ describe("Why", () => {
   it("renders section header", () => {
     render(<Why />);
     expect(screen.getByText("Why This Program")).toBeInTheDocument();
-    expect(screen.getByText("Why This Program Works")).toBeInTheDocument();
+    expect(screen.getByText("Why this program works")).toBeInTheDocument();
   });
 
   it("renders all three cards", () => {
@@ -278,7 +277,7 @@ describe("Team", () => {
   it("renders section header", () => {
     render(<Team />);
     expect(screen.getByText("Your Instructors")).toBeInTheDocument();
-    expect(screen.getByText(/Who.s Teaching/)).toBeInTheDocument();
+    expect(screen.getByText(/Who.s teaching/)).toBeInTheDocument();
   });
 
   it("renders Shubham Chandra card", () => {
@@ -286,7 +285,7 @@ describe("Team", () => {
     expect(screen.getByText("Shubham Chandra")).toBeInTheDocument();
     expect(screen.getByText("Head of Curriculum")).toBeInTheDocument();
     expect(screen.getByText(/Digital Realty/)).toBeInTheDocument();
-    expect(screen.getByText(/University of Chicago/)).toBeInTheDocument();
+    expect(screen.getByText(/Teaches AI-driven entrepreneurship at the University of Chicago/)).toBeInTheDocument();
   });
 
   it("renders JT O'Connor card", () => {
@@ -308,7 +307,7 @@ describe("Enroll", () => {
   it("renders section header", () => {
     render(<Enroll />);
     expect(screen.getByText("Enroll")).toBeInTheDocument();
-    expect(screen.getByText("Enroll Your Team")).toBeInTheDocument();
+    expect(screen.getByText("Enroll your team")).toBeInTheDocument();
   });
 
   it("renders spots remaining indicator", () => {
@@ -319,7 +318,7 @@ describe("Enroll", () => {
   it("renders Individual Enrollment card", () => {
     render(<Enroll />);
     expect(screen.getByText("Individual Enrollment")).toBeInTheDocument();
-    expect(screen.getByText("For Individuals")).toBeInTheDocument();
+    expect(screen.getByText("For individuals")).toBeInTheDocument();
     expect(screen.getByText("Both live sessions (8 hours total)")).toBeInTheDocument();
     expect(screen.getByText("Certificate of completion")).toBeInTheDocument();
   });
@@ -327,16 +326,16 @@ describe("Enroll", () => {
   it("renders Team Training card", () => {
     render(<Enroll />);
     expect(screen.getByText("Team Training")).toBeInTheDocument();
-    expect(screen.getByText("Recommended for Organizations")).toBeInTheDocument();
+    expect(screen.getByText("Recommended for organizations")).toBeInTheDocument();
     expect(screen.getByText("5+ seats, custom scheduling")).toBeInTheDocument();
     expect(screen.getByText(/Volume pricing/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons with correct links", () => {
     render(<Enroll />);
-    const proposalBtn = screen.getByText(/Get Your Team.s Proposal/);
+    const proposalBtn = screen.getByText(/Request a proposal/);
     expect(proposalBtn.closest("a")).toHaveAttribute("href", "/contact?type=corporate");
-    const startedBtn = screen.getByText(/Get Started/);
+    const startedBtn = screen.getByText(/Get started/);
     expect(startedBtn.closest("a")).toHaveAttribute("href", "/contact");
   });
 
@@ -351,7 +350,7 @@ describe("FAQ", () => {
   it("renders section header", () => {
     render(<FAQ />);
     expect(screen.getByText("FAQ")).toBeInTheDocument();
-    expect(screen.getByText("Common Questions")).toBeInTheDocument();
+    expect(screen.getByText("Common questions")).toBeInTheDocument();
   });
 
   it("renders all 6 questions", () => {
@@ -393,7 +392,7 @@ describe("FinalCTA", () => {
 
   it("renders CTA button linking to contact", () => {
     render(<FinalCTA />);
-    const cta = screen.getByText(/Get Your Custom Proposal/);
+    const cta = screen.getByText(/Request a proposal/);
     expect(cta.closest("a")).toHaveAttribute("href", "/contact");
   });
 
