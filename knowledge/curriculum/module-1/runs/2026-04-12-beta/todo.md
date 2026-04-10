@@ -26,57 +26,75 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 - [x] File structure reorganized — reusable artifacts at module level, cohort files in `runs/2026-04-12-beta/`
 - [x] Knowledge base updated with session learnings
 
-## Friday 4/10 — remaining (~1 hour)
+## Friday 4/10 evening — Shubham solo, after work (~1 hour)
+
+*Texts + scripting. Can do from the couch.*
 
 - [ ] **Send the pre-work email** to all 5 attendees. Template in `email.md`. Attach `../../pre-class-setup.md`. Google Doc link placeholder — say "link coming Saturday." *(10 min)*
 - [ ] **Text Bill McCue for a specific prospect name** — not Workday, a company he's selling TO. Public web presence needed for the scraper closer. *(5 min)*
-- [ ] **Confirm projector setup with JT** — HDMI or USB-C at 1 West Superior. *(5 min)*
+- [ ] **Text JT** — confirm projector setup (HDMI or USB-C), ask for wifi network + password, and confirm Saturday evening timing. *(5 min)*
 - [ ] **Pre-build the deliberate failure prompt.** Ask Claude about a cannabis state licensing transfer timeline or a 280E ruling — something in Zeshawn's domain that it'll fabricate. Test it, confirm it fabricates, save in a tab. *(15 min)*
-- [ ] **Script your opening 15 seconds.** Write down and memorize your first two sentences. *(10 min)*
-- [ ] **Script the closer bridge line.** Memorize: *"The distance between one step and six steps is not talent, and it's not code. It's the next three sessions. I'm showing you the destination, not showing off."* *(5 min)*
-- [ ] **Mental rehearsal: Zeshawn first, then Alan.** Stall patterns — Zeshawn reads everything ("paste it first, run it once, then edit"), Alan improvises ("what are you changing? Run it first"). *(20 min)*
-- [ ] **Don't overdo it.** Save energy for Saturday's heavy block.
+- [ ] **Script your opening 15 seconds + closer bridge line.** Write down, read aloud a few times. *(15 min)*
+- [ ] **Mental rehearsal before bed: Zeshawn first, then Alan.** Stall patterns — Zeshawn reads everything ("paste it first, run it once, then edit"), Alan improvises ("what are you changing? Run it first"). *(10 min)*
 
-## Saturday 4/11 — ~5 hours, evening
+## Saturday 4/11 — the heavy day
 
-**The heavy day. Block it now.**
+### Shubham solo, afternoon (~1.5 hours, start by 2pm)
 
-- [ ] **★ Create the shared Google Doc.** Add each attendee's name as a section heading (Zeshawn, Alan, Tommy, Jess, Bill). Note: this is the link that goes in the pre-work email follow-up and on the worksheet's page 1. Fill in phone numbers/links section below once created.
-- [ ] **★ Copy the 5 starter Projects from `starters.md` into the Google Doc.** Include the "Why this works" annotation block under each. **(~45 min)**
+*Do this from home before heading to JT's. These are solo tasks that don't need JT or the venue.*
+
+- [ ] **Decide demo path by 2pm** — if Jess still hasn't responded, build the dummy account with generic meetings. *(5–30 min)*
+- [ ] **★ Create the shared Google Doc.** Add each attendee's name as a section heading (Zeshawn, Alan, Tommy, Jess, Bill). Fill in phone numbers/links section below once created. *(10 min)*
+- [ ] **★ Copy the 5 starter Projects from `starters.md` into the Google Doc.** Include the "Why this works" annotation block under each. *(45 min)*
+- [ ] **Update the starters** with last-minute context (Bill's prospect name, Alan's current project count, Tommy's current competitor, Jess's current client project). *(15 min)*
 - [ ] **Send the Google Doc link to all 5 attendees** as a follow-up to the pre-work email. *(5 min)*
-- [ ] **Decide demo path** — if Jess still hasn't responded by 2pm, build the dummy account with generic meetings. *(5–30 min)*
-- [ ] **★ Rewrite the demo prompts** with JT. Current Plans A/B/C in `../../demo-prompts.md` need work. Test rewritten versions during the dry-run. *(30 min)*
-- [ ] **Update the starters** in `starters.md` with last-minute context (Bill's prospect name, Alan's current project count, Tommy's current competitor, Jess's current client project). *(15 min)*
-- [ ] **★ Dry-run the volunteer demo on Jess's actual calendar (or the dummy).** Non-negotiable. Time the prompt run, judge whether the output is impressive or mediocre. If mediocre, fall back to Plan B or C. *(30 min)*
-- [ ] **Dry-run the scraper on Bill's real prospect.** Confirm the output is credible and impressive. If not, pick a different closer target. *(15 min)*
-- [ ] **★ Test the deliberate failure prompt** you prepared Friday. Confirm it fabricates reliably. Have it ready in a browser tab for Sunday. *(10 min)*
-- [ ] **Test phone hotspot as wifi backup.** Run a Claude query via hotspot to verify bandwidth. *(10 min)*
-- [ ] **★ Test 2 simultaneous Claude sessions on venue wifi.** Ask JT to let you test Saturday evening, or plan to arrive early Sunday. *(15 min)*
-- [ ] **Finish the matrix visual** — either finalize Gamma deck or build in Google Slides/Keynote with JT. Need a projector version + a printable version. *(30 min)*
-- [ ] **Fill in worksheet page 1** — add wifi network/password and Google Doc link to `../../worksheet.md` before printing. *(2 min)*
 
-### JT tasks (confirm with JT Saturday)
+### JT solo, anytime Saturday (text him this list)
 
-- [ ] **🖨 JT: Print the worksheet** — 6 copies, 2 sheets double-sided per person. File: `../../worksheet.md` (export to PDF first). *(5 min)*
-- [ ] **🖨 JT: Print the matrix visual** — 6 copies. One per attendee as a fill-in handout for Block 3. *(5 min)*
-- [ ] **🖨 JT: Print the exit survey** — 6 copies. File: `../../exit-survey.md` (export to PDF). *(5 min)*
-- [ ] **JT: Confirm projector setup** — HDMI or USB-C? Test that Claude renders cleanly on it. *(5 min)*
-- [ ] **JT: Building access / parking instructions** — what do 5 people showing up at 10am on a Sunday need to know? Buzzer code? Parking? Update `../../pre-class-setup.md` with the details. *(5 min)*
-- [ ] **JT: Wifi network + password** — needed for the worksheet page 1 and for 5 people running Claude simultaneously. *(2 min)*
-- [ ] **JT: Envelope or folder** for collecting completed exit surveys at the door. *(1 min)*
-- [ ] **JT: Pens** — at least 6, for filling in the matrix handout and exit survey. *(1 min)*
-- [ ] **JT: Donuts + coffee** — have it out before 10:30am, away from the projector area.
+*JT can knock these out whenever. The printing needs to wait until Shubham sends him the final PDFs (see "before JT prints" below).*
 
-### Pack your bag
+- [ ] **JT: Wifi network + password** — text to Shubham. Needed for the worksheet before printing. *(2 min)*
+- [ ] **JT: Building access / parking instructions** — what do 5 people showing up at 10am on a Sunday need to know? Buzzer? Parking? Text to Shubham for the pre-class setup doc. *(5 min)*
+- [ ] **JT: Confirm projector setup** — HDMI or USB-C? *(2 min)*
+- [ ] **JT: Pens** — at least 6. *(grab when out)*
+- [ ] **JT: Envelope or folder** for collecting exit surveys at the door. *(grab when out)*
+- [ ] **JT: Order donuts + coffee** for Sunday 10am pickup/delivery, away from the projector area.
 
+### Shubham + JT together at venue, evening (~3.5 hours, arrive by 5pm)
+
+*This is the real prep session. Everything that needs the venue, the projector, or both of you.*
+
+**First hour (5–6pm) — build the visuals and finalize print-ready files:**
+- [ ] **Finish the matrix visual** — build in Google Slides/Keynote together. Need a projector version + a printable version. *(30 min)*
+- [ ] **★ Rewrite the demo prompts** together. Current Plans A/B/C in `../../demo-prompts.md` need work. *(30 min)*
+
+**Before JT prints (~6pm) — fill in the blanks so printed materials are final:**
+- [ ] **Fill in worksheet page 1** — add wifi network/password and Google Doc link to `../../worksheet.md`. Export to PDF. *(5 min)*
+- [ ] **Send JT the final PDFs:** worksheet, matrix visual, exit survey. *(5 min)*
+
+**JT prints (~6:15pm):**
+- [ ] **🖨 JT: Print the worksheet** — 6 copies, 2 sheets double-sided per person. *(5 min)*
+- [ ] **🖨 JT: Print the matrix visual** — 6 copies. *(5 min)*
+- [ ] **🖨 JT: Print the exit survey** — 6 copies. *(5 min)*
+
+**Second hour (6:30–7:30pm) — dry-runs on the venue projector and wifi:**
+- [ ] **Test the projector** — connect laptop, verify Claude renders cleanly. *(5 min)*
+- [ ] **★ Test 2 simultaneous Claude sessions on venue wifi.** If it can't handle concurrent web research, you need the hotspot plan. *(10 min)*
+- [ ] **Test phone hotspot as wifi backup.** *(5 min)*
+- [ ] **★ Dry-run the volunteer demo** on Jess's actual calendar (or the dummy). Time it. Judge the output. If mediocre, fall back to Plan B or C. *(20 min)*
+- [ ] **Dry-run the scraper on Bill's real prospect.** If not impressive, pick a different closer target. *(10 min)*
+- [ ] **★ Test the deliberate failure prompt.** Confirm it fabricates reliably. Save in a browser tab. *(5 min)*
+
+**Wrap up (7:30–8pm) — do a full walkthrough and pack:**
+- [ ] **Walk through the run-of-show end to end with JT.** He plays the audience. You practice the opening, the demo narration, the matrix, the closer bridge line. He tells you what lands and what doesn't. *(20 min)*
 - [ ] **Pack your bag:**
   - Laptop + charger
   - Projector adapter (confirmed with JT)
   - Phone (for hotspot)
   - Water bottle
-  - All printed materials from JT (worksheets, matrix visuals, exit surveys)
+  - All printed materials (worksheets, matrix visuals, exit surveys)
   - JT is handling donuts + coffee
-- [ ] **Sleep well.** Don't stay up past midnight prepping. Your Sunday-morning self needs rest more than marginal prep.
+- [ ] **Done by 8pm. Go home. Sleep well.**
 
 ## Sunday 4/12 morning — ~30 min before 10:30
 

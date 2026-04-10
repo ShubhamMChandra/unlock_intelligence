@@ -52,10 +52,11 @@ This is how a generic lesson grows into a family of specialized lessons over tim
 
 ## What's missing (to build as the program develops)
 
-- Modules 2 through 8, each in their own `module-N/` folder with the same structure
-- `module-1/instructor-notes.md` — general teaching craft for the module
-- `module-1/confidentiality-for-regulated-professions.md` — the one-pager flagged in the 2026-04-07 persona beta test as a deal-killer gap for lawyers
-- Shared exercise templates that get referenced across modules, probably in a future `shared/` subfolder
+- `module-1/instructor-notes.md` — write after 2026-04-12 beta retro. **Target: weekend of 2026-04-18.**
+- `module-1/confidentiality-for-regulated-professions.md` — write after 2026-04-12 beta, informed by Zeshawn's real questions. **Target: weekend of 2026-04-18.**
+- `module-2/` run-of-show and artifacts — first new module. Can't start until Module 1 is validated by the beta. **Target: weekend of 2026-04-25** if beta goes well.
+- Modules 3 through 8 — depends on iteration pace after the beta. No dates yet.
+- Shared exercise templates that get referenced across modules, probably in a future `shared/` subfolder — premature until 2-3 modules are built.
 
 ## Module prep notes
 

@@ -47,5 +47,5 @@ Module-specific learnings from persona tests, instructor reviews, and retros liv
 
 ## Missing (to be written)
 
-- `instructor-notes.md` — general teaching craft for this module (common stall points, recovery patterns, timing calibration)
-- `confidentiality-for-regulated-professions.md` — the one-pager flagged in the 2026-04-07 persona beta test as a deal-killer gap for lawyers
+- `instructor-notes.md` — general teaching craft for this module (common stall points, recovery patterns, timing calibration). **Write after the 2026-04-12 beta retro — target weekend of 2026-04-18.** Need real data from the first run before this is useful.
+- `confidentiality-for-regulated-professions.md` — the one-pager flagged in the 2026-04-07 persona beta test as a deal-killer gap for lawyers. **Write after the 2026-04-12 beta — target weekend of 2026-04-18.** Zeshawn (GC) is in the room Sunday; his real questions will shape what this doc needs to say.
