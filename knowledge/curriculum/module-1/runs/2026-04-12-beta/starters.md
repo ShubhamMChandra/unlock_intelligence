@@ -1,8 +1,8 @@
 # Personalized starters — 2026-04-12 beta
 
-Five ready-to-paste Claude Project starters, one per attendee. Each has a "Why this works" annotation block explaining the craft behind it. On Saturday, copy these into the shared Google Doc with each attendee's real name as the section heading.
+Five ready-to-paste Claude Project starters, one per attendee. Each has a "Why this works" annotation block, a first-run prompt to paste after setup, and a brief note on what the output should look like. On Saturday, copy these into the shared Google Doc with each attendee's real name as the section heading.
 
-**How to use this file:** Copy everything under each attendee's name into the Google Doc. The attendee sees their starter + the annotation block. They paste the code-block portion into Claude Projects and personalize it.
+**How to use this file:** Copy everything under each attendee's name into the Google Doc. Each person sees their starter (paste into Claude Projects), the annotation explaining why it works, and a first-run prompt they can paste right after setup so they're not staring at a blank chat. The first-run prompts use real companies and real scenarios -- the output should be genuinely useful on the first try.
 
 ---
 
@@ -53,57 +53,68 @@ Verification: I will engage outside counsel for full review on anything that get
 - Modify "cannabis and adjacent-industry" if you're also evaluating CBD, hemp, beverage, or non-cannabis deals
 - Write your own using this structure as a model
 
+**Your first prompt -- paste this into your Project after setup:**
+
+> I'm evaluating a potential acquisition target: Ascend Wellness Holdings. They operate in Illinois, Massachusetts, Michigan, Ohio, and New Jersey. Deal type: I don't know yet -- it could be an asset purchase or an equity deal depending on how the licenses are structured in each state. Here's what I know from public sources: they're publicly traded on the CSE, they reported roughly $440M in revenue last year, and they've been expanding through acquisitions themselves. They recently opened new dispensaries in Ohio ahead of the adult-use rollout. Give me the first-pass diligence summary.
+
+**What to expect in the output:** It should read like a first-pass memo from a junior diligence analyst -- not a final answer, but enough to decide whether this deal is worth paying outside counsel to look at. The sharpest section is usually the three questions for outside counsel, because that's where the tool turns research into a next step. If Claude flags uncertainty on state-level license transfer rules or says "I don't know" on a specific 280E question, that's good -- the constraints are working.
+
 ---
 
-## Alan — Founder weekly focus and kill-list
+## Alan — Solo founder's co-founder
 
-*Calibration: Alan is running an AI consulting firm and trying to launch small app-based startups. His problem is not "validate an idea" — it's "which of these should I stop doing so I can double down on the one that's working." This is a weekly triage tool, not a one-shot analyzer.*
+*Calibration: Alan is running an AI consulting firm and trying to launch small app-based startups simultaneously. He doesn't have a co-founder, which means he doesn't have anyone to argue with. Every idea that sounds good in his head stays sounding good because nobody pushes back. This starter gives him a thinking partner -- not a report generator, not a coach, but the person he texts before making a decision.*
 
 **Paste into Claude > New Project > Custom Instructions:**
 
 ```
-You are a ruthless early-stage operator who has shut down more of your own projects than most founders have launched. You have no emotional attachment to any of my projects. Your job is to help me see which ones deserve another week of my time and which ones I am emotionally avoiding killing.
+You are my co-founder. Not a consultant, not a coach -- a co-founder. You have as much at stake in my success as I do, and that means you tell me things I don't want to hear.
 
-Every week, I will paste in:
-1. A list of my active projects, one line each.
-2. Where my time actually went this week by project (rough hours, honest estimates).
-3. The single most honest thing I can say about each project's traction this week (even if it's "nothing happened").
-4. Any external signal from this week — customer feedback, revenue, deletions, enthusiasm, silence.
+You've built and killed more of your own things than most people have brainstormed. You know what traction actually looks like versus what hope looks like. You have no emotional attachment to any of my projects. Your loyalty is to the outcome, not my feelings.
 
-For each project, produce:
+I'm a solo founder. I don't have anyone to argue with, and that's dangerous -- every idea that sounds good in my head stays sounding good because nobody pushes back. That's your job.
 
-- READ — One sentence on what this project actually is right now, not what I want it to be.
-- SIGNAL — What this week's data is actually telling us. Positive, negative, or noise.
-- VERDICT — Double down, maintain, kill, or park.
-- ONE-WEEK TEST — If you said "maintain" or "double down," the single cheapest experiment I can run this week to validate or invalidate the core thesis. If you said "kill" or "park," what I should do this week to actually let go (stop checking analytics, archive the repo, tell the one user, etc.).
+When I bring you something, it'll be one of these:
 
-Then, across all projects:
+WEEKLY CHECK-IN -- I paste my active projects, where my hours actually went, and honest traction signals for each. You tell me what each project actually is right now (not what I want it to be), whether the signal says double down, maintain, kill, or park, and one experiment worth running this week per project. Then you make the overall call: am I spread too thin? Which one do I stop first? End with one uncomfortable question I'm avoiding.
 
-- THE OVERALL CALL — Am I spread too thin this week? If yes, which project do I stop doing first? Name it. Don't hedge.
-- ONE UNCOMFORTABLE QUESTION I am avoiding.
+DECISION -- I describe something I'm weighing. You give me the strongest case against whichever way I'm leaning, what I'm not seeing, and what you'd do if it were your money and your Saturday.
+
+NEW IDEA -- I pitch you something. You tell me three reasons it won't work, the one scenario where it might, and whether I should spend a single hour on it this week given everything else on my plate.
+
+DEBRIEF -- I describe a conversation or meeting I just had. You tell me what actually happened versus what I think happened, what the other person's real agenda probably was, and what my next move should be.
 
 Constraints:
-- Be honest, not encouraging. I don't need a cheerleader — I have one of those and it's the problem.
-- If I give you bad data ("I don't know how many hours I spent"), say so and refuse to rate that project.
-- Don't let me reframe a failing project as a "pivot." If it's dying, say it's dying.
-- Never recommend "launch to more users" as a fix for a traction problem that isn't caused by a marketing problem.
+- Don't be supportive. I have imposter syndrome and a dopamine addiction to new ideas -- both of which make me dangerously responsive to encouragement. Challenge first.
+- Don't generate new ideas for me. I have too many already. Help me kill the ones that aren't working.
+- If I give you bad data or I'm hedging on something, call it out. Say "you're not being honest with me" when that's accurate.
+- Don't let me reframe failure as a pivot. If something is dying, say it's dying.
+- End every interaction with one uncomfortable question.
 
-Verification: I'll come back next week with what I actually did. You'll see the pattern in whether I followed through.
+Verification: I'll come back with what I actually did. You'll see the pattern over time.
 ```
 
 **Why this works:**
 
-- **Role** — "Ruthless early-stage operator who has shut down more of their own projects than most founders have launched" overrules Claude's default encouragement bias. Claude is trained to be helpful, and "helpful" usually means "supportive." This role flips that.
-- **Context** — Explicitly names the failure mode (spread too thin, emotionally avoiding killing things). That tells Claude what output is actually useful.
-- **Inputs** — The four structured inputs force Alan to do the work of observing his own week before running the tool. The tool is only as useful as the honesty of the data.
-- **Criteria** — The "Verdict" field with four options (double down / maintain / kill / park) forces a choice. "Kill" and "park" are explicitly allowed — most AI tools never suggest stopping. The "uncomfortable question" line is where the real value sits.
-- **Constraints** — The anti-pivot line is the most important one. Founders love to reframe failure as pivot. Claude would normally let this slide. The constraint forces it not to.
-- **Verification** — "I'll come back next week" sets this up as a cadence tool, not a one-shot.
+- **Role** -- "Co-founder" is stronger than "advisor" or "coach" because it implies shared stakes. Claude treats this as a relationship, not a consulting engagement. "Built and killed more of your own things" tells Claude to think like a builder who has been through it, not a strategist giving advice from the outside.
+- **Context** -- Naming the solo-founder problem (no one to argue with) tells Claude that the useful output is pushback, not validation. Every solo founder's real risk is the echo chamber of their own head.
+- **Inputs** -- Four modes (check-in, decision, new idea, debrief) let you use this beyond a weekly report. It's a thinking partner for any moment where you'd normally text a co-founder -- which is to say, most moments.
+- **Criteria** -- Each mode has an output shape, but it should feel like a conversation, not a document. The "uncomfortable question" at the end is the signature move -- the thing a real co-founder would say at the end of coffee that sticks with you all week.
+- **Constraints** -- "Don't be supportive" is the critical one. Claude defaults to encouragement. For a solo founder who needs pushback, encouragement is the failure mode. "Don't generate new ideas" prevents Claude from making Alan's core problem worse.
+- **Verification** -- "I'll come back with what I actually did" builds accountability over time. The co-founder sees the gap between what you said you'd do and what you actually did.
 
 **You can:**
-- Paste as-is and run it every Friday for a 15-minute weekly review
-- Modify the "operator" role if you prefer a different voice (ex-founder, ex-VC, ex-builder)
+- Paste as-is and start using it in any mode -- weekly check-in, a decision you're weighing, a new idea, or a conversation debrief
+- Modify the co-founder's personality if you want a different voice (ex-VC, ex-operator, technical co-founder)
 - Write your own from scratch using this structure
+
+**Your first prompt -- paste this into your Project after setup:**
+
+> I need to make a decision this week. A mid-size accounting firm reached out and wants me to build them a custom AI workflow -- document intake, categorization, and routing to the right team members. They'd pay $40K for the build and $2K/month for ongoing maintenance. The catch: it would take me 6-8 weeks of focused build time, during which I realistically can't take other consulting gigs or make meaningful progress on any of my side projects. My consulting pipeline has two other proposals outstanding -- a $25K AI strategy audit and a $12K workflow automation -- but neither is confirmed yet. The meal planning app has 83 signups and zero revenue. My gut says take the $40K because it's guaranteed money and I need to eat. What am I not seeing?
+
+**What to expect in the output:** It should feel like a co-founder pushing back over coffee, not a pros-and-cons table. The best sign is if it names a trade-off you hadn't articulated -- not just "$40K vs. uncertainty" but something deeper about what kind of business you're building. It should end with an uncomfortable question. If the output is gentle or encouraging, the "don't be supportive" constraint isn't biting hard enough -- tell Claude to be blunter.
+
+*Note: Replace this with a real decision you're actually weighing right now. Or use WEEKLY CHECK-IN mode and paste your real projects with honest hours and traction data. The tool is only as useful as the honesty of the input.*
 
 ---
 
@@ -152,6 +163,12 @@ Verification: I'll fact-check any specific claim — pricing, customer counts, f
 - Modify the buyer description if you're targeting a specific vertical slice (HVAC-first, plumbing-first)
 - Write your own from scratch using the structure
 
+**Your first prompt -- paste this into your Project after setup:**
+
+> Tear down ServiceTitan. Their URL is servicetitan.com. My specific question this week: they IPO'd and have been pushing hard into the mid-market. Are they abandoning the small contractor segment -- the 1-20 truck HVAC and plumbing operations -- to chase multi-location enterprises? That's Housecall Pro's sweet spot. If ServiceTitan is leaving that segment behind, our competitive positioning should shift. I want to know: who are they actually built for right now, and is the gap between their stated positioning and their actual positioning getting wider?
+
+**What to expect in the output:** Look for the gap between how ServiceTitan describes themselves and who they're actually built for -- that gap is where your positioning opportunity lives. The 30-second sales pitch at the end is the acid test: it should sound like something a rep could actually say to a plumbing contractor on a call, not something a marketing team would put on a slide. If the pitch uses words like "end-to-end" or "comprehensive platform," Claude ignored the constraint -- push back and it should rewrite in plain language.
+
 ---
 
 ## Jess Nickelman — Cultural venue peer benchmarking
@@ -197,6 +214,12 @@ Verification: I'll cross-check specific numbers against audited financials or in
 - Paste as-is and use it for any cultural institution
 - Modify the sector if you're specialized in one type of venue (performing arts, museums, libraries, cultural districts)
 - Write your own using the structure
+
+**Your first prompt -- paste this into your Project after setup:**
+
+> Benchmark the Kennedy Center in Washington, DC. Dimension: programming model -- specifically the balance between large-scale touring productions and locally-originated or commissioned work. Client question: "A mid-size performing arts center in the Midwest is considering shifting 30% of its programming from touring shows to original commissions and local partnerships. The board wants to know: have peer institutions made this kind of shift, and what happened to attendance and contributed revenue when they did?"
+
+**What to expect in the output:** It should feel like a first draft of a benchmarking slide you'd actually put in a client deck. The peer selection is the part to read most carefully -- are the comparables genuinely comparable, or is Claude padding the list with institutions that don't match? The honest note on data quality at the bottom is the trust signal: cultural-sector data is patchy, and if Claude admits where the numbers are soft instead of inventing them, the constraints are doing their job. Don't expect polished final numbers -- expect a useful starting point you'd refine before a client sees it.
 
 ---
 
@@ -244,3 +267,9 @@ Verification: I'll cross-check the top 2 facts before I walk into the meeting. T
 - Paste as-is and use it before any enterprise discovery call
 - Modify the buyer persona if you're in a different function (HR, Finance, Ops)
 - Write your own using the structure
+
+**Your first prompt -- paste this into your Project after setup:**
+
+> Account: Baxter International. Meeting with: Sarah Chen, VP of HR Technology. This was a referral -- my contact at Abbott introduced us after Baxter completed the Viatris spinoff. He said Sarah is frustrated with their current HCM platform but hasn't started a formal evaluation yet. Business problem I'm exploring: Baxter has been through multiple acquisitions and divestitures over the past few years and their HR systems are fragmented across legacy entities. I think the pain is integration and consolidation, but I don't know if they're ready to rip-and-replace or just looking for something to layer on top.
+
+**What to expect in the output:** The "one thing I should not say" section is the part that separates this from a Google search. It should name something specific about Baxter's recent history that would blow your credibility if you got it wrong in the meeting. The discovery questions should be anchored to this company, not generic -- if you see "what are your biggest challenges?" in the output, the "don't be generic" constraint isn't working and you should push back. The overall brief should feel like intel you'd actually review in the car before walking into the building, not a Wikipedia summary.
