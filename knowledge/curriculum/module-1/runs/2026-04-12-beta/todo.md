@@ -59,6 +59,7 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 - [ ] **JT: Pens** — at least 6. *(grab when out)*
 - [ ] **JT: Envelope or folder** for collecting exit surveys at the door. *(grab when out)*
 - [ ] **JT: Order donuts + coffee** for Sunday 10am pickup/delivery, away from the projector area.
+- [ ] **JT: Ask Dina to come Sunday to take photos.** Candid shots during the session — room, attendees at laptops, projector, show-and-tell. These go on the website.
 
 ### Shubham + JT together at venue, evening (~3.5 hours, arrive by 5pm)
 
@@ -98,6 +99,7 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 
 ## Sunday 4/12 morning — ~30 min before 10:30
 
+- [ ] **Dress business casual.** Both of you. Dina is taking photos. Don't show up in sweats.
 - [ ] **Arrive at 1 West Superior by 10:00am**
 - [ ] **Test the projector** — connect laptop, mirror, verify Claude renders
 - [ ] **Test the wifi** — run 2 simultaneous Claude queries with web research to verify bandwidth under load
