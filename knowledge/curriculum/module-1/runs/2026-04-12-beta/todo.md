@@ -52,23 +52,30 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 - [ ] **★ Test the deliberate failure prompt** you prepared Friday. Confirm it fabricates reliably. Have it ready in a browser tab for Sunday. *(10 min)*
 - [ ] **Test phone hotspot as wifi backup.** Run a Claude query via hotspot to verify bandwidth. *(10 min)*
 - [ ] **★ Test 2 simultaneous Claude sessions on venue wifi.** Ask JT to let you test Saturday evening, or plan to arrive early Sunday. *(15 min)*
-- [ ] **Get building access / parking instructions from JT** — update `../../pre-class-setup.md` with the details. *(5 min)*
 - [ ] **Finish the matrix visual** — either finalize Gamma deck or build in Google Slides/Keynote with JT. Need a projector version + a printable version. *(30 min)*
 - [ ] **Fill in worksheet page 1** — add wifi network/password and Google Doc link to `../../worksheet.md` before printing. *(2 min)*
-- [ ] **Print materials:**
-  - 6 copies of the worksheet (2 sheets double-sided per person)
-  - 6 copies of the matrix visual (if printing separately from the worksheet)
-  - 6 copies of the exit survey
-  - *(10 min)*
+
+### JT tasks (confirm with JT Saturday)
+
+- [ ] **🖨 JT: Print the worksheet** — 6 copies, 2 sheets double-sided per person. File: `../../worksheet.md` (export to PDF first). *(5 min)*
+- [ ] **🖨 JT: Print the matrix visual** — 6 copies. One per attendee as a fill-in handout for Block 3. *(5 min)*
+- [ ] **🖨 JT: Print the exit survey** — 6 copies. File: `../../exit-survey.md` (export to PDF). *(5 min)*
+- [ ] **JT: Confirm projector setup** — HDMI or USB-C? Test that Claude renders cleanly on it. *(5 min)*
+- [ ] **JT: Building access / parking instructions** — what do 5 people showing up at 10am on a Sunday need to know? Buzzer code? Parking? Update `../../pre-class-setup.md` with the details. *(5 min)*
+- [ ] **JT: Wifi network + password** — needed for the worksheet page 1 and for 5 people running Claude simultaneously. *(2 min)*
+- [ ] **JT: Envelope or folder** for collecting completed exit surveys at the door. *(1 min)*
+- [ ] **JT: Pens** — at least 6, for filling in the matrix handout and exit survey. *(1 min)*
+- [ ] **JT: Donuts + coffee** — have it out before 10:30am, away from the projector area.
+
+### Pack your bag
+
 - [ ] **Pack your bag:**
   - Laptop + charger
-  - Projector adapter (confirm setup with JT first)
+  - Projector adapter (confirmed with JT)
   - Phone (for hotspot)
   - Water bottle
-  - Printed worksheets, matrix visuals, exit surveys
-  - Pens
-  - Envelope or folder for collecting completed surveys
-  - Food + coffee supplies (set out BEFORE people arrive, not near the projector)
+  - All printed materials from JT (worksheets, matrix visuals, exit surveys)
+  - JT is handling donuts + coffee
 - [ ] **Sleep well.** Don't stay up past midnight prepping. Your Sunday-morning self needs rest more than marginal prep.
 
 ## Sunday 4/12 morning — ~30 min before 10:30
