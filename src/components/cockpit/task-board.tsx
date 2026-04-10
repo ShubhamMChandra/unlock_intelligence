@@ -8,12 +8,6 @@ import {
   MoreHorizontal,
   Pencil,
   Trash2,
-  Circle,
-  PlayCircle,
-  XCircle,
-  AlertTriangle,
-  PauseCircle,
-  CheckCircle2,
   ExternalLink,
   ArrowUpDown,
   ArrowUp,
@@ -61,22 +55,24 @@ interface TaskBoardProps {
   initialTasks: Task[];
 }
 
+/* --- Color Maps --- */
+
 const STATUS_COLORS: Record<TaskStatus, string> = {
-  todo: "bg-slate-100 text-slate-600",
-  "in-progress": "bg-amber-50 text-amber-700",
-  blocked: "bg-red-50 text-red-700",
-  "at-risk": "bg-orange-50 text-orange-700",
-  postponed: "bg-gray-100 text-gray-500",
-  complete: "bg-emerald-50 text-emerald-700",
+  todo: "bg-[#E8EDF2] text-[#475569]",
+  "in-progress": "bg-[#DBEAFE] text-[#1D4ED8]",
+  blocked: "bg-[#FEE2E2] text-[#B91C1C]",
+  "at-risk": "bg-[#FEF3C7] text-[#B45309]",
+  postponed: "bg-[#F1F5F9] text-[#94A3B8]",
+  complete: "bg-[#DCFCE7] text-[#15803D]",
 };
 
 const STATUS_DOT_COLORS: Record<TaskStatus, string> = {
-  todo: "bg-slate-400",
-  "in-progress": "bg-amber-500",
-  blocked: "bg-red-500",
-  "at-risk": "bg-orange-500",
-  postponed: "bg-gray-400",
-  complete: "bg-emerald-500",
+  todo: "bg-[#94A3B8]",
+  "in-progress": "bg-[#3B82F6]",
+  blocked: "bg-[#EF4444]",
+  "at-risk": "bg-[#F59E0B]",
+  postponed: "bg-[#CBD5E1]",
+  complete: "bg-[#22C55E]",
 };
 
 const PRIORITY_COLORS: Record<TaskPriority, string> = {
@@ -87,20 +83,13 @@ const PRIORITY_COLORS: Record<TaskPriority, string> = {
 };
 
 const CATEGORY_COLORS: Record<TaskCategory, string> = {
-  product: "bg-indigo-50 text-indigo-700",
-  curriculum: "bg-teal-50 text-teal-700",
-  "business-gtm": "bg-amber-50 text-amber-700",
-  ops: "bg-slate-100 text-slate-600",
+  product: "bg-[#DBEAFE] text-[#1E40AF]",
+  curriculum: "bg-[#D1FAE5] text-[#065F46]",
+  "business-gtm": "bg-[#FEF9C3] text-[#854D0E]",
+  ops: "bg-[#F3E8FF] text-[#6B21A8]",
 };
 
-const STATUS_ICONS: Record<TaskStatus, typeof Circle> = {
-  todo: Circle,
-  "in-progress": PlayCircle,
-  blocked: XCircle,
-  "at-risk": AlertTriangle,
-  postponed: PauseCircle,
-  complete: CheckCircle2,
-};
+/* --- Author Styling --- */
 
 const AUTHOR_COLORS: Record<string, string> = {
   shubham: "bg-indigo-500",
@@ -113,6 +102,8 @@ const AUTHOR_INITIALS: Record<string, string> = {
   jt: "JT",
   claude: "C",
 };
+
+/* --- Sorting --- */
 
 type SortKey = "status" | "priority" | "category" | "owner" | "due_date" | "title";
 type SortDir = "asc" | "desc";
@@ -162,6 +153,8 @@ function sortTasks(tasks: Task[], sortKey: SortKey, sortDir: SortDir): Task[] {
   });
 }
 
+/* --- Helpers --- */
+
 function relativeTime(dateStr: string): string {
   const now = Date.now();
   const then = new Date(dateStr).getTime();
@@ -180,6 +173,8 @@ function relativeTime(dateStr: string): string {
     day: "numeric",
   });
 }
+
+/* --- Task Board --- */
 
 export function TaskBoard({ initialTasks }: TaskBoardProps) {
   const router = useRouter();
@@ -427,6 +422,28 @@ export function TaskBoard({ initialTasks }: TaskBoardProps) {
         </Button>
       </div>
 
+      {/* Owner quick-toggle pills */}
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-[#94A3B8]">Quick filter:</span>
+        {(["shubham", "jt"] as const).map((owner) => (
+          <button
+            key={owner}
+            onClick={() => setFilters(prev => ({
+              ...prev,
+              owner: prev.owner === owner ? "all" : owner,
+            }))}
+            className={cn(
+              "rounded-full px-3 py-1 text-xs font-medium transition-colors",
+              filters.owner === owner
+                ? "bg-[#1a1a2e] text-white"
+                : "bg-white text-[#64748B] border border-black/[0.06] hover:border-black/[0.12]",
+            )}
+          >
+            {OWNER_LABELS[owner]}
+          </button>
+        ))}
+      </div>
+
       {/* Filters */}
       <TaskFilters filters={filters} onChange={setFilters} />
 
@@ -439,6 +456,14 @@ export function TaskBoard({ initialTasks }: TaskBoardProps) {
                 ? "No tasks yet. Add your first one."
                 : "No tasks match the current filters."}
             </p>
+            {tasks.length > 0 && (
+              <button
+                onClick={() => setFilters({ status: "all", category: "all", owner: "all", priority: "all" })}
+                className="mt-3 rounded-full border border-black/[0.06] bg-white px-4 py-1.5 text-xs font-medium text-[#64748B] transition-colors hover:border-black/[0.12] hover:text-[#1a1a2e]"
+              >
+                Clear filters
+              </button>
+            )}
           </div>
         ) : (
           <>
@@ -448,7 +473,10 @@ export function TaskBoard({ initialTasks }: TaskBoardProps) {
                 const isExpanded = expandedTaskId === task.id;
                 const noteCount = noteCountsByTask[task.id] ?? 0;
                 return (
-                  <div key={task.id}>
+                  <div
+                    key={task.id}
+                    className={cn(task.status === "complete" && "opacity-50")}
+                  >
                     <div
                       className="flex items-start gap-3 border-b border-black/[0.04] p-4 last:border-0 cursor-pointer"
                       onClick={() => toggleExpand(task.id)}
@@ -691,6 +719,7 @@ function TaskRowWithNotes({
         className={cn(
           "border-black/[0.04] cursor-pointer transition-colors",
           isExpanded ? "bg-[#f8f8fa]" : "hover:bg-[#f8f8fa]/60",
+          task.status === "complete" && "opacity-50",
         )}
         onClick={() => onToggleExpand(task.id)}
       >

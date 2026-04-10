@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, FileText, Folder, ArrowLeft } from "lucide-react";
 import { MarkdownContent } from "@/components/cockpit/markdown-content";
+import { markdownToHtml } from "@/lib/markdown";
+import { WikiLayout } from "@/components/cockpit/wiki-layout";
 
 interface WikiPageProps {
   params: Promise<{ path: string[] }>;
@@ -47,43 +49,62 @@ function formatName(name: string): string {
     .replace(/-/g, " ");
 }
 
+function Breadcrumbs({ segments }: { segments: string[] }) {
+  return (
+    <nav className="mb-4 flex items-center gap-1 text-sm text-[#6b7280]">
+      <Link href="/cockpit/wiki" className="transition-colors hover:text-[#1a1a2e]">
+        Knowledge
+      </Link>
+      {segments.map((seg, i) => (
+        <span key={i} className="flex items-center gap-1">
+          <ChevronRight className="size-3" />
+          {i < segments.length - 1 ? (
+            <Link
+              href={`/cockpit/wiki/${segments.slice(0, i + 1).join("/")}`}
+              className="transition-colors hover:text-[#1a1a2e]"
+            >
+              {formatName(seg)}
+            </Link>
+          ) : (
+            <span className="text-[#1a1a2e]">{formatName(seg)}</span>
+          )}
+        </span>
+      ))}
+    </nav>
+  );
+}
+
 export default async function WikiPage({ params }: WikiPageProps) {
   const { path: segments } = await params;
   const fullPath = resolveKnowledgePath(segments);
 
-  // Check if it's a directory
+  // ── Directory view ──────────────────────────────────────────────────
   const dirEntries = getDirectoryEntries(fullPath);
   if (dirEntries !== null) {
-    const parentPath = segments.length > 1
-      ? `/cockpit/wiki/${segments.slice(0, -1).join("/")}`
-      : "/cockpit/wiki";
+    const parentPath =
+      segments.length > 1
+        ? `/cockpit/wiki/${segments.slice(0, -1).join("/")}`
+        : "/cockpit/wiki";
 
-    return (
-      <div className="mx-auto max-w-4xl px-4 py-6">
-        {/* Breadcrumbs */}
-        <nav className="mb-4 flex items-center gap-1 text-sm text-[#6b7280]">
-          <Link href="/cockpit/wiki" className="transition-colors hover:text-[#1a1a2e]">
-            Knowledge
-          </Link>
-          {segments.map((seg, i) => (
-            <span key={i} className="flex items-center gap-1">
-              <ChevronRight className="size-3" />
-              {i < segments.length - 1 ? (
-                <Link
-                  href={`/cockpit/wiki/${segments.slice(0, i + 1).join("/")}`}
-                  className="transition-colors hover:text-[#1a1a2e]"
-                >
-                  {formatName(seg)}
-                </Link>
-              ) : (
-                <span className="text-[#1a1a2e]">{formatName(seg)}</span>
-              )}
-            </span>
-          ))}
-        </nav>
+    const readmeEntry = dirEntries.find(
+      (e) => e.name.toLowerCase() === "readme.md",
+    );
+    let readmeHtml: string | null = null;
+    if (readmeEntry) {
+      readmeHtml = await markdownToHtml(
+        fs.readFileSync(path.join(fullPath, "README.md"), "utf-8"),
+      );
+    }
+
+    const directoryContent = (
+      <>
+        <Breadcrumbs segments={segments} />
 
         <div className="mb-6 flex items-center gap-3">
-          <Link href={parentPath} className="text-[#9ca3af] transition-colors hover:text-[#1a1a2e]">
+          <Link
+            href={parentPath}
+            className="text-[#9ca3af] transition-colors hover:text-[#1a1a2e]"
+          >
             <ArrowLeft className="size-4" />
           </Link>
           <h1 className="text-xl font-semibold text-[#1a1a2e]">
@@ -91,16 +112,11 @@ export default async function WikiPage({ params }: WikiPageProps) {
           </h1>
         </div>
 
-        {/* README at top if it exists */}
-        {dirEntries.some((e) => e.name.toLowerCase() === "readme.md") && (() => {
-          const readmePath = path.join(fullPath, "README.md");
-          const content = fs.readFileSync(readmePath, "utf-8");
-          return (
-            <div className="mb-6 rounded-xl border border-black/[0.06] bg-white p-5 shadow-sm md:p-6">
-              <MarkdownContent content={content} />
-            </div>
-          );
-        })()}
+        {readmeHtml && (
+          <div className="mb-6 rounded-xl border border-black/[0.06] bg-white p-5 shadow-sm md:p-6">
+            <MarkdownContent html={readmeHtml} />
+          </div>
+        )}
 
         <div className="space-y-1">
           {dirEntries
@@ -122,54 +138,71 @@ export default async function WikiPage({ params }: WikiPageProps) {
               </Link>
             ))}
         </div>
-      </div>
+      </>
+    );
+
+    return (
+      <WikiLayout activePath={segments}>
+        {/* Mobile: full-width directory listing */}
+        <div className="mx-auto max-w-4xl px-4 py-6 md:hidden">
+          {directoryContent}
+        </div>
+        {/* Desktop: directory listing inside content pane */}
+        <div className="hidden p-6 md:block">
+          <div className="mx-auto max-w-3xl">
+            {directoryContent}
+          </div>
+        </div>
+      </WikiLayout>
     );
   }
 
-  // Check if it's a file
-  const content = getFileContent(fullPath);
-  if (content === null) notFound();
+  // ── File view ───────────────────────────────────────────────────────
+  const rawContent = getFileContent(fullPath);
+  if (rawContent === null) notFound();
+  const html = await markdownToHtml(rawContent);
 
-  const parentPath = segments.length > 1
-    ? `/cockpit/wiki/${segments.slice(0, -1).join("/")}`
-    : "/cockpit/wiki";
+  const parentPath =
+    segments.length > 1
+      ? `/cockpit/wiki/${segments.slice(0, -1).join("/")}`
+      : "/cockpit/wiki";
 
-  return (
-    <div className="mx-auto max-w-4xl px-4 py-6">
-      {/* Breadcrumbs */}
-      <nav className="mb-4 flex items-center gap-1 text-sm text-[#6b7280]">
-        <Link href="/cockpit/wiki" className="transition-colors hover:text-[#1a1a2e]">
-          Knowledge
-        </Link>
-        {segments.map((seg, i) => (
-          <span key={i} className="flex items-center gap-1">
-            <ChevronRight className="size-3" />
-            {i < segments.length - 1 ? (
-              <Link
-                href={`/cockpit/wiki/${segments.slice(0, i + 1).join("/")}`}
-                className="transition-colors hover:text-[#1a1a2e]"
-              >
-                {formatName(seg)}
-              </Link>
-            ) : (
-              <span className="text-[#1a1a2e]">{formatName(seg)}</span>
-            )}
-          </span>
-        ))}
-      </nav>
+  const fileContent = (
+    <>
+      <Breadcrumbs segments={segments} />
 
       <div className="mb-6 flex items-center gap-3">
-        <Link href={parentPath} className="text-[#9ca3af] transition-colors hover:text-[#1a1a2e]">
+        <Link
+          href={parentPath}
+          className="text-[#9ca3af] transition-colors hover:text-[#1a1a2e]"
+        >
           <ArrowLeft className="size-4" />
         </Link>
         <h1 className="text-xl font-semibold text-[#1a1a2e]">
           {formatName(segments[segments.length - 1])}
         </h1>
       </div>
+    </>
+  );
 
-      <div className="rounded-xl border border-black/[0.06] bg-white p-5 shadow-sm md:p-8">
-        <MarkdownContent content={content} />
+  return (
+    <WikiLayout activePath={segments}>
+      {/* Mobile: full-width */}
+      <div className="mx-auto max-w-4xl px-4 py-6 md:hidden">
+        {fileContent}
+        <div className="rounded-xl border border-black/[0.06] bg-white p-5 shadow-sm md:p-8">
+          <MarkdownContent html={html} />
+        </div>
       </div>
-    </div>
+      {/* Desktop: content in white card on gray bg */}
+      <div className="hidden bg-[#f8f8fa] p-6 md:block">
+        <div className="mx-auto max-w-3xl">
+          {fileContent}
+          <div className="rounded-xl border border-black/[0.06] bg-white p-6 shadow-sm md:p-8">
+            <MarkdownContent html={html} />
+          </div>
+        </div>
+      </div>
+    </WikiLayout>
   );
 }
