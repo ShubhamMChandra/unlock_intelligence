@@ -30,7 +30,7 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 
 *Texts + scripting. Can do from the couch.*
 
-- [ ] **Send the pre-work email** to all 5 attendees. Template in `email.md`. Attach `../../pre-class-setup.md`. Google Doc link placeholder — say "link coming Saturday." *(10 min)*
+- [ ] **★ Send the pre-work email ASAP** to all 5 attendees. Template in `email.md` (updated — no Google Doc link blocker anymore). Attach `../../pre-class-setup.md` (the new 25-min dev-tools install doc). They need Saturday to install Node.js and the Claude desktop app, so this email can't wait until Saturday morning. *(10 min)*
 - [ ] **Text Bill McCue for a specific prospect name** — not Workday, a company he's selling TO. Public web presence needed for the scraper closer. *(5 min)*
 - [ ] **Text JT** — confirm projector setup (HDMI or USB-C), ask for wifi network + password, and confirm Saturday evening timing. *(5 min)*
 - [ ] **Pre-build the deliberate failure prompt.** Ask Claude about a cannabis state licensing transfer timeline or a 280E ruling — something in Zeshawn's domain that it'll fabricate. Test it, confirm it fabricates, save in a tab. *(15 min)*
@@ -38,6 +38,16 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 - [ ] **Mental rehearsal before bed: Zeshawn first, then Alan.** Stall patterns — Zeshawn reads everything ("paste it first, run it once, then edit"), Alan improvises ("what are you changing? Run it first"). *(10 min)*
 
 ## Saturday 4/11 — the heavy day
+
+### ★ Claude Code build-phase pivot work (Shubham, before anything else)
+
+*Block 5 is now "build a Next.js webapp in Claude Code," not "build a Claude Project." These tasks are gating everything else Saturday.*
+
+- [ ] **★ Check each attendee's install** — text each person by noon Saturday: "did the Node + Claude desktop app install work? did the smoke test work?" Catch failures early so there's time to debug over text, not in the room. *(15 min)*
+- [ ] **★ Build the universal Next.js starter repo** — scaffolded project, README with a slot for the personalized synthesis prompt, tested with `npm run dev`. Simplest possible: one input field (URL or company name) → fetch → Claude API synthesis → display. Push to a public GitHub repo the attendees will clone. *(60 min)*
+- [ ] **★ Write the 5 personalized synthesis prompts** — one per attendee, each targeting the same universal webapp scaffolding. Zeshawn = cannabis diligence brief on a URL, Alan = co-founder analysis on a company, Tommy = competitor teardown, Jess = cultural peer scrape, Bill = enterprise account brief. Drop them as README slots in the starter repo or as a separate handout. *(30 min)*
+- [ ] **★ Dry-run the full build in Claude desktop app** — clone the repo, have Claude Code add the feature, start the dev server, click through at localhost:3000. Time it end-to-end. If it's over 20 min for YOU (experienced), cut scope until it's under 15 min for you, which means ~25 min for attendees. *(30 min)*
+- [ ] **Rewrite Block 5 in `run-of-show.md` and `run-sheet.md`** to match the new build format (circulation order, failure moment, show-and-tell). Can be lighter-touch — the run-sheet is the one that matters Sunday. *(30 min)*
 
 ### Shubham solo, afternoon (~1.5 hours, start by 2pm)
 
