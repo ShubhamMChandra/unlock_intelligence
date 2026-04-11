@@ -115,6 +115,7 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 - [ ] **Food + coffee already set out** away from the projector area
 - [ ] **Phone hotspot pre-connected** as wifi backup
 - [ ] **Water + snack in front of you**
+- [ ] **★ Watch for Claude Pro usage limits during the build phase.** 5 people running web-research-heavy prompts in parallel is a real hit on message quotas. As they arrive, ask each attendee when they last used Claude — anyone who's been using it heavily this morning might burn through their window mid-build. Mitigations if it happens: (1) have them switch to a different model in the same Project (Sonnet if they were on Opus), (2) share your projector Claude screen so they can follow along, (3) offer to run their prompt on your account and AirDrop the output back. The worst failure mode is someone getting locked out 5 minutes into the build and going quiet — circulate and check if anyone stalls suddenly.
 - [ ] **Breathe.** You've prepped. The lesson is good. Your friends are already rooting for you.
 
 ## Sunday 4/12 post-lesson

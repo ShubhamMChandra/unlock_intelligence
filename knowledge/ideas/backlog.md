@@ -20,6 +20,18 @@ These outrank further design work for conversion impact. Identified during the v
 
 ---
 
+### Open Strategic Questions from Curriculum Reframe (2026-04-10)
+
+Surfaced during the 2-day curriculum reframe brainstorm but parked because each needs its own dedicated session. Don't relitigate without reading the source learning doc first: `knowledge/learnings/2026-04-10-curriculum-2day-reframe.md`.
+
+- [ ] **Manager stretch as a positioning thesis** -- Whether the program serves managers and ICs in one cohort, splits into two separate products (builder cohort + leader cohort), caps the manager mix at ~3-4 per cohort, or sells a manager-only Day 2 add-on. Each path has different curriculum, pricing, and GTM implications. The current bet is "mixed cohort with managers given a real job during the IC build phase," but Dr. Kiran flagged this as partly fantasy without specific manager-side activities. Until resolved, Day 2 is designed for IC consumption only. Discussion needs Shubham + JT + a buyer-side reality check. _Source: Curriculum 2-day reframe brainstorm, 2026-04-10._
+
+- [ ] **Schedule shape pressure test** -- The 8-hour / 2-half-day budget was confirmed as a soft sustainability intuition, not a hard market or calendar constraint ("felt right, what we could sustain"). Worth testing 2x4h (current) vs 3x2.5h (spaced practice, harder to schedule) vs 1x6-7h intensive (single calendar event, higher fatigue) vs flipped density 2x4h (lighter Day 1, denser Day 2). Test after the founding cohort runs once and we have real attendance + retention data. _Source: Curriculum 2-day reframe brainstorm, 2026-04-10._
+
+- [ ] **Audience demographic check for the founding cohort** -- JT's two Day 1 unlocks (real effect + not that hard) assume a senior-skeptical audience. The unlocks land differently for junior + AI-curious attendees, where "not that hard" can cheapen the perceived value. Walk the actual founding cohort signup list against the persona profiles before personalized watchtower starters get built. Prerequisite for personalized starter prep. _Source: Curriculum 2-day reframe brainstorm, 2026-04-10._
+
+---
+
 - [ ] **Pricing anchor on site** -- Even without exact pricing, add a comparison: "Less than sending one person to a two-day conference." HR buyers need budget context before they'll reach out. Without it, the contact form feels like a trap. _Source: Business Analyst, Round 1._
 
 - [ ] **Lead magnet / curriculum PDF download** -- Email-gated curriculum overview PDF. Captures interested-but-not-ready visitors. The HR buying cycle is 30-90 days; without a lead magnet, visitors who aren't ready to buy today are lost forever. _Source: Growth Agent, Round 3._

@@ -29,6 +29,7 @@ A shared repository of learnings, strategies, playbooks, and artifacts from buil
 ## Index
 
 ### Learnings
+- [2026-04-10: Curriculum 2-Day Reframe](learnings/2026-04-10-curriculum-2day-reframe.md) — 8-module → 2-day shape pivot, Watchtower as Day 1 vehicle, matrix as lens (not subject), Module 1 4/12 rewrite
 - [2026-04-10: Module 1 Prep Session](learnings/2026-04-10-module-1-prep-session.md) — Worksheet rewrite, artifact extraction, Gamma learnings, instructor review findings
 - [2026-04-10: Instructor Review of Module 1](learnings/2026-04-10-instructor-review-module-1.md) — Pedagogical gaps, pacing risks, stall patterns, facilitation craft notes
 - [2026-04-06: ROI Card Reads as Price Tag](learnings/2026-04-06-roi-card-ux-fix.md) — $9,750 stat mistaken for program cost; UX fix + source diversity rule

@@ -57,13 +57,45 @@ Name each person by first name, name each industry, joke about the spread (GC, f
 
 Three phases: setup → run → react/bridge. Detailed breakdown below. Lock the demo path with Jess by Wednesday via text (dummy account pre-loaded with her 3 real meetings, or live OAuth if her work laptop allows it).
 
-### 3. The 5-component matrix (~6–8 min)
+### 3. Live matrix fill on Jess's demo (~6–8 min)
 
-Show the matrix visual. Map Jess's task across People / Tools / Trainings / Guardrails / Metrics — before and after. Verbal, fast. Tie to the horizontal frame:
+**v0.2 — see rationale:** `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md`. This block used to be a taught framework. It's now a live fill on the demo the room just watched. Columns are never named upfront. They emerge from the act of filling, then get named after the cells are full. This is the first live test of the reframe — watch Jess and the room carefully.
 
-> *"Most AI training picks a person and gives them a tool — 'how do I get my people to use AI?' We just rebuilt the whole row. The horizontal question is: which of my processes should I redesign?"*
+Pull up the empty matrix on the projector. Two rows ("Today" / "Rebuilt"), five empty columns. Hand out the worksheet page 2 version so each attendee can fill along. **Do not say "people, tools, trainings, guardrails, metrics" yet.** Not once.
 
-Give it real time. If the demo runs fast, the matrix gets 8 minutes. If the demo runs long, 5 minutes is the floor. Don't let it shrink below that — the persona tests flagged it as underinvested even at 6 minutes.
+Open with the move:
+
+> *"Look at what just happened. Let's name what changed."*
+
+Then walk the five columns as questions to the room, filling Jess's answers in the "Today" row first, all the way across, before touching the "Rebuilt" row.
+
+> *"Before today, who was doing the prep for one of those client meetings?"* — column 1
+>
+> *"What were they doing it in — what tool, what surface?"* — column 2
+>
+> *"What did that person need to know or have seen before to do it well?"* — column 3
+>
+> *"Who was checking the output before it went in front of a client?"* — column 4
+>
+> *"And how did anyone know the prep was actually any good?"* — column 5
+
+Write Jess's answers verbatim, even if they're messy. Her "Today" row is almost certainly going to be: *Jess herself, Google + Notion + past AEA decks, cultural-sector context + the client's board history, Jess again (no second pair of eyes), and a felt sense of "I walked in ready" with no real metric.* Don't clean it up. The scruffiness is the point — it shows what running this by hand actually costs.
+
+Then walk the same five questions again for the "Rebuilt" row. The Claude Project is the person. The Project is the tool. The instructions + the uploaded context is the training. The verification step she'd add is the guardrail. The metric is whatever she names — probably "45 minutes became 4" or "I stopped skipping the prep on Friday meetings."
+
+**Only after all ten cells are full, name the columns:**
+
+> *"What you just told me has a name. People. Tools. Trainings. Guardrails. Metrics. Every process you run has all five — whether anyone wrote them down or not. Most AI training fixes one column. We just rebuilt the whole row. That's the whole game."*
+
+Then the punchline:
+
+> *"Most AI training asks 'how do I get my person to use AI?' That's vertical thinking — pick a person, give them a tool, hope it works. What we just did was horizontal. We didn't give Jess a tool. We picked a process and redesigned all five components of it. Everything else today is built on that distinction."*
+
+**If time permits — cross-industry side-by-side (~90 sec).** Pick Tommy or Bill and run the same five questions on their version of meeting prep. Tommy's "Today" people column is the competitive intel analyst or PMM doing teardown-by-hand; Bill's is the AE doing account research between calls. Rebuilt row lands the same way. The cross-industry thesis becomes structural when the room sees two totally different businesses fill the same five columns.
+
+**Pacing guardrails.** Eight-minute ceiling, five-minute floor. Do not let this block shrink below five. If the demo ran long and you're squeezed, cut the cross-industry side-by-side first, then tighten the narration on the fill — don't cut columns. Every column has to get filled in both rows, or the "you just did all five" move doesn't land.
+
+**What to watch for (this is a live test).** The whole move depends on the room doing the filling, not nodding at a taught framework. Watch eyes during the "Today" row. If Jess is the only one speaking and the other four are glazed, the fill-first move is underperforming — abbreviate the "Rebuilt" row narration and get to the name-the-columns beat faster. If hands are pointing at the screen and people are interrupting Jess with their own answers, it's working — give it the full eight minutes. Capture which of the two happened in the Sunday retro. That signal is the whole reason this block got rewritten.
 
 ### 4. UI walkthrough (~60 sec)
 

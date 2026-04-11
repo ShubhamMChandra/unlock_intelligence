@@ -1,6 +1,6 @@
 # Module 1 — Run of show: The Process Matrix
 
-**Status:** Draft v0.1 (written 2026-04-07, pre-beta). Will be refined after the 2026-04-12 first live run and the retro that follows.
+**Status:** Draft v0.2 (matrix block rewritten 2026-04-10 to test the matrix-as-lens approach live on the 2026-04-12 beta — see `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` for the rationale). Will be refined after the 2026-04-12 first live run and the retro that follows.
 
 **Duration:** ~60 min (standard program hour) or ~75 min (extended in-person version with a larger hands-on phase).
 
@@ -66,23 +66,45 @@ Then bridge:
 
 > "What you just watched took six minutes to run but ninety seconds to build. The instruction was four sentences. Now I'm going to show you the framework that makes this possible."
 
-### Block 3 — The 5-component matrix (~6–8 min)
+### Block 3 — Live matrix fill on the demo (~5–8 min)
 
-This is the intellectual spine of the whole program and the reason Module 1 isn't just "AI tricks." Don't rush it. Persona beta-testing flagged this as the single most under-invested beat in early drafts — give it real time.
+**Rewritten 2026-04-10. See `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` for the rationale.**
 
-**Hand out the printed matrix visual before starting this block.** Physical artifacts in people's hands reduce working memory load and become a take-home reference. Don't rely solely on the projector.
+This is the intellectual spine of the whole program — but the matrix is **never taught as theory**. It is filled, in the room, on the demo that just happened. Theory through doing, never through telling. The five components emerge from the act of filling, and the framework gets its name *after* the cells are full, not before.
 
-Show the matrix visual. Five columns: **People / Tools / Trainings / Guardrails / Metrics**. Two rows: "Today" and "Rebuilt."
+**Hand out the printed matrix visual before starting this block.** Empty cells. The handout is for filling, not for reading. (Worksheet page 2 has the same empty matrix.)
 
-Map the volunteer's task across both rows — but make it interactive. Don't monologue through the mapping. Ask the room to fill in the cells with you: *"What tool was Jess using before?" "Who was doing this work before Claude?"* Let them call out the answers. It takes 90 seconds longer but keeps the room active through the analytical gear-shift after the demo high.
+Open with the move:
 
-The teaching move: *most AI training fixes one column. We just rebuilt the whole row.*
+> *"Look at what just happened. Let's name what changed."*
 
-Tie it back to the vertical-vs-horizontal distinction:
+Pull up the empty matrix on the projector. Two rows ("Today" and "Rebuilt"), five empty columns. **Don't introduce the columns. Don't say "people, tools, trainings, guardrails, metrics" yet.** Walk the columns as questions and let the room fill them in:
 
-> "Vertical thinking is 'how do I get my person to use AI?' Horizontal thinking is 'which of my processes should I redesign?' What you just watched was horizontal. Everything else in the program is built on that distinction."
+> *"Before today, who was doing this work? Write that in the first column under 'Today.'"*
+>
+> *"What tool were they using? Next column."*
+>
+> *"What did they need to know to do this well?"*
+>
+> *"Who was checking the output before it went anywhere?"*
+>
+> *"How did anyone know the work was good?"*
 
-If time permits, show the "before" row for one or two other attendees side-by-side with the volunteer's. The cross-industry thesis lands structurally when you do this, not just emotionally.
+Fill the "Today" row first across all five columns. Then walk the same five questions for the "Rebuilt" row — what changed for each column after Claude got involved. Let Jess and the room call out the answers. Write what they say verbatim, even if it's incomplete. The point is the act of filling, not the polish of the cells.
+
+**Only after the cells are full, name what the columns are:**
+
+> *"What you just told me has a name. People. Tools. Trainings. Guardrails. Metrics. Every business process you run has all five — whether anyone has thought about them or not. Most AI training fixes one column. We just rebuilt the whole row. That's the whole game."*
+
+The teaching move: the matrix is the *description of what the room just did*, not a framework being introduced.
+
+Then the punchline — vertical vs. horizontal:
+
+> *"Most AI training asks 'how do I get my person to use AI?' That's vertical thinking — start with a person, add a tool, hope for the best. What we just did was horizontal. We didn't ask how to give Jess a tool. We asked which of her processes to redesign, and then we redesigned all five components of it. Everything else in this program is built on that distinction."*
+
+If time permits, show the same fill for one or two other attendees side-by-side with the volunteer's. The cross-industry thesis lands structurally when you do this — same five columns, totally different content.
+
+**What changed from v0.1 (pre-2026-04-10 reframe):** v0.1 introduced the matrix as a framework first ("Show the matrix visual. Five columns: People / Tools / Trainings / Guardrails / Metrics") and *then* mapped the demo onto it. v0.2 inverts the order: fill first, name the columns after. The five components emerge from the fill, the framework gets its name only after the room has already done the work. This is the "matrix as lens, never as subject" principle from the 2026-04-10 curriculum reframe brainstorm. The 2026-04-12 beta is the live test of whether the fill-first move outperforms the framework-first version — watch attendee body language during this block carefully and capture in the retro whether they leaned in or checked out.
 
 ### Block 3b — Comprehension check (~30 sec)
 
