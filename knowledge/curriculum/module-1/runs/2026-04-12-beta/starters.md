@@ -1,8 +1,69 @@
-# Personalized starters — 2026-04-12 beta
+# Block 5 build prompt — 2026-04-12 beta
 
-Five ready-to-paste Claude Project starters, one per attendee. Each has a "Why this works" annotation block, a first-run prompt to paste after setup, and a brief note on what the output should look like. On Saturday, copy these into the shared Google Doc with each attendee's real name as the section heading.
+One build prompt. Five attendees. Same paste, different outputs. The personalization lives in the real initiative each attendee brings, not in the prompt itself.
 
-**How to use this file:** Copy everything under each attendee's name into the Google Doc. Each person sees their starter (paste into Claude Projects), the annotation explaining why it works, and a first-run prompt they can paste right after setup so they're not staring at a blank chat. The first-run prompts use real companies and real scenarios -- the output should be genuinely useful on the first try.
+This file is the single most important Saturday artifact. If the prompt below reliably produces a working app on a blank `create-next-app` scaffold in ~10–15 minutes, Block 5 works. If it doesn't, Block 5 collapses. Test it cold on Saturday.
+
+(See also: `../../../pre-class-setup.md` — the attendee-facing setup doc that lands them at a blank `unlock-demo` scaffold before they walk in.)
+
+---
+
+## How to use this prompt on Sunday
+
+Each attendee already has a blank Next.js scaffold called `unlock-demo` sitting on their Desktop from pre-work (TypeScript + Tailwind, dev server tested, nothing else). During Block 5 they open Claude Code Desktop, click the **Code** tab, select their `unlock-demo` folder, and paste the build prompt below. When Claude Code asks for the Anthropic API key, they copy it from the shared Google Doc and paste it back. They walk through each approval. ~10–15 minutes later they have a working role-aware document generator at localhost:3000, and they run it on the real initiative they brought with them.
+
+**The demo API key** for this workshop is in the shared Google Doc. It's a throwaway key with a $50 cap that Shubham rotates Monday morning. Don't worry about security: the attendee pastes it into `.env.local` when Claude asks. No OAuth, no secrets manager, no production-grade handling. This is the intentional "don't over-engineer a demo" move that keeps Claude Code from asking 14 clarifying questions.
+
+---
+
+## The prompt (paste this into Claude Code Desktop during Block 5)
+
+> I'm in a workshop and I need you to build me a small Next.js app inside this project. I'm on a fresh create-next-app scaffold (TypeScript + Tailwind, app router). Use what's already here — don't reinstall or re-scaffold.
+>
+> **What to build:** a single-page app at `/` that takes three inputs from me and generates one tailored document per audience I select.
+>
+> **The form** (on the main page):
+> 1. A text input for my role (e.g., "VP of Operations")
+> 2. A textarea for the initiative I'm working on (e.g., "rolling out a new vendor management process next quarter")
+> 3. A multi-select checkbox group labeled "Who do you need to communicate this to?" with these options: Executive leadership, Operational team, Client or customer, Legal or compliance, Sales or marketing
+> 4. A "Generate documents" button
+>
+> **The backend:** a Next.js API route at `/app/api/generate/route.ts` that receives `{ role, initiative, audiences[] }`. For each selected audience, call the Anthropic SDK (`@anthropic-ai/sdk`) using the `claude-sonnet-4-5` model and generate a ~1-page tailored document that explains the initiative from my role, shaped for that audience's perspective and information needs. Return `{ documents: [{ audience, markdown }] }`.
+>
+> **The render:** show each generated document on the same page below the form, with the audience name as a clear heading. Render the markdown with `react-markdown` so it looks readable.
+>
+> **Styling:** Tailwind only. Clean, professional, light theme, generous whitespace, readable typography. Think "something a consultant could open on a Monday," not "hackathon demo." Don't spend more than 2 minutes on styling.
+>
+> **The API key:** I have a demo API key from the workshop. It's a temporary key I'm allowed to use. When you're ready for it, ask me and I'll paste it. Hardcode it into `.env.local` as `ANTHROPIC_API_KEY`. Don't worry about security for this — it's a demo key that will be rotated after the workshop.
+>
+> **Dependencies:** install only `@anthropic-ai/sdk` and `react-markdown`. Do not install test frameworks, linters, state libraries, auth, ORMs, or anything else.
+>
+> **How to work with me:** I'm not technical. Explain each step in plain English before you run it. Ask me to approve each shell command. Never run more than one command at a time. If something breaks, stop, tell me what went wrong in plain English, and wait for me to tell you what to do — do not try to auto-recover for more than 30 seconds.
+>
+> **When you're done:** start the dev server, confirm localhost:3000 loads the form, and tell me it's ready to try.
+
+---
+
+## Why this prompt works
+
+- **Named stack, named files.** "Next.js app router, `/app/api/generate/route.ts`, `claude-sonnet-4-5`, `@anthropic-ai/sdk`, `react-markdown`" — no ambiguity about which files to touch or which SDK to use. Claude Code doesn't have to guess at architecture, so it doesn't waste turns proposing three alternatives.
+- **Tight scope, concrete form fields.** Five audience options, three inputs, one button. Nothing to interpret. The prompt tells Claude what the form looks like rather than asking it to design one, which cuts a full round of clarifying questions.
+- **Explicit approval gates.** "Ask me to approve each shell command, never run more than one command at a time" lines up with Claude Code Desktop's default permission mode and keeps the attendee in the driver's seat. Non-technical attendees stay oriented because they're clicking "approve" after every meaningful step.
+- **Minimum dependencies, named.** "Only `@anthropic-ai/sdk` and `react-markdown`." The "do not install" list kills the long tail of speculative installs Claude Code would otherwise suggest (testing frameworks, state libraries, auth). Ten fewer commands = ten fewer minutes.
+- **Plain-English explanation mode.** "I'm not technical, explain each step in plain English." Tunes Claude's verbosity without turning it into a teacher. The attendee can read if they want to, click through if they don't.
+- **Stop-on-failure.** "If something breaks, stop, tell me what went wrong, and wait — don't auto-recover for more than 30 seconds." Prevents Claude Code from looping on an obscure error for 5 minutes while the room goes quiet. Fail fast, raise a hand, Shubham or JT diagnose.
+- **The "demo key, don't worry about security" framing.** This is the key craft move. Without it, Claude Code asks "should this be a server-side env var? Should I use a vault? What's the rotation policy?" and burns three turns on prod-grade handling. Explicitly telling Claude "this is a temporary demo key, hardcode it in `.env.local`" collapses those questions into a single paste.
+- **Verification at the end.** "Start the dev server, confirm localhost:3000 loads, tell me it's ready" gives the attendee a clear "done" signal. They don't have to guess whether the build is finished — Claude tells them.
+
+---
+
+## Appendix: rejected direction (v0 — Claude Project starters)
+
+This section preserves the five personalized Claude Project custom-instruction starters from the original Block 5 plan. They were superseded when the workshop pivoted from "personalize a Claude Project in the browser" to "build a real Next.js app on your own laptop with Claude Code Desktop."
+
+**Why they were superseded:** the pivot was pedagogical. Claude Projects in the browser is a prompt-with-custom-instructions pattern — one turn, one response, no loop. Module 1's thesis is *agentic > prompting*, and Block 5 needs to put attendees inside an actual agentic loop (read files, write files, run commands, verify output, iterate). Claude Code Desktop does that; a Claude Project doesn't. The personalization that used to live in five different custom-instruction blocks now lives in the real initiative each attendee brings to the room — same personal stakes, different (and stronger) teaching surface.
+
+**When to fall back to this appendix:** if the Claude Code Desktop approach implodes at the venue Saturday evening (pre-work prompt fails on a clean machine, venue wifi can't handle 5 concurrent Claude Code sessions, Claude Desktop app has a day-of bug), revert. The five starters below still work in Claude Projects in the browser and carry the full Block 5 load, same as the original plan. Shubham would copy them into the shared Google Doc per attendee name, and Block 5 becomes "open Claude > New Project > paste your starter > run your first prompt" instead of "paste build prompt into Claude Code Desktop." Sub-optimal on the thesis but recoverable.
 
 ---
 

@@ -29,6 +29,7 @@ A shared repository of learnings, strategies, playbooks, and artifacts from buil
 ## Index
 
 ### Learnings
+- [2026-04-11: Module 1 Agentic-Reframe Pivot](learnings/2026-04-11-module-1-agentic-reframe-pivot.md) — T-2 rewrite of Block 2 + Block 5 + pre-work from prompt-shaped to agentic-loop-shaped; supersedes round-2 personalized-starter pattern; pre-class setup going live to attendees tonight
 - [2026-04-10: Curriculum 2-Day Reframe](learnings/2026-04-10-curriculum-2day-reframe.md) — 8-module → 2-day shape pivot, Watchtower as Day 1 vehicle, matrix as lens (not subject), Module 1 4/12 rewrite
 - [2026-04-10: Module 1 Prep Session](learnings/2026-04-10-module-1-prep-session.md) — Worksheet rewrite, artifact extraction, Gamma learnings, instructor review findings
 - [2026-04-10: Instructor Review of Module 1](learnings/2026-04-10-instructor-review-module-1.md) — Pedagogical gaps, pacing risks, stall patterns, facilitation craft notes
