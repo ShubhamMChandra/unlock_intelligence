@@ -18,6 +18,10 @@ Applied the "looks AI-made" principles from `2026-10-06-site-refresh-and-ai-tell
 **What we learned:** The wam.team equivalent of the Process Matrix is a tabbed workflow map (lead intake, CRM hygiene, sales to onboarding, weekly reporting): step, where it lives, what the agent does, the human check. Filled square = agent, hollow = person.
 **Action taken:** It leads the homepage, directly under the hero.
 
+### 4. Design reference Shubham loves: https://andremarques.xyz/
+**What we learned:** Shubham said he "really, really likes" this site. Not yet analyzed: the domain is blocked by this cloud environment's network proxy.
+**Action taken:** Recorded as a reference. Next session with access: study its type, spacing, and palette, and use it as a benchmark for wam.team and Unlock Intelligence.
+
 ## What Worked
 - Splitting work across agents by file ownership (homepage and design system vs. inner pages) to hit a hard deadline without conflicts
 
