@@ -1,84 +1,129 @@
 # Module 1 — Run of show: The Process Matrix
 
-**Status:** Draft v0.2 (matrix block rewritten 2026-04-10 to test the matrix-as-lens approach live on the 2026-04-12 beta — see `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` for the rationale). Will be refined after the 2026-04-12 first live run and the retro that follows.
+**Status:** Draft v0.3 (restructured 2026-04-12 after the beta run. Aspiration moved to front, build made collaborative, R-D-C workflow added as final build. See v0.2 in git history for the previous structure.)
 
-**Duration:** ~60 min (standard program hour) or ~75 min (extended in-person version with a larger hands-on phase).
+**Duration:** ~70 min (standard) or ~80 min (extended in-person with deeper customization and build phases).
 
 **Format:** Live, instructor-led. In-person or Zoom. Assumes each attendee has a laptop and a Claude Pro account.
 
-**Learning objective:** By the end of Module 1, each attendee has seen Claude act agentically on real data, built their own reusable Claude Project for one of their own recurring tasks, and can explain the 5-component process matrix in their own words.
+**Learning objective:** By the end of Module 1, each attendee has seen the full potential of agentic AI (the competitive intel scraper), used a role-aware document generator on their own real work, can explain the 5-component process matrix in their own words, and has built a complete research-decision-communication workflow collaboratively.
 
 **Program context:** This is Hour 1 of an 8-10 hour program. Everything after this hour assumes the matrix framework as the organizing intellectual spine.
 
 ## Prerequisites for the attendee
 
 - A Claude Pro subscription ($20, cancellable) — needed for Projects
-- One recurring task they'd love to never do again, held in their head (no form required)
-- Optional: a reference file or two from that task (a sample document, a template, a brief)
+- One real initiative they need to communicate about to multiple stakeholders, held in their head (no form required)
+- Optional: a reference file or two from that initiative (a sample document, a template, a brief)
 
 ## Materials the instructor needs ready
 
 - A projector or screen-share
-- A pre-built "demo account" with data relevant to the live demo — ideally populated with the volunteer's real context (see the 2026-04-12 beta run at `runs/2026-04-12-beta/run-sheet.md` for the dummy-account pattern, which generalizes beyond that specific cohort)
-- A shared Google Doc containing: (1) a generic 6-line Project template, (2) one personalized starter Project per attendee with a "WHY THIS WORKS" annotation block
-- A pre-written primary demo prompt, plus two fallbacks
-- A 1-page visual of the 5-component matrix
-- A pre-built tool or workflow to demo at the closer — something the instructor actually uses, not a prop
+- hpc-markets.com loaded in a browser tab, pre-tested on a real account the day before
+- The document generator running at localhost:3001 (or deployed URL), pre-tested
+- The Gamma deck loaded and ready to project (5 slides — title, destination, matrix, R-D-C, closing)
+- A 1-page visual of the 5-component matrix (printed handout, empty cells)
+- A pre-tested R-D-C build workflow — the three-phase prompt chain that drives Beat 5
+- A demo API key in the shared Google Doc ($50 cap, rotated after the session)
 - A 7-question feedback form (printed or Google Form)
 
 ## The run
 
-### Block 1 — Welcome and frame (~3 min)
+### Beat 1 — Opener (~3-5 min)
 
 Name everyone in the room. Say what industry they're in out loud. Joke about the spread if there is one — the mix is the asset. Set the expectation in one sentence:
 
-> "By the end of this hour, each of you walks out with a Claude Project that's reading your real files and doing actual work for you. Not prompts. Tools."
+> "By the end of this hour, you'll have seen where this goes, learned the basics, and built a complete workflow — research, decision, communication — on your own real initiative. Together."
 
 If this is a beta or early cohort, add the honest ask:
 
 > "I want your honest feedback at the end. Be brutal — it's how this gets better."
 
-Do not start teaching the framework yet. Go straight into the demo.
+Do not start teaching the framework yet. Do not mention the matrix. Go straight into the aspiration.
 
-### Block 2 — Live demo on real data (~12–15 min)
+**Gamma cue:** Title slide on projector during this beat.
 
-This is the headline beat. If this beat lands, every subsequent block becomes easier. If it misses, the rest of the hour is rescue work.
+### Beat 2 — "Here's what you can build eventually" (~12-15 min)
 
-**Pick a volunteer before the session starts.** For the first live run, pick the person whose job is most clearly knowledge-work-shaped (consultant, PM, analyst). For later cohorts, once you've run this several times, consider picking the hardest case instead — the person whose job is least obviously AI-shaped. Universality lands harder when the unlikely case works.
+This is the aspirational demo. The room sees the destination before they build anything. If this beat lands, the rest of the hour has a North Star. If it misses, every subsequent block needs to independently justify itself.
 
-**Structure:** three loose phases.
+**Why this comes first, not last:** In v0.2, the scraper was the closer (Block 7). Round-2 persona testing flagged that showing a six-step scraper AFTER attendees built a one-step tool created an undercut — "is what I just built the kiddie version?" Moving it to the front reframes it as a destination, not a comparison. Attendees build knowing where the road goes, not discovering it after.
 
-**Phase A — Setup.** Bring the volunteer to the projector. If you're using the dummy-account pattern, open the pre-loaded account. If you're using live OAuth, walk them through authorizing a connector. Drop a calming line while things load: *"Claude doesn't store your data. It reads it when you ask, then forgets."*
+**Structure:** three phases.
 
-**Phase B — Run.** Frame the task in one sentence: *"I'm going to ask Claude to do something that would take 30 minutes to do by hand on a Sunday night. Watch what it DOES, not just what it says."* Paste the pre-written prompt. Never type it live — typos kill momentum. Claude runs the multi-step task. Narrate while it works. Don't just stare at the screen — say what's happening out loud so the room sees the steps.
+**Phase A — Frame.** Don't sell. Position it as what's real:
 
-**Phase C — React and bridge.** When Claude finishes, read the output on the projector. Pause. Look at the volunteer. Capture their reaction — the room's eyes will follow their face, and their face is the lesson. If they don't react out loud, ask: *"Would you actually use this on Monday?"* Their answer is what the room remembers.
+> "Before we build anything, I want to show you where this goes. This is something I actually built and use at Digital Realty every Monday morning. Not a prop."
 
-Drop the 30-second theory beat here — after the output, not during the run. Don't interrupt the thing creating the emotional reaction. Proof first, then explanation:
+**Phase B — Run.** Turn to an attendee — pick someone whose job has an obvious competitive-intel angle (enterprise sales, consulting, due diligence). Ask for a real target:
 
-> "Same Claude. Same model you all have on your laptops. The first way everyone uses it asks it to predict the most likely next words. What I just did gave it a job, real data, and a goal. That's the entire difference."
+> "Name a real company you're tracking right now. One where they have a public web presence."
 
-Keep it to 30 seconds. The framework section comes later.
+They name it. Type the company name into the scraper at hpc-markets.com. Then narrate the 6 steps as they fire:
 
-If the volunteer starts asking follow-up questions ("wait, can it also do X?"), redirect: *"Hold that thought — that's exactly what you're about to build."*
+1. **Site crawl** — *"It's reading their corporate site — about page, leadership, recent press releases."*
+2. **Press scan** — *"Searching business press. Last 90 days of coverage."*
+3. **LinkedIn signals** — *"LinkedIn next. Job postings, team growth, org changes."*
+4. **News synthesis** — *"Pulling everything together into a single picture."*
+5. **Competitive context** — *"Cross-referencing against what we already know about our positioning."*
+6. **Brief generation** — *"And here's the brief. One page. Ready for a Monday morning call."*
 
-Then bridge:
+**Phase C — React and bridge.** When it finishes, read the brief on the projector. Pause. Then:
 
-> "What you just watched took six minutes to run but ninety seconds to build. The instruction was four sentences. Now I'm going to show you the framework that makes this possible."
+> *"This is what I used to spend two hours doing on a Monday morning. It takes ninety seconds now."*
 
-### Block 3 — Live matrix fill on the demo (~5–8 min)
+**Name how the scraper generalizes to each person in the room.** Don't let it feel like only one person's tool. Say each one out loud — this prevents the "not invited" feeling:
 
-**Rewritten 2026-04-10. See `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` for the rationale.**
+> *"Tommy, you could run one of these on every competitor in your landscape every Monday. Zeshawn, this is a diligence pre-screen on any acquisition target with a public footprint. Jess, point it at a peer institution before a client pitch. Alan, run it on any company you're about to sell consulting to. Same bones, different target."*
 
-This is the intellectual spine of the whole program — but the matrix is **never taught as theory**. It is filled, in the room, on the demo that just happened. Theory through doing, never through telling. The five components emerge from the act of filling, and the framework gets its name *after* the cells are full, not before.
+Swap the names for whoever is actually in the room.
 
-**Hand out the printed matrix visual before starting this block.** Empty cells. The handout is for filling, not for reading. (Worksheet page 2 has the same empty matrix.)
+Then the bridge:
+
+> "That's where we're going. Same primitives — structured inputs, real data, multi-step. By the end of this program, each of you builds one of these for your own work. Today we start with the basics."
+
+**Pacing guardrail:** 15-minute ceiling. If the attendee starts asking follow-ups ("wait, can it also do X?"), redirect: *"We'll get to that. First, the basics."*
+
+**Gamma cue:** Slide 2 (destination) on projector during this beat.
+
+### Beat 3 — "Here's the basics + we'll customize together" (~15-20 min)
+
+This is the document generator — the teaching surface for the rest of the hour. Three inputs (role, initiative, stakeholders), tailored outputs per audience. One job, many outputs.
+
+**Phase A — Show the tool (~3-4 min).** Open the document generator on the projector at localhost:3001. Walk through what it does in plain language:
+
+> "Three inputs. Your role — what you actually do. Your initiative — the thing you're working on right now. And who you need to communicate to — your stakeholders. It generates a tailored document for each audience. One tool, many outputs."
+
+Run it once on your own pre-loaded example so the room sees the output shape before anyone has to provide their own data. Don't explain the technology. Show the result.
+
+**Phase B — Run it on the first volunteer (~3-4 min).** Pick someone whose initiative is clearly communicable. Ask for their real role, real initiative, real stakeholders. Type them in. Hit generate. Read the first document out loud on the projector. Capture their reaction — the room's eyes follow their face.
+
+If they don't react out loud, ask: *"Would you send that on Monday?"*
+
+**Phase C — Customize together (~10-12 min).** Move through each attendee. This is the collaborative heart of the new structure — don't go around the table mechanically. Let the energy flow. If one person's output sparks a reaction from another, lean into that.
+
+For each person:
+- They call out their role, initiative, and stakeholders
+- The instructor (or the attendee, depending on comfort) types them in and runs the generator
+- Brief reaction: "Close? Wrong shape? What would you change?"
+
+**If energy is high and time permits:** take one customization request from the room and implement it live — open Claude Code, describe the change, show the agentic loop (read, decide, write, verify). This is optional but powerful if it lands. Don't force it.
+
+**Craft move:** The customization step should feel like the room is building this together, not like five people taking turns. Narrate the patterns: *"See how his output has a different shape than yours? Same tool, different audience. That's the point."*
+
+**Pacing guardrail:** If running long, customize fewer attendees in Phase C. The first two runs (instructor's example + one volunteer) are non-negotiable. Attendees 3-5 can be compressed to "call out your inputs, I'll run it, quick reaction."
+
+### Beat 4 — Matrix moment (~5-8 min)
+
+This is the intellectual spine — but the matrix is **never taught as theory**. It is filled, in the room, on what just happened. The five components emerge from the act of filling, and the framework gets its name after the cells are full, not before.
+
+**Hand out the printed matrix visual before starting this beat.** Empty cells. The handout is for filling, not for reading.
 
 Open with the move:
 
 > *"Look at what just happened. Let's name what changed."*
 
-Pull up the empty matrix on the projector. Two rows ("Today" and "Rebuilt"), five empty columns. **Don't introduce the columns. Don't say "people, tools, trainings, guardrails, metrics" yet.** Walk the columns as questions and let the room fill them in:
+Pull up the empty matrix on the projector (Gamma slide 3). Two rows ("Today" and "Rebuilt"), five empty columns. **Don't introduce the columns. Don't say "people, tools, trainings, guardrails, metrics" yet.** Walk the columns as questions and let the room fill them in:
 
 > *"Before today, who was doing this work? Write that in the first column under 'Today.'"*
 >
@@ -90,91 +135,85 @@ Pull up the empty matrix on the projector. Two rows ("Today" and "Rebuilt"), fiv
 >
 > *"How did anyone know the work was good?"*
 
-Fill the "Today" row first across all five columns. Then walk the same five questions for the "Rebuilt" row — what changed for each column after Claude got involved. Let Jess and the room call out the answers. Write what they say verbatim, even if it's incomplete. The point is the act of filling, not the polish of the cells.
+Fill the "Today" row first across all five columns. Then walk the same five questions for the "Rebuilt" row — what changed for each column after the document generator got involved. Let the room call out the answers. Write what they say verbatim, even if it's incomplete. The point is the act of filling, not the polish of the cells.
 
 **Only after the cells are full, name what the columns are:**
 
 > *"What you just told me has a name. People. Tools. Trainings. Guardrails. Metrics. Every business process you run has all five — whether anyone has thought about them or not. Most AI training fixes one column. We just rebuilt the whole row. That's the whole game."*
 
-The teaching move: the matrix is the *description of what the room just did*, not a framework being introduced.
-
 Then the punchline — vertical vs. horizontal:
 
-> *"Most AI training asks 'how do I get my person to use AI?' That's vertical thinking — start with a person, add a tool, hope for the best. What we just did was horizontal. We didn't ask how to give Jess a tool. We asked which of her processes to redesign, and then we redesigned all five components of it. Everything else in this program is built on that distinction."*
+> *"Most AI training asks 'how do I get my person to use AI?' That's vertical thinking — start with a person, add a tool, hope for the best. What we just did was horizontal. We didn't ask how to give you a tool. We asked which of your processes to redesign, and then we redesigned all five components of it. Everything else in this program is built on that distinction."*
 
-If time permits, show the same fill for one or two other attendees side-by-side with the volunteer's. The cross-industry thesis lands structurally when you do this — same five columns, totally different content.
+**New addition — connect back to the aspiration:**
 
-**What changed from v0.1 (pre-2026-04-10 reframe):** v0.1 introduced the matrix as a framework first ("Show the matrix visual. Five columns: People / Tools / Trainings / Guardrails / Metrics") and *then* mapped the demo onto it. v0.2 inverts the order: fill first, name the columns after. The five components emerge from the fill, the framework gets its name only after the room has already done the work. This is the "matrix as lens, never as subject" principle from the 2026-04-10 curriculum reframe brainstorm. The 2026-04-12 beta is the live test of whether the fill-first move outperforms the framework-first version — watch attendee body language during this block carefully and capture in the retro whether they leaned in or checked out.
+> *"The scraper I showed you at the top? Same five columns, six steps deep. What you just mapped is one step. Now we build the next two."*
 
-### Block 3b — Comprehension check (~30 sec)
+**Pacing guardrail:** 5-minute floor, 8-minute ceiling. The persona tests flagged it as underinvested even at 6 minutes. Skip anything else first.
+
+**Gamma cue:** Slide 3 (empty matrix) on projector for live filling.
+
+### Beat 4b — Comprehension check (~30 sec)
 
 Before moving to the build, confirm the framework landed. Point at someone specific: *"Before we build — tell me the difference between vertical and horizontal thinking, in your own words."* If they can say it back clearly, move on. If they stumble, spend 60 more seconds on it before anyone touches a keyboard. Do not skip this.
 
-### Block 4 — UI walkthrough (~60 sec)
+### Beat 5 — Research, decision, communication (~25-30 min)
 
-Before anyone touches their laptop, screen-share Claude on the projector and walk through it once: *"Click Projects in the sidebar. Click New Project. Name it. Here's where you paste instructions. Here's where you drop files."* Front-load the navigation friction once for everyone instead of absorbing it five times during the build phase.
+This is the main build. Three phases, built collaboratively. The instructor drives pacing on the projector; each attendee follows on their own laptop with their own data. Everyone moves together — no one is 15 minutes ahead or behind.
 
-### Block 5 — Build phase (~25–30 min)
+The three phases describe a complete workflow: gather information (research), analyze it and make a call (decision), then generate tailored outputs for each stakeholder (communication). The document generator they just used in Beat 3 is the communication layer. Now they add the two phases that come before it.
 
-The "I built that" moment is the conversion trigger. This is where attendees stop watching and start making.
+**Gamma cue:** Slide 4 (R-D-C flow) on projector during this beat.
 
-**Setup (~2 min).** Direct them to the shared Google Doc. Each attendee finds their name, and under it a pre-built starter Project tailored to their industry, plus a "WHY THIS WORKS" annotation block explaining each line. Frame it out loud:
+**Phase 1 — Research (~8-10 min).**
 
-> "Here's an example I built for you and here's why it's good. You can paste it in and use it as-is, or you can write your own from scratch using this as a model. Either way, the structure is the lesson."
+Frame it:
 
-Also say this: *"File upload is optional. If you can't upload a real work file, paste a paragraph of context instead."*
+> "The document generator you just used takes your initiative and your stakeholders and generates outputs. But what if Claude researched your initiative first — competitive landscape, recent developments, stakeholder concerns — before generating anything?"
 
-**Build (~20–25 min).** Each attendee opens Claude, creates a new Project, pastes their starter, personalizes the variables for their actual situation, optionally uploads a file, and runs it on a real task they brought. The instructor circulates — hardest cases first. If one of the attendees is a creative or someone whose job is less obviously AI-shaped, walk to them first so their starter gets live instructor attention.
+Each attendee provides their initiative context. Claude researches: web search, recent news, competitive signals, relevant precedents. The instructor narrates while Claude runs:
 
-**Midpoint energy check (~15 min into build).** Walk to the front: *"Quick check — who's gotten their first output? Thumbs up."* Count thumbs. If 3+ people have output: *"Good. If your output is mediocre, that's the point — keep going."* Takes 20 seconds, reminds the room they're in a shared experience.
+> *"Watch what it's doing. It's not generating text yet — it's gathering. Reading. Deciding what matters. This is the research phase."*
 
-Around the five-minutes-left mark, say:
+When each person has a research brief on their screen, pause. *"That's phase one. Information you didn't have five minutes ago."*
 
-> "We have 5 more minutes here, and I'm sticking around after for anyone who wants to keep going."
+**Phase 2 — Decision (~8-10 min).**
 
-Frame as abundance, not scarcity. Don't signal "time's up, stop building."
+Frame it:
 
-**Fast finishers.** If someone finishes early: *"If you're done, try running a second prompt on a different task. Same Project, different question. See what happens."*
+> "You have the research. Now Claude analyzes it. What does the data say? What are your options? What are the trade-offs?"
 
-**The deliberate failure moment.** Pre-build this for the first run. Before Sunday, find a prompt that reliably produces a fabrication — e.g. ask Claude for a specific cannabis state licensing transfer timeline or a 280E ruling in Zeshawn's domain. Have it in a browser tab. If no natural failure has occurred by the time you reach your third attendee during circulation, walk to the projector and trigger it:
+Run the decision analysis on each attendee's research output. This produces a structured decision brief — options, trade-offs, a recommended path. The instructor drives pacing:
 
-> *"Let me show you something important before you get too deep."*
+> *"This is the step most people skip. They go from information straight to communication and skip the thinking. The decision phase is where the value actually lives."*
 
-Run the failure prompt. Show the fabrication. Show the fix: tighten the instructions, rerun, show the corrected output. Say: *"See that? It just invented a filing deadline. Watch how I fix it."*
+When each person has a decision analysis, pause. *"That's phase two. A structured argument you can defend."*
 
-This takes 90 seconds and you control the timing. After 5+ runs of Module 1, you can let failures happen naturally. On the first run, script it. Five of six round-2 personas named this as the single most important trust-building beat. Sam's persona feedback from the 2026-04-07 beta test put it bluntly: *"Blind trust is the thing that'll get them fired."*
+**Phase 3 — Communication (~8-10 min).**
 
-### Block 6 — Show and tell (~7–10 min)
+Frame it:
 
-Don't go around the table — pick the order based on energy during the build. Start with the most excited person (sets the bar high), end with the most surprising cross-industry output.
+> "Now you have research and a decision. The last step: communicate it differently to each stakeholder. Your board gets one version. Your team gets another. Your client gets a third."
 
-**Logistics:** To avoid dead air from cable-switching, have each person screenshot their best output and AirDrop it to your laptop during the build phase. You project their screenshots. Say at the 20-minute mark of the build: *"Screenshot your best output and AirDrop it to my laptop. We'll show them on the projector in a few minutes."*
+This is the document generator pattern from Beat 3, but now grounded in actual research and analysis — not just a form fill. Each attendee's communication outputs are personalized to their real stakeholders and informed by their real research.
 
-Each person takes 60-90 seconds narrating their output. The point is breadth, not depth. Five "IT DID THAT" moments in a row is the emotional payoff. Cross-industry proof becomes empirical at this beat.
+When each person has tailored communications on their screen, the build is complete.
 
-If someone didn't finish or doesn't want to show output: *"Show us the instructions you wrote, even without the output. The instructions are the tool — the output is just one run."*
+**The landing:**
 
-If time is tight, cap each person at 60 seconds instead of 90.
+> "You just built a complete workflow. Research. Decision. Communication. Three steps, chained. The scraper I showed you at the top? Six steps. Same pattern. The distance between three and six is the rest of this program."
 
-### Block 7 — The closer: "hour 4" preview (~7 min)
+**The deliberate failure moment.** Still non-negotiable. During the R-D-C build, when something fails — a fabrication, a bad assumption, a hallucinated source — stop the room and narrate the fix. Show the correction. Say:
 
-Bridge from show-and-tell:
+> *"See that? It just invented a data point. Watch how I fix it."*
 
-> "What each of you just built is ONE Project doing ONE task. That's Hour 1 of the full program. Now I want to show you what Hour 4 looks like — and this is something I actually built and use, not a prop."
+Tighten the instructions, rerun, show the corrected output. This takes 90 seconds and you control the timing. If no natural failure occurs by Phase 2, trigger one deliberately — have a prompt that reliably produces a fabrication in a browser tab.
 
-Then run a real multi-step tool. The instructor should use something they genuinely use at work — a competitive intel scraper, a research agent, a document synthesizer. Not something built for the demo. Pick one attendee in the room and run the tool on their actual context (a competitor they track, a client they're researching, etc.). Name the constraint out loud if there is one — for example: *"This works when the target has a public web presence. Here's what we'd do if they didn't."*
+**Craft move for fast finishers:** If someone's output arrives early during any phase: *"While we wait — read your output critically. What would you push back on? Where do you not trust it?"*
 
-**Name how the scraper generalizes to each person in the room:** Tommy could run one on competitor press, Zeshawn on diligence targets, Jess on peer institutions. Say each one out loud — this prevents the "not invited" feeling that round-2 persona Jordan flagged.
+**Pacing guardrail:** Start this beat with at least 30 minutes remaining. This is the hard constraint. If Beats 2-4 ran long, the flex zones are Beat 3C (customize fewer attendees) and Beat 2 (redirect follow-ups earlier). Do not compress Beat 5.
 
-Close with:
-
-> "Same primitives you just used. I chained six steps instead of one. The distance between one step and six steps is not talent, and it's not code. It's the next three sessions of this program. By Hour 4, each of you builds one of these for your own work. I'm showing you the destination, not showing off."
-
-**Add the cadence beat (30 sec):** *"The Project you built today is a starting point. Run it once this week on a real task. Next week, update the instructions based on what it got wrong. Build, run, tighten. That's the loop."*
-
-Don't pitch further. The closer's job is to make them want more, not to sell. Pivot straight to the debrief.
-
-### Block 8 — Honest debrief (~5 min)
+### Beat 6 — Honest debrief (~5 min)
 
 Go around the table:
 
@@ -182,41 +221,57 @@ Go around the table:
 
 Drop the feedback form link in the chat so they can fill it out later when they're alone and will say things they wouldn't say to your face. The form catches what the verbal round misses.
 
+**The cadence beat (30 sec):** Before they leave:
+
+> *"The workflow you built today is a starting point. Run it once this week on a real task. Next week, update the instructions based on what it got wrong. Build, run, tighten. That's the loop."*
+
+Don't pitch further. The session's job is to make them want more, not to sell.
+
+**Gamma cue:** Slide 5 (closing) on projector.
+
 ## Pacing guardrails
 
-- Do not let Block 1 eat more than ~3 minutes. The demo is the hook, not the framing.
-- The single hard constraint: start Block 7 with at least **15 minutes** left (closer takes ~10 min, not 7). If you're running long, the flex zones are Block 6 (cut show-and-tell to 60 seconds each) and Block 5 (offer the post-wrap stay-after).
-- If Block 2 takes 18 minutes instead of 15, that's fine — but have a redirect ready if the volunteer starts asking follow-ups: *"Hold that thought — that's exactly what you're about to build."* If Block 2 hits 22 min, cut Block 3 to four minutes and keep moving.
-- Block 3 (matrix) has a 5-minute floor. The persona tests flagged it as underinvested even at 6 minutes. Skip anything else first.
+- Do not let Beat 1 eat more than 5 minutes. The aspiration is the hook, not the framing.
+- The single hard constraint: start Beat 5 with at least **30 minutes** left. The R-D-C build is the substance — protect its time at all costs.
+- Beat 4 (matrix) has a 5-minute floor. The persona tests flagged it as underinvested even at 6 minutes. Skip anything else first.
+- Beat 2 (aspiration) ceiling: 15 minutes. If the attendee reacts strongly and asks follow-ups, redirect: *"We'll get to that. First, the basics."*
+- If running long, the flex zones are Beat 3C (customize fewer attendees — the first two runs are non-negotiable, attendees 3-5 can compress) and Beat 2 (tighter narration of the 6 steps).
+- Do not compress Beat 4 (matrix) or Beat 5 (R-D-C build). Everything else is negotiable before these.
 
 ## Variations
 
-**60-minute version (standard program hour).** Cut Block 5 to 15 minutes and Block 6 to 3–4 minutes. Keep Blocks 2, 3, and 7 intact — they're the substance.
+**60-minute version (standard program hour).** Compress Beat 3C to two attendees instead of all five. Compress Beat 5 phases to ~6 minutes each. Keep Beats 2, 4, and the full R-D-C arc intact — they're the substance.
 
-**Remote / Zoom version.** The build phase is harder because you can't physically walk to people. Use breakout rooms of 2–3 attendees, drop into each one in turn. The dummy-account pattern for the live demo works unchanged. Show-and-tell uses screen-share rotation.
+**Remote / Zoom version.** Beat 3C customization uses screenshare rotation — each attendee shares their screen briefly to show their output. Beat 5 is paced via the instructor calling out transitions between phases. The deliberate failure moment works unchanged. The aspiration demo (Beat 2) uses screenshare on hpc-markets.com — works the same.
 
-**Mixed seniority cohort.** If you have a mix of AI-fluent and AI-beginner attendees, the personalized starters do the heavy lifting — each person gets a starter calibrated to their level. Circulate to the beginners first during the build phase.
+**Mixed seniority cohort.** If you have a mix of AI-fluent and AI-beginner attendees, the collaborative build does the heavy lifting — pacing is instructor-driven, so no one falls behind. Circulate attention to beginners during Beat 5. The aspiration demo (Beat 2) lands harder with senior people; the tool basics (Beat 3) land harder with beginners. The matrix bridges both.
 
 ## Risks and what to watch for
 
-- **The live demo fails on real data.** Have a fallback prompt ready (usually a web-research-only version with no connector). Never type the primary prompt live.
-- **The build phase runs long.** Cut show-and-tell to 60 seconds per person; offer the stay-after window for anyone unfinished.
+- **The aspiration sets expectations too high.** The six-step scraper is impressive. If the basics in Beat 3 feel flat by comparison, the room deflates. Mitigation: frame Beat 2 explicitly as "where we're going" and Beat 3 as "where we start today." The bridge language matters — "same primitives, we start with one."
+- **The collaborative build leaves some attendees passive.** If the instructor drives too hard in Beat 5, some attendees watch instead of build. Mitigation: ensure each person inputs their own data and sees their own output on their own screen. The build is collaborative in pacing but personal in content.
+- **The R-D-C framework feels like a lecture.** If any phase is explained without being built, it becomes theory. Mitigation: every phase produces visible output. No phase is introduced without immediately running.
+- **The matrix gets compressed.** Beats 2-3 run long and Beat 4 gets squeezed. Mitigation: 5-minute floor is non-negotiable. Compress Beat 3C first.
 - **Nothing fails during the session.** If everything works perfectly, the room will leave thinking this is a sales demo, not a training. Surface an imperfection deliberately.
-- **The framework gets buried.** The matrix has to actually happen, even if Block 2 runs long. Skip anything else first.
-- **Regulated-profession attendees freeze on file upload.** File upload is always optional. Have a 1-page confidentiality / data-policy reference doc ready to link for lawyers, healthcare workers, and analysts.
+- **The live demo (hpc-markets.com) fails.** Have a pre-recorded run or a backup account ready. Never let the aspiration beat depend on a single live connection.
+- **Regulated-profession attendees freeze on data input.** All data input is optional and can be synthetic. Have a line ready: *"Use a real initiative if you're comfortable. If not, make one up — the workflow works the same."*
 
 ## Sources this is distilled from
 
+- `run-of-show.md` (v0.2, git history) — the previous 8-block structure this replaces
+- `demo-prompts.md` — the hpc-markets.com scraper narration beats, originally written for Block 7 closer
+- `matrix-visual.md` — the empty matrix grid content and design notes
 - `../syllabus.md` — the program-level context for where Module 1 fits
-- `worksheet.md` — the participant-facing content and the original 60-minute skeleton (same folder)
-- `runs/2026-04-12-beta/run-sheet.md` — the first real instance of this run of show
-- `/knowledge/learnings/2026-04-07-persona-beta-test-2026-04-12-demo.md` — round 1 persona feedback that shaped the block ordering (demo first, framework after), the expanded matrix treatment, and the deliberate-failure moment
-- `/knowledge/learnings/2026-04-08-persona-beta-test-round-2-new-lineup.md` — round 2 persona feedback with the updated attendee mix, which validated the deliberate failure moment and surfaced the dummy-account framing nuance, the closer undercut risk, and the maintenance/cadence gap
+- `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` — the curriculum reframe that established "matrix as lens, never as subject"
+- `/knowledge/learnings/2026-04-11-module-1-agentic-reframe-pivot.md` — the agentic reframe that introduced the document generator and collaborative build pattern
+- `/knowledge/learnings/2026-04-07-persona-beta-test-2026-04-12-demo.md` — round 1 persona feedback
+- `/knowledge/learnings/2026-04-08-persona-beta-test-round-2-new-lineup.md` — round 2 persona feedback (Priya's "kiddie version" critique, Jordan's "not invited" flag)
 
-## To refine after 2026-04-12
+## To refine after next run
 
-- Lock in the Block 2 ordering. Did leading with the demo actually land the way the persona test predicted?
-- Lock in the expanded matrix treatment. Was 6–8 minutes too long, right, or still too short?
-- Lock in the deliberate failure moment. Did a real attendee see it as teaching or as a stumble?
-- Calibrate the show-and-tell block based on what the actual attendees brought. If the distribution of work wasn't even, the block's timing may need to flex.
-- Capture any verbal moves that worked in the real run that aren't in this document yet. Instructor craft lives in the voice, not the outline.
+- Did the aspiration-first ordering land? Did attendees feel motivated or overwhelmed after Beat 2?
+- Did the collaborative build in Beat 5 produce "I built that" energy, or did it feel like watching the instructor?
+- Did the R-D-C three-phase arc feel like three distinct steps or one long run?
+- Did the matrix at the midpoint land stronger or weaker than the matrix-after-demo position in v0.2?
+- Was the deliberate failure moment needed, or did natural failures provide enough?
+- What verbal moves worked in the real run that aren't in this document yet?

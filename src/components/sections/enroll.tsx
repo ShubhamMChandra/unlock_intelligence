@@ -16,16 +16,16 @@ import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from "@/lib/constants"
 
 const professionalFeatures = [
   "Both live sessions (8 hours total)",
-  "Full curriculum access + session recordings",
+  "A working Watchtower built on your real external dependency",
+  "A horizontal map of one real process, walked out the door",
+  "An implementation queue: 3\u20135 starter paragraphs ready to paste",
   "Private cohort community (6 months)",
-  "AI Integration Blueprint for your workflows",
-  "90-Day AI Roadmap (yours to keep)",
   "Certificate of completion",
 ];
 
 const corporateFeatures = [
   "5+ seats, custom scheduling",
-  "Role-specific curriculum tailoring",
+  "Personalized starters for each attendee\u2019s actual role",
   "Private cohort for your team only",
   "Executive summary report post-program",
   "Volume pricing & invoicing available",

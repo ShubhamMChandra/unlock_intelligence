@@ -114,6 +114,19 @@ All three fallbacks are documented in `run-sheet.md` under "If everything falls 
 
 ---
 
+## Pre-beta execution status (added 2026-04-12 morning)
+
+**What shipped to attendees:** pre-class setup doc with the Claude Code Desktop install flow, via JT on 2026-04-11 evening.
+
+**What was NOT completed before beta day:**
+- The Vercel-hosted demo app was not built. Rehearsal session started Friday night but only got through repo exploration and approach planning (hidden page at `/lab/generator` in the marketing site). No code written, no prompts tested.
+- The Block 5 build prompt in `starters.md` was not cold-tested on a clean profile.
+- The demo API key may or may not have been provisioned (not confirmed in session).
+
+**Contingency in play:** if there's no time to build the Vercel app before 10:30am, Block 2 drops Beat 1 (the hosted demo surface) and goes straight to the Claude Code live-build on the projector. This was already the documented fallback. See `todo.md` game day status section.
+
+---
+
 ## Open questions for the retro
 
 - Did the "personalization lives in the real initiative, not the prompt" substitute actually hold? (Watch the show-and-tell energy.)

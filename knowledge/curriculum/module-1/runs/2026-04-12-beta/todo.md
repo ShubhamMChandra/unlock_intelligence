@@ -8,6 +8,20 @@ This is the skim-and-check-off version. Work top to bottom. If you need the full
 
 ---
 
+## ★★ Game day status (2026-04-12)
+
+**Critical remaining item: the Vercel-hosted demo app has not been built yet.** The rehearsal build session Friday night (where Shubham would play an attendee step by step, Claude records prompts) started but only got through planning. No code was written. No prompts were logged. The rehearsal log at `rehearsal-log.md` is empty.
+
+**What this means for Sunday morning:**
+
+- [ ] **★★ Option A: Build the demo app now.** If there's time before 10:30am, use Claude Code to build the hidden-page MVP in this repo (`/lab/generator` was the proposed route). Deploy to Vercel. ~60–90 min depending on iteration. This gives you the Vercel-hosted demo for Block 2 Beat 1.
+- [ ] **★★ Option B: Skip Beat 1, go straight to the Claude Code live-build on the projector.** If there's no time, drop Block 2 Beat 1 (the Vercel-hosted app demo) and make Block 2 entirely about building the feature live in Claude Code on the projector with Jess's ask. This was already documented as the Block 2 fallback in the contingency plan. Loses the "here's what you'll build" → "now watch how it was made" two-beat structure, but the agentic loop still lands.
+- [ ] **Block 5 build prompt was NOT cold-tested on a clean profile.** The prompt in `starters.md` is the best draft, but it has not been verified end-to-end on a blank scaffold. If you pick Option A and it works, that's partial validation. Watch for failures during Block 5 and be ready to troubleshoot live.
+
+**Everything else in the Sunday morning checklist below still applies.**
+
+---
+
 ## Done (Wed–Thu)
 
 - [x] Venue confirmed — 1 West Superior, Sunday 10:30am–11:45am CT

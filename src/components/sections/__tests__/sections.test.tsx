@@ -172,26 +172,27 @@ describe("Problem", () => {
 describe("HowItWorks", () => {
   it("renders section header", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Two sessions. Real deliverables.")).toBeInTheDocument();
+    expect(screen.getByText(/Two half-days\. Two builds\. A queue for Monday/)).toBeInTheDocument();
     expect(screen.getByText("The Program")).toBeInTheDocument();
   });
 
-  it("renders session cards", () => {
+  it("renders day cards", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Foundation & Fluency")).toBeInTheDocument();
-    expect(screen.getByText("Strategy & Mastery")).toBeInTheDocument();
+    expect(screen.getByText("Personal unlock")).toBeInTheDocument();
+    expect(screen.getByText(/process you.ve been postponing/)).toBeInTheDocument();
+    expect(screen.getByText("Theory through doing")).toBeInTheDocument();
   });
 
-  it("renders deliverables", () => {
+  it("renders day tags", () => {
     render(<HowItWorks />);
-    expect(screen.getByText(/AI Integration Blueprint for your team/)).toBeInTheDocument();
-    expect(screen.getByText(/Workflow automation map/)).toBeInTheDocument();
+    expect(screen.getByText(/Day 1/)).toBeInTheDocument();
+    expect(screen.getByText(/Day 2/)).toBeInTheDocument();
   });
 
-  it("renders outcome card", () => {
+  it("renders walks-out-with deliverables", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("What Your Team Leaves With")).toBeInTheDocument();
-    expect(screen.getByText(/role-specific tools/)).toBeInTheDocument();
+    expect(screen.getByText("A working Watchtower")).toBeInTheDocument();
+    expect(screen.getByText(/horizontal map and an implementation queue/)).toBeInTheDocument();
   });
 });
 
@@ -200,25 +201,39 @@ describe("Curriculum", () => {
   it("renders section header", () => {
     render(<Curriculum />);
     expect(screen.getByText("Curriculum")).toBeInTheDocument();
-    expect(screen.getByText(/What you.ll learn/)).toBeInTheDocument();
+    expect(screen.getByText(/What happens in the room/)).toBeInTheDocument();
+    expect(screen.getByText(/Two half-days/)).toBeInTheDocument();
   });
 
-  it("renders all 8 module titles", () => {
+  it("renders day labels and titles", () => {
     render(<Curriculum />);
-    expect(screen.getByText("The Process Matrix")).toBeInTheDocument();
-    expect(screen.getByText("The AI Toolkit")).toBeInTheDocument();
-    expect(screen.getByText("Reading a Process")).toBeInTheDocument();
-    expect(screen.getByText("Building Your First AI Workflow")).toBeInTheDocument();
-    expect(screen.getByText("AI Strategy for Your Team")).toBeInTheDocument();
-    expect(screen.getByText("Workflow Guardrails")).toBeInTheDocument();
-    expect(screen.getByText("Building AI Culture")).toBeInTheDocument();
-    expect(screen.getByText(/90-Day AI Roadmap/)).toBeInTheDocument();
+    expect(screen.getByText("Day 1")).toBeInTheDocument();
+    expect(screen.getByText("Day 2")).toBeInTheDocument();
+    expect(screen.getByText("Personal unlock")).toBeInTheDocument();
+    expect(screen.getByText("Scaffolding through application")).toBeInTheDocument();
   });
 
-  it("renders session titles", () => {
+  it("renders Day 1 beats", () => {
     render(<Curriculum />);
-    expect(screen.getByText(/Session One/)).toBeInTheDocument();
-    expect(screen.getByText(/Session Two/)).toBeInTheDocument();
+    expect(screen.getByText("Live demo on real data")).toBeInTheDocument();
+    expect(screen.getByText("The matrix, filled live")).toBeInTheDocument();
+    expect(screen.getByText(/Personalized build/)).toBeInTheDocument();
+    expect(screen.getByText(/Second pass/)).toBeInTheDocument();
+    expect(screen.getByText(/Structured share/)).toBeInTheDocument();
+  });
+
+  it("renders Day 2 beats", () => {
+    render(<Curriculum />);
+    expect(screen.getByText(/Pick the process/)).toBeInTheDocument();
+    expect(screen.getByText("Map the process across the matrix")).toBeInTheDocument();
+    expect(screen.getByText(/Extract the next three to five builds/)).toBeInTheDocument();
+    expect(screen.getByText(/Pair pressure-test/)).toBeInTheDocument();
+    expect(screen.getByText(/one named action for Monday/)).toBeInTheDocument();
+  });
+
+  it("renders the walkthrough CTA", () => {
+    render(<Curriculum />);
+    expect(screen.getByText(/Request a curriculum walkthrough/)).toBeInTheDocument();
   });
 });
 
