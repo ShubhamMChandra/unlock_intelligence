@@ -2,15 +2,15 @@
 
 ## Program Syllabus
 
+**Version:** v2 (2026-04-10) — see `syllabus-v1.md` for the previous 8-module structure and `knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` for the rationale behind the reframe.
+
 Founding Cohort  /  Spring 2026
 
 ---
 
-**Make Your Team AI-Fluent in 8 Hours.**
+**Make Your Team AI-Fluent.**
 
-A live, instructor-led training program for non-technical teams.
-Two half-day sessions. Your team walks out with custom deliverables
-they use on Monday morning.
+A live, instructor-led training program for non-technical teams. Two days. Your team walks out with a working AI tool they built on their own real work, a horizontal map of one of their team's processes, and starter paragraphs for the next three to five builds — all ready to use Monday morning.
 
 ---
 
@@ -19,11 +19,11 @@ they use on Monday morning.
 | | |
 |---|---|
 | **Format** | Live, instructor-led (virtual or on-site) |
-| **Duration** | 8–10 hours across two half-day sessions |
+| **Duration** | Two half-day sessions. Sustainability target ~8 hours total — exact schedule shape under active testing. |
 | **Class size** | Up to 20 participants per cohort |
 | **Prerequisites** | None. No coding. No technical background. |
-| **Deliverables** | 6 artifacts your team keeps (see page 4) |
-| **Customization** | Curriculum tailored to your industry and workflows |
+| **Deliverables** | A working Project, a horizontal process map, a queue of next builds, plus certificate, executive summary, and community access |
+| **Customization** | Personalized starters tailored to each attendee's actual role and workflow |
 
 ---
 
@@ -49,187 +49,65 @@ A business process is a horizontal. It runs through people and systems. A system
 
 That shift from vertical (people) to horizontal (process) is the intellectual core of this program. It is also what separates organizations that "adopted AI" from organizations where AI actually changed how work gets done.
 
-*[WIP: The process matrix visualization, mapping your team's processes across people, tools, agents, guardrails, and metrics, will be available as an interactive tool on our website.]*
+**How the program teaches this:** Theory through doing, never through telling. The five-component matrix that organizes the entire curriculum is never lectured. It is filled in live by the room, in response to the work each attendee just did. The framework gets its name *after* the room has already used it. Skills get built first; the scaffolding that makes them generalize gets installed second.
 
 ---
 
-## Session One — Foundation & Fluency
+## Day 1 — Personal unlock through build
 
-*4 hours. Your team learns the framework, maps their first process, and builds a working AI workflow before lunch.*
+*Roughly half a day. Each attendee builds a working AI tool on their own real work, and learns by name what they just did.*
 
----
+### The promise
 
-### Module 1: The Process Matrix
+By the end of Day 1, every attendee has a working Claude Project on their laptop, built for their actual job, that does something they couldn't have done themselves in the time. They can name the pattern they used and they know how to extend it.
 
-**The framework your team needs before any tool or technique will stick.**
+### The vehicle: the Watchtower
 
-Most organizations think about AI vertically: pick a person, give them a tool, hope they get more productive. This module teaches your team to think horizontally.
+Each attendee builds a **Watchtower** — a Claude Project that produces a weekly read on the one external thing they should be tracking but aren't. "External thing" is reframed for each attendee individually: a regulator for a general counsel, a partner for a product manager, a market for a founder, a competitor for a sales lead, a peer institution for a consultant, an internal team for an engineer who depends on it. Every knowledge worker has at least one.
 
-A business process runs through five components. Every process your team owns has all five, whether anyone has thought about them or not:
+**Why a Watchtower:** the cadence is built into the artifact itself. You use it Monday, then again on the 8th, then again on the 15th. It becomes a habit by structure, not by willpower. It also forces multi-step web search, source triangulation, and judgment about signal vs. noise — genuinely agentic behavior, not single-prompt tricks. And every attendee's Watchtower becomes a cell in their Day 2 process map, creating a clean bridge from the personal build to the systemic application.
 
-> **People** — who is involved, what judgment do they contribute, and where are they spending time they shouldn't be?
-> **Tools** — what software, AI systems, and platforms are being used at each step?
-> **Trainings** — what does someone need to know to do this step well? Where are the skill gaps?
-> **Guardrails** — where does the process need human review, policy checks, or quality gates?
-> **Metrics** — how do you measure whether this process is working? How would you know if AI made it better or worse?
+### What happens in the room
 
-When your team learns to see a process across these five components, they stop asking "how do I use AI?" and start asking "where does AI belong in how we actually work?" That second question is where the real productivity lives.
+**1. Demo on real data.** The instructor builds a Watchtower live on a volunteer's actual external dependency. Multi-step web search, synthesis, structured output. The volunteer's reaction is the lesson — the room watches their face.
 
-**What your team will do:**
+**2. Live matrix fill on the demo.** The instructor pulls up an empty five-column matrix on the projector. Without naming the columns first, the instructor walks the room through filling each cell for what just happened: who was doing this work before, what tool they were using, what they needed to know, who was checking the output, how anyone knew it was good. The five components — people, tools, trainings, guardrails, metrics — emerge from the act of filling. The framework gets its name only after the cells are full. *The matrix is never taught as theory; it is the description of what the room just did.*
 
-Your team starts with a concrete example: a task everyone recognizes, like the weekly status report. First, they map how it works today across all five components:
+**3. Personalized build.** Each attendee opens a shared Google Doc and finds a Claude Project starter built for them personally — tailored to their actual external dependency, with a "WHY THIS WORKS" annotation block explaining each line. They paste it into Claude, personalize the variables for their real situation, run it on their own inputs. The instructor circulates, hardest cases first.
 
-> **People:** An analyst spends 45 minutes pulling data from three sources, writing a narrative, and sending it to leadership.
-> **Tools:** Spreadsheets, email, maybe a dashboard. No AI involved.
-> **Trainings:** The analyst learned by watching the last person do it. No documented process.
-> **Guardrails:** The manager reads it before it goes out. That's it.
-> **Metrics:** None. Nobody measures how long it takes or whether leadership actually reads it.
+**4. Second build pass.** Each attendee takes their first output, looks at it honestly, and runs the Project a second time with one change they make themselves. This installs the cadence lesson — "build, run, tighten" — as a lived experience instead of a closing line. The second pass is also where most of the framework intuition gets built, because the attendee is now thinking about which component to adjust.
 
-Then they see the AI-assisted version of the same process mapped the same way — and the difference is immediately visible. Not just "AI wrote the report faster," but: the tools changed, the training requirement changed, the guardrails need to be different, and now you can actually measure something.
+**5. Structured share.** Four attendees present their Watchtower outputs (selected during the build for energy and diversity); the rest are acknowledged via projected screenshots. The cross-industry thesis lands empirically in this beat — same pattern, totally different outputs.
 
-By the end of this module, your team has the framework they'll use for every decision in the remaining seven hours.
+**6. Bridge to Day 2.** The closer names what every attendee just touched in matrix terms ("you picked a process, redesigned all five of its components, and built the tool that runs the redesigned version") and previews the Day 2 work: applying the same lens to a process that matters more than the one they just did.
 
 ---
 
-### Module 2: The AI Toolkit
+## Day 2 — Theoretical scaffolding through application
 
-**Prompting, tools, and agents — and where each one fits in the process.**
+*Roughly half a day. Each attendee maps one of their real processes across the matrix as a live build, then walks out with starter paragraphs for the next three to five Projects already written.*
 
-This module covers the full landscape of AI capabilities your team can draw from, not just ChatGPT. The organizing question is not "what does each tool do?" but "where in a process does each tool belong?"
+### The promise
 
-Three categories your team will learn to distinguish:
+By the end of Day 2, every attendee has a horizontal map of one of their real processes (personal or team), with AI insertion points named, guardrails identified, and the starter paragraphs for the next three to five builds already drafted. They are not leaving with a strategy document. They are leaving with a queue.
 
-**Conversational AI** — where a person works with an LLM to think, draft, analyze, or decide. This is where prompting skill matters. Your team will learn the techniques that produce usable output: role-framing, context injection, chain-of-thought, and multi-step prompt chains. But they'll learn these as skills within the larger framework, not as the point of the program.
+### The selection criterion: the process you've been postponing
 
-**Agent-based AI** — where an automated system handles process steps without human involvement. Data extraction, report generation, scheduling, routing, monitoring. Your team will learn what agents can do today and where they're headed.
+Day 2 doesn't ask attendees to pick their easiest process or their team's biggest process. It asks them to pick **the process they've been postponing** — the one that matters but they keep avoiding. Personal or team, the criterion is stakes, not scope. This forces honesty about what actually deserves the lens.
 
-**Specialized tools** — writing assistants, image generators, research tools, voice transcription, data analysis platforms. Your team will learn a decision framework for evaluating new tools as they appear, rather than memorizing a list that will be outdated in six months.
+### What happens in the room
 
-**What your team will do:**
+**1. Bridge from Day 1.** The instructor recaps Day 1 in matrix terms — naming what each attendee did across the five components — and previews the move from "one tool on one task" to "the rest of the workflow that surrounds it." The matrix is named here, not taught.
 
-Hands-on exercises matching tools to process steps. For the same weekly task from Module 1, participants identify which steps are conversational (human + AI), which are automatable (agent), and which need specialized tools. They practice structured prompting on the conversational steps.
+**2. Pick the process you've been postponing.** Each attendee picks one process and writes a one-paragraph "today" description of how it currently works. The instructor frames *why* the process you've been postponing is the right pick: stakes, not scope. The attendee's resistance to picking it is the signal that it's the right one.
 
----
+**3. Map the process across the matrix — live build.** Each attendee fills in their own five-column, two-row matrix for the process they picked: people, tools, trainings, guardrails, metrics, in both "today" and "rebuilt" states. The instructor walks the room as a live build coach, not a lecturer. The output is a one-page horizontal map of the process with AI insertion points marked. *This is the theory block. It just doesn't look like one — because every minute is the attendee doing the work.*
 
-### Module 3: Reading a Process
+**4. Extract the next builds.** For each AI insertion point on the map, the attendee writes a starter paragraph — the role, context, inputs, criteria, constraints, and verification step for a Claude Project that would handle that step. Walks out with three to five pre-seeded next builds. Monday they paste the first one. Tuesday they paste the second one. The cadence is built into the artifact.
 
-**How to map a real business process on the horizontal.**
+**5. Pair pressure-test.** Pair up across roles. Each attendee shares one thing they noticed about their map — usually the surprise (a guardrail that wasn't there, a metric they couldn't name, a person whose role was being conflated). The peer either confirms or pressure-tests. This is the cheapest way to surface blind spots without a lecture.
 
-This is the bridge between the framework (Module 1) and the build (Module 4). Your team picks a real, recurring process from their own work and maps it end to end.
-
-**What your team will learn:**
-
-- How to decompose a process into its actual steps (most people skip steps they've automated mentally)
-- How to identify the people, systems, and handoffs at each step
-- How to mark AI insertion points: where does conversational AI help? Where can an agent take over? Where must a human stay in the loop?
-- How to estimate the time and effort each step currently takes (this is where the ROI math starts)
-
-**What your team will do:**
-
-Each participant (or team cluster) maps a process they own. They produce a horizontal process map with AI insertion points marked, time estimates at each step, and a first-pass redesign showing the AI-assisted version alongside the current version. This map becomes the input for Module 4.
-
-**Deliverable produced:** A process map with AI integration points identified — the first layer of your team's AI Integration Blueprint.
-
----
-
-### Module 4: Building Your First AI Workflow
-
-**This is where the program shifts from analysis to building.**
-
-Your team takes the process they mapped in Module 3 and builds the AI-assisted version. During the session. Not hypothetically.
-
-**What enterprises are doing now:** We open this module with case studies from the field, showing how organizations are redesigning processes around AI. The examples come from the same kind of work your instructor does at Digital Realty: mapping a real business process, identifying which steps are conversational and which can be automated, then building the new version.
-
-**What your team will do:**
-
-- Take their process map from Module 3 and build the AI-assisted version
-- Set up the conversational AI steps (structured prompts, templates, review workflows)
-- Identify which steps are ready for agent automation and which need more guardrails
-- Test the workflow during the session and compare the output to the manual version
-- Walk out with something they use the following week
-
-**Deliverable produced:** A working AI workflow built on your team's actual process, ready to use Monday morning.
-
----
-
-## Session Two — Strategy & Mastery
-
-*4 hours. Your team goes from one redesigned process to an organization-wide AI strategy.*
-
----
-
-### Module 5: AI Strategy for Your Team
-
-**From one process to many. From individual use to organizational leverage.**
-
-In Session 1, your team redesigned one process. This module teaches them how to identify and prioritize the rest. The Identify-Automate-Amplify-Lead framework, applied to your team's full operations.
-
-**What your team will do:**
-
-- Map their top 10 recurring processes and score each for AI leverage (time saved x frequency x feasibility)
-- Prioritize using the IAAL framework: which processes to Identify as candidates, which to Automate with agents, which to Amplify with conversational AI, and where to Lead adoption across the organization
-- Draft a one-page business case they can bring to their manager or budget owner
-
----
-
-### Module 6: Workflow Guardrails
-
-**How to build verification, quality, and governance into the process itself.**
-
-A redesigned workflow without guardrails is a liability. This module teaches your team how to build the verification layer that makes AI-assisted processes trustworthy and sustainable.
-
-**What your team will learn:**
-
-- Where to place human review gates in a workflow (not every step needs one, but some absolutely do)
-- How to set up automated quality checks that catch errors before they reach a stakeholder
-- Data privacy boundaries: what information can flow into AI tools and what cannot
-- When AI confidence is too low for automation and the process needs to route back to a person
-- Hallucination detection as one guardrail among many, not the only concern
-
-**What your team will do:**
-
-- Take the workflows built in Session 1 and add guardrails at each step
-- Run a "spot the failure" exercise: given a workflow with no guardrails, identify where it breaks
-- Build a verification checklist for their highest-risk AI use cases
-- Review sample governance policies from organizations that have deployed AI at scale
-
----
-
-### Module 7: Building AI Culture
-
-**Making AI use normal, visible, and supported on your team.**
-
-The hardest part of AI adoption is not the technology. It is getting a team of people to actually change how they work. This module is about building an environment where AI use is encouraged, visible, and safe to experiment with.
-
-**What your team will learn:**
-
-- The "first follower" strategy: how one person using AI visibly gives permission to the rest of the team
-- How to share AI wins without making non-adopters feel behind
-- Creating safe spaces to experiment: what happens when an AI-assisted workflow produces a bad result?
-- Ethics as shared team values, not a compliance checklist
-- When to ask permission vs. when to just start using AI and show the results
-
-**What your team will do:**
-
-- Identify the first three AI wins they can share with their broader team in the next two weeks
-- Draft a lightweight AI norms document for their team (not a policy, a set of shared expectations)
-- Discuss the real concerns their teammates have about AI and develop honest, non-dismissive responses
-
----
-
-### Module 8: Your Team's 90-Day AI Roadmap
-
-**Walk out with a plan your team can execute the following week.**
-
-Build a 90-day implementation plan tied to the processes mapped throughout the day. Certificate session and peer review of strategies across the cohort.
-
-**What your team will do:**
-
-- Build a 90-day roadmap tied to the processes mapped in Session 1
-- Identify the first two weeks of quick wins (specific tasks, specific tools)
-- Present the plan to peers for feedback and pressure-testing
-
-**Deliverable produced:** 90-day team implementation plan with named processes, tools, owners, and milestones.
+**6. Close.** Certificate, peer reflection, the instructor's "what to do this week" beat (not a 90-day plan — a single named action for Monday), and the program's "next 10 Mondays" framing: every attendee has a queue of builds, a pattern that produces more queues, and a horizontal lens that turns the next stuck process into the next solved one.
 
 ---
 
@@ -237,12 +115,12 @@ Build a 90-day implementation plan tied to the processes mapped throughout the d
 
 | Deliverable | What it is |
 |---|---|
-| **AI Integration Blueprint** | Which of your processes should involve AI, and where (Session 1) |
-| **Workflow Automation Map** | The specific steps, tools, and agents for your top-priority process (Session 2) |
-| **90-Day Team Roadmap** | Week-by-week implementation plan with named owners and milestones (Session 2) |
-| **Completion Certificate** | For L&D records and professional profiles |
-| **Executive Summary** | Team competency report for leadership |
-| **6-Month Community Access** | Ongoing peer support and resources |
+| **A working Watchtower (or your Day 1 build)** | A Claude Project built on your real work, used Monday morning, that does something you couldn't have done yourself in the time. |
+| **A horizontal process map** | One of your real processes mapped across the five components (people, tools, trainings, guardrails, metrics), with AI insertion points named and guardrails identified. |
+| **Implementation queue: 3–5 starter paragraphs** | Pre-written during the program, ready to paste. Replaces the previous "90-day roadmap" deliverable with something more concrete and faster to act on. |
+| **Completion Certificate** | For L&D records and professional profiles. |
+| **Executive Summary** | Team competency report for leadership. |
+| **6-Month Community Access** | Ongoing peer support and resources. |
 
 ---
 
@@ -250,13 +128,13 @@ Build a 90-day implementation plan tied to the processes mapped throughout the d
 
 **Team Training** — Starting at **$1,095/seat** (founding cohort rate)
 
-5+ seats, custom scheduling. Role-specific curriculum tailoring. Private cohort for your team only. Executive summary report post-program. Volume pricing and invoicing available.
+5+ seats, custom scheduling. Personalized starters tailored to each attendee's actual role. Private cohort for your team only. Executive summary report post-program. Volume pricing and invoicing available.
 
 *Increases to $1,595/seat after the founding cohort.*
 
 **Individual Enrollment** — **$1,295** (founding cohort rate)
 
-Both live sessions (8–10 hours total). Full curriculum access and session recordings. Private cohort community (6 months). AI Integration Blueprint for your workflows. 90-day AI strategy (yours to keep). Certificate of completion.
+Both live sessions. Full personalized starter built for your actual work. Private cohort community (6 months). Horizontal process map, implementation queue, and certificate of completion.
 
 *Increases to $1,995 after the founding cohort.*
 
@@ -277,3 +155,19 @@ If your team completes both sessions and doesn't feel they've gained immediately
 **Request a curriculum walkthrough.** We'll walk through the program, discuss your team's specific needs, and put together a proposal.
 
 Contact: hello@unlockintelligencehq.com
+
+---
+
+## Notes for internal readers
+
+**What's being tested in v2 vs v1:**
+
+- **Two-day shape vs. eight-module shape.** The 8-module / 2-session frame had Module 1 alone consuming 75 minutes; there wasn't four modules of runway in Session 1. v2 acknowledges that and rebuilds around a single-build Day 1 + a single-build Day 2.
+- **Watchtower as Day 1 vehicle.** Replaces the meeting-prep canonical demo from Module 1. The Watchtower's built-in cadence solves the maintenance gap that round 2 personas (Priya, Mira) flagged.
+- **Matrix as lens, never as subject.** The five-component matrix is filled live in the room, on the demo the room just watched. The framework is named *after* the cells are full. This is being tested live in the 2026-04-12 Module 1 beta — see `module-1/run-of-show.md` for the rewritten Block 3 and `knowledge/learnings/2026-04-10-curriculum-2day-reframe.md` for the rationale.
+- **Personalized starters Day 1, shared scaffold Day 2.** The personalized-starter-with-WHY-annotation pattern from Module 1 stays as Day 1's trust device. Day 2 uses a shared scaffold because the personalization has already happened on Day 1 and the pattern is now what's being installed.
+- **Implementation queue replaces 90-day roadmap.** The 90-day roadmap deliverable was a strategy artifact; the implementation queue is a build artifact (3–5 ready-to-paste starter paragraphs). The new deliverable is judged against "did the attendee paste the first one Monday?" not "did the attendee read the plan?"
+- **Manager stretch is parked.** Whether the program serves managers and ICs in one cohort, splits into two products, or caps the manager mix is an open strategic question. v2 is designed for IC consumption. See `knowledge/ideas/backlog.md` under "Open Strategic Questions from Curriculum Reframe."
+- **Schedule shape is soft.** 8 hours is a sustainability intuition, not a hard constraint. Worth testing 2×4h vs 3×2.5h vs 1×6–7h after the founding cohort runs once.
+
+**What carried forward unchanged from v1:** the program philosophy (horizontal vs. vertical thinking), the instructor bio, the pricing structure, the guarantee, the founding cohort framing, the McKinsey-style claim discipline, the live + instructor-led format, the 6-month community access, the executive summary, and the certificate.

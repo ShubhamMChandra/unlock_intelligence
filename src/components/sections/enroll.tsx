@@ -70,9 +70,10 @@ export function Enroll() {
               </span>
             </p>
             <p className="text-[15px] leading-relaxed text-foreground/65">
-              Curriculum tailored to your industry and roles, scheduled around
-              your team, with an executive summary for leadership afterward.
-              Volume pricing and invoicing available.
+              A private cohort with starters written for each attendee&rsquo;s
+              actual role, scheduled around your team, with an executive
+              summary for leadership afterward. Volume pricing and invoicing
+              available.
             </p>
             <Button
               className="mt-auto h-12 w-full rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
@@ -97,9 +98,9 @@ export function Enroll() {
               </span>
             </p>
             <p className="text-[15px] leading-relaxed text-foreground/65">
-              Both live sessions with recordings, all three documents, a
-              certificate, and six months in the cohort community, alongside
-              peers from other industries.
+              Both live sessions, a working Watchtower, a map of one real
+              process, an implementation queue, a certificate, and six months
+              in the cohort community.
             </p>
             <Button
               variant="outline"

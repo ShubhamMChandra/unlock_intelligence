@@ -176,8 +176,9 @@ export function ProcessMatrix() {
           </ol>
 
           <figcaption className="pt-5 text-[13px] text-foreground/50">
-            Worked examples from Module 1. In the session, your team builds
-            this for one of its own processes.
+            Illustrative examples. In the program, your team maps one of its
+            own processes across people, tools, trainings, guardrails, and
+            metrics.
           </figcaption>
         </figure>
       </div>
