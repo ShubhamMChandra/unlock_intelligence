@@ -1,24 +1,52 @@
 /**
- * What: Icon grid of tangible workshop outputs.
- * Why: Shows concrete artifacts buyers receive from training.
+ * What: Icon grid of tangible artifacts the team walks out with.
+ * Why: Concrete proof of value — three working artifacts, three credentials.
  * How: GlassCard grid with inline icon layout, ScrollReveal on sections.
  * Deps: lucide icons, SectionWrapper, GlassCard, GradientDivider, ScrollReveal.
  */
 "use client";
 
-import { BookOpen, GitBranch, Map, Award, FileText, Users } from "lucide-react";
+import { Radar, GitBranch, ListChecks, Award, FileText, Users } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { GradientDivider } from "@/components/ui/gradient-divider";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const deliverables = [
-  { icon: BookOpen, title: "AI Integration Blueprint", description: "Maps where AI fits in your team\u2019s processes" },
-  { icon: GitBranch, title: "Workflow Automation Map", description: "Ready to implement Monday morning" },
-  { icon: Map, title: "90-Day AI Strategy", description: "Your personal implementation roadmap" },
-  { icon: Award, title: "Completion Certificate", description: "For L&D records and LinkedIn" },
-  { icon: FileText, title: "Executive Summary", description: "Team competency report for leadership" },
-  { icon: Users, title: "6-Month Community Access", description: "Ongoing peer support and resources" },
+  {
+    icon: Radar,
+    title: "A working Watchtower",
+    description:
+      "A Claude Project on your real external dependency. Used Monday, again on the 8th, again on the 15th.",
+  },
+  {
+    icon: GitBranch,
+    title: "A horizontal process map",
+    description:
+      "One real process \u2014 the one you\u2019ve been postponing \u2014 mapped across people, tools, trainings, guardrails, metrics.",
+  },
+  {
+    icon: ListChecks,
+    title: "An implementation queue",
+    description:
+      "Three to five starter paragraphs, pre-written in the room, ready to paste. Replaces the strategy doc nobody reads.",
+  },
+  {
+    icon: Award,
+    title: "Completion certificate",
+    description: "For L&D records and professional profiles.",
+  },
+  {
+    icon: FileText,
+    title: "Executive summary",
+    description:
+      "A team competency report written for your leadership, not your L&D team.",
+  },
+  {
+    icon: Users,
+    title: "Six months of cohort access",
+    description: "Peer pressure-test channel for your next builds.",
+  },
 ];
 
 export function Deliverables() {
@@ -32,10 +60,10 @@ export function Deliverables() {
               Deliverables
             </p>
             <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
-              What you leave with
+              What your team leaves with on Monday morning
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
-              Documents and tools, not just slides.
+              Three working artifacts. Three credentials. Zero homework.
             </p>
           </div>
         </ScrollReveal>

@@ -28,6 +28,10 @@ Google's "Grow with Google" program uses the exact phrase "AI fluent" — valida
 ### 6. No one owns Chicago AI training
 Teamland has a Chicago landing page but is a national brand. No competitor has built a Chicago-native AI training brand for non-technical professionals.
 
+## Sales-Ready Materials
+- SWOT analysis and battle cards for JT's sales calls: `knowledge/strategy/swot-and-battle-cards.md`
+- Covers 6 competitor battle cards (Teamland, GA, UChicago, Kellogg, Revenue AI, self-paced platforms), top 5 objection handlers, pricing positioning cheat sheet, and 60-second pitch
+
 ## Open Questions
 - How quickly will OpenAI Academy (free) commoditize foundational AI literacy?
 - When will GA or Coursera add live cohort programs that directly compete?

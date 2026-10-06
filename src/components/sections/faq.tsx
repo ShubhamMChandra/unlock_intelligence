@@ -102,9 +102,9 @@ const participantFaqs: FaqEntry[] = [
 
 export function FAQ() {
   return (
-    <SectionWrapper id="faq" className="tone-faq">
+    <SectionWrapper id="faq" className="scroll-mt-24">
         <ScrollReveal>
-        <div className="mb-12 space-y-2">
+        <div className="mx-auto mb-12 max-w-3xl space-y-2">
           <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
             FAQ
           </p>

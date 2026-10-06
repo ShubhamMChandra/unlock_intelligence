@@ -79,9 +79,22 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
     overscroll-behavior-x: none;
   }
+}
+
+/* Typography polish — even headline wraps, no orphaned last words */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+p, li {
+  text-wrap: pretty;
+}
+::selection {
+  background: rgba(148, 189, 224, 0.3);
 }
 
 /* Custom design tokens — Navy + Amber palette */
