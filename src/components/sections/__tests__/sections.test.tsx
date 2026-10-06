@@ -102,7 +102,6 @@ describe("Hero", () => {
   it("renders cohort pill text with spots remaining", () => {
     render(<Hero />);
     expect(screen.getByText(/Founding cohort/)).toBeInTheDocument();
-    expect(screen.getByText(/Spring 2026/)).toBeInTheDocument();
     expect(screen.getByText(/7 of 10 seats/i)).toBeInTheDocument();
   });
 
@@ -151,7 +150,7 @@ describe("ProofBar", () => {
 describe("Problem", () => {
   it("renders section heading", () => {
     render(<Problem />);
-    expect(screen.getByText(/AI Skills Gap Is Already/)).toBeInTheDocument();
+    expect(screen.getByText(/AI skills gap is already/)).toBeInTheDocument();
   });
 
   it("renders negative checklist items", () => {
@@ -381,8 +380,8 @@ describe("FAQ", () => {
 describe("FinalCTA", () => {
   it("renders heading", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/Companies Investing in AI Fluency/)).toBeInTheDocument();
-    expect(screen.getByText(/Lead\./)).toBeInTheDocument();
+    expect(screen.getByText(/companies investing in AI fluency/)).toBeInTheDocument();
+    expect(screen.getByText(/lead\./)).toBeInTheDocument();
   });
 
   it("renders subtitle", () => {
@@ -398,7 +397,7 @@ describe("FinalCTA", () => {
 
   it("renders metadata line", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/Founding cohort: Spring 2026/)).toBeInTheDocument();
+    expect(screen.getByText(/Founding cohort now enrolling/)).toBeInTheDocument();
     expect(screen.getByText(/Limited to 10 teams/)).toBeInTheDocument();
     expect(screen.getByText("No technical background required")).toBeInTheDocument();
   });

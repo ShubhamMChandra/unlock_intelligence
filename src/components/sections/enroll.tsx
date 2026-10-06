@@ -43,7 +43,7 @@ export function Enroll() {
             Enroll your team
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
-            Spring 2026 cohort is open. Founding members get our lowest
+            The founding cohort is open. Founding members get our lowest
             price and direct access to the instructors to shape the
             curriculum. Reach out and we&rsquo;ll send a proposal within
             a business day.
@@ -81,7 +81,7 @@ export function Enroll() {
                 Founding cohort rate
               </p>
               <p className="mt-0.5 text-xs text-foreground/55">
-                Increases to $1,595/seat after Spring 2026
+                Increases to $1,595/seat after the founding cohort
               </p>
             </div>
             <ul className="mb-0 space-y-3">
@@ -98,6 +98,7 @@ export function Enroll() {
             <Button
               size="lg"
               className="mt-auto h-11 w-full rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              nativeButton={false}
               render={<Link href="/contact?type=corporate" />}
             >
               Request a proposal
@@ -126,7 +127,7 @@ export function Enroll() {
                 Founding cohort rate
               </p>
               <p className="mt-0.5 text-xs text-foreground/55">
-                Increases to $1,995 after Spring 2026
+                Increases to $1,995 after the founding cohort
               </p>
             </div>
             <ul className="mb-0 space-y-3">
@@ -144,6 +145,7 @@ export function Enroll() {
               size="lg"
               variant="outline"
               className="mt-auto h-11 w-full rounded-none border-foreground/30 bg-transparent text-[15px] font-medium text-foreground transition-colors duration-150 hover:bg-foreground/5 hover:border-foreground/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              nativeButton={false}
               render={<Link href="/contact" />}
             >
               Get started

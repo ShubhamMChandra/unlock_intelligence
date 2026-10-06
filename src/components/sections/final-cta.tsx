@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const metaItems = [
-  "Founding cohort: Spring 2026",
+  "Founding cohort now enrolling",
   "Limited to 10 teams",
   "No technical background required",
 ];
@@ -27,8 +27,8 @@ export function FinalCTA() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-3xl text-4xl font-medium tracking-[-0.022em] sm:text-5xl md:text-6xl"
         >
-          The Companies Investing in AI Fluency Now Will{" "}
-          <span className="text-white">Lead.</span>
+          The companies investing in AI fluency now will{" "}
+          <span className="text-white">lead.</span>
         </motion.h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-foreground/70 md:text-lg">
@@ -39,6 +39,7 @@ export function FinalCTA() {
             <Button
               size="lg"
               className="h-11 w-full sm:w-auto rounded-none bg-foreground px-8 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              nativeButton={false}
               render={<Link href="/contact" />}
             >
               Request a proposal

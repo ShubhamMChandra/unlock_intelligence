@@ -38,11 +38,9 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="mb-10 inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55"
+          className="mb-10 inline-flex items-center gap-3 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55"
         >
           <span>Founding cohort</span>
-          <span className="h-px w-6 bg-foreground/25" aria-hidden="true" />
-          <span>Spring 2026</span>
           <span className="h-px w-6 bg-foreground/25" aria-hidden="true" />
           <span>
             {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} seats
@@ -55,7 +53,7 @@ export function Hero() {
           animate="visible"
           variants={fadeIn}
           transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-[18ch] text-[2.25rem] font-medium leading-[1.05] tracking-[-0.022em] text-foreground sm:text-6xl md:text-7xl lg:text-[5.25rem]"
+          className="mx-auto max-w-[18ch] text-balance text-[2.25rem] font-medium leading-[1.05] tracking-[-0.022em] text-foreground sm:text-6xl md:text-7xl lg:text-[5.25rem]"
         >
           Make your team<br className="hidden sm:block" />
           {" "}
@@ -85,6 +83,7 @@ export function Hero() {
         >
           <Button
             className="h-11 rounded-none bg-foreground px-7 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            nativeButton={false}
             render={<Link href="/contact" />}
           >
             Request a proposal

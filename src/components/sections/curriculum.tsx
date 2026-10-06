@@ -125,6 +125,7 @@ export function Curriculum() {
             <Button
               size="lg"
               className="h-11 w-full sm:w-auto rounded-none bg-foreground px-7 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              nativeButton={false}
               render={<Link href="/contact" />}
             >
               Request a curriculum walkthrough
