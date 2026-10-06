@@ -6,7 +6,6 @@
  */
 "use client";
 
-import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -60,37 +59,35 @@ const sessions: Session[] = [
   },
 ];
 
-const matrixCells = [
-  "empty", "empty", "empty", "empty", "empty",
-  "human", "ai", "human", "ai", "ai",
-] as const;
+const matrixColumns = ["People", "Tools", "Training", "Guardrails", "Metrics"];
+const rebuiltCells = [false, true, false, true, true];
 
-function DocumentFrame({ children }: { children: React.ReactNode }) {
+const watchItems = [
+  { text: "Pricing page changed", flagged: true, day: "Mon" },
+  { text: "No new product launches", flagged: false, day: "Mon" },
+  { text: "Hiring for two AI roles", flagged: true, day: "Wed" },
+  { text: "Press coverage: nothing new", flagged: false, day: "Fri" },
+];
+
+const queueItems = [
+  { day: "Mon", text: "Summarize vendor contracts" },
+  { day: "Tue", text: "Draft the weekly status update" },
+  { day: "Wed", text: "Prep client meeting briefs" },
+];
+
+function DocumentFrame({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div
       aria-hidden="true"
-      className="flex h-[168px] flex-col gap-2 rounded-xl bg-white/[0.035] p-[18px] ring-1 ring-white/[0.06]"
+      className="flex min-h-[188px] flex-col gap-3.5 rounded-xl bg-white/[0.035] p-[18px] ring-1 ring-white/[0.06]"
     >
-      <span className="h-[7px] w-[46%] rounded-[2px] bg-foreground/55" />
-      <span className="h-1 w-[66%] rounded-[2px] bg-foreground/15" />
+      <div className="flex items-center justify-between gap-3 font-mono text-[11px] text-foreground/50">
+        <span className="truncate">{label}</span>
+        <span className="shrink-0 text-foreground/35">example</span>
+      </div>
       {children}
     </div>
   );
-}
-
-function FlowBox({ ai = false }: { ai?: boolean }) {
-  return (
-    <span
-      className={cn(
-        "h-6 w-10 shrink-0 rounded",
-        ai ? "bg-[var(--amber)]" : "border-[1.5px] border-foreground/45"
-      )}
-    />
-  );
-}
-
-function FlowLine() {
-  return <span className="h-px flex-1 bg-foreground/30" />;
 }
 
 const documents = [
@@ -99,15 +96,24 @@ const documents = [
     when: "Day 1",
     description: "A Claude Project on a real external dependency. Used Monday, then again every week.",
     drawing: (
-      <div className="flex flex-1 flex-col justify-center gap-2.5">
-        {[true, false, false, true].map((flagged, i) => (
-          <div key={i} className="flex items-center gap-2.5">
-            <span className={cn("h-2 w-2 shrink-0 rounded-full", flagged ? "bg-[var(--amber)]" : "bg-foreground/20")} />
-            <span className={cn("h-1.5 rounded-[2px] bg-foreground/30", i % 2 ? "w-[52%]" : "w-[70%]")} />
-            <span className="ml-auto h-1.5 w-[12%] rounded-[2px] bg-foreground/15" />
-          </div>
-        ))}
-      </div>
+      <DocumentFrame label="Watchtower / competitor watch">
+        <ul className="flex flex-1 flex-col justify-center gap-2.5 text-[13px]">
+          {watchItems.map((item) => (
+            <li key={item.text} className="flex items-center gap-2.5">
+              <span
+                className={cn(
+                  "h-2 w-2 shrink-0 rounded-full",
+                  item.flagged ? "bg-[var(--amber)]" : "bg-foreground/20"
+                )}
+              />
+              <span className={cn("truncate", item.flagged ? "text-foreground/85" : "text-foreground/50")}>
+                {item.text}
+              </span>
+              <span className="ml-auto shrink-0 font-mono text-[11px] text-foreground/40">{item.day}</span>
+            </li>
+          ))}
+        </ul>
+      </DocumentFrame>
     ),
   },
   {
@@ -115,23 +121,28 @@ const documents = [
     when: "Day 2",
     description: "The process you\u2019ve been postponing, mapped today and rebuilt.",
     drawing: (
-      <div className="mt-2 grid flex-1 grid-cols-[34px_repeat(5,minmax(0,1fr))] grid-rows-2 items-stretch gap-1.5 font-mono text-[9px] text-foreground/45">
-        {matrixCells.map((cell, i) => (
-          <Fragment key={i}>
-            {i % 5 === 0 && (
-              <span className="self-center">{i === 0 ? "today" : "rebuilt"}</span>
-            )}
+      <DocumentFrame label="Process map / vendor onboarding">
+        <div className="grid flex-1 grid-cols-[44px_repeat(5,minmax(0,1fr))] items-center gap-1.5 font-mono text-[9px] text-foreground/50">
+          <span />
+          {matrixColumns.map((column) => (
+            <span key={column} className="truncate text-center font-sans text-[10px] tracking-tight">{column}</span>
+          ))}
+          <span>today</span>
+          {matrixColumns.map((column) => (
+            <span key={column} className="h-8 rounded-[2px] bg-white/[0.07]" />
+          ))}
+          <span>rebuilt</span>
+          {rebuiltCells.map((ai, i) => (
             <span
+              key={i}
               className={cn(
-                "rounded-[2px]",
-                cell === "ai" && "bg-[var(--amber)]",
-                cell === "human" && "border-[1.5px] border-foreground/45",
-                cell === "empty" && "bg-white/[0.06]"
+                "h-8 rounded-[2px]",
+                ai ? "bg-[var(--amber)]" : "border-[1.5px] border-foreground/45"
               )}
             />
-          </Fragment>
-        ))}
-      </div>
+          ))}
+        </div>
+      </DocumentFrame>
     ),
   },
   {
@@ -139,14 +150,25 @@ const documents = [
     when: "Day 2",
     description: "Three to five starter paragraphs, written in the room, ready to paste.",
     drawing: (
-      <div className="flex flex-1 flex-col justify-center gap-2 font-mono text-[10px] text-foreground/45">
-        {["Mon", "Tue", "Wed"].map((day, i) => (
-          <div key={day} className="flex items-center gap-2.5">
-            <span className="w-[26px]">{day}</span>
-            <span className={cn("h-5 flex-1 rounded-[3px]", i === 0 ? "bg-[var(--amber)]" : "border-[1.5px] border-foreground/30")} />
-          </div>
-        ))}
-      </div>
+      <DocumentFrame label="Queue / next builds">
+        <ol className="flex flex-1 flex-col justify-center gap-2 text-[12px]">
+          {queueItems.map((item, i) => (
+            <li key={item.day} className="flex items-center gap-2.5">
+              <span className="w-[26px] shrink-0 font-mono text-[10px] text-foreground/45">{item.day}</span>
+              <span
+                className={cn(
+                  "flex h-7 flex-1 items-center truncate rounded-[3px] px-2.5",
+                  i === 0
+                    ? "bg-[var(--amber)] font-medium text-background"
+                    : "text-foreground/60 ring-1 ring-inset ring-foreground/25"
+                )}
+              >
+                {item.text}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </DocumentFrame>
     ),
   },
 ];
@@ -233,7 +255,7 @@ export function EightHours() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {documents.map((doc) => (
               <div key={doc.title} className="flex flex-col gap-3.5">
-                <DocumentFrame>{doc.drawing}</DocumentFrame>
+                {doc.drawing}
                 <div className="flex items-baseline justify-between gap-3">
                   <h3 className="text-[17px] font-medium">{doc.title}</h3>
                   <span className="shrink-0 font-mono text-[11px] text-foreground/45">{doc.when}</span>
