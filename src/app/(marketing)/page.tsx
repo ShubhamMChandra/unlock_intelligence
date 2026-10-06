@@ -5,6 +5,7 @@
  * Deps: Section components from components/sections.
  */
 import { Hero } from "@/components/sections/hero";
+import { ProcessMatrix } from "@/components/sections/process-matrix";
 import { ProofBar } from "@/components/sections/proof-bar";
 import { Problem } from "@/components/sections/problem";
 import { HowItWorks } from "@/components/sections/how-it-works";
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <ProcessMatrix />
       <ProofBar />
       <Problem />
       <Team />
