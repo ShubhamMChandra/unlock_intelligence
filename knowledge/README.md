@@ -29,6 +29,7 @@ A shared repository of learnings, strategies, playbooks, and artifacts from buil
 ## Index
 
 ### Learnings
+- [2026-10-06: wam.team Rebrand and Light-Theme Preference](learnings/2026-10-06-wam-rebrand-light-preference.md) — Applied AI-tells principles to wam.team; Shubham prefers light palettes
 - [2026-04-10: Module 1 Prep Session](learnings/2026-04-10-module-1-prep-session.md) — Worksheet rewrite, artifact extraction, Gamma learnings, instructor review findings
 - [2026-04-10: Instructor Review of Module 1](learnings/2026-04-10-instructor-review-module-1.md) — Pedagogical gaps, pacing risks, stall patterns, facilitation craft notes
 - [2026-04-06: ROI Card Reads as Price Tag](learnings/2026-04-06-roi-card-ux-fix.md) — $9,750 stat mistaken for program cost; UX fix + source diversity rule
