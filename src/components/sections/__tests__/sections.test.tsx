@@ -28,6 +28,7 @@ vi.mock("framer-motion", () => {
     ),
     useScroll: () => ({ scrollY: { get: () => 0, onChange: () => () => {} } }),
     useTransform: () => 0,
+    useReducedMotion: () => true,
     AnimatePresence: ({ children }: { children: unknown }) => children,
   };
   return actual;
@@ -96,13 +97,15 @@ import { Team } from "../team";
 import { Enroll } from "../enroll";
 import { FAQ } from "../faq";
 import { FinalCTA } from "../final-cta";
+import { EightHours } from "../eight-hours";
+import { ProcessMatrix } from "../process-matrix";
+import { fireEvent } from "@testing-library/react";
 
 // ─── Hero ─────────────────────────────────────────
 describe("Hero", () => {
-  it("renders cohort pill text with spots remaining", () => {
+  it("renders cohort line with seats open", () => {
     render(<Hero />);
-    expect(screen.getByText(/Founding cohort/)).toBeInTheDocument();
-    expect(screen.getByText(/7 of 10 seats/i)).toBeInTheDocument();
+    expect(screen.getByText(/Founding cohort, 7 of 10 seats open/)).toBeInTheDocument();
   });
 
   it("renders all headline words", () => {
@@ -113,21 +116,19 @@ describe("Hero", () => {
 
   it("renders subtitle text", () => {
     render(<Hero />);
-    expect(screen.getByText(/live, instructor-led program/)).toBeInTheDocument();
+    expect(screen.getByText(/Two live half-day sessions/)).toBeInTheDocument();
     expect(screen.getByText(/No coding required/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons", () => {
     render(<Hero />);
-    expect(screen.getByText(/Request a proposal/)).toBeInTheDocument();
-    expect(screen.getByText(/View the curriculum/)).toBeInTheDocument();
+    expect(screen.getByText(/Request a proposal/).closest("a")).toHaveAttribute("href", "/contact");
+    expect(screen.getByText(/See the eight hours/).closest("a")).toHaveAttribute("href", "#how-it-works");
   });
 
-  it("renders trust indicators", () => {
+  it("renders instructor trust line", () => {
     render(<Hero />);
     expect(screen.getByText(/Taught by a University of Chicago instructor/)).toBeInTheDocument();
-    expect(screen.getByText(/Completion certificate for L&D/)).toBeInTheDocument();
-    expect(screen.getByText(/Curriculum tailored to your industry/)).toBeInTheDocument();
   });
 });
 
@@ -273,21 +274,20 @@ describe("Why", () => {
 
 // ─── Team ────────────────────────────────────────
 describe("Team", () => {
-  it("renders section header", () => {
+  it("renders section header and credentials", () => {
     render(<Team />);
-    expect(screen.getByText("Your Instructors")).toBeInTheDocument();
-    expect(screen.getByText(/Who.s teaching/)).toBeInTheDocument();
+    expect(screen.getByText("Who teaches it")).toBeInTheDocument();
+    expect(screen.getByText(/Digital Realty and Garner Health/)).toBeInTheDocument();
   });
 
-  it("renders Shubham Chandra card", () => {
+  it("renders Shubham Chandra", () => {
     render(<Team />);
     expect(screen.getByText("Shubham Chandra")).toBeInTheDocument();
     expect(screen.getByText("Head of Curriculum")).toBeInTheDocument();
-    expect(screen.getByText(/Digital Realty/)).toBeInTheDocument();
     expect(screen.getByText(/Teaches AI-driven entrepreneurship at the University of Chicago/)).toBeInTheDocument();
   });
 
-  it("renders JT O'Connor card", () => {
+  it("renders JT O'Connor", () => {
     render(<Team />);
     expect(screen.getByText(/J\.T\. O.Connor/)).toBeInTheDocument();
     expect(screen.getByText("Program Director")).toBeInTheDocument();
@@ -299,35 +299,39 @@ describe("Team", () => {
     expect(screen.getByAltText("Shubham Chandra")).toBeInTheDocument();
     expect(screen.getByAltText(/J\.T\. O.Connor/)).toBeInTheDocument();
   });
+
+  it("links to the team page", () => {
+    render(<Team />);
+    expect(screen.getByText("Meet the full team").closest("a")).toHaveAttribute("href", "/team");
+  });
 });
 
 // ─── Enroll ──────────────────────────────────────
 describe("Enroll", () => {
   it("renders section header", () => {
     render(<Enroll />);
-    expect(screen.getByText("Enroll")).toBeInTheDocument();
-    expect(screen.getByText("Enroll your team")).toBeInTheDocument();
+    expect(screen.getByText("Founding cohort pricing")).toBeInTheDocument();
   });
 
-  it("renders spots remaining indicator", () => {
+  it("renders seats open", () => {
     render(<Enroll />);
-    expect(screen.getByText(/7 of 10 founding spots remaining/)).toBeInTheDocument();
+    expect(screen.getByText("7 of 10 seats open")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "7 of 10 founding seats open" })).toBeInTheDocument();
   });
 
-  it("renders Individual Enrollment card", () => {
-    render(<Enroll />);
-    expect(screen.getByText("Individual Enrollment")).toBeInTheDocument();
-    expect(screen.getByText("For individuals")).toBeInTheDocument();
-    expect(screen.getByText("Both live sessions (8 hours total)")).toBeInTheDocument();
-    expect(screen.getByText("Certificate of completion")).toBeInTheDocument();
-  });
-
-  it("renders Team Training card", () => {
+  it("renders Team Training plan", () => {
     render(<Enroll />);
     expect(screen.getByText("Team Training")).toBeInTheDocument();
-    expect(screen.getByText("Recommended for organizations")).toBeInTheDocument();
-    expect(screen.getByText("5+ seats, custom scheduling")).toBeInTheDocument();
+    expect(screen.getByText("$1,095")).toBeInTheDocument();
+    expect(screen.getByText(/per seat, then \$1,595/)).toBeInTheDocument();
     expect(screen.getByText(/Volume pricing/)).toBeInTheDocument();
+  });
+
+  it("renders Individual Enrollment plan", () => {
+    render(<Enroll />);
+    expect(screen.getByText("Individual Enrollment")).toBeInTheDocument();
+    expect(screen.getByText("$1,295")).toBeInTheDocument();
+    expect(screen.getByText(/per person, then \$1,995/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons with correct links", () => {
@@ -338,9 +342,10 @@ describe("Enroll", () => {
     expect(startedBtn.closest("a")).toHaveAttribute("href", "/contact");
   });
 
-  it("renders money-back guarantee", () => {
+  it("renders guarantee and cost framing", () => {
     render(<Enroll />);
     expect(screen.getByText(/refund you. No/)).toBeInTheDocument();
+    expect(screen.getByText(/\$9,750 per person per year/)).toBeInTheDocument();
   });
 });
 
@@ -380,13 +385,12 @@ describe("FAQ", () => {
 describe("FinalCTA", () => {
   it("renders heading", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/companies investing in AI fluency/)).toBeInTheDocument();
-    expect(screen.getByText(/lead\./)).toBeInTheDocument();
+    expect(screen.getByText(/companies investing in AI fluency now will lead\./)).toBeInTheDocument();
   });
 
-  it("renders subtitle", () => {
+  it("renders supporting line", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/Early-moving teams build the workflows/)).toBeInTheDocument();
+    expect(screen.getByText(/proposal within one business/)).toBeInTheDocument();
   });
 
   it("renders CTA button linking to contact", () => {
@@ -394,11 +398,62 @@ describe("FinalCTA", () => {
     const cta = screen.getByText(/Request a proposal/);
     expect(cta.closest("a")).toHaveAttribute("href", "/contact");
   });
+});
 
-  it("renders metadata line", () => {
-    render(<FinalCTA />);
-    expect(screen.getByText(/Founding cohort now enrolling/)).toBeInTheDocument();
-    expect(screen.getByText(/Limited to 10 teams/)).toBeInTheDocument();
-    expect(screen.getByText("No technical background required")).toBeInTheDocument();
+// ─── EightHours ──────────────────────────────────
+describe("EightHours", () => {
+  it("renders heading and both sessions", () => {
+    render(<EightHours />);
+    expect(screen.getByText("What happens in the eight hours.")).toBeInTheDocument();
+    expect(screen.getByText("Session 1: Foundation and fluency")).toBeInTheDocument();
+    expect(screen.getByText("Session 2: Strategy and mastery")).toBeInTheDocument();
+  });
+
+  it("renders all eight modules", () => {
+    render(<EightHours />);
+    expect(screen.getAllByRole("listitem")).toHaveLength(8);
+    expect(screen.getByText("The Process Matrix")).toBeInTheDocument();
+    expect(screen.getByText("Your 90-Day Roadmap")).toBeInTheDocument();
+  });
+
+  it("renders the three documents", () => {
+    render(<EightHours />);
+    expect(screen.getByText("AI Integration Blueprint")).toBeInTheDocument();
+    expect(screen.getByText("Workflow Automation Map")).toBeInTheDocument();
+    expect(screen.getByText("90-Day AI Roadmap")).toBeInTheDocument();
+  });
+
+  it("exposes the length comparison to screen readers", () => {
+    render(<EightHours />);
+    expect(screen.getByRole("img", { name: /this program 8 hours/ })).toBeInTheDocument();
+  });
+
+  it("anchors how-it-works and curriculum links", () => {
+    const { container } = render(<EightHours />);
+    expect(container.querySelector("#how-it-works")).not.toBeNull();
+    expect(container.querySelector("#curriculum")).not.toBeNull();
+  });
+});
+
+// ─── ProcessMatrix ───────────────────────────────
+describe("ProcessMatrix", () => {
+  it("shows HR onboarding by default", () => {
+    render(<ProcessMatrix />);
+    expect(screen.getByRole("heading", { name: "New-hire onboarding" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "HR" })).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("switches process when a tab is pressed", () => {
+    render(<ProcessMatrix />);
+    fireEvent.click(screen.getByRole("button", { name: "Finance" }));
+    expect(screen.getByRole("heading", { name: "Month-end close" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Finance" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "HR" })).toHaveAttribute("aria-pressed", "false");
+  });
+
+  it("counts AI insertion points for the active process", () => {
+    render(<ProcessMatrix />);
+    fireEvent.click(screen.getByRole("button", { name: "Marketing" }));
+    expect(screen.getByText(/3 AI insertion points, 2 steps stay human/)).toBeInTheDocument();
   });
 });

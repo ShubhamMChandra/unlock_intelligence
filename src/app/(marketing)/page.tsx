@@ -6,12 +6,7 @@
  */
 import { Hero } from "@/components/sections/hero";
 import { ProcessMatrix } from "@/components/sections/process-matrix";
-import { ProofBar } from "@/components/sections/proof-bar";
-import { Problem } from "@/components/sections/problem";
-import { HowItWorks } from "@/components/sections/how-it-works";
-import { Deliverables } from "@/components/sections/deliverables";
-import { Curriculum } from "@/components/sections/curriculum";
-import { Why } from "@/components/sections/why";
+import { EightHours } from "@/components/sections/eight-hours";
 import { Team } from "@/components/sections/team";
 import { Enroll } from "@/components/sections/enroll";
 import { FAQ } from "@/components/sections/faq";
@@ -22,13 +17,8 @@ export default function Home() {
     <main>
       <Hero />
       <ProcessMatrix />
-      <ProofBar />
-      <Problem />
+      <EightHours />
       <Team />
-      <HowItWorks />
-      <Deliverables />
-      <Curriculum />
-      <Why />
       <Enroll />
       <FAQ />
       <FinalCTA />

@@ -81,7 +81,7 @@ export function ProcessMatrix() {
   const humanCount = process.rows.length - aiCount;
 
   return (
-    <section aria-labelledby="matrix-title" className="tone-hero pb-16 md:pb-24">
+    <section aria-labelledby="matrix-title" className="pb-8 md:pb-12">
       <div className="mx-auto max-w-[1120px] px-4 sm:px-6">
         <figure className="m-0 rounded-2xl bg-white/[0.035] p-4 ring-1 ring-white/[0.06] sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4">

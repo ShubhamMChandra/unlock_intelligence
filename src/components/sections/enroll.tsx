@@ -1,173 +1,129 @@
 /**
- * What: Pricing cards for individual and team enrollment.
- * Why: Primary commercial decision section on homepage.
- * How: Reads lib/constants; GlassCards with CTAs and badges.
- * Deps: lib/constants, next/link, Button, ScrollReveal, GlassCard.
+ * What: Founding cohort pricing — seat counter, two plans, guarantee.
+ * Why: Conversion peak; price transparency for HR buyers.
+ * How: Team plan on a raised surface, individual plan outlined.
+ * Deps: next/link, Button, cn, constants.
  */
-"use client";
-
 import Link from "next/link";
-import { Check, Star } from "lucide-react";
-import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { GlassCard } from "@/components/ui/glass-card";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+import {
+  FOUNDING_SPOTS_REMAINING,
+  FOUNDING_SPOTS_TOTAL,
+  INDIVIDUAL_FOUNDING_PRICE,
+  INDIVIDUAL_REGULAR_PRICE,
+  TEAM_FOUNDING_PRICE_LABEL,
+  TEAM_REGULAR_PRICE_LABEL,
+} from "@/lib/constants";
 
-const professionalFeatures = [
-  "Both live sessions (8 hours total)",
-  "Full curriculum access + session recordings",
-  "Private cohort community (6 months)",
-  "AI Integration Blueprint for your workflows",
-  "90-Day AI Roadmap (yours to keep)",
-  "Certificate of completion",
-];
-
-const corporateFeatures = [
-  "5+ seats, custom scheduling",
-  "Role-specific curriculum tailoring",
-  "Private cohort for your team only",
-  "Executive summary report post-program",
-  "Volume pricing & invoicing available",
-];
+const seatsTaken = FOUNDING_SPOTS_TOTAL - FOUNDING_SPOTS_REMAINING;
 
 export function Enroll() {
   return (
-    <SectionWrapper id="enroll" className="tone-enroll">
-        <ScrollReveal>
-        <div className="mb-12 space-y-2 text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
-            Enroll
-          </p>
-          <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
-            Enroll your team
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
-            The founding cohort is open. Founding members get our lowest
-            price and direct access to the instructors to shape the
-            curriculum. Reach out and we&rsquo;ll send a proposal within
-            a business day.
-          </p>
-        </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-        <div className="mx-auto mb-8 flex items-center justify-center gap-2 text-sm">
-          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--sage)]" aria-hidden="true" />
-          <span className="font-medium text-foreground/90">
-            {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} founding spots remaining
-          </span>
-        </div>
-        </ScrollReveal>
-
-      <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-        {/* Corporate License */}
-        <ScrollReveal>
-          <GlassCard className="relative flex h-full flex-col border-[var(--navy)]/30 bg-[var(--navy)]/[0.06] hover:border-[var(--navy)]/50">
-            <span className="mb-4 inline-block rounded-full bg-[var(--navy)]/10 px-3 py-1 text-xs font-medium text-[var(--navy)]">
-              Recommended for organizations
-            </span>
-            <h3 className="mb-2 text-xl font-medium">Team Training</h3>
-            <p className="mb-4 text-sm text-foreground/70">
-              Bring the program to your team. We&rsquo;ll tailor the curriculum
-              to your industry and run a private cohort.
+    <section id="enroll" className="scroll-mt-24 py-16 md:py-24">
+      <div className="mx-auto flex max-w-[1120px] flex-col gap-10 px-4 sm:px-6">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
+          <div className="flex flex-col gap-4 md:max-w-[560px]">
+            <h2 className="text-[2rem] font-medium leading-[1.05] tracking-[-0.035em] md:text-[2.75rem]">
+              Founding cohort pricing
+            </h2>
+            <p className="text-foreground/65">
+              Founding members get our lowest price and direct access to the
+              instructors to shape the curriculum. We send a proposal within
+              one business day.
             </p>
-            <div className="mb-6">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold tracking-tight">Starting at $1,095</span>
-                <span className="text-sm text-foreground/70">/seat</span>
-              </div>
-              <p className="mt-1 text-xs font-medium text-foreground/70">
-                Founding cohort rate
-              </p>
-              <p className="mt-0.5 text-xs text-foreground/55">
-                Increases to $1,595/seat after the founding cohort
-              </p>
-            </div>
-            <ul className="mb-0 space-y-3">
-              {corporateFeatures.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm text-foreground/80"
-                >
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--sage)]" />
-                  {item}
-                </li>
+          </div>
+          <div className="flex items-center gap-3.5">
+            <div
+              role="img"
+              aria-label={`${FOUNDING_SPOTS_REMAINING} of ${FOUNDING_SPOTS_TOTAL} founding seats open`}
+              className="flex gap-1"
+            >
+              {Array.from({ length: FOUNDING_SPOTS_TOTAL }, (_, i) => (
+                <span
+                  key={i}
+                  className={cn(
+                    "h-5 w-3 rounded-[2px]",
+                    i < seatsTaken ? "bg-foreground/25" : "border-[1.5px] border-foreground"
+                  )}
+                />
               ))}
-            </ul>
+            </div>
+            <span className="text-sm text-foreground/60">
+              {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} seats open
+            </span>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="flex flex-col gap-5 rounded-2xl bg-white/[0.035] p-6 ring-1 ring-white/[0.06] md:p-9">
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 className="text-xl font-medium">Team Training</h3>
+              <span className="text-[13px] text-foreground/60">Private cohort, 5+ seats</span>
+            </div>
+            <p className="flex flex-wrap items-baseline gap-2">
+              <span className="text-5xl font-medium tracking-[-0.04em] tabular-nums md:text-[3.25rem]">
+                {TEAM_FOUNDING_PRICE_LABEL.replace("/seat", "")}
+              </span>
+              <span className="text-[15px] text-foreground/60">
+                per seat, then {TEAM_REGULAR_PRICE_LABEL.replace("/seat", "")}
+              </span>
+            </p>
+            <p className="text-[15px] leading-relaxed text-foreground/65">
+              Curriculum tailored to your industry and roles, scheduled around
+              your team, with an executive summary for leadership afterward.
+              Volume pricing and invoicing available.
+            </p>
             <Button
-              size="lg"
-              className="mt-auto h-11 w-full rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              className="mt-auto h-12 w-full rounded-none bg-foreground text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               nativeButton={false}
               render={<Link href="/contact?type=corporate" />}
             >
               Request a proposal
             </Button>
-          </GlassCard>
-        </ScrollReveal>
+          </div>
 
-        {/* Professional Seat */}
-        <ScrollReveal delay={150}>
-          <GlassCard className="flex h-full flex-col">
-            <span className="mb-4 inline-block rounded-full bg-white/[0.06] px-3 py-1 text-xs font-medium text-foreground/55">
-              For individuals
-            </span>
-            <h3 className="mb-2 text-xl font-medium">Individual Enrollment</h3>
-            <p className="mb-4 text-sm text-foreground/70">
-              Join an upcoming cohort on your own. You&rsquo;ll work
-              alongside peers from different industries, which tends to
-              make the conversations better.
-            </p>
-            <div className="mb-6">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold tracking-tight">$1,295</span>
-                <span className="text-sm text-foreground/70">per person</span>
-              </div>
-              <p className="mt-1 text-xs font-medium text-foreground/70">
-                Founding cohort rate
-              </p>
-              <p className="mt-0.5 text-xs text-foreground/55">
-                Increases to $1,995 after the founding cohort
-              </p>
+          <div className="flex flex-col gap-5 rounded-2xl p-6 ring-1 ring-white/10 md:p-9">
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 className="text-xl font-medium">Individual Enrollment</h3>
+              <span className="text-[13px] text-foreground/60">Open cohort</span>
             </div>
-            <ul className="mb-0 space-y-3">
-              {professionalFeatures.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm text-foreground/80"
-                >
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--sage)]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <p className="flex flex-wrap items-baseline gap-2">
+              <span className="text-5xl font-medium tracking-[-0.04em] tabular-nums md:text-[3.25rem]">
+                {INDIVIDUAL_FOUNDING_PRICE}
+              </span>
+              <span className="text-[15px] text-foreground/60">
+                per person, then {INDIVIDUAL_REGULAR_PRICE}
+              </span>
+            </p>
+            <p className="text-[15px] leading-relaxed text-foreground/65">
+              Both live sessions with recordings, all three documents, a
+              certificate, and six months in the cohort community, alongside
+              peers from other industries.
+            </p>
             <Button
-              size="lg"
               variant="outline"
-              className="mt-auto h-11 w-full rounded-none border-foreground/30 bg-transparent text-[15px] font-medium text-foreground transition-colors duration-150 hover:bg-foreground/5 hover:border-foreground/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              className="mt-auto h-12 w-full rounded-none border-foreground/35 bg-transparent text-[15px] font-medium text-foreground transition-colors duration-150 hover:bg-foreground/[0.06] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               nativeButton={false}
               render={<Link href="/contact" />}
             >
               Get started
             </Button>
-          </GlassCard>
-        </ScrollReveal>
-      </div>
-
-      {/* Guarantee */}
-        <div className="mx-auto mt-12 max-w-2xl rounded-xl border border-[var(--sage)]/20 bg-[var(--sage)]/[0.06] px-6 py-5 text-center">
-          <div className="flex items-center justify-center gap-2">
-            <Star className="h-5 w-5 shrink-0 text-[var(--sage)]" />
-            <p className="text-base font-medium text-foreground/90">
-              Risk-free guarantee
-            </p>
           </div>
-          <p className="mt-2 text-sm text-foreground/70">
-            If your team finishes both sessions and doesn&rsquo;t feel
-            they gained usable skills, we&rsquo;ll refund you. No
-            paperwork.
+        </div>
+
+        <div className="grid gap-4 text-sm leading-relaxed text-foreground/55 md:grid-cols-2 md:gap-12">
+          <p>
+            For scale: the average knowledge worker spends 2.5 hours a week on
+            work AI could handle. At $75 an hour, that&rsquo;s $9,750 per
+            person per year.
+          </p>
+          <p>
+            If your team finishes both sessions and doesn&rsquo;t feel they
+            gained usable skills, we refund you. No paperwork.
           </p>
         </div>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 }
