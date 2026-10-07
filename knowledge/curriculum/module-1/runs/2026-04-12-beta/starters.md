@@ -1,8 +1,69 @@
-# Personalized starters — 2026-04-12 beta
+# Block 5 build prompt — 2026-04-12 beta
 
-Five ready-to-paste Claude Project starters, one per attendee. Each has a "Why this works" annotation block, a first-run prompt to paste after setup, and a brief note on what the output should look like. On Saturday, copy these into the shared Google Doc with each attendee's real name as the section heading.
+One build prompt. Five attendees. Same paste, different outputs. The personalization lives in the real initiative each attendee brings, not in the prompt itself.
 
-**How to use this file:** Copy everything under each attendee's name into the Google Doc. Each person sees their starter (paste into Claude Projects), the annotation explaining why it works, and a first-run prompt they can paste right after setup so they're not staring at a blank chat. The first-run prompts use real companies and real scenarios -- the output should be genuinely useful on the first try.
+This file is the single most important Saturday artifact. If the prompt below reliably produces a working app on a blank `create-next-app` scaffold in ~10–15 minutes, Block 5 works. If it doesn't, Block 5 collapses. Test it cold on Saturday.
+
+(See also: `../../../pre-class-setup.md` — the attendee-facing setup doc that lands them at a blank `unlock-demo` scaffold before they walk in.)
+
+---
+
+## How to use this prompt on Sunday
+
+Each attendee already has a blank Next.js scaffold called `unlock-demo` sitting on their Desktop from pre-work (TypeScript + Tailwind, dev server tested, nothing else). During Block 5 they open Claude Code Desktop, click the **Code** tab, select their `unlock-demo` folder, and paste the build prompt below. When Claude Code asks for the Anthropic API key, they copy it from the shared Google Doc and paste it back. They walk through each approval. ~10–15 minutes later they have a working role-aware document generator at localhost:3000, and they run it on the real initiative they brought with them.
+
+**The demo API key** for this workshop is in the shared Google Doc. It's a throwaway key with a $50 cap that Shubham rotates Monday morning. Don't worry about security: the attendee pastes it into `.env.local` when Claude asks. No OAuth, no secrets manager, no production-grade handling. This is the intentional "don't over-engineer a demo" move that keeps Claude Code from asking 14 clarifying questions.
+
+---
+
+## The prompt (paste this into Claude Code Desktop during Block 5)
+
+> I'm in a workshop and I need you to build me a small Next.js app inside this project. I'm on a fresh create-next-app scaffold (TypeScript + Tailwind, app router). Use what's already here — don't reinstall or re-scaffold.
+>
+> **What to build:** a single-page app at `/` that takes three inputs from me and generates one tailored document per audience I select.
+>
+> **The form** (on the main page):
+> 1. A text input for my role (e.g., "VP of Operations")
+> 2. A textarea for the initiative I'm working on (e.g., "rolling out a new vendor management process next quarter")
+> 3. A multi-select checkbox group labeled "Who do you need to communicate this to?" with these options: Executive leadership, Operational team, Client or customer, Legal or compliance, Sales or marketing
+> 4. A "Generate documents" button
+>
+> **The backend:** a Next.js API route at `/app/api/generate/route.ts` that receives `{ role, initiative, audiences[] }`. For each selected audience, call the Anthropic SDK (`@anthropic-ai/sdk`) using the `claude-sonnet-4-5` model and generate a ~1-page tailored document that explains the initiative from my role, shaped for that audience's perspective and information needs. Return `{ documents: [{ audience, markdown }] }`.
+>
+> **The render:** show each generated document on the same page below the form, with the audience name as a clear heading. Render the markdown with `react-markdown` so it looks readable.
+>
+> **Styling:** Tailwind only. Clean, professional, light theme, generous whitespace, readable typography. Think "something a consultant could open on a Monday," not "hackathon demo." Don't spend more than 2 minutes on styling.
+>
+> **The API key:** I have a demo API key from the workshop. It's a temporary key I'm allowed to use. When you're ready for it, ask me and I'll paste it. Hardcode it into `.env.local` as `ANTHROPIC_API_KEY`. Don't worry about security for this — it's a demo key that will be rotated after the workshop.
+>
+> **Dependencies:** install only `@anthropic-ai/sdk` and `react-markdown`. Do not install test frameworks, linters, state libraries, auth, ORMs, or anything else.
+>
+> **How to work with me:** I'm not technical. Explain each step in plain English before you run it. Ask me to approve each shell command. Never run more than one command at a time. If something breaks, stop, tell me what went wrong in plain English, and wait for me to tell you what to do — do not try to auto-recover for more than 30 seconds.
+>
+> **When you're done:** start the dev server, confirm localhost:3000 loads the form, and tell me it's ready to try.
+
+---
+
+## Why this prompt works
+
+- **Named stack, named files.** "Next.js app router, `/app/api/generate/route.ts`, `claude-sonnet-4-5`, `@anthropic-ai/sdk`, `react-markdown`" — no ambiguity about which files to touch or which SDK to use. Claude Code doesn't have to guess at architecture, so it doesn't waste turns proposing three alternatives.
+- **Tight scope, concrete form fields.** Five audience options, three inputs, one button. Nothing to interpret. The prompt tells Claude what the form looks like rather than asking it to design one, which cuts a full round of clarifying questions.
+- **Explicit approval gates.** "Ask me to approve each shell command, never run more than one command at a time" lines up with Claude Code Desktop's default permission mode and keeps the attendee in the driver's seat. Non-technical attendees stay oriented because they're clicking "approve" after every meaningful step.
+- **Minimum dependencies, named.** "Only `@anthropic-ai/sdk` and `react-markdown`." The "do not install" list kills the long tail of speculative installs Claude Code would otherwise suggest (testing frameworks, state libraries, auth). Ten fewer commands = ten fewer minutes.
+- **Plain-English explanation mode.** "I'm not technical, explain each step in plain English." Tunes Claude's verbosity without turning it into a teacher. The attendee can read if they want to, click through if they don't.
+- **Stop-on-failure.** "If something breaks, stop, tell me what went wrong, and wait — don't auto-recover for more than 30 seconds." Prevents Claude Code from looping on an obscure error for 5 minutes while the room goes quiet. Fail fast, raise a hand, Shubham or JT diagnose.
+- **The "demo key, don't worry about security" framing.** This is the key craft move. Without it, Claude Code asks "should this be a server-side env var? Should I use a vault? What's the rotation policy?" and burns three turns on prod-grade handling. Explicitly telling Claude "this is a temporary demo key, hardcode it in `.env.local`" collapses those questions into a single paste.
+- **Verification at the end.** "Start the dev server, confirm localhost:3000 loads, tell me it's ready" gives the attendee a clear "done" signal. They don't have to guess whether the build is finished — Claude tells them.
+
+---
+
+## Appendix: rejected direction (v0 — Claude Project starters)
+
+This section preserves the five personalized Claude Project custom-instruction starters from the original Block 5 plan. They were superseded when the workshop pivoted from "personalize a Claude Project in the browser" to "build a real Next.js app on your own laptop with Claude Code Desktop."
+
+**Why they were superseded:** the pivot was pedagogical. Claude Projects in the browser is a prompt-with-custom-instructions pattern — one turn, one response, no loop. Module 1's thesis is *agentic > prompting*, and Block 5 needs to put attendees inside an actual agentic loop (read files, write files, run commands, verify output, iterate). Claude Code Desktop does that; a Claude Project doesn't. The personalization that used to live in five different custom-instruction blocks now lives in the real initiative each attendee brings to the room — same personal stakes, different (and stronger) teaching surface.
+
+**When to fall back to this appendix:** if the Claude Code Desktop approach implodes at the venue Saturday evening (pre-work prompt fails on a clean machine, venue wifi can't handle 5 concurrent Claude Code sessions, Claude Desktop app has a day-of bug), revert. The five starters below still work in Claude Projects in the browser and carry the full Block 5 load, same as the original plan. Shubham would copy them into the shared Google Doc per attendee name, and Block 5 becomes "open Claude > New Project > paste your starter > run your first prompt" instead of "paste build prompt into Claude Code Desktop." Sub-optimal on the thesis but recoverable.
 
 ---
 
@@ -58,6 +119,13 @@ Verification: I will engage outside counsel for full review on anything that get
 > I'm evaluating a potential acquisition target: Ascend Wellness Holdings. They operate in Illinois, Massachusetts, Michigan, Ohio, and New Jersey. Deal type: I don't know yet -- it could be an asset purchase or an equity deal depending on how the licenses are structured in each state. Here's what I know from public sources: they're publicly traded on the CSE, they reported roughly $440M in revenue last year, and they've been expanding through acquisitions themselves. They recently opened new dispensaries in Ohio ahead of the adult-use rollout. Give me the first-pass diligence summary.
 
 **What to expect in the output:** It should read like a first-pass memo from a junior diligence analyst -- not a final answer, but enough to decide whether this deal is worth paying outside counsel to look at. The sharpest section is usually the three questions for outside counsel, because that's where the tool turns research into a next step. If Claude flags uncertainty on state-level license transfer rules or says "I don't know" on a specific 280E question, that's good -- the constraints are working.
+
+**Why this prompt works (and what most people do instead):**
+- Uses a real, publicly traded company. Claude can verify facts against actual filings and press instead of guessing. Most people would say "evaluate a cannabis company" and get a generic template back.
+- Names the specific states of operation. Cannabis law is state-by-state, so this one detail anchors the entire license analysis. Without it, Claude would hedge on every regulatory question.
+- Says "I don't know yet" on deal type instead of picking one. Honest uncertainty gets better output than fake specificity -- Claude will lay out what differs between asset purchase and equity deal instead of assuming one.
+- Includes what he already knows from public sources. This gives Claude a starting point and prevents it from wasting half the output on information Zeshawn already has.
+- Doesn't ask "tell me everything about Ascend." The custom instructions already define what output looks like. The prompt just fills in the input schema and gets out of the way.
 
 ---
 
@@ -116,6 +184,14 @@ Verification: I'll come back with what I actually did. You'll see the pattern ov
 
 *Note: Replace this with a real decision you're actually weighing right now. Or use WEEKLY CHECK-IN mode and paste your real projects with honest hours and traction data. The tool is only as useful as the honesty of the input.*
 
+**Why this prompt works (and what most people do instead):**
+- Picks a specific mode (DECISION) instead of dumping everything at once. The co-founder knows what kind of conversation you're starting. Most people would open with "here's what's going on in my life" and get a vague response.
+- Includes real numbers. $40K, $25K, $12K, 6-8 weeks, 83 signups. Specific data produces specific pushback. Saying "I have a potential deal" gets you a motivational poster. Saying "they'd pay $40K and it would take 6-8 weeks" gets you a real challenge.
+- Names the trade-off he already sees but can't resolve on his own. "I can't take other gigs during this period" gives the co-founder something specific to push on -- maybe the timeline is wrong, maybe there's a way to parallelize, maybe the trade-off is deeper than he thinks.
+- States his gut instinct out loud. "My gut says take it because I need to eat" gives the co-founder a position to argue against. If you don't tell it what you're leaning toward, it can't challenge your lean.
+- Ends with "what am I not seeing?" instead of "what should I do?" -- invites perspective, not a verdict. The co-founder's job is to expand your view, not make the call for you.
+- Doesn't hedge. The financial pressure is right there on the page. The tool only works if the input is honest.
+
 ---
 
 ## Thomas "Tommy" Nathan — Home services vertical SaaS competitor teardown
@@ -169,6 +245,13 @@ Verification: I'll fact-check any specific claim — pricing, customer counts, f
 
 **What to expect in the output:** Look for the gap between how ServiceTitan describes themselves and who they're actually built for -- that gap is where your positioning opportunity lives. The 30-second sales pitch at the end is the acid test: it should sound like something a rep could actually say to a plumbing contractor on a call, not something a marketing team would put on a slide. If the pitch uses words like "end-to-end" or "comprehensive platform," Claude ignored the constraint -- push back and it should rewrite in plain language.
 
+**Why this prompt works (and what most people do instead):**
+- Leads with a specific strategic question, not "tell me about ServiceTitan." That one sentence -- "are they abandoning the small contractor segment?" -- shapes the entire output. Without it, Claude would write a generic company overview nobody can act on.
+- Includes Housecall Pro's sweet spot (1-20 truck operations). Claude needs to know where you play to tell you whether a competitor is moving toward or away from your market. Most people forget to give their own context when asking about a competitor.
+- References a real event (the IPO) and a real trend (pushing into mid-market). This gives Claude something concrete to verify and analyze instead of working from generic assumptions about "competitive dynamics."
+- Asks a why question at the end ("is the gap getting wider?"). "Is ServiceTitan good or bad?" gets a book report. "Is the gap between their stated positioning and their actual positioning widening?" gets an analysis.
+- Doesn't ask Claude to "be objective" or "be fair." The custom instructions already say "don't be polite, we're trying to win deals." The prompt trusts the instructions to set the tone.
+
 ---
 
 ## Jess Nickelman — Cultural venue peer benchmarking
@@ -220,6 +303,13 @@ Verification: I'll cross-check specific numbers against audited financials or in
 > Benchmark the Kennedy Center in Washington, DC. Dimension: programming model -- specifically the balance between large-scale touring productions and locally-originated or commissioned work. Client question: "A mid-size performing arts center in the Midwest is considering shifting 30% of its programming from touring shows to original commissions and local partnerships. The board wants to know: have peer institutions made this kind of shift, and what happened to attendance and contributed revenue when they did?"
 
 **What to expect in the output:** It should feel like a first draft of a benchmarking slide you'd actually put in a client deck. The peer selection is the part to read most carefully -- are the comparables genuinely comparable, or is Claude padding the list with institutions that don't match? The honest note on data quality at the bottom is the trust signal: cultural-sector data is patchy, and if Claude admits where the numbers are soft instead of inventing them, the constraints are doing their job. Don't expect polished final numbers -- expect a useful starting point you'd refine before a client sees it.
+
+**Why this prompt works (and what most people do instead):**
+- Uses a real, well-known institution (the Kennedy Center). There's plenty of public data -- annual reports, press coverage, IRS 990 filings. Most people would make up a fictional venue and wonder why Claude's output feels thin.
+- Separates the benchmark dimension from the client question. "Programming model" is what to measure. "Should they shift 30% of programming?" is why it matters. Without this separation, Claude tries to benchmark everything at once and none of it is deep enough to use.
+- The client question is specific and decision-oriented -- "have peers done this, and what happened?" This gives Claude a clear output target: the answer needs to help a board make a call, not summarize an industry.
+- Names the client's situation in enough detail that Claude can tailor the peer set. "Mid-size performing arts center in the Midwest" means Claude should compare against venues of similar scale, not against the Met or the National Theatre.
+- Doesn't ask for "a comprehensive analysis." The custom instructions already define the output structure. The prompt fills in the inputs and lets the instructions do their job.
 
 ---
 
@@ -273,3 +363,10 @@ Verification: I'll cross-check the top 2 facts before I walk into the meeting. T
 > Account: Baxter International. Meeting with: Sarah Chen, VP of HR Technology. This was a referral -- my contact at Abbott introduced us after Baxter completed the Viatris spinoff. He said Sarah is frustrated with their current HCM platform but hasn't started a formal evaluation yet. Business problem I'm exploring: Baxter has been through multiple acquisitions and divestitures over the past few years and their HR systems are fragmented across legacy entities. I think the pain is integration and consolidation, but I don't know if they're ready to rip-and-replace or just looking for something to layer on top.
 
 **What to expect in the output:** The "one thing I should not say" section is the part that separates this from a Google search. It should name something specific about Baxter's recent history that would blow your credibility if you got it wrong in the meeting. The discovery questions should be anchored to this company, not generic -- if you see "what are your biggest challenges?" in the output, the "don't be generic" constraint isn't working and you should push back. The overall brief should feel like intel you'd actually review in the car before walking into the building, not a Wikipedia summary.
+
+**Why this prompt works (and what most people do instead):**
+- Includes how the meeting was set (referral from Abbott). This changes what Bill should open with. A cold meeting and a warm referral need different openers, and most account research tools ignore this entirely.
+- Passes along the referral's intel ("Sarah is frustrated but hasn't started a formal evaluation"). This is a hypothesis Claude can validate or challenge with public signals. Without it, Claude starts from zero when Bill already has a lead.
+- Names what he thinks the pain is AND says he's not sure. "I think the pain is integration and consolidation, but I don't know if they're ready to rip-and-replace" gives Claude two things to work with: a hypothesis to test and a question to answer. Most people either omit their hypothesis (making Claude guess) or state it as certain (making Claude agree).
+- Uses a real Fortune 500 company with plenty of public data -- recent earnings calls, press releases, job postings. The output quality tracks directly to how much real data Claude can find.
+- Doesn't ask for "everything about Baxter." The meeting context (who, how it was set, what problem to explore) focuses the entire output on what Bill actually needs before walking into this specific room.

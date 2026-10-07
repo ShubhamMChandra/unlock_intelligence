@@ -30,10 +30,8 @@ export function Problem() {
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-start">
           {/* Copy column — editorial, no label */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-light tracking-tight md:text-5xl">
-              The AI Skills Gap Is Already
-              <br />
-              Costing You.
+            <h2 className="text-4xl font-light tracking-tight text-balance md:text-5xl">
+              The AI skills gap is already costing you.
             </h2>
 
             <p className="text-foreground/70 leading-relaxed">
@@ -128,6 +126,7 @@ export function Problem() {
           <Button
             size="lg"
             className="h-11 w-full sm:w-auto rounded-none bg-foreground px-7 text-[15px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            nativeButton={false}
             render={<Link href="/contact" />}
           >
             Talk to us about your team

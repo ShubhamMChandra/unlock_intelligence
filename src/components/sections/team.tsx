@@ -1,86 +1,68 @@
 /**
- * What: Instructor bios with photos and credentials.
- * Why: Human trust for a high-touch education product.
- * How: next/image cards inside GlassCard grid layout.
- * Deps: next/image, SectionWrapper, GlassCard, ScrollReveal.
+ * What: Who teaches it — credentials copy beside instructor portraits.
+ * Why: Instructor credentials are the strongest pre-launch proof.
+ * How: Two-column layout, square next/image portraits, no cards.
+ * Deps: next/image, next/link.
  */
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { GlassCard } from "@/components/ui/glass-card";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const members = [
   {
     name: "Shubham Chandra",
     role: "Head of Curriculum",
     image: "/images/team/team-member-2.jpg",
-    bio: "Teaches AI-driven entrepreneurship at the University of Chicago. Builds AI automation systems at Digital Realty, where he implements the kind of workflows he teaches in this program. Researches cutting edge AI technologies for large asset managers. Holds a degree in Economics and an MS in Computer Science from the University of Chicago.",
-    imageStyle: { objectPosition: "center 15%" },
+    bio: "Teaches AI-driven entrepreneurship at the University of Chicago and builds AI automation systems at Digital Realty. MS in Computer Science, University of Chicago.",
   },
   {
-    name: "J.T. O\u2019Connor",
+    name: "J.T. O’Connor",
     role: "Program Director",
     image: "/images/team/team-member-1.JPEG",
-    bio: "Your main point of contact from first conversation through program delivery. Background in operations and business development, with hands-on experience building AI-powered marketing and outreach systems. Holds a degree in Political Science from the University of Chicago.",
-    imageStyle: { objectPosition: "center 15%" },
+    bio: "Your main point of contact from first conversation through delivery. Background in operations and business development, building AI-powered marketing and outreach systems.",
   },
 ];
 
 export function Team() {
   return (
-    <SectionWrapper id="team" className="tone-team">
-        <ScrollReveal>
-        <div className="mb-12 space-y-2">
-          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/55">
-            Your Instructors
-          </p>
-          <h2 className="text-3xl font-medium tracking-[-0.022em] sm:text-4xl">
-            Who&rsquo;s teaching
+    <section id="team" className="scroll-mt-24 py-16 md:py-24">
+      <div className="mx-auto flex max-w-[1120px] flex-col gap-12 px-4 sm:px-6 md:flex-row md:gap-16">
+        <div className="flex flex-col items-start gap-5 md:max-w-[420px] md:flex-1">
+          <h2 className="text-[2rem] font-medium leading-[1.05] tracking-[-0.035em] md:text-[2.75rem]">
+            Who teaches it
           </h2>
+          <p className="text-[17px] leading-relaxed text-foreground/65">
+            Our team teaches at the University of Chicago and builds AI at
+            Digital Realty and Garner Health. The workflows taught here are the
+            kind we build at work.
+          </p>
+          <Link
+            href="/team"
+            className="inline-flex min-h-11 items-center text-sm font-medium text-foreground/70 underline decoration-foreground/25 underline-offset-[6px] transition-colors hover:text-foreground hover:decoration-foreground/60"
+          >
+            Meet the full team
+          </Link>
         </div>
-        </ScrollReveal>
 
-      <ScrollReveal>
-      <div className="grid gap-6 md:grid-cols-2">
-        {members.map((member) => (
-            <GlassCard key={member.name} className="h-full overflow-hidden p-0">
-              <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-[3/4]">
+        <div className="grid flex-1 gap-8 sm:grid-cols-2">
+          {members.map((member) => (
+            <div key={member.name} className="flex flex-col gap-3">
+              <div className="relative aspect-square overflow-hidden rounded-xl">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
-                  style={member.imageStyle}
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover saturate-[0.85]"
+                  style={{ objectPosition: "center 15%" }}
+                  sizes="(max-width: 640px) 100vw, 320px"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-medium">{member.name}</h3>
-                <p className="mb-3 text-sm font-medium text-foreground/70">
-                  {member.role}
-                </p>
-                <p className="text-sm leading-relaxed text-foreground/70">
-                  {member.bio}
-                </p>
-              </div>
-            </GlassCard>
-        ))}
-      </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="mt-8 text-center">
-          <Link
-            href="/team"
-            className="text-sm font-medium text-foreground/70 underline underline-offset-[6px] decoration-foreground/25 transition-colors hover:text-foreground hover:decoration-foreground/60"
-          >
-            Meet your full team
-          </Link>
+              <h3 className="text-[17px] font-medium">{member.name}</h3>
+              <p className="-mt-1.5 text-sm text-foreground/70">{member.role}</p>
+              <p className="text-sm leading-relaxed text-foreground/60">{member.bio}</p>
+            </div>
+          ))}
         </div>
-      </ScrollReveal>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 }

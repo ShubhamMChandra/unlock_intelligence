@@ -58,7 +58,7 @@ export function StickyCTABar() {
       <div className="relative flex items-center justify-between gap-3 pr-7">
         <div className="min-w-0 flex-1">
           <p className="truncate text-xs font-medium text-foreground/90">
-            Spring 2026 Cohort
+            Founding Cohort
           </p>
           <p className="truncate text-xs text-muted-foreground">
             Limited Spots Available
@@ -67,6 +67,7 @@ export function StickyCTABar() {
         <Button
           size="sm"
           className="h-9 shrink-0 rounded-none bg-foreground px-4 text-[12px] font-medium text-background transition-colors duration-150 hover:bg-foreground/85"
+          nativeButton={false}
           render={<Link href="/contact" />}
         >
           <span className="sm:hidden">Get proposal</span>

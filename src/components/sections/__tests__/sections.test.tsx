@@ -28,6 +28,7 @@ vi.mock("framer-motion", () => {
     ),
     useScroll: () => ({ scrollY: { get: () => 0, onChange: () => () => {} } }),
     useTransform: () => 0,
+    useReducedMotion: () => true,
     AnimatePresence: ({ children }: { children: unknown }) => children,
   };
   return actual;
@@ -96,14 +97,15 @@ import { Team } from "../team";
 import { Enroll } from "../enroll";
 import { FAQ } from "../faq";
 import { FinalCTA } from "../final-cta";
+import { EightHours } from "../eight-hours";
+import { ProcessMatrix } from "../process-matrix";
+import { fireEvent } from "@testing-library/react";
 
 // ─── Hero ─────────────────────────────────────────
 describe("Hero", () => {
-  it("renders cohort pill text with spots remaining", () => {
+  it("renders cohort line with seats open", () => {
     render(<Hero />);
-    expect(screen.getByText(/Founding cohort/)).toBeInTheDocument();
-    expect(screen.getByText(/Spring 2026/)).toBeInTheDocument();
-    expect(screen.getByText(/7 of 10 seats/i)).toBeInTheDocument();
+    expect(screen.getByText(/Founding cohort, 7 of 10 seats open/)).toBeInTheDocument();
   });
 
   it("renders all headline words", () => {
@@ -114,21 +116,19 @@ describe("Hero", () => {
 
   it("renders subtitle text", () => {
     render(<Hero />);
-    expect(screen.getByText(/live, instructor-led program/)).toBeInTheDocument();
+    expect(screen.getByText(/Two live half-day sessions/)).toBeInTheDocument();
     expect(screen.getByText(/No coding required/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons", () => {
     render(<Hero />);
-    expect(screen.getByText(/Request a proposal/)).toBeInTheDocument();
-    expect(screen.getByText(/View the curriculum/)).toBeInTheDocument();
+    expect(screen.getByText(/Request a proposal/).closest("a")).toHaveAttribute("href", "/contact");
+    expect(screen.getByText(/See the eight hours/).closest("a")).toHaveAttribute("href", "#how-it-works");
   });
 
-  it("renders trust indicators", () => {
+  it("renders instructor trust line", () => {
     render(<Hero />);
     expect(screen.getByText(/Taught by a University of Chicago instructor/)).toBeInTheDocument();
-    expect(screen.getByText(/Completion certificate for L&D/)).toBeInTheDocument();
-    expect(screen.getByText(/Curriculum tailored to your industry/)).toBeInTheDocument();
   });
 });
 
@@ -151,7 +151,7 @@ describe("ProofBar", () => {
 describe("Problem", () => {
   it("renders section heading", () => {
     render(<Problem />);
-    expect(screen.getByText(/AI Skills Gap Is Already/)).toBeInTheDocument();
+    expect(screen.getByText(/AI skills gap is already/)).toBeInTheDocument();
   });
 
   it("renders negative checklist items", () => {
@@ -172,26 +172,27 @@ describe("Problem", () => {
 describe("HowItWorks", () => {
   it("renders section header", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Two sessions. Real deliverables.")).toBeInTheDocument();
+    expect(screen.getByText(/Two half-days\. Two builds\. A queue for Monday/)).toBeInTheDocument();
     expect(screen.getByText("The Program")).toBeInTheDocument();
   });
 
-  it("renders session cards", () => {
+  it("renders day cards", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("Foundation & Fluency")).toBeInTheDocument();
-    expect(screen.getByText("Strategy & Mastery")).toBeInTheDocument();
+    expect(screen.getByText("Personal unlock")).toBeInTheDocument();
+    expect(screen.getByText(/process you.ve been postponing/)).toBeInTheDocument();
+    expect(screen.getByText("Theory through doing")).toBeInTheDocument();
   });
 
-  it("renders deliverables", () => {
+  it("renders day tags", () => {
     render(<HowItWorks />);
-    expect(screen.getByText(/AI Integration Blueprint for your team/)).toBeInTheDocument();
-    expect(screen.getByText(/Workflow automation map/)).toBeInTheDocument();
+    expect(screen.getByText(/Day 1/)).toBeInTheDocument();
+    expect(screen.getByText(/Day 2/)).toBeInTheDocument();
   });
 
-  it("renders outcome card", () => {
+  it("renders walks-out-with deliverables", () => {
     render(<HowItWorks />);
-    expect(screen.getByText("What Your Team Leaves With")).toBeInTheDocument();
-    expect(screen.getByText(/role-specific tools/)).toBeInTheDocument();
+    expect(screen.getByText("A working Watchtower")).toBeInTheDocument();
+    expect(screen.getByText(/horizontal map and an implementation queue/)).toBeInTheDocument();
   });
 });
 
@@ -200,25 +201,39 @@ describe("Curriculum", () => {
   it("renders section header", () => {
     render(<Curriculum />);
     expect(screen.getByText("Curriculum")).toBeInTheDocument();
-    expect(screen.getByText(/What you.ll learn/)).toBeInTheDocument();
+    expect(screen.getByText(/What happens in the room/)).toBeInTheDocument();
+    expect(screen.getByText(/Two half-days/)).toBeInTheDocument();
   });
 
-  it("renders all 8 module titles", () => {
+  it("renders day labels and titles", () => {
     render(<Curriculum />);
-    expect(screen.getByText("The Process Matrix")).toBeInTheDocument();
-    expect(screen.getByText("The AI Toolkit")).toBeInTheDocument();
-    expect(screen.getByText("Reading a Process")).toBeInTheDocument();
-    expect(screen.getByText("Building Your First AI Workflow")).toBeInTheDocument();
-    expect(screen.getByText("AI Strategy for Your Team")).toBeInTheDocument();
-    expect(screen.getByText("Workflow Guardrails")).toBeInTheDocument();
-    expect(screen.getByText("Building AI Culture")).toBeInTheDocument();
-    expect(screen.getByText(/90-Day AI Roadmap/)).toBeInTheDocument();
+    expect(screen.getByText("Day 1")).toBeInTheDocument();
+    expect(screen.getByText("Day 2")).toBeInTheDocument();
+    expect(screen.getByText("Personal unlock")).toBeInTheDocument();
+    expect(screen.getByText("Scaffolding through application")).toBeInTheDocument();
   });
 
-  it("renders session titles", () => {
+  it("renders Day 1 beats", () => {
     render(<Curriculum />);
-    expect(screen.getByText(/Session One/)).toBeInTheDocument();
-    expect(screen.getByText(/Session Two/)).toBeInTheDocument();
+    expect(screen.getByText("Live demo on real data")).toBeInTheDocument();
+    expect(screen.getByText("The matrix, filled live")).toBeInTheDocument();
+    expect(screen.getByText(/Personalized build/)).toBeInTheDocument();
+    expect(screen.getByText(/Second pass/)).toBeInTheDocument();
+    expect(screen.getByText(/Structured share/)).toBeInTheDocument();
+  });
+
+  it("renders Day 2 beats", () => {
+    render(<Curriculum />);
+    expect(screen.getByText(/Pick the process/)).toBeInTheDocument();
+    expect(screen.getByText("Map the process across the matrix")).toBeInTheDocument();
+    expect(screen.getByText(/Extract the next three to five builds/)).toBeInTheDocument();
+    expect(screen.getByText(/Pair pressure-test/)).toBeInTheDocument();
+    expect(screen.getByText(/one named action for Monday/)).toBeInTheDocument();
+  });
+
+  it("renders the walkthrough CTA", () => {
+    render(<Curriculum />);
+    expect(screen.getByText(/Request a curriculum walkthrough/)).toBeInTheDocument();
   });
 });
 
@@ -274,21 +289,20 @@ describe("Why", () => {
 
 // ─── Team ────────────────────────────────────────
 describe("Team", () => {
-  it("renders section header", () => {
+  it("renders section header and credentials", () => {
     render(<Team />);
-    expect(screen.getByText("Your Instructors")).toBeInTheDocument();
-    expect(screen.getByText(/Who.s teaching/)).toBeInTheDocument();
+    expect(screen.getByText("Who teaches it")).toBeInTheDocument();
+    expect(screen.getByText(/Digital Realty and Garner Health/)).toBeInTheDocument();
   });
 
-  it("renders Shubham Chandra card", () => {
+  it("renders Shubham Chandra", () => {
     render(<Team />);
     expect(screen.getByText("Shubham Chandra")).toBeInTheDocument();
     expect(screen.getByText("Head of Curriculum")).toBeInTheDocument();
-    expect(screen.getByText(/Digital Realty/)).toBeInTheDocument();
     expect(screen.getByText(/Teaches AI-driven entrepreneurship at the University of Chicago/)).toBeInTheDocument();
   });
 
-  it("renders JT O'Connor card", () => {
+  it("renders JT O'Connor", () => {
     render(<Team />);
     expect(screen.getByText(/J\.T\. O.Connor/)).toBeInTheDocument();
     expect(screen.getByText("Program Director")).toBeInTheDocument();
@@ -300,35 +314,39 @@ describe("Team", () => {
     expect(screen.getByAltText("Shubham Chandra")).toBeInTheDocument();
     expect(screen.getByAltText(/J\.T\. O.Connor/)).toBeInTheDocument();
   });
+
+  it("links to the team page", () => {
+    render(<Team />);
+    expect(screen.getByText("Meet the full team").closest("a")).toHaveAttribute("href", "/team");
+  });
 });
 
 // ─── Enroll ──────────────────────────────────────
 describe("Enroll", () => {
   it("renders section header", () => {
     render(<Enroll />);
-    expect(screen.getByText("Enroll")).toBeInTheDocument();
-    expect(screen.getByText("Enroll your team")).toBeInTheDocument();
+    expect(screen.getByText("Founding cohort pricing")).toBeInTheDocument();
   });
 
-  it("renders spots remaining indicator", () => {
+  it("renders seats open", () => {
     render(<Enroll />);
-    expect(screen.getByText(/7 of 10 founding spots remaining/)).toBeInTheDocument();
+    expect(screen.getByText("7 of 10 seats open")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "7 of 10 founding seats open" })).toBeInTheDocument();
   });
 
-  it("renders Individual Enrollment card", () => {
-    render(<Enroll />);
-    expect(screen.getByText("Individual Enrollment")).toBeInTheDocument();
-    expect(screen.getByText("For individuals")).toBeInTheDocument();
-    expect(screen.getByText("Both live sessions (8 hours total)")).toBeInTheDocument();
-    expect(screen.getByText("Certificate of completion")).toBeInTheDocument();
-  });
-
-  it("renders Team Training card", () => {
+  it("renders Team Training plan", () => {
     render(<Enroll />);
     expect(screen.getByText("Team Training")).toBeInTheDocument();
-    expect(screen.getByText("Recommended for organizations")).toBeInTheDocument();
-    expect(screen.getByText("5+ seats, custom scheduling")).toBeInTheDocument();
+    expect(screen.getByText("$1,095")).toBeInTheDocument();
+    expect(screen.getByText(/per seat, then \$1,595/)).toBeInTheDocument();
     expect(screen.getByText(/Volume pricing/)).toBeInTheDocument();
+  });
+
+  it("renders Individual Enrollment plan", () => {
+    render(<Enroll />);
+    expect(screen.getByText("Individual Enrollment")).toBeInTheDocument();
+    expect(screen.getByText("$1,295")).toBeInTheDocument();
+    expect(screen.getByText(/per person, then \$1,995/)).toBeInTheDocument();
   });
 
   it("renders CTA buttons with correct links", () => {
@@ -339,9 +357,10 @@ describe("Enroll", () => {
     expect(startedBtn.closest("a")).toHaveAttribute("href", "/contact");
   });
 
-  it("renders money-back guarantee", () => {
+  it("renders guarantee and cost framing", () => {
     render(<Enroll />);
     expect(screen.getByText(/refund you. No/)).toBeInTheDocument();
+    expect(screen.getByText(/\$9,750 per person per year/)).toBeInTheDocument();
   });
 });
 
@@ -381,13 +400,12 @@ describe("FAQ", () => {
 describe("FinalCTA", () => {
   it("renders heading", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/Companies Investing in AI Fluency/)).toBeInTheDocument();
-    expect(screen.getByText(/Lead\./)).toBeInTheDocument();
+    expect(screen.getByText(/companies investing in AI fluency now will lead\./)).toBeInTheDocument();
   });
 
-  it("renders subtitle", () => {
+  it("renders supporting line", () => {
     render(<FinalCTA />);
-    expect(screen.getByText(/Early-moving teams build the workflows/)).toBeInTheDocument();
+    expect(screen.getByText(/proposal within one business/)).toBeInTheDocument();
   });
 
   it("renders CTA button linking to contact", () => {
@@ -395,11 +413,62 @@ describe("FinalCTA", () => {
     const cta = screen.getByText(/Request a proposal/);
     expect(cta.closest("a")).toHaveAttribute("href", "/contact");
   });
+});
 
-  it("renders metadata line", () => {
-    render(<FinalCTA />);
-    expect(screen.getByText(/Founding cohort: Spring 2026/)).toBeInTheDocument();
-    expect(screen.getByText(/Limited to 10 teams/)).toBeInTheDocument();
-    expect(screen.getByText("No technical background required")).toBeInTheDocument();
+// ─── EightHours ──────────────────────────────────
+describe("EightHours", () => {
+  it("renders heading and both sessions", () => {
+    render(<EightHours />);
+    expect(screen.getByText("What happens in the eight hours.")).toBeInTheDocument();
+    expect(screen.getByText("Day 1: Personal unlock")).toBeInTheDocument();
+    expect(screen.getByText("Day 2: Scaffolding through application")).toBeInTheDocument();
+  });
+
+  it("renders all ten beats", () => {
+    render(<EightHours />);
+    expect(screen.getAllByRole("listitem")).toHaveLength(10);
+    expect(screen.getByText("Live demo on real data")).toBeInTheDocument();
+    expect(screen.getByText("One named action for Monday")).toBeInTheDocument();
+  });
+
+  it("renders the three artifacts", () => {
+    render(<EightHours />);
+    expect(screen.getByText("A working Watchtower")).toBeInTheDocument();
+    expect(screen.getByText("A horizontal process map")).toBeInTheDocument();
+    expect(screen.getByText("An implementation queue")).toBeInTheDocument();
+  });
+
+  it("exposes the length comparison to screen readers", () => {
+    render(<EightHours />);
+    expect(screen.getByRole("img", { name: /this program 8 hours/ })).toBeInTheDocument();
+  });
+
+  it("anchors how-it-works and curriculum links", () => {
+    const { container } = render(<EightHours />);
+    expect(container.querySelector("#how-it-works")).not.toBeNull();
+    expect(container.querySelector("#curriculum")).not.toBeNull();
+  });
+});
+
+// ─── ProcessMatrix ───────────────────────────────
+describe("ProcessMatrix", () => {
+  it("shows HR onboarding by default", () => {
+    render(<ProcessMatrix />);
+    expect(screen.getByRole("heading", { name: "New-hire onboarding" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "HR" })).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("switches process when a tab is pressed", () => {
+    render(<ProcessMatrix />);
+    fireEvent.click(screen.getByRole("button", { name: "Finance" }));
+    expect(screen.getByRole("heading", { name: "Month-end close" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Finance" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "HR" })).toHaveAttribute("aria-pressed", "false");
+  });
+
+  it("counts AI insertion points for the active process", () => {
+    render(<ProcessMatrix />);
+    fireEvent.click(screen.getByRole("button", { name: "Marketing" }));
+    expect(screen.getByText(/3 AI insertion points, 2 steps stay human/)).toBeInTheDocument();
   });
 });
