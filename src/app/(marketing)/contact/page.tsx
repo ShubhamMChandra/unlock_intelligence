@@ -1,44 +1,32 @@
 /**
- * What: Contact page with form and process cards.
- * Why: Dedicated route for inbound leads and questions.
- * How: Server page renders heading plus ContactForm layout.
- * Deps: contact components, ScrollReveal, Next.js.
+ * What: Contact page: "Bring us one process." The form, with the stream strip that mirrors it, and what happens next.
+ * Why: The single action every page ends on; the visitor's process enters the stream here.
+ * How: Server page; the client form sits in Suspense because it reads ?type= to prefill interest.
+ * Deps: stream/contact components, stream/styles.
  */
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { ContactForm } from "@/components/contact/contact-form";
-import { ProcessCard } from "@/components/contact/process-card";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { StreamContactForm } from "@/components/stream/contact/contact-form";
+import { WhatNext } from "@/components/stream/contact/what-next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch to reserve your seat or bring the program to your team.",
+  description: "Bring us one process. Tell us about your team and the process that waits at every handoff. We reply within one business day.",
 };
 
 export default function ContactPage() {
   return (
-    <main className="pt-28 pb-[max(6rem,calc(1.5rem+env(safe-area-inset-bottom)))]">
-      <div className="mx-auto max-w-[1120px] px-6">
-        <ScrollReveal>
-          <div className="mb-12">
-            <p className="text-sm text-foreground/55">Contact</p>
-            <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-[-0.022em]">Get in touch</h1>
-            <p className="mt-4 text-lg text-foreground/70 max-w-lg">
-              Tell us about yourself and we&rsquo;ll get back within one business day.
-            </p>
-          </div>
-        </ScrollReveal>
+    <main className="mx-auto max-w-[1160px] px-4 pb-20 pt-10 md:px-8 md:pt-16">
+      <h1 className="m-0 text-[40px] font-extrabold leading-none tracking-[-0.015em] [font-stretch:80%] md:text-[64px]">Bring us one process.</h1>
+      <p className="mb-0 mt-3 max-w-[46ch] font-serif text-[17px] text-haze md:text-[18px]">
+        Tell us about your team and the process that waits at every handoff. We reply within one business day.
+      </p>
 
-        <div className="grid md:grid-cols-[1fr_380px] gap-12">
-          <ScrollReveal>
-            <Suspense>
-              <ContactForm />
-            </Suspense>
-          </ScrollReveal>
-          <ScrollReveal delay={150}>
-            <ProcessCard />
-          </ScrollReveal>
-        </div>
+      <div className="mt-6 grid gap-14 md:mt-8 min-[900px]:grid-cols-[minmax(0,640px)_minmax(0,1fr)] min-[900px]:gap-16">
+        <Suspense>
+          <StreamContactForm />
+        </Suspense>
+        <WhatNext />
       </div>
     </main>
   );
