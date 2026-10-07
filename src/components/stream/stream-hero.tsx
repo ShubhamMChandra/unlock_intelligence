@@ -58,10 +58,12 @@ export function StreamHero() {
     let seed = 11;
     const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 
-    let W = 0, H = 0, dpr = 1, t0 = 0, raf = 0, visible = true, mode: "rest" | "hand" = "rest";
+    let W = 0, H = 0, dpr = 1, t0 = 0, raf = 0, visible = true, seen = false;
     let C = readColors(), text = new CurveText(1);
     let nodes: Node[] = [], lines: Line[] = [], packets: Packet[] = [];
-    const hand = { x: 0, y: 0, on: 0, tx: 0, ty: 0, ton: 0 };
+    const hand = { tx: 0, ton: 0 };
+    // The open station and how open it is; switching stations closes one, then opens the next
+    const opening: { st: Node | null; op: number } = { st: null, op: 0 };
     const win = { cx: -9999, hw: 140 };
     let announced = "";
 
@@ -80,14 +82,15 @@ export function StreamHero() {
       lines = Array.from({ length: n }, (_, i) => ({ i, sig: i === (n - 1) / 2, pts }));
       seed = 11;
       packets = Array.from({ length: phone() ? 7 : 10 }, (_, i) => ({ seg: i % (nodes.length - 1), p: rand(), wait: rand() * 900, speed: 0.0003 + rand() * 0.0002 }));
-      mode = "rest";
-      hand.on = 0;
       hand.ton = 0;
+      opening.st = null;
+      opening.op = 0;
       t0 = performance.now();
     }
 
     function state(time: number) {
-      if (reduce) return { threadX: W + 40, spread: 1, connect: 1 };
+      // Reduced motion: the same story as two still frames, before then after
+      if (reduce) return time < 3500 ? { threadX: -20, spread: 0, connect: 0 } : { threadX: W + 40, spread: 1, connect: 1 };
       const k = clamp((time - T_BEFORE) / T_THREAD, 0, 1);
       return { threadX: -20 + (W + 60) * ease(k), spread: ease(clamp((time - T_BEFORE - T_THREAD * 0.85) / T_SPREAD, 0, 1)), connect: k };
     }
@@ -95,19 +98,13 @@ export function StreamHero() {
     function lineY(L: Line, x: number, time: number, spread: number) {
       const n = lines.length, lane = (L.i - (n - 1) / 2) * laneSpacing() * spread;
       const y = baseY(x, time) + lane + Math.sin((x / W) * 8.5 + L.i * 0.17 + time * 0.0006) * 1.8 * spread;
-      if (hand.on > 0.001 && spread > 0.95) {
-        const cx = win.cx > -9000 ? win.cx : hand.x;
-        return parting(y, baseY(x, time) + laneSpacing() * 0.5, x, cx, win.hw, hand.on, phone() ? 9 : 10);
+      if (opening.st && opening.op > 0.001 && spread > 0.95) {
+        return parting(y, baseY(x, time) + laneSpacing() * 0.5, x, win.cx, win.hw, ease(opening.op), phone() ? 9 : 10);
       }
       return y;
     }
 
     const nearest = (x: number) => nodes.reduce((b, nd) => (Math.abs(nd.x - x) < Math.abs(b.x - x) ? nd : b), nodes[0]);
-    function openAt(nd: Node, time: number) {
-      hand.tx = nd.x;
-      hand.ty = baseY(nd.x, time) + laneSpacing() * 0.5;
-      hand.ton = 1;
-    }
 
     function frame(now: number) {
       raf = 0;
@@ -115,17 +112,12 @@ export function StreamHero() {
       const c = ctx!, time = now - t0;
       const { threadX, spread, connect } = state(time);
       const R = phone() ? 15 : 18;
-      hand.x += (hand.tx - hand.x) * 0.1;
-      hand.y += (hand.ty - hand.y) * 0.1;
-      hand.on += (hand.ton - hand.on) * 0.05;
-      if (spread > 0.98 && mode === "rest") {
-        const legal = nodes.find((nd) => nd.name === "Legal")!;
-        openAt(legal, time);
-        if (hand.on < 0.02) {
-          hand.x = legal.x;
-          hand.y = baseY(legal.x, time) + laneSpacing() * 0.5;
-        }
-      }
+      const target = hand.ton && spread > 0.95 ? nearest(hand.tx) : null;
+      if (target !== opening.st) {
+        opening.op = Math.max(0, opening.op - 0.05);
+        if (opening.op === 0) opening.st = target;
+      } else if (opening.st) opening.op = Math.min(1, opening.op + 0.03);
+      if (reduce) c.globalAlpha = time < 3500 ? 1 - clamp((time - 3100) / 400, 0, 1) : clamp((time - 3500) / 600, 0, 1);
       const flowing = String(connect > 0.6);
       if (headline!.dataset.flowing !== flowing) headline!.dataset.flowing = flowing;
       c.clearRect(0, 0, W, H);
@@ -180,7 +172,7 @@ export function StreamHero() {
         for (let q = 0; q < flowN; q++) {
           const L = lines[(q * 5 + 2) % n];
           if (L.sig) continue;
-          const x = ((time * 0.1 + q * (W / flowN) * 1.7) % (W + 40)) - 20;
+          const x = ((time * 0.03 + q * (W / flowN) * 1.7) % (W + 40)) - 20;
           c.fillStyle = rgba(C.ink, 0.9 * spread);
           c.beginPath();
           c.arc(x, lineY(L, x, time, spread), 2.2, 0, Math.PI * 2);
@@ -190,6 +182,7 @@ export function StreamHero() {
 
       // Documents crawl, wait, and pile up at each handoff, until the amber line reaches them
       for (const pk of packets) {
+        if (reduce) break;
         if (pk.wait > 0) pk.wait -= 16;
         else {
           pk.p += pk.speed * 16;
@@ -224,7 +217,7 @@ export function StreamHero() {
 
       // Teams: the ring (the handoff) dissolves as the amber line arrives; the name stays and rides under the stream
       const bottom = lines[lines.length - 1];
-      const open = hand.on > 0.5 && spread > 0.95 ? nearest(hand.x) : null;
+      const open = opening.op > 0.5 ? opening.st : null;
       for (const nd of nodes) {
         const passed = clamp((threadX - nd.x + 10) / 50, 0, 1), y = baseY(nd.x, time);
         if (passed < 1) {
@@ -245,22 +238,23 @@ export function StreamHero() {
       }
 
       // The opening: the words hang from the amber line and follow it exactly. Amber is what an agent runs; ink is what a person keeps.
-      if (hand.on > 0.02 && spread > 0.95) {
-        const st = nearest(hand.x), [runs, stays] = STATIONS[st.name];
+      if (opening.st && spread > 0.95) {
+        const st = opening.st, [runs, stays] = STATIONS[st.name];
         const fs = phone() ? 10 : 11, font = `400 ${fs}px ${fontFamily()}`;
-        const a = clamp((hand.on - 0.5) / 0.45, 0, 1);
+        const a = ease(clamp((opening.op - 0.35) / 0.65, 0, 1));
         const segs = [{ t: runs, c: mix(C.signal, C.ground, a) }, { t: " ", c: C.ground }, { t: stays, c: mix(C.ink, C.ground, a) }];
         const tw = text.width(segs, font, fs);
-        const cx = clamp(hand.x, tw / 2 + 16, W - tw / 2 - 16);
+        const cx = clamp(st.x, tw / 2 + 16, W - tw / 2 - 16);
         win.cx = cx;
         win.hw = tw / 2 + (phone() ? 36 : 80);
         const upper = lines[(lines.length - 1) / 2];
         if (a > 0.02) text.draw(c, segs, font, fs, (x) => lineY(upper, x, time, spread) + (phone() ? 11 : 12), cx);
-        if (hand.on > 0.45 && announced !== st.name) {
+        if (opening.op > 0.9 && announced !== st.name) {
           announced = st.name;
           live!.textContent = `${st.name}. An agent: ${runs}. A person: ${stays}.`;
         }
       }
+      c.globalAlpha = 1;
       raf = requestAnimationFrame(frame);
     }
 
@@ -273,25 +267,27 @@ export function StreamHero() {
     const start = () => {
       if (!raf && visible) raf = requestAnimationFrame(frame);
     };
-    const local = (cx: number) => cx - cv.getBoundingClientRect().left;
     const ready = () => state(performance.now() - t0).spread > 0.95;
-    // Desktop: the cursor walks the stream; leaving puts it back on Legal
+    // Desktop: the stream opens only while the cursor is on it, at the nearest team
     const onMove = (e: PointerEvent) => {
       if (e.pointerType !== "mouse" || !ready()) return;
-      const x = local(e.clientX);
-      mode = "hand";
-      hand.tx = x;
-      hand.ty = baseY(x, performance.now() - t0) + laneSpacing() * 0.5;
-      hand.ton = 1;
+      const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      const half = ((lines.length - 1) / 2) * laneSpacing() + 12;
+      const onBand = Math.abs(y - baseY(x, performance.now() - t0)) < half;
+      hand.ton = onBand ? 1 : 0;
+      if (onBand) hand.tx = x;
     };
     const onLeave = (e: PointerEvent) => {
-      if (e.pointerType === "mouse") mode = "rest";
+      if (e.pointerType === "mouse") hand.ton = 0;
     };
-    // Phone: a tap opens the nearest team and it stays open
+    // Touch: a tap on the stream opens the nearest team; a tap off it closes
     const onClick = (e: MouseEvent) => {
-      if (!ready()) return;
-      mode = "hand";
-      openAt(nearest(local(e.clientX)), performance.now() - t0);
+      if (!ready() || window.matchMedia("(hover: hover)").matches) return;
+      const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      const half = ((lines.length - 1) / 2) * laneSpacing() + 24;
+      const onBand = Math.abs(y - baseY(x, performance.now() - t0)) < half;
+      hand.ton = onBand ? 1 : 0;
+      if (onBand) hand.tx = x;
     };
     const onReplay = () => {
       setup();
@@ -304,6 +300,11 @@ export function StreamHero() {
     };
     const io = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
+      // The story starts when the hero is first actually on screen
+      if (visible && !seen) {
+        seen = true;
+        t0 = performance.now();
+      }
       start();
     });
 

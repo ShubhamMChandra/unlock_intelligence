@@ -1,5 +1,5 @@
 /**
- * What: "How most teams use AI today": twenty short strokes that never connect, each trading places with one throwaway prompt.
+ * What: "How most teams use AI today": fifteen short strokes that never connect, each trading places with one throwaway prompt.
  * Why: The before state of the stream, shown as loose fragments: everyone alone, one chat at a time.
  * How: Server component; absolutely placed strokes with staggered CSS animations (act-line, act-word in globals.css).
  * Deps: StreamSection.
@@ -10,26 +10,21 @@ const STROKES = ["M0 10 q30 -8 60 4", "M0 10 q24 10 50 -2", "M0 10 q30 6 54 -6",
 
 // x and y in percent of the field; delay in seconds keeps no two neighbours in step
 const ACTS: [number, number, number, string][] = [
-  [2, 12, 0.0, "summarize this"],
-  [19, 20, 7.63, "rewrite it nicer"],
-  [36, 8, 6.26, "make it shorter"],
-  [52, 24, 4.89, "fix the tone"],
-  [68, 12, 3.52, "is this right?"],
-  [84, 22, 2.15, "draft an email"],
-  [7, 46, 0.78, "try again"],
-  [24, 38, 8.41, "explain this tab"],
-  [41, 54, 7.04, "make a table"],
-  [57, 42, 5.67, "one more time"],
-  [74, 52, 4.3, "translate this"],
-  [88, 40, 2.93, "write a reply"],
-  [2, 78, 1.56, "bullet points, please"],
-  [18, 86, 0.19, "more formal"],
-  [35, 74, 7.82, "check my math"],
-  [52, 88, 6.45, "polish this"],
-  [69, 76, 5.08, "what does this mean"],
-  [85, 84, 3.71, "help with Excel"],
-  [12, 64, 2.34, "name ideas"],
-  [62, 66, 0.97, "shorter"],
+  [2, 14, 0.0, "summarize this"],
+  [22, 24, 5.4, "rewrite it nicer"],
+  [42, 10, 3.0, "make it shorter"],
+  [61, 22, 7.2, "fix the tone"],
+  [80, 12, 1.8, "is this right?"],
+  [8, 50, 6.3, "try again"],
+  [28, 44, 2.4, "explain this tab"],
+  [48, 56, 8.1, "make a table"],
+  [67, 46, 4.2, "one more time"],
+  [84, 54, 0.9, "write a reply"],
+  [3, 84, 3.6, "bullet points, please"],
+  [24, 78, 7.8, "more formal"],
+  [44, 88, 1.2, "check my math"],
+  [63, 80, 5.7, "polish this"],
+  [82, 86, 2.7, "help with Excel"],
 ];
 
 export function EveryoneAlone() {
@@ -41,7 +36,7 @@ export function EveryoneAlone() {
     >
       <div
         role="img"
-        aria-label="Twenty separate prompts, each a person working alone, none of them connected"
+        aria-label="Fifteen separate prompts, each a person working alone, none of them connected"
         className="relative h-[230px] overflow-hidden text-ink md:h-[200px]"
       >
         {ACTS.map(([x, y, delay, prompt], i) => (
@@ -53,13 +48,13 @@ export function EveryoneAlone() {
             <svg
               viewBox="-2 0 64 20"
               aria-hidden="true"
-              className="absolute -top-2.5 left-0 h-5 w-16 overflow-visible animate-act-line motion-reduce:animate-none"
+              className="absolute -top-2.5 left-0 h-5 w-16 overflow-visible animate-act-line"
               style={{ animationDelay: `${delay}s` }}
             >
               <path d={STROKES[i % STROKES.length]} className="fill-none stroke-current opacity-70 [stroke-linecap:round] [stroke-width:1.4]" />
             </svg>
             <em
-              className="absolute -top-[9px] left-0 whitespace-nowrap text-[12.5px] not-italic text-haze opacity-0 animate-act-word motion-reduce:animate-none md:text-[13.5px]"
+              className="absolute -top-[9px] left-0 whitespace-nowrap text-[12.5px] not-italic text-haze opacity-0 animate-act-word md:text-[13.5px]"
               style={{ animationDelay: `${delay}s` }}
             >
               {prompt}
