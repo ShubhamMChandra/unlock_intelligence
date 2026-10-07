@@ -47,21 +47,21 @@ export function InsightsIndex() {
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                   aria-current={on ? "true" : undefined}
-                  className="group grid gap-1.5 py-6 outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:grid-cols-[150px_1fr_auto] md:items-baseline md:gap-8 md:py-8"
+                  className="group grid gap-1.5 py-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:grid-cols-[150px_1fr_auto] md:items-baseline md:gap-8 md:py-8"
                 >
                   <span className={cn("text-[13px] font-medium transition-colors", on ? "text-ink" : "text-haze")}>{st.stage}</span>
-                  <span className="grid gap-2">
-                    <span
+                  <div className="grid gap-2">
+                    <h2
                       className={cn(
-                        "text-[24px] font-bold leading-[1.08] tracking-[-0.01em] [font-stretch:84%] md:text-[32px]",
+                        "m-0 text-[24px] font-bold leading-[1.08] tracking-[-0.01em] [font-stretch:84%] md:text-[32px]",
                         "underline decoration-1 underline-offset-[6px] transition-[text-decoration-color]",
                         on ? "decoration-ink/50" : "decoration-transparent"
                       )}
                     >
                       {st.title}
-                    </span>
+                    </h2>
                     <span className="max-w-[56ch] font-serif text-[16px] leading-snug text-haze">{article.subtitle}</span>
-                  </span>
+                  </div>
                   <span className="text-[13px] text-haze">{article.readingTime}</span>
                 </Link>
               </li>

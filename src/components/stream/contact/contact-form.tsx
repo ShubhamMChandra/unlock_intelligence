@@ -33,7 +33,7 @@ const TEAM_SIZES = [
 ];
 
 const field =
-  "block w-full min-h-12 rounded-[10px] border border-rule bg-panel px-4 py-3 text-[16px] text-ink placeholder:text-haze/70 transition-colors focus:border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
+  "block w-full min-h-12 rounded-[10px] border border-rule bg-panel px-4 py-3 text-[16px] text-ink placeholder:text-haze/80 transition-colors focus:border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
 const fieldError = "border-ink border-2";
 const labelText = "mb-2 block text-[15px] font-semibold";
 const choice =
