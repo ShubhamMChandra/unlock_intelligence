@@ -1,11 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, Inter, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+// The marketing site's two voices: Archivo (with its width axis) for headings and UI, Source Serif for reading
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["wdth"],
+});
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["opsz"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -22,15 +37,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Unlock Intelligence — From Zero to AI Authority",
-    template: "%s — Unlock Intelligence",
+    default: "Unlock Intelligence | From handoffs to flow, in two days",
+    template: "%s | Unlock Intelligence",
   },
   description:
-    "Two focused live sessions. Eight hours total. Go from curious professional to the go-to AI authority in your organization.",
+    "A live, two-day AI program for working teams, taught by University of Chicago alumni. Bring one real process and rebuild it with agents.",
   metadataBase: new URL("https://unlockintelligencehq.com"),
   openGraph: {
-    title: "Unlock Intelligence — AI Training for Teams",
-    description: "Make your team AI-fluent in 8 hours. A live, cohort-based program built for companies.",
+    title: "Unlock Intelligence | From handoffs to flow, in two days",
+    description: "A live, two-day AI program for working teams. Bring one real process and rebuild it with agents.",
     type: "website",
     url: "https://unlockintelligencehq.com",
     images: [
@@ -45,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unlock Intelligence — AI Training for Teams",
-    description: "Make your team AI-fluent in 8 hours. A live, cohort-based program built for companies.",
+    title: "Unlock Intelligence | From handoffs to flow, in two days",
+    description: "A live, two-day AI program for working teams. Bring one real process and rebuild it with agents.",
     images: ["/og.png"],
   },
 };
@@ -57,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${archivo.variable} ${sourceSerif.variable} antialiased`}>
       <body className="min-h-screen overflow-x-clip bg-background font-sans text-foreground">
         {children}
       </body>
