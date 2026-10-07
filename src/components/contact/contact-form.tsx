@@ -68,7 +68,7 @@ export function ContactForm() {
       const body = encodeURIComponent(
         `Name: ${formData.get("name") || ""}\nEmail: ${formData.get("email") || ""}\nCompany: ${formData.get("company") || ""}\nInterest: ${interest}\n\nMessage:\n${formData.get("message") || ""}`
       );
-      window.location.href = `mailto:hello@unlockintelligence.co?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:hello@unlockintelligencehq.com?subject=${subject}&body=${body}`;
       setState("error");
     }
   }
@@ -102,8 +102,8 @@ export function ContactForm() {
         <h3 className="text-xl font-medium">Something Went Wrong</h3>
         <p className="mt-2 text-foreground/70">
           Please try again, or email us directly at{" "}
-          <a href="mailto:hello@unlockintelligence.co" className="text-foreground/70 hover:underline">
-            hello@unlockintelligence.co
+          <a href="mailto:hello@unlockintelligencehq.com" className="text-foreground/70 hover:underline">
+            hello@unlockintelligencehq.com
           </a>
         </p>
         <button

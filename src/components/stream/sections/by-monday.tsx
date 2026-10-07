@@ -14,7 +14,7 @@ const RUNS = [
 const KEEPS = [
   ["Approve journal entries", "Stays with the controller."],
   ["Hiring decisions", "Always a person's call."],
-  ["Key client renewals", "A relationship. Stays human."],
+  ["Key client renewals", "The relationship stays with the account owner."],
 ];
 
 function List({ heading, items, agent }: { heading: string; items: string[][]; agent?: boolean }) {
@@ -41,7 +41,7 @@ export function ByMonday() {
     <StreamSection
       id="monday"
       title="What changes by Monday"
-      lead="Your team decides what an agent runs and which calls stay with people. Then it builds them. These are the kinds of processes teams bring."
+      lead="Your team decides what an agent runs and which calls stay with people, then builds the agents. Here is how that split can look."
     >
       <div className="grid gap-[22px] md:grid-cols-2 md:gap-8">
         <List heading="An agent runs it" items={RUNS} agent />

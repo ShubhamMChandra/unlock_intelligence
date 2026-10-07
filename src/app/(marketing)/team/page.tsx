@@ -13,7 +13,7 @@ import { Closing } from "@/components/stream/sections/closing";
 
 export const metadata: Metadata = {
   title: "The team",
-  description: "The two people who run the room. Practitioners who build AI systems in production, and teach your team to do the same.",
+  description: "The two people who run the room. They build AI systems in their own jobs, and teach your team to build their own.",
 };
 
 export default function TeamPage() {
@@ -24,7 +24,7 @@ export default function TeamPage() {
           The two people who run the room.
         </h1>
         <p className="mt-3 max-w-[40ch] font-serif text-[17px] text-haze md:text-[18px]">
-          Practitioners who build AI systems in production, and teach your team to do the same.
+          They build AI systems in their own jobs, and teach your team to build their own.
         </p>
       </div>
 

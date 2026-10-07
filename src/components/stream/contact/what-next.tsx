@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 import { textLink } from "@/components/stream/styles";
 
 const STEPS = [
-  "We read your note and reply within one business day.",
-  "We match you to a cohort, or scope a private one for your team.",
-  "You get a confirmation, prep materials and calendar invites.",
+  "We read your note and reply within one business day. For a team, the reply is a proposal you can forward: dates, the price for your team size, and what each person builds. For an individual, we confirm the next open cohort.",
+  "You decide. Nothing is booked until you say yes.",
+  "Once you confirm, you get prep materials and calendar invites.",
 ];
 
 export function WhatNext() {
@@ -27,12 +27,12 @@ export function WhatNext() {
         ))}
       </ol>
       <p className="mt-6 border-t border-rule pt-5 font-serif text-[16.5px] leading-[1.5] text-haze">
-        If you complete both sessions and don&rsquo;t feel you gained usable skills, we refund you. No paperwork.
+        If you finish both days and don&rsquo;t feel you gained skills you can use, we refund you. One email is enough.
       </p>
       <p className="mt-4 text-[15px]">
         Prefer email?{" "}
-        <a href="mailto:hello@unlockintelligence.co" className={cn("font-semibold", textLink)}>
-          hello@unlockintelligence.co
+        <a href="mailto:hello@unlockintelligencehq.com" className={cn("font-semibold", textLink)}>
+          hello@unlockintelligencehq.com
         </a>
       </p>
     </aside>

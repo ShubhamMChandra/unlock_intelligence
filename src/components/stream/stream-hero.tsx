@@ -356,6 +356,7 @@ export function StreamHero() {
         Replay
       </button>
       <div className="pointer-events-none absolute inset-x-4 bottom-[22px] flex flex-wrap items-end justify-between gap-4 md:inset-x-8 md:bottom-9">
+        <div className="grid gap-3">
         <h1
           ref={h1Ref}
           data-flowing="false"
@@ -379,6 +380,10 @@ export function StreamHero() {
             </span>
           ))}
         </h1>
+        <p className="m-0 max-w-[42ch] font-serif text-[15.5px] leading-snug text-haze md:text-[17px]">
+          A live, two-day AI program for working teams. Bring one real process. Your team rebuilds it so an agent runs the routine steps and your people keep the decisions.
+        </p>
+        </div>
         <Link href="/contact" className={`pointer-events-auto ${pill}`}>
           Bring us one process
         </Link>

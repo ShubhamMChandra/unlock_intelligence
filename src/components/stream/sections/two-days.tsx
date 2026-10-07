@@ -13,8 +13,8 @@ const DAYS = [
       "Live demo on real data. The instructor builds an agent on a volunteer's real work.",
       "The room maps that demo across people, tools, trainings, guardrails and metrics.",
       "Each person builds their own, from a starter written for their role.",
-      "Read the first output honestly, tighten it, run it again.",
-      "Share across the room. Same pattern, very different outputs.",
+      "Read the first output critically, fix what is wrong, and run it again.",
+      "Everyone shares what they built. Same pattern, different outputs.",
     ],
     line: (
       <>
@@ -26,9 +26,9 @@ const DAYS = [
   {
     title: "Day two: the team's stream",
     modules: [
-      "Pick the process you keep postponing.",
-      "Map it end to end: how it runs today, and rebuilt, with the agent steps marked.",
-      "Pull out the next three to five builds.",
+      "Pick the process the team keeps postponing.",
+      "Map it end to end, first as it runs today and then as it would run rebuilt, with the agent steps marked.",
+      "List the next three to five agents to build.",
       "A peer from another role pressure-tests the map.",
       "One named action for Monday.",
     ],
@@ -47,7 +47,7 @@ export function TwoDays() {
     <StreamSection
       id="program"
       title="Two days, in the room"
-      lead="Live, with your team, on your team's real work, eight hours across two days. Day one is one person's line. Day two is the team's stream."
+      lead="Live, with your team, on your team's real work: eight hours across two days. On day one each person builds one agent for their own job. On day two the team rebuilds one shared process together."
     >
       <div className="grid gap-3.5 md:grid-cols-2 md:gap-[18px]">
         {DAYS.map((d) => (

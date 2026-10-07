@@ -30,7 +30,7 @@ export function Pricing() {
         ),
       )}
       <span className="ml-2.5 text-sm text-haze">
-        {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} seats open
+        {FOUNDING_SPOTS_REMAINING} of {FOUNDING_SPOTS_TOTAL} founding seats open
       </span>
     </div>
   );
@@ -39,7 +39,7 @@ export function Pricing() {
     <StreamSection
       id="pricing"
       title="Founding cohort pricing"
-      lead="Founding members get our lowest price and direct access to the instructors. We send a proposal within one business day."
+      lead="Eight hours across two days. Founding seats are our lowest price, and the cohorts are small enough that your team works with the instructors directly. Ask for a proposal and we reply within one business day."
       aside={seats}
     >
       <div className="grid gap-3.5 md:grid-cols-2 md:gap-[18px]">
@@ -50,7 +50,7 @@ export function Pricing() {
             <small className="text-[15px] font-medium tracking-normal text-haze [font-stretch:100%]">a seat, then {seatPrice(TEAM_REGULAR_PRICE_LABEL)}</small>
           </p>
           <p className="m-0 font-serif text-[15.5px] text-haze">
-            A private cohort with starters written for each attendee&rsquo;s actual role, scheduled around your team, with an executive summary for leadership afterward. Volume pricing and invoicing available.
+            A private cohort scheduled around your team. Each person starts from a starter agent written for their role and leaves with a working agent, a map of one real process, the next three to five builds, and a certificate. Leadership gets an executive summary afterward. Volume pricing and invoicing available.
           </p>
           <Link href="/contact?type=corporate" className={`justify-self-start ${pill}`}>
             Request a proposal
@@ -62,14 +62,17 @@ export function Pricing() {
             {INDIVIDUAL_FOUNDING_PRICE} <small className="text-[15px] font-medium tracking-normal text-haze [font-stretch:100%]">then {INDIVIDUAL_REGULAR_PRICE}</small>
           </p>
           <p className="m-0 font-serif text-[15.5px] text-haze">
-            Both live sessions, a working agent of your own, a map of one real process, an implementation queue, a certificate, and six months in the cohort community.
+            Both days live, a working agent of your own, a map of one real process, the next three to five builds, a certificate, and six months in the cohort community.
           </p>
           <Link href="/contact?type=individual" className={`justify-self-start ${pillGhost}`}>
-            Join a cohort
+            Ask for a seat
           </Link>
         </div>
         <p className="m-0 mt-1 max-w-[80ch] text-[13.5px] text-haze md:col-span-2">
-          For scale, an estimate: if a person spends 2.5 hours a week on work AI could handle, at $75 an hour that is $9,750 a year (2.5 &times; $75 &times; 52). If your team finishes both sessions and doesn&rsquo;t feel they gained usable skills, we refund you. No paperwork.
+          To size it, put your own numbers in: if one person spends 2.5 hours a week on steps an agent could run, at $75 an hour that is $9,750 a year (2.5 &times; $75 &times; 52).
+        </p>
+        <p className="m-0 max-w-[80ch] text-[13.5px] text-haze md:col-span-2">
+          If your team finishes both days and doesn&rsquo;t feel it gained skills it can use, we refund the seats. One email is enough.
         </p>
       </div>
     </StreamSection>

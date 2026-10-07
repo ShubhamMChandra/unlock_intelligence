@@ -33,7 +33,7 @@ export function ArticleCta({
   const origin =
     typeof window !== "undefined"
       ? window.location.origin
-      : "https://unlockintelligence.co";
+      : "https://unlockintelligencehq.com";
   const articleUrl = `${origin}${pathname}`;
 
   const title = articleTitle ?? "Unlock Intelligence article";

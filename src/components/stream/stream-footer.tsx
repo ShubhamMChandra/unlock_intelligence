@@ -24,7 +24,7 @@ export function StreamFooter() {
         ))}
       </nav>
       <p className="mt-3 max-w-[60ch] text-[13px] text-haze">
-        Unlock Intelligence is an independent program. Our faculty are University of Chicago alumni; the curriculum is original.
+        Unlock Intelligence is an independent program. The two people who run it are University of Chicago alumni; the university is not involved, and the curriculum is our own.
       </p>
     </footer>
   );

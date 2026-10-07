@@ -31,8 +31,8 @@ export function EveryoneAlone() {
   return (
     <StreamSection
       id="today"
-      title="How most teams use AI today"
-      lead="Everyone got a license. Each person works it out alone, one chat at a time, and the work still waits at every handoff."
+      title="How teams use AI today"
+      lead="Everyone got a license. Each person works it out alone, one chat at a time, and every handoff is still done by hand."
     >
       <div
         role="img"

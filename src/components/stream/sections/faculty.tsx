@@ -12,18 +12,18 @@ const PEOPLE = [
   {
     name: "Shubham Chandra",
     role: "Head of Curriculum",
-    bio: "Teaches AI-driven entrepreneurship at the University of Chicago and builds AI automation systems at Digital Realty, the kind of workflows this program teaches.",
+    bio: "Teaches AI-driven entrepreneurship at the University of Chicago. By day he builds AI automation systems at Digital Realty, which is where the workflows in this program come from.",
   },
   {
     name: "J.T. O’Connor",
     role: "Program Director",
-    bio: "Your point of contact from the first conversation through delivery. Background in operations and business development, building AI-powered marketing and outreach systems.",
+    bio: "Your point of contact from the first conversation through delivery. He comes from operations and business development, and has built AI-powered marketing and outreach systems himself.",
   },
 ];
 
 export function Faculty() {
   return (
-    <StreamSection id="faculty" title="Who runs the room" lead="Practitioners who build AI systems in production, and teach your team to do the same.">
+    <StreamSection id="faculty" title="Who runs the room" lead="Two people who build AI systems in their own jobs, and teach your team to build their own.">
       <div className="grid gap-4 md:grid-cols-2 md:gap-7">
         {PEOPLE.map((p) => (
           <div key={p.name} className="border-t border-rule pt-3.5">
@@ -33,7 +33,7 @@ export function Faculty() {
           </div>
         ))}
         <Link href="/team" className={`text-[15px] ${textLink}`}>
-          Meet the faculty
+          Meet the team
         </Link>
       </div>
     </StreamSection>

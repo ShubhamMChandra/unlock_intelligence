@@ -22,14 +22,16 @@ type Interest = "corporate" | "individual" | "question";
 const ENDPOINT = "https://formspree.io/f/xwpkgjbr";
 const INTERESTS: { value: Interest; label: string }[] = [
   { value: "corporate", label: "Training my team" },
-  { value: "individual", label: "Attending as an individual first" },
-  { value: "question", label: "Evaluating for a future quarter" },
+  { value: "individual", label: "Attending as an individual" },
+  { value: "question", label: "Just evaluating for now" },
 ];
 const TEAM_SIZES = [
+  { value: "under-5", label: "Under 5" },
   { value: "5-10", label: "5 to 10" },
   { value: "11-25", label: "11 to 25" },
   { value: "26-50", label: "26 to 50" },
   { value: "50+", label: "50+" },
+  { value: "unsure", label: "Not sure yet" },
 ];
 
 const field =
@@ -46,7 +48,7 @@ const isInterest = (v: string | null): v is Interest => v === "corporate" || v =
 export function StreamContactForm() {
   const searchParams = useSearchParams();
   const [state, setState] = useState<FormState>("idle");
-  const [interest, setInterest] = useState<Interest>("individual");
+  const [interest, setInterest] = useState<Interest>("corporate");
   const [errors, setErrors] = useState<{ name?: boolean; email?: boolean }>({});
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [showSuccess, setShowSuccess] = useState(false);
@@ -106,11 +108,11 @@ export function StreamContactForm() {
       else throw new Error("Submission failed");
     } catch {
       // Fallback: open the visitor's email app with the note filled in
-      const subject = encodeURIComponent("New enquiry from Unlock Intelligence");
+      const subject = encodeURIComponent("New inquiry from Unlock Intelligence");
       const body = encodeURIComponent(
         `Name: ${formData.get("name") || ""}\nEmail: ${formData.get("email") || ""}\nCompany: ${formData.get("company") || ""}\nInterest: ${interest}\n\nMessage:\n${formData.get("message") || ""}`,
       );
-      window.location.href = `mailto:hello@unlockintelligence.co?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:hello@unlockintelligencehq.com?subject=${subject}&body=${body}`;
       setState("error");
     }
   }
@@ -142,9 +144,9 @@ export function StreamContactForm() {
         <div role="alert" className="mt-6">
           <h2 className="m-0 text-[24px] font-extrabold leading-[1.1] [font-stretch:82%]">We couldn&rsquo;t send that from here.</h2>
           <p className="mt-3 max-w-[46ch] font-serif text-[16.5px] text-haze">
-            We opened your email app with your note filled in. You can also write to{" "}
-            <a href="mailto:hello@unlockintelligence.co" className={cn("text-ink", textLink)}>
-              hello@unlockintelligence.co
+            Your email app should have opened with the note filled in. If it didn&rsquo;t, try again or write to{" "}
+            <a href="mailto:hello@unlockintelligencehq.com" className={cn("text-ink", textLink)}>
+              hello@unlockintelligencehq.com
             </a>
             .
           </p>
@@ -154,7 +156,7 @@ export function StreamContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate className="mt-4 grid gap-6">
-          <input type="hidden" name="_subject" value="New enquiry from Unlock Intelligence" />
+          <input type="hidden" name="_subject" value="New inquiry from Unlock Intelligence" />
 
           <div>
             <label htmlFor="name" className={labelText}>
@@ -234,8 +236,8 @@ export function StreamContactForm() {
 
           {interest === "corporate" && (
             <fieldset className="m-0 border-0 p-0">
-              <legend className={labelText}>Team size</legend>
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              <legend className={labelText}>How many people would attend?</legend>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {TEAM_SIZES.map((o) => (
                   <label key={o.value} className={cn(choice, "justify-center sm:justify-start")}>
                     <input type="radio" name="team_size" value={o.value} className="peer sr-only" />
@@ -249,7 +251,7 @@ export function StreamContactForm() {
 
           <div>
             <label htmlFor="message" className={labelText}>
-              The process <span className="font-normal text-haze">(optional)</span>
+              Your process, if you have one in mind <span className="font-normal text-haze">(optional)</span>
             </label>
             <textarea
               id="message"
@@ -264,7 +266,7 @@ export function StreamContactForm() {
 
           <div>
             <button type="submit" disabled={state === "submitting"} className={cn(pill, "disabled:opacity-60")}>
-              {state === "submitting" ? "Sending…" : "Send"}
+              {state === "submitting" ? "Sending…" : "Send my note"}
             </button>
           </div>
         </form>

@@ -38,8 +38,8 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.06] text-xs text-muted-foreground">
           <span>&copy; {new Date().getFullYear()} Unlock Intelligence. All rights reserved.</span>
           <span className="hidden md:inline">Chicago, IL</span>
-          <a href="mailto:hello@unlockintelligence.co" className="text-foreground/65 hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:underline focus-visible:underline-offset-[6px] focus-visible:decoration-foreground/60 inline-flex items-center min-h-[44px]">
-            hello@unlockintelligence.co
+          <a href="mailto:hello@unlockintelligencehq.com" className="text-foreground/65 hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:underline focus-visible:underline-offset-[6px] focus-visible:decoration-foreground/60 inline-flex items-center min-h-[44px]">
+            hello@unlockintelligencehq.com
           </a>
         </div>
       </div>

@@ -63,7 +63,7 @@ export function ArticleBody({ article }: ArticleBodyProps) {
             Bring us one process.
           </h2>
           <p className="mb-2 mt-0 max-w-[46ch] font-serif text-[17px] text-haze">
-            The one that waits at every handoff. We&rsquo;ll show you what it looks like as a stream.
+            The one that waits at every handoff. In two days your team rebuilds it as a stream.
           </p>
           <Link href="/contact" className={pill}>
             Bring us one process

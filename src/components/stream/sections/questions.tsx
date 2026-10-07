@@ -10,46 +10,54 @@ import { textLink } from "@/components/stream/styles";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
-    q: "Is there a corporate or team option?",
+    q: "How does it work for a team?",
     a: (
       <>
-        Yes. For teams of five or more we offer custom scheduling, role-specific tailoring and volume pricing.{" "}
+        Teams of five or more get a private cohort. We schedule it around your calendar, write the starter agents for each person&rsquo;s role, price by seat with volume discounts, and send leadership an executive summary afterward.{" "}
         <Link href="/contact?type=corporate" className={`text-ink ${textLink}`}>
           Ask for a proposal
         </Link>{" "}
-        and we&rsquo;ll put one together.
+        and we&rsquo;ll send one.
       </>
     ),
   },
   {
-    q: "How do you measure outcomes?",
-    a: "Everyone takes a confidence assessment before and after. Your team then receives an executive summary with aggregated results, completion tracking and competency gains you can hand straight to L&D.",
+    q: "How much time does it take?",
+    a: "Eight hours across two days. Beyond that, only what your team chooses to build afterward.",
   },
   {
-    q: "Do I need any technical background?",
-    a: "None. The program is designed for people who have never written code and never plan to. If you can use email and a web browser, you have everything you need.",
+    q: "How do you measure outcomes?",
+    a: "Everyone rates their own confidence before and after, and we track who completed each day. You get an executive summary with the before-and-after scores and completion, written so you can forward it to your VP.",
+  },
+  {
+    q: "Does my team need a technical background?",
+    a: "No. We built the program for people who have never written code and don't plan to. If they can use email and a web browser, they can do everything in the two days.",
   },
   {
     q: "Is this online or in person?",
-    a: "Both. Cohorts run live over video, or at select city venues. We can schedule across time zones and run more than one cohort for larger teams.",
+    a: "Both. Cohorts run live over video. For a private team cohort we can also come to you, by arrangement. We schedule across time zones and split larger teams into more than one cohort.",
   },
   {
-    q: "What if someone misses a session?",
-    a: "Sessions are recorded in full. The recording is available within 24 hours, and they can rejoin a future cohort for the missed session at no extra cost.",
+    q: "What if someone misses a day?",
+    a: "Every day is recorded in full and the recording is available within 24 hours. They can also sit in on that day with a future cohort at no extra cost.",
   },
   {
     q: "We already have Coursera or LinkedIn Learning. Why this?",
-    a: "Those are good reference libraries. This is live, built around exercises your team does together on its own work, and you leave with a map of one real process and the builds that come next.",
+    a: "Keep them; they are good reference libraries. This program is live, your team works on its own process in the room, and you leave with that process mapped and a short list of the builds that come next.",
   },
   {
     q: "Is this affiliated with the University of Chicago?",
-    a: "Unlock Intelligence is an independent program. Our Head of Curriculum teaches AI and entrepreneurship at the University of Chicago and brings that rigor here. The curriculum is original.",
+    a: "Unlock Intelligence is an independent program. Our Head of Curriculum teaches AI-driven entrepreneurship at the University of Chicago, but the university is not involved and the curriculum is our own.",
+  },
+  {
+    q: "What if it doesn't work for us?",
+    a: "If your team finishes both days and doesn't feel it gained skills it can use, we refund the seats. One email is enough.",
   },
 ];
 
 export function Questions() {
   return (
-    <StreamSection id="faq" title="Questions" lead="Tap one to open it.">
+    <StreamSection id="faq" title="Questions" lead="Open a question to read the answer.">
       <div>
         {FAQS.map(({ q, a }) => (
           <details key={q} className="group border-t border-rule last:border-b">
