@@ -13,7 +13,7 @@ import Link from "next/link";
 import { CurveText, clamp, ease, fitCanvas, mix, parting, readColors, reducedMotion, rgba } from "@/components/stream/canvas";
 import { pill } from "@/components/stream/styles";
 
-const T_BEFORE = 5200, T_THREAD = 2600, T_SPREAD = 1800;
+const T_BEFORE = 5200, T_THREAD = 3380, T_SPREAD = 1800;
 
 // What an agent now runs at each team, and what a person there keeps
 const STATIONS: Record<string, [string, string]> = {
@@ -81,7 +81,7 @@ export function StreamHero() {
       const n = phone() ? 21 : 31, pts = phone() ? 64 : 110;
       lines = Array.from({ length: n }, (_, i) => ({ i, sig: i === (n - 1) / 2, pts }));
       seed = 11;
-      packets = Array.from({ length: phone() ? 7 : 10 }, (_, i) => ({ seg: i % (nodes.length - 1), p: rand(), wait: rand() * 900, speed: 0.0003 + rand() * 0.0002 }));
+      packets = Array.from({ length: phone() ? 7 : 10 }, (_, i) => ({ seg: i % (nodes.length - 1), p: rand(), wait: rand() * 900, speed: 0.00036 + rand() * 0.00024 }));
       hand.ton = 0;
       opening.st = null;
       opening.op = 0;
@@ -189,7 +189,7 @@ export function StreamHero() {
           if (pk.p >= 1) {
             pk.p = 0;
             pk.seg = (pk.seg + 1) % (nodes.length - 1);
-            pk.wait = 700 + rand() * 1500;
+            pk.wait = 580 + rand() * 1250;
           }
         }
       }
