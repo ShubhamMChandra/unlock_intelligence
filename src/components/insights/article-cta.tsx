@@ -33,7 +33,7 @@ export function ArticleCta({
   const origin =
     typeof window !== "undefined"
       ? window.location.origin
-      : "https://unlockintelligence.co";
+      : "https://unlockintelligencehq.com";
   const articleUrl = `${origin}${pathname}`;
 
   const title = articleTitle ?? "Unlock Intelligence article";
@@ -58,6 +58,7 @@ export function ArticleCta({
         <Button
           size="lg"
           className="h-auto min-h-[44px] w-full max-w-full rounded-none whitespace-normal bg-foreground px-4 py-3 text-center text-sm font-medium leading-snug text-background transition-colors duration-150 hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground sm:max-w-md sm:px-8 sm:text-base"
+          nativeButton={false}
           render={<Link href={buttonHref} />}
         >
           {buttonText}

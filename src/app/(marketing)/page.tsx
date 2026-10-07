@@ -1,35 +1,29 @@
 /**
- * What: Composes homepage sections in one scroll page.
- * Why: Marketing landing is section-driven static content.
- * How: Renders ordered section components inside main.
- * Deps: Section components from components/sections.
+ * What: The homepage: the stream hero, then the program in the order a buyer asks about it.
+ * Why: From handoffs to flow, in two days; everything below the hero stays quiet.
+ * How: Composes Stream sections; only the hero ships client JavaScript.
+ * Deps: components/stream.
  */
-import { Hero } from "@/components/sections/hero";
-import { ProofBar } from "@/components/sections/proof-bar";
-import { Problem } from "@/components/sections/problem";
-import { HowItWorks } from "@/components/sections/how-it-works";
-import { Deliverables } from "@/components/sections/deliverables";
-import { Curriculum } from "@/components/sections/curriculum";
-import { Why } from "@/components/sections/why";
-import { Team } from "@/components/sections/team";
-import { Enroll } from "@/components/sections/enroll";
-import { FAQ } from "@/components/sections/faq";
-import { FinalCTA } from "@/components/sections/final-cta";
+import { StreamHero } from "@/components/stream/stream-hero";
+import { EveryoneAlone } from "@/components/stream/sections/everyone-alone";
+import { TwoDays } from "@/components/stream/sections/two-days";
+import { ByMonday } from "@/components/stream/sections/by-monday";
+import { Faculty } from "@/components/stream/sections/faculty";
+import { Pricing } from "@/components/stream/sections/pricing";
+import { Questions } from "@/components/stream/sections/questions";
+import { Closing } from "@/components/stream/sections/closing";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <ProofBar />
-      <Problem />
-      <Team />
-      <HowItWorks />
-      <Deliverables />
-      <Curriculum />
-      <Why />
-      <Enroll />
-      <FAQ />
-      <FinalCTA />
+      <StreamHero />
+      <EveryoneAlone />
+      <TwoDays />
+      <ByMonday />
+      <Faculty />
+      <Pricing />
+      <Questions />
+      <Closing />
     </main>
   );
 }

@@ -23,21 +23,23 @@ Five friends across industries, all mid-career. Plus Jordan (actor in career tra
 | **Jess Nickelman** | Strategy Consultant at AEA Consulting | Rare combination: ex-L.E.K. Consulting (tier-one strategy rigor) plus first-hand venue management experience at the Podlasie Club in Chicago. AEA is a global cultural-sector strategy firm (museums, performing arts centers, cultural districts). She brings both the analytical frame and the felt knowledge of actually running a cultural space. |
 | **Bill McCue** | Senior Account Executive at Workday | Enterprise HCM/Financials SaaS. Deals $1M–$10M+, 18–24 month cycles, heavy research burden per account. |
 
-**Format:** In-person at 1 West Superior, Chicago. Everyone brings a laptop with Claude Pro.
-**Pre-work:** 3 items from `../../pre-class-setup.md` — Claude Pro signup, bookmark the shared Google Doc, think of one recurring task worth killing.
+**Format:** In-person at 1 West Superior, Chicago. Everyone brings a laptop with Claude Pro, Claude Code Desktop installed, and a blank Next.js scaffold (`unlock-demo` folder with dev server verified) per pre-work.
+**Pre-work:** Updated setup from `../../pre-class-setup.md` — Claude Pro signup, Claude Code Desktop install, Git on Windows, Node.js + `create-next-app` scaffold via the one-prompt setup, bookmark the shared Google Doc, think of one real current initiative you need to communicate about to multiple stakeholders.
 **Conversion goal:** Validate the lesson format. Testimonials are promised already. The real test is whether these five walk out genuinely thinking it was worth their Sunday morning.
 
 ---
 
 ## What v1 changed from v0
 
-The run ships the changes surfaced across two rounds of persona testing:
+The run ships the changes surfaced across two rounds of persona testing plus the 2026-04-11 architecture pivot:
 
 1. **Cut the "plant framework + bad-prompt/good-prompt" verbal opener entirely.** Four of five round-1 personas flagged it as 2023-era YouTube filler.
 2. **Lead with the live demo**, not the framework.
 3. **Matrix expanded from ~3 to ~6–8 min**, mapped during or just after the demo instead of standalone.
 4. **Deliberate failure-and-recovery moment** baked into the build phase. Five of six round-2 personas named this as the strongest trust-building move in the lesson. Not negotiable.
 5. **Closer scraper names its constraint out loud** ("this works when the target has a public web presence, here's what we'd do if they didn't").
+6. **Block 2 pivoted from meeting-prep-with-connectors to Vercel app + Claude Code live extension** (2026-04-11). The old "Claude reads calendar → web searches → writes briefs" demo was just a prompt with tools — not an agent. The new demo is two flavors of agent (the hosted app + Claude Code itself) hitting the same theory punch.
+7. **Block 5 pivoted from Claude Projects to Claude Code Desktop scaffolding a full Next.js app from a blank project** (2026-04-11). Attendees now build their own working copy of the app Jess just used, starting from the blank scaffold they set up in pre-work. Same primitives as Block 2, closes the "kiddie version" gap Priya flagged in round 2.
 
 ---
 
@@ -49,45 +51,312 @@ The run ships the changes surfaced across two rounds of persona testing:
 
 Name each person by first name, name each industry, joke about the spread (GC, founder, PMM, cultural-sector consultant, enterprise SaaS AE — this is a dinner party crowd, not a business audience). Set the expectation:
 
-> *"By the end of today, each of you walks out with a Claude Project that's reading your real files and doing actual work for you. Not prompts. Tools. You're the first 5 people to ever sit through this — I want your honest feedback at the end."*
+> *"By the end of today, each of you walks out with a real working app on your laptop that you built, running on your real initiative, generating real documents for your Monday morning. Not prompts. Tools. You're the first 5 people to ever sit through this — I want your honest feedback at the end."*
 
-### 2. ★ Live volunteer demo on real meeting data (~15 min)
+### 2. ★ Live volunteer demo — Vercel app + Claude Code extension (~15 min)
 
-**Volunteer: Jess.** Her work is research-heavy and obviously knowledge-work shaped, which makes her the "easy case" for the demo. Her cultural-sector focus also shows the demo generalizing beyond typical B2B examples, which is a nice side benefit for the room.
+**Volunteer: Jess primary, Tommy pre-briefed backup.** Two beats in one block: beat 1 uses the hosted Vercel app on Jess's real work (app-as-agent), beat 2 opens Claude Code Desktop on Shubham's local copy and live-extends the app based on what the room asks for (Claude-Code-as-agent). Both make the same theory point: two flavors of agent, one block.
 
-Three phases: setup → run → react/bridge. Detailed breakdown below. Lock the demo path with Jess by Wednesday via text (dummy account pre-loaded with her 3 real meetings, or live OAuth if her work laptop allows it).
+Flash card below. Print A5, two-sided. Front: phases. Back: contingencies + hard rules. Pin to projector or hold in left hand. Don't read from it — glance.
 
-### 3. The 5-component matrix (~6–8 min)
+---
 
-Show the matrix visual. Map Jess's task across People / Tools / Trainings / Guardrails / Metrics — before and after. Verbal, fast. Tie to the horizontal frame:
+#### BLOCK 2 — FLASH CARD (front)
 
-> *"Most AI training picks a person and gives them a tool — 'how do I get my people to use AI?' We just rebuilt the whole row. The horizontal question is: which of my processes should I redesign?"*
+**Volunteer: Jess** · Backup: Tommy · ~15 min · You drive the keyboard, she talks
 
-Give it real time. If the demo runs fast, the matrix gets 8 minutes. If the demo runs long, 5 minutes is the floor. Don't let it shrink below that — the persona tests flagged it as underinvested even at 6 minutes.
+---
+
+##### PHASE A — Setup (~90 sec)
+
+- [ ] "Jess, come up here for a minute"
+- [ ] Switch projector → your laptop
+- [ ] Open browser tab: `unlock-demo.vercel.app` (already deployed, already working)
+- [ ] Frame the room: *watch this app do something on Jess's real work — then I'll show you how it was made*
+- [ ] "Two things in one block. Hang with me."
+
+> ★ **The frame that matters:** this is real work, not a toy
+
+---
+
+##### PHASE B — Beat 1: Use the app on Jess's real work (~3–4 min)
+
+- [ ] Ask Jess, out loud to the room:
+  - "What's your role, in one sentence?" → type in **Role** field
+  - "One real initiative you're working on right now — something you need to communicate about" → type in **Initiative** field
+  - "Who are the 2 or 3 people you need to talk to about it?" → multi-select **Stakeholders**
+- [ ] If she hedges on specifics → "her real work, not a sanitized version"
+- [ ] Hit **Generate**
+- [ ] Wait for the documents. **Don't fill the silence.** Narrate only if it lags: *"one call to the Anthropic API per stakeholder — tailored output per person"*
+- [ ] Documents appear. Read the FIRST ONE out loud, slowly, whole thing
+- [ ] **STOP. Look at Jess. 2–3 sec pause.**
+- [ ] If silent → "Would you send that one? Close? Wrong shape?"
+- [ ] Capture her reaction. Room's eyes follow her face.
+
+> ★ **Jess's face is the lesson. Don't block the room's view of it.**
+
+---
+
+##### PHASE B — Beat 2: Live extend via Claude Code (~5–6 min)
+
+- [ ] Pivot: *"Let me show you how this was made."*
+- [ ] Alt-tab → Claude Code Desktop (local copy of the same project, already open)
+- [ ] Split view if possible: Claude Code left, `localhost:3000` right
+- [ ] Ask the room (NOT Jess this time): *"what's one thing this should also do?"*
+- [ ] Accept the first concrete ask. Don't negotiate scope.
+  - Safe shapes: new audience type, new input field, a tone toggle, a disclaimer line
+  - Unsafe: auth, DB, real API integrations → redirect gently
+- [ ] Type 2–3 sentences into Claude Code. Read them aloud while typing.
+- [ ] Hit enter
+- [ ] **Narrate while Claude Code works. Do NOT go silent.**
+  - "It just read the project files — knows what it's working with"
+  - "Asking me to approve — watch"
+  - "Writing a new file"
+  - "Dev server refreshed — new field is there in the preview"
+- [ ] Flip to browser tab → show new feature live on `localhost:3000`
+- [ ] Ask the room: "see it?" — let them confirm
+
+---
+
+##### PHASE C — Theory beat + bridge (~3 min)
+
+- [ ] **30-SECOND THEORY BEAT — non-negotiable.** Hit these in order:
+  - The app is an AGENT — one job, many outputs, your role + your stakeholders → documents
+  - Claude Code is an AGENT — reads codebase, decides, writes, verifies
+  - Both have a LOOP. Read → decide → act → check.
+  - Prompt predicts words. Agent has a job.
+  - **Two flavors of agent. One block.**
+
+> ★ **If you skip one thing, don't skip this beat.** It's why Block 2 exists.
+
+- [ ] If room riffs with "could it also do X" → pin it: *"hold that — in 25 min you're building your own version on your laptop"*
+- [ ] Bridge to Block 3: *"Look at what just happened. Let's name what changed."*
+- [ ] Walk to the matrix on the projector
+
+---
+
+#### BLOCK 2 — FLASH CARD (back)
+
+##### CONTINGENCIES
+
+**Claude Code errors mid-live-edit**
+- [ ] Narrate as a feature: *"look — watch how I fix it"*
+- [ ] Tell Claude in plain English what broke, retry once
+- [ ] This IS the deliberate-failure moment pulled forward — Block 5 still gets its own
+- [ ] Do NOT panic-close the app
+
+**Vercel app errors or is slow**
+- [ ] One retry with Generate
+- [ ] If still broken → skip Beat 1, go straight to Claude Code build from scratch on the projector ("we'll build it now instead of showing you a built one")
+- [ ] Frame the error as proof of why you build local copies
+
+**Jess freezes or can't name a real initiative**
+- [ ] Tommy is pre-briefed — call him up instead
+- [ ] Or: use a pre-canned example (your own — "here's one from my Monday at Digital Realty")
+- [ ] Don't burn more than 20 sec recovering — move
+
+**Rate limit hits on Claude Code**
+- [ ] Switch model to Sonnet (not Opus)
+- [ ] Worst case: narrate the limit as a real lesson, cut Beat 2 short, go to theory beat early
+
+**Room riffs with "could it also do X"**
+- [ ] Pin it for Block 5: *"that's literally what you're about to build"*
+- [ ] Don't kill the energy, redirect it
+
+---
+
+##### HARD RULES
+
+- Stop Phase B with at least **3 min left** for theory beat + bridge
+- Theory beat is non-negotiable
+- Jess's face is the lesson — don't block it
+- No silence while Claude Code works — narrate
+- Don't negotiate scope with the room's feature ask — accept and build
+- The app is real, deployed, already working — don't apologize for it
+
+### 3. Live matrix fill on Jess's demo (~6–8 min)
+
+**v0.2 — see rationale:** `/knowledge/learnings/2026-04-10-curriculum-2day-reframe.md`. This block used to be a taught framework. It's now a live fill on the demo the room just watched. Columns are never named upfront. They emerge from the act of filling, then get named after the cells are full. This is the first live test of the reframe — watch Jess and the room carefully.
+
+Pull up the empty matrix on the projector. Two rows ("Today" / "Rebuilt"), five empty columns. Hand out the worksheet page 2 version so each attendee can fill along. **Do not say "people, tools, trainings, guardrails, metrics" yet.** Not once.
+
+Open with the move:
+
+> *"Look at what just happened. Let's name what changed."*
+
+Then walk the five columns as questions to the room, filling Jess's answers in the "Today" row first, all the way across, before touching the "Rebuilt" row.
+
+> *"Before today, who was doing the prep for one of those client meetings?"* — column 1
+>
+> *"What were they doing it in — what tool, what surface?"* — column 2
+>
+> *"What did that person need to know or have seen before to do it well?"* — column 3
+>
+> *"Who was checking the output before it went in front of a client?"* — column 4
+>
+> *"And how did anyone know the prep was actually any good?"* — column 5
+
+Write Jess's answers verbatim, even if they're messy. Her "Today" row is almost certainly going to be: *Jess herself, Google + Notion + past AEA decks, cultural-sector context + the client's board history, Jess again (no second pair of eyes), and a felt sense of "I walked in ready" with no real metric.* Don't clean it up. The scruffiness is the point — it shows what running this by hand actually costs.
+
+Then walk the same five questions again for the "Rebuilt" row. The Claude Project is the person. The Project is the tool. The instructions + the uploaded context is the training. The verification step she'd add is the guardrail. The metric is whatever she names — probably "45 minutes became 4" or "I stopped skipping the prep on Friday meetings."
+
+**Only after all ten cells are full, name the columns:**
+
+> *"What you just told me has a name. People. Tools. Trainings. Guardrails. Metrics. Every process you run has all five — whether anyone wrote them down or not. Most AI training fixes one column. We just rebuilt the whole row. That's the whole game."*
+
+Then the punchline:
+
+> *"Most AI training asks 'how do I get my person to use AI?' That's vertical thinking — pick a person, give them a tool, hope it works. What we just did was horizontal. We didn't give Jess a tool. We picked a process and redesigned all five components of it. Everything else today is built on that distinction."*
+
+**If time permits — cross-industry side-by-side (~90 sec).** Pick Tommy or Bill and run the same five questions on their version of meeting prep. Tommy's "Today" people column is the competitive intel analyst or PMM doing teardown-by-hand; Bill's is the AE doing account research between calls. Rebuilt row lands the same way. The cross-industry thesis becomes structural when the room sees two totally different businesses fill the same five columns.
+
+**Pacing guardrails.** Eight-minute ceiling, five-minute floor. Do not let this block shrink below five. If the demo ran long and you're squeezed, cut the cross-industry side-by-side first, then tighten the narration on the fill — don't cut columns. Every column has to get filled in both rows, or the "you just did all five" move doesn't land.
+
+**What to watch for (this is a live test).** The whole move depends on the room doing the filling, not nodding at a taught framework. Watch eyes during the "Today" row. If Jess is the only one speaking and the other four are glazed, the fill-first move is underperforming — abbreviate the "Rebuilt" row narration and get to the name-the-columns beat faster. If hands are pointing at the screen and people are interrupting Jess with their own answers, it's working — give it the full eight minutes. Capture which of the two happened in the Sunday retro. That signal is the whole reason this block got rewritten.
 
 ### 4. UI walkthrough (~60 sec)
 
-Screen-share Claude on the projector, walk through it once: "Click Projects, click New Project, paste here, drop files here." Eat the navigation friction once for everyone.
+Screen-share Claude Code Desktop on the projector. Walk through it once: "Open folder, this is where you paste the prompt, this is the approve button, this is the preview pane with `localhost:3000`." Eat the navigation friction once for everyone. The one thing that matters: *"when Claude Code asks to run a command, click approve. Don't read every line."*
 
-### 5. ★ Build phase — each person personalizes their starter (~25–30 min)
+### 5. ★ Build phase — each person builds their own copy of the app (~25–30 min)
 
-Direct them to the shared Google Doc. Each attendee finds a Claude Project starter built for them personally, with a "WHY THIS WORKS" annotation block underneath. Say aloud:
+Each attendee already has a blank Next.js scaffold from pre-work (`unlock-demo` folder, Node.js installed, `create-next-app` defaults, dev server verified). Sunday they build their own working copy of the app Jess just used — same primitives, same shape, their own real initiative loaded into it.
 
-> *"Here's an example I built for you and here's why it's good. Paste it in and personalize it, or write your own using this as a model. Either way, the structure is the lesson. File upload is optional — paste a paragraph of context instead if you can't share a file."*
+Flash card below. Same print format as Block 2: A5, two-sided. Front: phases. Back: contingencies + hard rules.
 
-**Circulate order:** Zeshawn first (new industry, new role, highest uncertainty, most confidentiality-sensitive), Alan second (fragmented founder — his starter is a kill-list, which requires honest self-reporting), then Tommy, Jess, Bill. Hard cases get the most 1:1 attention.
+---
 
-**Deliberate failure moment (don't skip):** Somewhere in this block, surface a real Claude failure and catch it publicly. Either naturally (it'll happen — narrate when it does) or deliberately (ask Claude something just outside its confidence and let it fabricate, then show the fix). Say aloud:
+#### BLOCK 5 — FLASH CARD (front)
 
-> *"See that? It just fabricated that number. Watch how I fix it."*
+**~25–30 min · You circulate · They drive their own keyboards · Claude Code does the heavy lifting**
 
-Tighten the instructions, rerun, show the corrected output. Five of six round-2 personas named this as the single most trust-building moment of the whole lesson. It's what separates "sales demo" from "training."
+---
 
-Around the 5-minute-left mark: *"Don't sweat it if you're not done — I'll help anyone stalled in the 15 minutes after we wrap."*
+##### SETUP (~2 min)
+
+- [ ] "Open the Google Doc I sent — top of the doc"
+- [ ] Point them to the **Anthropic API key** (raw, pasted Saturday, $50 cap, rotates Monday)
+- [ ] "Copy the key. Don't worry about security — this is a demo key, it dies tomorrow."
+- [ ] "Open Claude Code Desktop. Open your `unlock-demo` folder from pre-work."
+- [ ] **The frame:**
+  - Each of you builds your own working version of what Jess just used
+  - Starting from the blank page you set up Friday night
+  - Claude Code does the heavy lifting — you drive it
+- [ ] "Everyone on the same page? Good. Find the Block 5 prompt in `starters.md` in the doc. Paste it into Claude Code."
+
+> ★ **"You're not writing code. You're managing an agent."**
+
+---
+
+##### BUILD (~15 min)
+
+- [ ] They paste the pre-written Block 5 build prompt (one prompt, engineered Saturday, same for everyone)
+- [ ] Walk the room once, out loud, through what to expect:
+  - Claude Code will ask for the API key → paste it, approve
+  - Claude Code will install `@anthropic-ai/sdk` → approve
+  - It'll write the form, the API route, the `.env.local` → approve each step
+  - ~10–15 min of agentic work per person
+  - "Click approve. Don't read every line. You're not in production."
+- [ ] Then: **circulate.** Don't hover at the front.
+- [ ] **Circulate order:**
+  - **Zeshawn first** — most at risk of early stall (new to this kind of tooling, confidentiality-sensitive, new industry)
+  - **Alan** — might improvise off the prompt, pull him back to "run it first, change it second"
+  - **Tommy** → **Jess** → **Bill** (higher self-serve confidence)
+- [ ] Watch the **4 stall archetypes** for Claude Code specifically:
+  - **Reader** — reads every line Claude Code outputs before approving → "just approve, we're not in production"
+  - **Improviser** — edits the prompt before running it → "run it first, change it second"
+  - **Perfectionist** — not satisfied with first working version → "if it generated one document, you're done — move on"
+  - **Frozen** — hasn't clicked approve in 60 sec → walk over, approve one step with them, unstick
+
+---
+
+##### USE (~8 min)
+
+- [ ] When an attendee's dev server is running → "now put your real initiative in"
+- [ ] Their real role, real current initiative, real 2–3 stakeholders (same thing Jess did, but theirs)
+- [ ] Hit generate. Read the documents.
+- [ ] **Call out the first working demo to the whole room** — pin energy, make it contagious
+- [ ] Encourage reactions: "would you send that one Monday morning?"
+- [ ] Don't fix their output — that's not the point. The point is: one form → tool shaped like their job.
+
+---
+
+##### OPTIONAL — CUSTOMIZE (~5 min, only if time)
+
+- [ ] Fast-finishers get a second prompt: add a disclaimer, a citation field, a tone toggle, a "plain English" style
+- [ ] Point them back to `starters.md` → customization prompts
+- [ ] "One change. Ship it. Come back to the room."
+
+---
+
+##### SHOW-AND-TELL PREP (at the 20-min mark)
+
+- [ ] "Screenshot your app. Screenshot one of the generated documents. AirDrop to me."
+- [ ] Same rule as Block 6: don't go around the table, pick by energy
+- [ ] "Don't sweat unfinished — I'll help anyone stalled in the 15 min after we wrap"
+
+---
+
+##### ★ DELIBERATE FAILURE MOMENT ★
+
+- [ ] When Claude Code hits a real error on someone's build (wrong package, typo, API error, rate limit) → **stop the room**
+- [ ] Walk to that person's laptop or bring it up on the projector
+- [ ] Narrate: *"Look what just happened. Claude Code made a mistake. Watch me fix it."*
+- [ ] Talk to Claude Code in plain English. Show the fix in real time.
+- [ ] Attribute: *"This is the most important moment of the day. 5 out of 6 personas named this as the thing that built trust."*
+- [ ] **Do not skip this even if everything goes smoothly.** If nothing fails naturally, ask Claude Code to do something just past its confidence (e.g., integrate a made-up API), let it stumble, show the fix.
+
+> ★ **The failure moment happens no matter what. Narrate it. It's a feature, not a bug.**
+
+---
+
+#### BLOCK 5 — FLASH CARD (back)
+
+##### CONTINGENCIES
+
+**Rate limit hits mid-build**
+- [ ] Switch their model to Sonnet (not Opus — separate lower cap)
+- [ ] Still stuck → run their prompt on your projector Claude, AirDrop result to them
+- [ ] Worst case → pair them up with someone whose build is working
+
+**Wifi dies**
+- [ ] Phone hotspot (in `todo.md` prep list)
+- [ ] If hotspot can't handle 5 concurrent sessions → stagger: 2 build at a time, 3 read/watch
+- [ ] Last resort → everyone watches one person's build on the projector, narrated
+
+**Pre-work didn't work for someone** (shouldn't happen — Friday night text reminder)
+- [ ] Pair them with a neighbor whose scaffold is running
+- [ ] Or: share your projector — they do the real initiative on your running app
+- [ ] Do NOT try to fix their scaffold live — 5 min black hole
+
+**Claude Code loops on an error** (same error twice)
+- [ ] Stop it. Simplify the prompt. Retry once.
+- [ ] Still looping → abandon that approach, pivot to a simpler feature
+- [ ] This is often the deliberate-failure moment in disguise — narrate it as one
+
+**Attendee's API key doesn't work**
+- [ ] Most likely they pasted quotes or extra whitespace — check the `.env.local` line
+- [ ] Worst case → have them use Shubham's backup key (second key in the doc, same $50 cap)
+
+**Attendee's work laptop blocks the install**
+- [ ] Personal laptop pivot (already in risks)
+- [ ] If no personal laptop → pair them with Jess or Tommy
+
+---
+
+##### HARD RULES
+
+- **Circulate. Don't drift.** Don't get stuck at the front or on one person.
+- **Don't fix it for them.** Coach through. Hands on their keyboard is a last resort.
+- **When someone hits a working demo, call it out to the room.** Contagious energy beats silent progress.
+- **The failure moment happens no matter what.** Narrate, don't hide.
+- **Around 5 min left mark:** *"Don't sweat unfinished — I'll help anyone stalled in the 15 min after we wrap"*
+- **Don't let perfectionists polish.** First working version → move on.
+- **Don't let readers read every line.** "Just approve, we're not in production."
 
 ### 6. Show-and-tell (~7–10 min)
 
-Quick tour around the table. Each person shows their Project's output on the projector. Default 90 sec each; drop to 60 sec if you're over time.
+Quick tour around the table. Each person shows their running app + the generated documents for their real initiative on the projector. Default 90 sec each; drop to 60 sec if you're over time. Pick by energy, not table order — hit the most visibly excited person first, the most skeptical last.
 
 ### 7. ★ Closer — competitive intel scraper on Bill's real account (~7 min)
 
@@ -110,61 +379,36 @@ Two parts:
 
 ---
 
-## The 5 personalized starters
+## The Block 5 build prompt + customization prompts
 
-**Extracted to:** `starters.md` (same folder)
+**Extracted to:** `starters.md` (same folder). This file currently contains the v0 Claude Project starters and needs a Saturday rewrite to house:
 
-On Saturday, copy the starters from that file into the shared Google Doc with each attendee's real name as the section heading.
+1. **The Block 5 build prompt** — single well-engineered Claude Code Desktop prompt that scaffolds the role-aware document generator from a blank Next.js project. Same prompt for everyone. Finalized Saturday after a clean-machine dry-run.
+2. **Customization prompts** — 3–5 short Claude Code prompts for fast-finishers (add a disclaimer, add a citation field, add a tone toggle, add a "plain English" style).
 
----
-
-## ★ Volunteer demo — three phases (the headline beat)
-
-### Phase A — Setup
-
-Jess at the projector with her laptop mirrored. If dummy-account path (likely), open the pre-loaded account with her 3 real meetings already in the Calendar. If live-OAuth path, walk her through Claude → Settings → Connectors → Google Calendar → Authorize.
-
-Calming line during any load time: *"Claude doesn't store your data — it reads it when you ask, then forgets."*
-
-### Phase B — Run the demo
-
-Frame in one sentence: *"I'm going to ask Claude to do something it would take you 30 minutes to do by hand on a Sunday night. Watch what it DOES, not just what it says."*
-
-Paste the pre-written Option D prompt (below). Hit send.
-
-Claude pulls her calendar, hits the web for each meeting attendee/organization, synthesizes prep notes. **Narrate as it works.** Don't just stare:
-
-> *"See what it just did? It just looked at her real calendar."*
->
-> *"Now it's going OUT to the web for each person she's meeting with. Three different searches in a row. She didn't write code. She wrote an instruction."*
-
-Drop the 30-second theory beat mid-run:
-
-> *"Same Claude. Same model you all have on your laptops. The first prompt I showed you asked it to predict the most likely next words. This one gave it a job, real data, and a goal. That's the entire difference."*
-
-### Phase C — React + bridge
-
-Read the output. Pause. **Look at Jess. Capture her reaction.** The room's eyes follow her face.
-
-If she doesn't react out loud, ask: *"Would you actually use this before your next client call?"*
-
-Bridge to build:
-
-> *"What you just watched took six minutes to run but ninety seconds to build. The instruction was four sentences. Now turn to your laptops — I have one of these waiting for each of you."*
+On Saturday, paste the Block 5 build prompt + the Anthropic API key (with $50 cap, rotates Monday) into the shared Google Doc at the top. Attendees copy and paste both during Block 5 setup.
 
 ---
 
-## The work-laptop problem + dummy account pattern
+## Block 2 — architecture notes (for Saturday prep, not the flash card)
 
-Many professionals can't authorize Claude on their work laptop — locked-down devices, IT policies, privacy concerns. This will keep coming up. The recurring solution: build a dummy Google account ahead of time. Ask the volunteer for 3 real meeting names + people + organizations. Pre-populate the dummy's Calendar with those exact meetings. On the day, the demo runs on the dummy account — but the data on the projector is the volunteer's real meetings.
+**The app:** role-aware document generator. Next.js, Anthropic SDK, deployed to Vercel. Inputs: role, initiative, multi-select of stakeholders. Output: one tailored document per stakeholder, one API call each. Why this app: every knowledge worker in the cohort faces "I know something I need to communicate differently to different people" every week. Tommy co-shaped the concept.
 
-**Important nuance from round-2 personas (Alex flagged this):** Don't frame the dummy account to the room as "a workaround because her laptop doesn't allow OAuth." That accidentally signals "this won't work at your company." Treat it as a clean demo environment. Save any "here's how this works on your real calendar" talk for later in the lesson when trust is higher.
+**What Shubham has ready by Saturday:**
+- Vercel-hosted version at a stable URL (e.g., `unlock-demo.vercel.app`), already deployed, dry-run passes
+- Local copy of the same project on Shubham's laptop, Claude Code Desktop open inside it, dev server running on `localhost:3000`
+- Projector switches between browser tab (hosted) and Claude Code Desktop without reconnecting cables
 
----
+**What's on the Vercel app:**
+- Form with three fields: role (text), initiative (textarea), stakeholders (multi-select of ~6 common types — exec, peer, direct report, client, board, vendor — plus "add your own")
+- Generate button hits a Next.js API route, which calls Anthropic SDK once per selected stakeholder and returns tailored documents
+- Results render as labeled cards, one per stakeholder, readable on the projector
 
-## Pre-written demo prompts
-
-**Extracted to:** `../../demo-prompts.md`. Open this in a browser tab on Sunday — Plans A/B/C for the volunteer demo and the closer script.
+**Why the live Claude Code extension beat exists:**
+- Beat 1 shows the app-as-agent (one job, many outputs) — impressive but could read as "a prompt with a form"
+- Beat 2 shows Claude-Code-as-agent (read, decide, act, check) — proves the loop
+- Without beat 2, the thesis is only half-landed. Without beat 1, there's no emotional grounding in "this is your actual work."
+- Both beats cost ~5 min each, theory beat is 30 sec, total fits the 15-min budget with 3 min slack.
 
 ---
 
@@ -172,7 +416,7 @@ Many professionals can't authorize Claude on their work laptop — locked-down d
 
 ### Phase A — Bridge
 
-*"What each of you just built is ONE Project doing ONE task. That's Hour 1 of the full program. Let me show you what Hour 4 looks like — and this is something I actually built and use every Monday at Digital Realty, not a prop."*
+*"What each of you just built is ONE app doing ONE job — take a role, an initiative, a set of stakeholders, generate tailored documents. That's Hour 1 of the full program. Let me show you what Hour 4 looks like — and this is something I actually built and use every Monday at Digital Realty, not a prop."*
 
 ### Phase B — Set up + run the scraper
 
@@ -188,7 +432,7 @@ Narrate the 6 autonomous steps (site → press → LinkedIn → news → synthes
 
 ### Phase C — Connect to the program (no pitch)
 
-*"What you just watched is THE SAME primitives you built thirty minutes ago. Custom instructions, structured prompts, real data, multi-step. The only difference is I chained six steps instead of one. The full 8-hour program is exactly that — teaching you to chain steps for your own work. Hour 4 is everyone in the cohort building one of THESE for themselves. Hours 5–8 connect them to your team's systems. That's all I'll say about the program for now — questions later."*
+*"What you just watched is THE SAME primitives you built thirty minutes ago. A Next.js app, an API route, the Anthropic SDK, real data, multi-step. The only difference is I chained six steps instead of one. The full 8-hour program is exactly that — teaching you to chain steps for your own work. Hour 4 is everyone in the cohort building one of THESE for themselves. Hours 5–8 connect them to your team's systems. That's all I'll say about the program for now — questions later."*
 
 Pivot straight into the debrief.
 
@@ -212,24 +456,32 @@ Pivot straight into the debrief.
 
 | Mechanism | What it absorbs |
 |---|---|
-| 5 personalized annotated starters (drafted above) | Blank-page paralysis. Cuts per-person build time by ~60%. |
-| 60-second UI walkthrough on the projector | First-timer confusion with Claude Projects UI |
+| Pre-written Block 5 build prompt (one prompt, engineered Saturday) | Blank-page paralysis + "where do I start" friction. Claude Code does the heavy lifting. |
+| Blank Next.js scaffold done in pre-work, dev server pre-verified | Sunday-morning install failures. 20 min of friction moved to Friday night. |
+| Demo API key pre-pasted in shared Google Doc ($50 cap, rotated Monday) | Anthropic account creation + billing setup, which would block non-technical attendees cold |
+| 60-second Claude Code Desktop UI walkthrough on the projector | First-timer confusion with the Code tab, approve buttons, preview pane |
 | Show-and-tell flexible 60–90 sec each | Buffer if the build runs long |
-| "File upload is optional" said aloud | Confidentiality freeze (Zeshawn especially) — paste a paragraph of context instead |
+| "This is a demo key — don't worry about security" said aloud | API key paranoia (Zeshawn especially) |
+| "Just approve, we're not in production" said aloud | Reader archetype stalling on every command |
 | "I'll help anyone stalled in the 15 min after we wrap" said aloud | Performance anxiety |
+| Projector-share fallback (Shubham runs their prompt on his account, AirDrops result) | Rate limit hits on one attendee |
 
 ---
 
 ## Risks and what to watch for
 
-- **Connector authorization fails on the projector.** The dummy-account path eliminates this. Have the dummy ready even if you're planning live OAuth.
-- **Build phase runs long.** Cut show-and-tell to 60 sec; offer post-wrap stay-after for anyone unfinished.
-- **Zeshawn confidentiality freeze.** He's 1 month into a GC role at a cannabis company. He will not upload real documents, and his starter explicitly acknowledges this. Be ready to talk to Claude's data policy verbally if he pushes.
-- **Alan's projects are in flux.** His kill-list starter works only if he brings real data about where his time is actually going. If he brings vague "I have a few ideas" framing, push him to be specific when you circulate.
-- **Bill's account might not scrape well.** Fallback: if the scraper doesn't produce a clean brief on his real account in the Saturday dry-run, pick a different attendee's closer target (Tommy's competitor, Jess's peer institution).
+- **Vercel app errors in Block 2.** Fallback: skip Beat 1, go straight to building the app from scratch in Claude Code on the projector. Frame the outage as why local copies matter.
+- **Block 2 Claude Code live-edit loops or errors.** Narrate as a feature, retry once with a simpler ask, pivot if still stuck. This becomes the deliberate-failure moment pulled forward — Block 5 still gets its own.
+- **Pre-work didn't work for someone** (scaffold missing, dev server won't start). Text-reminder Friday night should prevent this. Sunday fallback: pair them with a working neighbor or share Shubham's projector app for their real initiative. Do NOT try to fix the scaffold live.
+- **Build phase runs long.** Cut show-and-tell to 60 sec each; offer the 15-min post-wrap stay-after for anyone unfinished.
+- **Zeshawn confidentiality freeze.** He's 1 month into a GC role at a cannabis company. Emphasize that the demo key is Shubham's (not his), the $50 cap limits exposure, and whatever he types is staying on his laptop — the API call is role/initiative/stakeholders text, not document upload. If he pushes, be ready to talk about Anthropic's data retention on API calls verbally.
+- **Alan improvises off the Block 5 build prompt.** His archetype. Pull him back: "run it once first, then change it."
+- **Bill's account might not scrape well in Block 7.** Fallback: if the scraper doesn't produce a clean brief on his real account in the Saturday dry-run, pick a different attendee's closer target (Tommy's competitor, Jess's peer institution).
 - **The matrix is still the weakest block.** Two rounds of personas agreed. Accept it's imperfect this cohort. Watch the real-room reaction carefully and fix for v2 after the retro.
-- **Dummy account framing risk.** Alex-persona flagged that framing the dummy as a "workaround because her laptop doesn't allow OAuth" accidentally signals "this won't work at your company." Don't describe it that way to the room. Treat it as a clean demo environment.
-- **Closer undercut risk.** Priya-persona flagged that the scraper closer can accidentally make the attendees' Projects feel like "the kiddie version." Tighten the "this is Hour 4, you'll build one in session 2" bridge.
+- **Rate limit hits on Claude Code during Block 5.** Sonnet default. Projector-share fallback (Shubham runs their prompt on his account, AirDrops the result). Worst case: pair two attendees on one machine.
+- **Venue wifi can't handle 5 concurrent Claude Code sessions.** Pre-test Saturday evening during the venue dry-run. Phone hotspot is in `todo.md` prep list. Stagger builds if needed (2 at a time, 3 watch).
+- **Closer undercut risk.** Priya-persona flagged that the scraper closer can accidentally make the attendees' builds feel like "the kiddie version." The new Block 5 architecture (attendees build the same primitives as Block 2) closes most of this gap, but tighten the "this is Hour 4, you'll build one in session 2" bridge anyway.
+- **Claude Code Desktop app has a bug on Sunday.** Pin the current version, don't auto-update Sunday morning. Fallback: meeting-prep-in-browser revert plan (see appendix in `/Users/shubhamchandra/.claude/plans/sorted-coalescing-phoenix.md`).
 
 ---
 

@@ -41,8 +41,8 @@ export function ProcessCard() {
 
       <div className="text-sm">
         <p className="text-foreground/70">Prefer email?</p>
-        <a href="mailto:hello@unlockintelligence.co" className="text-foreground/70 hover:underline">
-          hello@unlockintelligence.co
+        <a href="mailto:hello@unlockintelligencehq.com" className="text-foreground/70 hover:underline">
+          hello@unlockintelligencehq.com
         </a>
       </div>
     </div>

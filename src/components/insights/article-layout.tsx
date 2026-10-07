@@ -57,7 +57,7 @@ export function ArticleLayout({
   const origin =
     typeof window !== "undefined"
       ? window.location.origin
-      : "https://unlockintelligence.co";
+      : "https://unlockintelligencehq.com";
   const articleUrl = `${origin}${pathname}`;
 
   const shareText = `Thought this was worth sharing with our team:\n\n${title}\n${articleUrl}\n\n— via Unlock Intelligence`;

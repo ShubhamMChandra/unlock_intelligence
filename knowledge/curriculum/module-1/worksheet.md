@@ -23,9 +23,11 @@ Name: ___________________________________________
 
 \pagebreak
 
-## The 5-component process matrix
+## The process matrix
 
-Every business process has five components. Map any task across all five, before and after, and the AI insertion points become obvious.
+What you filled in live during the demo. This is a take-home copy of the same grid — keep it as the reference for what a "before and after" actually looks like when you rebuild a process instead of just adding a tool.
+
+Two rows. The first is how the work got done yesterday. The second is how it got done after Claude was in the loop. Five columns — one per thing that had to change for the rebuild to actually work. Miss one, the rebuild doesn't hold.
 
 **Vertical thinking:** "How do I get my person to use AI?"
 **Horizontal thinking:** "Which of my processes should I redesign?"
