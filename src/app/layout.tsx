@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Unlock Intelligence — AI Training for Teams",
+        alt: "Unlock Intelligence: from handoffs to flow, in two days",
         type: "image/png",
       },
     ],

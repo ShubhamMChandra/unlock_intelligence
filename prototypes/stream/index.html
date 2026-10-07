@@ -166,7 +166,6 @@ footer.f { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--rule
 
   <section class="hero" aria-label="Introduction">
     <canvas id="field" aria-hidden="true"></canvas>
-    <p class="cap" id="cap" aria-live="polite">A new client, signed to onboarded. Today, every handoff by hand.</p>
     <div class="lens" id="lens" hidden aria-live="polite"></div>
     <button class="replay" id="replay" type="button">Replay</button>
     <div class="copy">
@@ -302,7 +301,7 @@ footer.f { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--rule
 <script>
 (() => {
   const cv = document.getElementById("field"), ctx = cv.getContext("2d");
-  const cap = document.getElementById("cap"), lens = document.getElementById("lens"), headline = document.getElementById("headline");
+  const lens = document.getElementById("lens"), headline = document.getElementById("headline");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -405,7 +404,6 @@ footer.f { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--rule
     const R = phone() ? 15 : 18;
     hand.x += (hand.tx - hand.x) * 0.1; hand.y += (hand.ty - hand.y) * 0.1; hand.on += (hand.ton - hand.on) * 0.05;
     if (spread > 0.98 && mode === "rest") { const legal = nodes.find(n2 => n2.name === "Legal"); openAt(legal, time); if (hand.on < 0.02) { hand.x = legal.x; hand.y = baseY(legal.x, time) + laneSpacing() * 0.5; } }
-    cap.textContent = connect < 0.5 ? "A new client, signed to onboarded. Today, every handoff by hand." : "After two days: one stream. Amber is what an agent now runs.";
     headline.classList.toggle("flowing", connect > 0.6);
     ctx.clearRect(0, 0, W, H);
 
