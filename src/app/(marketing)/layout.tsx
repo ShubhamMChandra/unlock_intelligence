@@ -13,7 +13,7 @@ export default function MarketingLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-ground font-stream text-[15px] leading-normal text-ink [color-scheme:dark] selection:bg-ink/20 [&_:focus-visible]:outline-2 [&_:focus-visible]:outline-offset-[3px] [&_:focus-visible]:outline-ink">
+    <div className="min-h-screen [--hdr:88px] md:[--hdr:60px] bg-ground font-stream text-[15px] leading-normal text-ink [color-scheme:dark] selection:bg-ink/20 [&_:focus-visible]:outline-2 [&_:focus-visible]:outline-offset-[3px] [&_:focus-visible]:outline-ink">
       <StreamHeader />
       {children}
       <StreamFooter />

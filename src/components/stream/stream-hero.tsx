@@ -341,7 +341,9 @@ export function StreamHero() {
   }, []);
 
   return (
-    <section aria-label="Introduction" className="relative mx-auto h-[min(78svh,640px)] min-h-[460px] max-w-[1160px] md:h-[min(80svh,680px)]">
+    <section aria-label="Introduction" className="mx-auto max-w-[1160px]">
+      {/* The stream gets its own stage; the words sit below it in normal flow, so they can never run into the lines */}
+      <div className="relative h-[250px] md:h-[440px]">
       <canvas ref={cvRef} aria-hidden="true" className="absolute inset-0 block size-full touch-pan-y font-stream" />
       <p className="sr-only">
         A new client moves from signed to onboarded through Sales, Finance, Legal, Procurement, Ops and the client. Today every handoff is by hand. After two days the
@@ -355,7 +357,8 @@ export function StreamHero() {
       >
         Replay
       </button>
-      <div className="pointer-events-none absolute inset-x-4 bottom-[22px] flex flex-wrap items-end justify-between gap-4 md:inset-x-8 md:bottom-9">
+      </div>
+      <div className="flex flex-wrap items-end justify-between gap-5 px-4 pb-4 pt-2 md:px-8 md:pb-8">
         <div className="grid gap-3">
         <h1
           ref={h1Ref}
@@ -384,7 +387,7 @@ export function StreamHero() {
           A live, two-day AI program for working teams. Bring one real process. Your team rebuilds it so an agent runs the routine steps and your people keep the decisions.
         </p>
         </div>
-        <Link href="/contact" className={`pointer-events-auto ${pill}`}>
+        <Link href="/contact" className={pill}>
           Bring us one process
         </Link>
       </div>

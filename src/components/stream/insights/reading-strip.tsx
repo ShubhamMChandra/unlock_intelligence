@@ -237,7 +237,7 @@ export function ReadingStrip({ sections, endId }: ReadingStripProps) {
   }, [sections, endId]);
 
   return (
-    <div className="sticky top-0 z-10 border-b border-rule/70 bg-ground">
+    <div className="sticky top-[var(--hdr)] z-10 border-b border-rule/70 bg-ground">
       <div className="relative mx-auto h-14 max-w-[1160px] md:h-16">
         <canvas ref={cvRef} aria-hidden="true" className="absolute inset-0 block size-full cursor-pointer touch-pan-y font-stream" />
         <nav aria-label="Sections in this article">

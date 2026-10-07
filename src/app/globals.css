@@ -264,7 +264,8 @@ p, li {
 
 /* Scroll padding for sticky bars */
 html {
-  scroll-padding-top: 5rem;
+  /* Room for the sticky header and, on articles, the reading strip under it */
+  scroll-padding-top: 9.5rem;
   scroll-padding-bottom: 4rem;
 }
 
