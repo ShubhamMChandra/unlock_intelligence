@@ -31,7 +31,7 @@ const STRANDS: [Strand, Strand] = [
   {
     name: "Shubham Chandra",
     station: "Digital Realty",
-    phrase: "teaches at uchicago, builds at digital realty",
+    phrase: "teaches at UChicago, builds at Digital Realty",
     short: "teaches and builds",
     live: "Shubham Chandra. Teaches at UChicago, builds at Digital Realty.",
   },
