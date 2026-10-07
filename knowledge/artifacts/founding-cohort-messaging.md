@@ -102,6 +102,8 @@ All finalized copy as of 2026-04-02. Reference this document when writing emails
 
 **Submit button:** Start a Conversation ->
 
+> **Superseded (2026-10-07):** The live Stream contact page now reads "Bring us one process." with options "Training my team" (default), "Attending as an individual", "Just evaluating for now", team-size options from "Under 5" to "50+" plus "Not sure yet", and the button "Send my note". Changed because the old options presumed an upsell ("first") and excluded a buyer evaluating this quarter; the ICP review found every main CTA landed the team buyer on the individual option. Source of truth: `src/components/stream/contact/contact-form.tsx`.
+
 ---
 
 ## Rejected Copy -- What We Changed and Why

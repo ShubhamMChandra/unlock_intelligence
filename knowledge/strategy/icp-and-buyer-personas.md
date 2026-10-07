@@ -9,7 +9,8 @@
 **What they need to see on the site:**
 - Organizational capability framing — "your company needs this," not "you need this"
 - Instructor credibility they can verify (UChicago, Digital Realty)
-- Tangible deliverables their team gets (AI integration blueprint, workflow map, 90-day strategy)
+- Tangible deliverables their team gets (a working agent each person built, a map of one real process, the next three to five builds, a certificate, an executive summary for leadership)
+  > **Superseded (2026-10-07):** "AI integration blueprint, workflow map, 90-day strategy" — replaced because the program became two days with agent-building deliverables (see `knowledge/learnings/2026-04-10-curriculum-2day-reframe.md`); the site's Stream components are the source of truth for program facts.
 - Risk reversal (refund guarantee)
 - Something they can forward to their VP without embarrassment
 
