@@ -191,7 +191,7 @@ describe("getInsightBySlug", () => {
     const article = getInsightBySlug("stop-teaching-prompting");
     expect(article).toBeDefined();
     expect(article?.title).toBe(
-      "Stop Teaching People to Prompt. Teach Them to Build."
+      "Stop teaching people to prompt. Teach them to build."
     );
   });
 
