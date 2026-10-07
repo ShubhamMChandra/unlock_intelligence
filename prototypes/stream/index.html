@@ -1,0 +1,516 @@
+<title>Unlock Stream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: a field of fine lines that untangles into one flowing band and answers your finger. Words below carry the meaning; the lines never need a legend. */
+:root {
+  --ground: #0F1311;   /* deep spruce black: the hero commits to dark */
+  --panel: #171C19;    /* raised surfaces */
+  --ink: #E8EBE3;      /* lines and text */
+  --muted: #9AA199;
+  --rule: #2A312C;
+  --amber: #F0A62A;    /* one signature line and the pulse */
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: 16px; padding-block: 0 80px; }
+@media (min-width: 760px) { .wrap { padding-inline: 32px; } }
+.proto { font-size: 12px; color: var(--muted); padding-block: 8px; border-bottom: 1px solid var(--rule); }
+header.top { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; position: relative; z-index: 3; }
+.mark { display: flex; align-items: center; gap: 10px; font-weight: 700; font-stretch: 85%; font-size: 15px; }
+.mark svg { width: 22px; height: 22px; }
+nav.links { display: none; gap: 24px; font-size: 14px; color: var(--muted); }
+nav.links a { color: inherit; text-decoration: none; }
+.menu { font-size: 14px; color: var(--muted); }
+@media (min-width: 760px) { nav.links { display: flex; } .menu { display: none; } }
+
+.hero { position: relative; height: min(78svh, 640px); min-height: 460px; margin-inline: -16px; }
+@media (min-width: 760px) { .hero { margin-inline: -32px; height: min(80svh, 680px); } }
+#field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; }
+.hero .copy { position: absolute; left: 16px; right: 16px; bottom: 22px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; pointer-events: none; }
+@media (min-width: 760px) { .hero .copy { left: 32px; right: 32px; bottom: 36px; } }
+.hero h1 { font-weight: 800; font-stretch: 80%; font-size: 34px; line-height: 0.98; letter-spacing: -0.015em; margin: 0; max-width: 11ch; text-wrap: balance; }
+@media (min-width: 760px) { .hero h1 { font-size: 58px; } }
+.hero h1 .ho { text-decoration: underline dashed; text-decoration-thickness: 2px; text-underline-offset: 7px; text-decoration-color: rgba(232, 235, 227, 0.45); transition: text-decoration-color 900ms; }
+.hero h1.flowing .ho { text-decoration-color: rgba(232, 235, 227, 0); }
+.hero h1 .w { display: inline-block; opacity: 0; transform: translate(-34px, 8px); filter: blur(6px); transition: opacity 700ms ease-out, transform 1000ms cubic-bezier(.2,.8,.2,1), filter 800ms ease-out; }
+.hero h1.flowing .w { opacity: 1; transform: none; filter: none; }
+.hero h1.flowing .w:nth-child(2) { transition-delay: 110ms; }
+.hero h1.flowing .w:nth-child(3) { transition-delay: 220ms; }
+.hero h1.flowing .w:nth-child(4) { transition-delay: 330ms; }
+.hero h1.flowing .w:nth-child(5) { transition-delay: 440ms; }
+@media (prefers-reduced-motion: reduce) { .hero h1 .w { opacity: 1; transform: none; filter: none; transition: none; } }
+.btn { pointer-events: auto; appearance: none; border: 0; background: var(--ink); color: var(--ground); font-family: var(--sans); font-size: 15px; font-weight: 650; padding: 13px 20px; border-radius: 999px; cursor: pointer; min-height: 46px; }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.lens { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(0 0 0 0); white-space: nowrap; }
+.lens-old { position: absolute; z-index: 3; pointer-events: none; display: grid; gap: 0; max-width: min(250px, 66vw); transition: opacity 260ms; text-shadow: 0 0 10px var(--ground), 0 0 4px var(--ground); }
+.lens b { font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; }
+.lens .runs { font-size: 14px; line-height: 1.25; color: var(--amber); }
+.lens .stays { font-size: 14px; line-height: 1.25; color: var(--ink); }
+@media (min-width: 760px) { .lens { max-width: 300px; } .lens .runs, .lens .stays { font-size: 15px; } }
+.cap { position: absolute; top: 10px; left: 16px; right: 84px; margin: 0; font-size: 13px; line-height: 1.35; color: var(--muted); z-index: 2; }
+.replay { position: absolute; top: 4px; right: 12px; z-index: 2; appearance: none; border: 0; background: none; color: var(--muted); font-family: var(--sans); font-size: 13px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; min-height: 40px; padding: 0 4px; }
+@media (min-width: 760px) { .cap { left: 32px; top: 14px; } .replay { right: 28px; top: 8px; } }
+
+section.block { padding-block: 56px 8px; display: grid; gap: 18px; }
+@media (min-width: 900px) { section.block { grid-template-columns: 300px minmax(0, 1fr); gap: 48px; padding-block: 88px 8px; } }
+.block h2 { font-weight: 800; font-stretch: 82%; font-size: 26px; line-height: 1.05; letter-spacing: -0.01em; margin: 0; }
+@media (min-width: 900px) { .block h2 { font-size: 34px; } }
+.block .lead { font-family: var(--serif); color: var(--muted); font-size: 16.5px; margin: 8px 0 0; max-width: 36ch; }
+.prompts { display: flex; flex-wrap: wrap; gap: 8px 10px; align-content: flex-start; }
+.prompts span { font-size: 15px; color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 12px; background: var(--panel); }
+.days { display: grid; gap: 12px; }
+@media (min-width: 760px) { .days { grid-template-columns: 1fr 1fr; } }
+.days div { background: var(--panel); border-radius: 16px; padding: 18px; }
+.days b { display: block; font-size: 16px; margin-bottom: 4px; }
+.days span { color: var(--muted); font-family: var(--serif); font-size: 15.5px; }
+.lists { display: grid; gap: 22px; }
+@media (min-width: 760px) { .lists { grid-template-columns: 1fr 1fr; gap: 32px; } }
+.lists h3 { font-size: 14px; color: var(--muted); font-weight: 600; margin: 0 0 6px; }
+.lists ul { list-style: none; margin: 0; padding: 0; }
+.lists li { padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.lists li b { display: block; font-size: 15.5px; font-weight: 650; }
+.lists li span { font-family: var(--serif); color: var(--muted); font-size: 15px; }
+.lists .runs li b::before { content: ""; display: inline-block; width: 16px; height: 2px; background: var(--amber); vertical-align: 5px; margin-right: 8px; border-radius: 1px; }
+
+svg.divider { display: block; width: 100%; height: 56px; margin-top: 48px; overflow: visible; }
+svg.divider path { fill: none; stroke: var(--ink); stroke-width: 1.2; opacity: 0.55; }
+svg.divider path.sig { stroke: var(--amber); opacity: 1; stroke-width: 2; }
+
+.minis { display: grid; gap: 14px; }
+@media (min-width: 760px) { .minis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mini { background: var(--panel); border-radius: 16px; padding: 16px; overflow: hidden; }
+.mini .k { font-size: 12.5px; color: var(--muted); margin: 0 0 4px; }
+.mini h4 { margin: 0 0 6px; font-size: 18px; font-weight: 750; font-stretch: 86%; }
+.mini svg { width: 100%; height: 80px; display: block; overflow: visible; }
+.mini svg path { fill: none; stroke: var(--ink); stroke-width: 1.2; opacity: 0.7; }
+.mini svg path.sig { stroke: var(--amber); stroke-width: 2; opacity: 1; }
+footer.f { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+/* Homepage sections */
+
+.days { display: grid; gap: 14px; }
+@media (min-width: 760px) { .days { grid-template-columns: 1fr 1fr; gap: 18px; } }
+.day { background: var(--panel); border-radius: 18px; padding: 18px 18px 8px; }
+.day b { display: block; font-size: 17px; font-weight: 700; font-stretch: 88%; margin: 10px 0 6px; }
+.day ol { margin: 0; padding-left: 20px; font-family: var(--serif); color: var(--muted); font-size: 15.5px; }
+.day li { padding: 4px 0; }
+.dayline { width: 100%; height: 34px; display: block; overflow: visible; }
+.dayline path { fill: none; stroke-linecap: round; }
+.dayline .ink { stroke: var(--ink); stroke-width: 1.3; opacity: 0.7; }
+.dayline .ink-dash { stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 6 7; opacity: 0.7; }
+.dayline .amber { stroke: var(--amber); stroke-width: 2.6; }
+.lists h3 { font-size: 14px; color: var(--muted); font-weight: 600; margin: 0 0 6px; }
+.people { display: grid; gap: 16px; }
+@media (min-width: 760px) { .people { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.people > div { border-top: 1px solid var(--rule); padding-top: 14px; }
+.people b { display: block; font-size: 19px; font-weight: 750; font-stretch: 86%; }
+.people .role { color: var(--muted); font-size: 14px; }
+.people p { font-family: var(--serif); color: var(--muted); font-size: 15.5px; margin: 8px 0 0; }
+.more { color: var(--ink); font-size: 15px; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--rule); }
+.seats { display: flex; align-items: center; gap: 6px; margin-top: 18px; flex-wrap: wrap; }
+.seats i { width: 3px; height: 26px; border-radius: 2px; background: var(--ink); opacity: 0.35; }
+.seats i.open { opacity: 1; background: none; border-left: 2px dashed var(--ink); width: 0; }
+.seats span { margin-left: 10px; font-size: 14px; color: var(--muted); }
+.plans { display: grid; gap: 14px; }
+@media (min-width: 760px) { .plans { grid-template-columns: 1fr 1fr; gap: 18px; } .plans .note { grid-column: 1 / -1; } }
+.plan { background: var(--panel); border-radius: 18px; padding: 20px; display: grid; gap: 10px; align-content: start; }
+.plan .pk { margin: 0; font-size: 14px; color: var(--muted); }
+.plan .price { margin: 0; font-family: var(--sans); color: var(--ink); font-weight: 800; font-stretch: 82%; font-size: 40px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.plan .price small { font-weight: 500; font-stretch: 100%; font-size: 15px; color: var(--muted); letter-spacing: 0; }
+.plan p { margin: 0; font-family: var(--serif); color: var(--muted); font-size: 15.5px; }
+.plan .btn { justify-self: start; text-decoration: none; display: inline-flex; align-items: center; }
+.btn.ghost { background: none; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.note { font-size: 13.5px; color: var(--muted); margin: 4px 0 0; max-width: 80ch; }
+.faq details { border-top: 1px solid var(--rule); }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq summary { list-style: none; cursor: pointer; padding: 15px 0; font-size: 16.5px; font-weight: 600; min-height: 44px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq details p { position: relative; margin: 0 0 18px; padding-top: 14px; font-family: var(--serif); color: var(--muted); font-size: 16px; max-width: 62ch; }
+.faq details p::before, .faq details p::after { content: ""; position: absolute; top: 0; height: 1px; background: var(--ink); opacity: 0.5; transition: width 500ms cubic-bezier(.2,.8,.2,1); width: 50%; }
+.faq details p::before { left: 0; } .faq details p::after { right: 0; }
+.faq details[open] p::before, .faq details[open] p::after { animation: part 600ms cubic-bezier(.2,.8,.2,1) both; }
+@keyframes part { from { width: 50%; } to { width: 12%; } }
+.closing { padding-block: 96px 24px; display: grid; gap: 12px; justify-items: start; }
+.closing h2 { font-weight: 800; font-stretch: 80%; font-size: 40px; line-height: 1; margin: 0; letter-spacing: -0.015em; }
+@media (min-width: 760px) { .closing h2 { font-size: 64px; } }
+.closing p { font-family: var(--serif); color: var(--muted); font-size: 17px; margin: 0 0 8px; max-width: 46ch; }
+.closing .btn, .btn { text-decoration: none; }
+
+/* Everyone alone: each short line fades into one low-value prompt and back, never connecting */
+.alone { position: relative; height: 230px; color: var(--ink); }
+@media (min-width: 760px) { .alone { height: 200px; } }
+.act { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: 0; height: 0; }
+@media (max-width: 759px) { .act { left: calc(var(--x) * 0.66%); } }
+.alone { overflow: hidden; }
+.act svg { position: absolute; left: 0; top: -10px; width: 64px; height: 20px; overflow: visible; animation: actLine 9s ease-in-out infinite; animation-delay: inherit; }
+.act svg path { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; opacity: 0.7; }
+.act em { position: absolute; left: 0; top: -9px; font-style: normal; font-size: 12.5px; color: var(--muted); white-space: nowrap; opacity: 0; animation: actWord 9s ease-in-out infinite; animation-delay: inherit; }
+@media (min-width: 760px) { .act em { font-size: 13.5px; } }
+@keyframes actLine { 0%, 38% { opacity: 1; } 48%, 86% { opacity: 0; } 96%, 100% { opacity: 1; } }
+@keyframes actWord { 0%, 40% { opacity: 0; transform: translateY(3px); } 50%, 82% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .act svg, .act em { animation: none; } .act em { opacity: 0; } }
+</style>
+
+<div class="wrap">
+  <div class="proto">Prototype. Plays on its own. Once it flows, one point is open to read; move your cursor along the stream, or tap a team, to open another. Copy is placeholder.</div>
+  <header class="top">
+    <div class="mark" aria-label="Unlock Intelligence"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H16V6H12V18H16V21H9Z" fill="currentColor"/></svg>Unlock Intelligence</div>
+    <nav class="links"><a href="#program">Program</a><a href="#pricing">Pricing</a><a href="insights.html">Insights</a><a href="team.html">Faculty</a><a href="contact.html">Talk to us</a></nav>
+    <span class="menu">Menu</span>
+  </header>
+
+  <section class="hero" aria-label="Introduction">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <p class="cap" id="cap" aria-live="polite">A new client, signed to onboarded. Today, every handoff by hand.</p>
+    <div class="lens" id="lens" hidden aria-live="polite"></div>
+    <button class="replay" id="replay" type="button">Replay</button>
+    <div class="copy">
+      <h1 id="headline"><span class="ha">From <span class="ho">handoffs</span></span> <span class="hb"><span class="w">to</span> <span class="w">flow,</span> <span class="w">in</span> <span class="w">two</span> <span class="w">days.</span></span></h1>
+      <a class="btn" href="contact.html">Bring us one process</a>
+    </div>
+  </section>
+
+  <section class="block" id="problem">
+    <div><h2>How most teams use AI today</h2><p class="lead">Everyone got a license. Each person works it out alone, one chat at a time, and the work still waits at every handoff.</p></div>
+    <div class="alone" role="img" aria-label="Twenty separate prompts, each a person working alone, none of them connected">
+      <span class="act" style="--x:2;--y:12;animation-delay:0.00s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 -8 60 4"/></svg><em>summarize this</em></span>
+      <span class="act" style="--x:19;--y:20;animation-delay:7.63s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 10 50 -2"/></svg><em>rewrite it nicer</em></span>
+      <span class="act" style="--x:36;--y:8;animation-delay:6.26s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 6 54 -6"/></svg><em>make it shorter</em></span>
+      <span class="act" style="--x:52;--y:24;animation-delay:4.89s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q20 -12 46 2"/></svg><em>fix the tone</em></span>
+      <span class="act" style="--x:68;--y:12;animation-delay:3.52s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 10 58 0"/></svg><em>is this right?</em></span>
+      <span class="act" style="--x:84;--y:22;animation-delay:2.15s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 -10 52 4"/></svg><em>draft an email</em></span>
+      <span class="act" style="--x:7;--y:46;animation-delay:0.78s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 -8 60 4"/></svg><em>try again</em></span>
+      <span class="act" style="--x:24;--y:38;animation-delay:8.41s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 10 50 -2"/></svg><em>explain this tab</em></span>
+      <span class="act" style="--x:41;--y:54;animation-delay:7.04s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 6 54 -6"/></svg><em>make a table</em></span>
+      <span class="act" style="--x:57;--y:42;animation-delay:5.67s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q20 -12 46 2"/></svg><em>one more time</em></span>
+      <span class="act" style="--x:74;--y:52;animation-delay:4.30s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 10 58 0"/></svg><em>translate this</em></span>
+      <span class="act" style="--x:88;--y:40;animation-delay:2.93s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 -10 52 4"/></svg><em>write a reply</em></span>
+      <span class="act" style="--x:2;--y:78;animation-delay:1.56s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 -8 60 4"/></svg><em>bullet points, please</em></span>
+      <span class="act" style="--x:18;--y:86;animation-delay:0.19s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 10 50 -2"/></svg><em>more formal</em></span>
+      <span class="act" style="--x:35;--y:74;animation-delay:7.82s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 6 54 -6"/></svg><em>check my math</em></span>
+      <span class="act" style="--x:52;--y:88;animation-delay:6.45s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q20 -12 46 2"/></svg><em>polish this</em></span>
+      <span class="act" style="--x:69;--y:76;animation-delay:5.08s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 10 58 0"/></svg><em>what does this mean</em></span>
+      <span class="act" style="--x:85;--y:84;animation-delay:3.71s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 -10 52 4"/></svg><em>help with Excel</em></span>
+      <span class="act" style="--x:12;--y:64;animation-delay:2.34s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q30 -8 60 4"/></svg><em>name ideas</em></span>
+      <span class="act" style="--x:62;--y:66;animation-delay:0.97s"><svg viewBox="-2 0 64 20" aria-hidden="true"><path d="M0 10 q24 10 50 -2"/></svg><em>shorter</em></span>
+    </div>
+  </section>
+
+  <section class="block" id="program">
+    <div><h2>Two days, in the room</h2><p class="lead">Live, with your team, on your team's real work. Day one is one person's thread. Day two is the team's stream.</p></div>
+    <div class="days">
+      <div class="day">
+        <svg class="dayline" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24 C 60 4, 110 34, 160 20" class="ink-dash"/><path d="M160 20 C 210 8, 250 30, 296 18" class="amber"/></svg>
+        <b>Day one: one person's thread</b>
+        <ol>
+          <li>Live demo on real data. The instructor builds an agent on a volunteer's real work.</li>
+          <li>The room maps that demo across people, tools, trainings, guardrails and metrics.</li>
+          <li>Each person builds their own, from a starter written for their role.</li>
+          <li>Read the first output honestly, tighten it, run it again.</li>
+          <li>Share across the room. Same pattern, very different outputs.</li>
+        </ol>
+      </div>
+      <div class="day">
+        <svg class="dayline" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 80 2, 150 30, 296 14" class="ink"/><path d="M4 20 C 80 10, 150 38, 296 22" class="amber"/><path d="M4 28 C 80 18, 150 46, 296 30" class="ink"/></svg>
+        <b>Day two: the team's stream</b>
+        <ol>
+          <li>Pick the process you keep postponing.</li>
+          <li>Map it end to end: how it runs today, and rebuilt, with the agent steps marked.</li>
+          <li>Pull out the next three to five builds.</li>
+          <li>A peer from another role pressure-tests the map.</li>
+          <li>One named action for Monday.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="monday">
+    <div><h2>What changes by Monday</h2><p class="lead">Your team decides what an agent runs and which calls stay with people. Then it builds them.</p></div>
+    <div class="lists">
+      <div class="runs"><h3>An agent runs it</h3><ul>
+        <li><b>Weekly status report</b><span>Three hours became a ten-minute read.</span></li>
+        <li><b>Match transactions</b><span>Runs nightly. Exceptions come to a person.</span></li>
+        <li><b>Draft offer letters</b><span>Drafted from approved templates.</span></li>
+      </ul></div>
+      <div><h3>A person keeps it</h3><ul>
+        <li><b>Approve journal entries</b><span>Stays with the controller.</span></li>
+        <li><b>Hiring decisions</b><span>Always a person's call.</span></li>
+        <li><b>Key client renewals</b><span>A relationship. Stays human.</span></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section class="block" id="faculty">
+    <div><h2>Who runs the room</h2><p class="lead">Two people, both in every session.</p></div>
+    <div class="people">
+      <div><b>Shubham Chandra</b><span class="role">Head of Curriculum</span><p>Teaches AI-driven entrepreneurship at the University of Chicago and builds AI automation systems at Digital Realty, the kind of workflows this program teaches.</p></div>
+      <div><b>J.T. O'Connor</b><span class="role">Program Director</span><p>Your point of contact from the first conversation through delivery. Background in operations and business development, building AI-powered marketing and outreach systems.</p></div>
+      <a class="more" href="team.html">Meet the faculty</a>
+    </div>
+  </section>
+
+  <section class="block" id="pricing">
+    <div><h2>Founding cohort pricing</h2><p class="lead">Founding members get our lowest price and direct access to the instructors. We send a proposal within one business day.</p>
+      <div class="seats" role="img" aria-label="7 of 10 founding seats open">
+        <i></i><i></i><i></i><i class="open"></i><i class="open"></i><i class="open"></i><i class="open"></i><i class="open"></i><i class="open"></i><i class="open"></i>
+        <span>7 of 10 seats open</span>
+      </div>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <p class="pk">Team training, private cohort of 5 or more</p>
+        <p class="price">$1,095 <small>a seat, then $1,595</small></p>
+        <p>A private cohort with starters written for each attendee's actual role, scheduled around your team, with an executive summary for leadership afterward. Volume pricing and invoicing available.</p>
+        <a class="btn" href="contact.html">Request a proposal</a>
+      </div>
+      <div class="plan">
+        <p class="pk">Individual, open cohort</p>
+        <p class="price">$1,295 <small>then $1,995</small></p>
+        <p>Both live sessions, a working agent of your own, a map of one real process, an implementation queue, a certificate, and six months in the cohort community.</p>
+        <a class="btn ghost" href="contact.html">Join a cohort</a>
+      </div>
+      <p class="note">For scale, an estimate: the average knowledge worker spends 2.5 hours a week on work AI could handle. At $75 an hour that is $9,750 per person per year. If your team finishes both sessions and doesn't feel they gained usable skills, we refund you. No paperwork.</p>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div><h2>Questions</h2><p class="lead">Tap one to open it.</p></div>
+    <div class="faq">
+      <details><summary>Is there a corporate or team option?</summary><p>Yes. For teams of five or more we offer custom scheduling, role-specific curriculum tailoring and volume pricing. Reach out and we'll put together a proposal.</p></details>
+      <details><summary>How do you measure outcomes?</summary><p>Everyone takes a confidence assessment before and after. Your team then receives an executive summary with aggregated results, completion tracking and competency gains you can hand straight to L&amp;D.</p></details>
+      <details><summary>Do I need any technical background?</summary><p>None. The program is designed for people who have never written code and never plan to. If you can use email and a web browser, you have everything you need.</p></details>
+      <details><summary>Is this online or in person?</summary><p>Both. Cohorts run live over video, or at select city venues. Ask us what's available for your team.</p></details>
+      <details><summary>We already have Coursera or LinkedIn Learning. Why this?</summary><p>Those are good reference libraries. This is live and built around exercises your team does together, on its own work, and you leave with a map of one real process and the builds that come next.</p></details>
+      <details><summary>Is this affiliated with the University of Chicago?</summary><p>Unlock Intelligence is an independent program. Our Head of Curriculum teaches AI and entrepreneurship at the University of Chicago and brings that rigor here. The curriculum is original.</p></details>
+    </div>
+  </section>
+
+  <section class="closing">
+    <h2>Bring us one process.</h2>
+    <p>The one that waits at every handoff. We'll show you what it looks like as a stream.</p>
+    <a class="btn" href="contact.html">Bring us one process</a>
+  </section>
+
+  <footer class="f"><span>Unlock Intelligence</span><a href="contact.html" style="color:inherit">Bring us one process.</a></footer>
+</div>
+
+<script>
+(() => {
+  const cv = document.getElementById("field"), ctx = cv.getContext("2d");
+  const cap = document.getElementById("cap"), lens = document.getElementById("lens"), headline = document.getElementById("headline");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const ease = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+  const rgba = (hex, a) => { const h = hex.replace("#", ""); const n = parseInt(h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+  const rand = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
+
+  // Timeline (ms): handoffs pile up, an amber thread connects the teams, the path fans into a stream.
+  const T_BEFORE = 5200, T_THREAD = 2600, T_SPREAD = 1800;
+  const STATIONS = {
+    Sales: ["deal logged, account enriched", "the relationship stays with the rep"],
+    Finance: ["terms checked against policy", "exceptions go to the controller"],
+    Legal: ["contract drafted from approved clauses", "counsel signs"],
+    Procurement: ["vendor forms collected and checked", "a buyer approves new vendors"],
+    Ops: ["accounts set up the day it closes", "the ops lead confirms the plan"],
+    Client: ["welcome pack sent", "the kickoff call stays with you"]
+  };
+  let W, H, dpr, INK, AMBER, MUTED, GROUND, nodes = [], lines = [], packets = [], t0, mode = "rest";
+  const hand = { x: 0, y: 0, on: 0, tx: 0, ty: 0, ton: 0 };
+  const win = { cx: -9999, hw: 140 }; // the opening matches the words: flat across them, soft at the shoulders
+
+  const phone = () => W < 600;
+  function baseY(x, time) { return H * (phone() ? 0.34 : 0.33) + Math.sin(x / W * 4.2 + time * 0.00025) * H * 0.055 + Math.sin(x / W * 1.6 + 0.9) * H * 0.045; }
+
+  function setup() {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    INK = css("--ink"); AMBER = css("--amber"); MUTED = css("--muted"); GROUND = css("--ground");
+    const names = phone() ? ["Sales", "Finance", "Legal", "Ops", "Client"] : ["Sales", "Finance", "Legal", "Procurement", "Ops", "Client"];
+    nodes = names.map((name, i) => ({ name, x: W * (phone() ? 0.12 : 0.09) + i * (W * (phone() ? 0.76 : 0.82) / (names.length - 1)) }));
+    const n = phone() ? 21 : 31, pts = phone() ? 64 : 110;
+    lines = Array.from({ length: n }, (_, i) => ({ i, sig: i === (n - 1) / 2, pts }));
+    packets = Array.from({ length: phone() ? 7 : 10 }, (_, i) => ({ seg: i % (nodes.length - 1), p: rand(), wait: rand() * 900, speed: 0.0003 + rand() * 0.0002 }));
+    mode = "rest"; hand.on = 0; hand.ton = 0; lens.hidden = true; lens.dataset.team = "";
+    t0 = performance.now();
+  }
+
+  function state(time) {
+    if (reduce) return { threadX: W + 40, spread: 1, connect: 1 };
+    const k = clamp((time - T_BEFORE) / T_THREAD, 0, 1);
+    const threadX = -20 + (W + 60) * ease(k);
+    const spread = ease(clamp((time - T_BEFORE - T_THREAD * 0.85) / T_SPREAD, 0, 1));
+    return { threadX, spread, connect: k };
+  }
+
+  function laneSpacing() { return Math.min(phone() ? 7.5 : 6.5, H * 0.014); }
+  function lineY(L, x, time, spread) {
+    const n = lines.length, lane = (L.i - (n - 1) / 2) * laneSpacing() * spread;
+    let y = baseY(x, time) + lane + Math.sin(x / W * 8.5 + L.i * 0.17 + time * 0.0006) * 1.8 * spread;
+    if (hand.on > 0.001 && spread > 0.95) {
+      // The lens: lines part around the open point and never cross (the shift rises with distance from it)
+      const cx = win.cx > -9000 ? win.cx : hand.x, g = Math.exp(-Math.pow(Math.abs(x - cx) / win.hw, 2.2)) * hand.on;
+      const gapHalf = phone() ? 9 : 10, d = y - (baseY(x, time) + laneSpacing() * 0.5);
+      y += Math.tanh(d / 1.8) * gapHalf * g;
+    }
+    return y;
+  }
+  function bandBottom(x, time, spread) { return baseY(x, time) + ((lines.length - 1) / 2) * laneSpacing() * spread; }
+
+  // Colour a over the ground at strength k, as a solid colour (so overlapping slices never stack alpha)
+  const mix = (hex, k) => { const a = parseInt(hex.slice(1), 16), b = parseInt(GROUND.slice(1), 16); k = Math.round(k * 20) / 20;
+    const ch = s => Math.round((a >> s & 255) * k + (b >> s & 255) * (1 - k)); return `rgb(${ch(16)},${ch(8)},${ch(0)})`; };
+  // Words are drawn once, flat, then laid onto the curve a sliver at a time, so the whole word bends with the line
+  const words = new Map();
+  function flatWord(segs, font, fs) {
+    const key = font + "|" + segs.map(sg => sg.t + "@" + sg.c).join("|");
+    let im = words.get(key); if (im) return im;
+    if (words.size > 160) words.clear();
+    const c = document.createElement("canvas"), g = c.getContext("2d");
+    const prep = () => { g.font = font; g.textBaseline = "alphabetic"; try { g.letterSpacing = "0.2px"; } catch (e) {} };
+    prep(); const total = g.measureText(segs.map(sg => sg.t).join("")).width;
+    const w = Math.ceil(total) + 6, h = Math.ceil(fs * 1.8), base = Math.round(fs * 1.3);
+    c.width = w * dpr; c.height = h * dpr; g.scale(dpr, dpr); prep();
+    let x = 3; for (const sg of segs) { g.fillStyle = sg.c; g.fillText(sg.t, x, base); x += g.measureText(sg.t).width; }
+    im = { c, w, h, base }; words.set(key, im); return im;
+  }
+  // Set text along a curve y = yFn(x) by arc length, centred at cx
+  function textOnCurve(segs, font, yFn, cx, fs) {
+    const im = flatWord(segs, font, fs), x0 = cx - im.w * 0.8, x1 = cx + im.w * 0.8;
+    const xs = [], ls = []; let L = 0, px = x0, py = yFn(x0);
+    for (let x = x0; x <= x1; x += 1) { const y = yFn(x); L += Math.hypot(x - px, y - py); xs.push(x); ls.push(L); px = x; py = y; }
+    const at = s => { let lo = 0, hi = ls.length - 1; if (s <= 0) return xs[0]; if (s >= ls[hi]) return xs[hi];
+      while (hi - lo > 1) { const m = (lo + hi) >> 1; ls[m] < s ? lo = m : hi = m; } return xs[lo] + (s - ls[lo]) / ((ls[hi] - ls[lo]) || 1) * (xs[hi] - xs[lo]); };
+    const s0 = (ls[Math.round(cx - x0)] || L / 2) - im.w / 2;
+    for (let i = 0; i < im.w; i += 1) {
+      const x = at(s0 + i + 0.5), y = yFn(x), ang = Math.atan2(yFn(x + 3) - yFn(x - 3), 6), co = Math.cos(ang), si = Math.sin(ang);
+      ctx.setTransform(dpr * co, dpr * si, -dpr * si, dpr * co, dpr * x, dpr * y);
+      ctx.drawImage(im.c, i * dpr, 0, 2 * dpr, im.h * dpr, -0.5, -im.base, 2, im.h);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function openAt(st, time) { hand.tx = st.x; hand.ty = baseY(st.x, time) + laneSpacing() * 0.5; hand.ton = 1; }
+  function nearest(x) { let b = nodes[0], d = Infinity; nodes.forEach(nd => { const e = Math.abs(nd.x - x); if (e < d) { d = e; b = nd; } }); return b; }
+
+  function frame(now) {
+    const time = now - t0;
+    const { threadX, spread, connect } = state(time);
+    const R = phone() ? 15 : 18;
+    hand.x += (hand.tx - hand.x) * 0.1; hand.y += (hand.ty - hand.y) * 0.1; hand.on += (hand.ton - hand.on) * 0.05;
+    if (spread > 0.98 && mode === "rest") { const legal = nodes.find(n2 => n2.name === "Legal"); openAt(legal, time); if (hand.on < 0.02) { hand.x = legal.x; hand.y = baseY(legal.x, time) + laneSpacing() * 0.5; } }
+    cap.textContent = connect < 0.5 ? "A new client, signed to onboarded. Today, every handoff by hand." : "After two days: one stream. Amber is what an agent now runs.";
+    headline.classList.toggle("flowing", connect > 0.6);
+    ctx.clearRect(0, 0, W, H);
+
+    if (spread === 0) {
+      // Before and during the connect: solid behind the thread, dashed ahead of it
+      ctx.lineWidth = 1.4; ctx.strokeStyle = rgba(INK, 0.6);
+      ctx.beginPath(); for (let x = -20; x <= Math.min(threadX, W + 20); x += 6) { const y = baseY(x, time); x === -20 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke();
+      ctx.setLineDash([7, 9]); ctx.beginPath(); let first = true;
+      for (let x = Math.max(-20, threadX); x <= W + 20; x += 6) { const y = baseY(x, time); first ? ctx.moveTo(x, y) : ctx.lineTo(x, y); first = false; } ctx.stroke(); ctx.setLineDash([]);
+      if (threadX > -20) {
+        ctx.strokeStyle = AMBER; ctx.lineWidth = 2.6; ctx.lineCap = "round";
+        ctx.beginPath(); for (let x = -20; x <= threadX; x += 4) { const y = baseY(x, time); x === -20 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke();
+        const hy = baseY(threadX, time); ctx.fillStyle = AMBER; ctx.beginPath(); ctx.arc(threadX, hy, 3.5, 0, Math.PI * 2); ctx.fill();
+      }
+    } else {
+      const n = lines.length;
+      lines.forEach(L => {
+        ctx.beginPath();
+        for (let j = 0; j <= L.pts; j++) { const x = (j / L.pts) * (W + 40) - 20; const y = lineY(L, x, time, spread); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+        const alpha = L.sig ? 1 : (0.3 + 0.38 * (1 - Math.abs(L.i - n / 2) / n)) * spread;
+        ctx.strokeStyle = L.sig ? AMBER : rgba(INK, alpha); ctx.lineWidth = L.sig ? 2.4 : 1.1; ctx.stroke();
+      });
+      // Work moving along the stream without stopping (ink: it is the work, not the agent)
+      const flowN = phone() ? 7 : 12;
+      for (let q = 0; q < flowN; q++) {
+        const L = lines[(q * 5 + 2) % n]; if (L.sig) continue;
+        const x = ((time * 0.1 + q * (W / flowN) * 1.7) % (W + 40)) - 20;
+        ctx.fillStyle = rgba(INK, 0.9 * spread); ctx.beginPath(); ctx.arc(x, lineY(L, x, time, spread), 2.2, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    // Documents crawl, wait, and pile up at each handoff, until the thread reaches them
+    packets.forEach(pk => {
+      if (pk.wait > 0) pk.wait -= 16; else { pk.p += pk.speed * 16; if (pk.p >= 1) { pk.p = 0; pk.seg = (pk.seg + 1) % (nodes.length - 1); pk.wait = 700 + rand() * 1500; } }
+    });
+    const piles = new Array(nodes.length).fill(0);
+    packets.forEach(pk => {
+      let x, y;
+      if (pk.wait > 0) { const ni = pk.seg, k = piles[ni]++; x = nodes[ni].x + R + 8; y = baseY(nodes[ni].x, time) - R - 6 - k * 11; }
+      else { const a = nodes[pk.seg].x + R + 4, b = nodes[pk.seg + 1].x - R - 4; x = a + (b - a) * pk.p; y = baseY(x, time) - 2; }
+      const absorbed = clamp((threadX - x) / 40, 0, 1), a = (1 - absorbed) * (1 - spread);
+      if (a < 0.02) return;
+      ctx.fillStyle = rgba(INK, a); ctx.fillRect(x - 5, y - 7, 10, 13);
+      ctx.fillStyle = rgba(GROUND, a); ctx.fillRect(x - 3, y - 4, 6, 1.4); ctx.fillRect(x - 3, y - 1, 6, 1.4); ctx.fillRect(x - 3, y + 2, 4, 1.4);
+    });
+
+    // Teams: the ring (the handoff) dissolves as the thread arrives; the name stays and rides under the stream
+    nodes.forEach(nd => {
+      const passed = clamp((threadX - nd.x + 10) / 50, 0, 1);
+      const y = baseY(nd.x, time);
+      if (passed < 1) {
+        ctx.beginPath(); ctx.arc(nd.x, y, R * (1 - 0.5 * passed), 0, Math.PI * 2);
+        ctx.fillStyle = rgba(GROUND, 1 - passed); ctx.fill(); ctx.lineWidth = 1.6; ctx.strokeStyle = rgba(INK, 1 - passed); ctx.stroke();
+      }
+      const isOpen = hand.on > 0.5 && nearest(hand.x) === nd && spread > 0.95;
+      const bottom = lines[lines.length - 1];
+      const before = x => baseY(x, time) + R + (phone() ? 17 : 20);
+      const after = x => lineY(bottom, x, time, spread) + (phone() ? 15 : 17);
+      const yFn = x => spread > 0 ? before(x) + (after(x) - before(x)) * spread : before(x);
+      const col = mix(INK, isOpen ? 1 : 0.95 - 0.35 * spread);
+      const fsz = Math.round((phone() ? (12 - spread * 0.5) : (13.5 - spread)) * 2) / 2;
+      textOnCurve([{ t: nd.name, c: col }], `${isOpen ? 600 : 500} ${fsz}px Archivo, Helvetica, Arial, sans-serif`, yFn, nd.x, fsz);
+    });
+
+    // The opening: the words ride the current. Amber is what an agent runs; ink is what a person keeps.
+    if (hand.on > 0.02 && spread > 0.95) {
+      const st = nearest(hand.x), [runs, stays] = STATIONS[st.name];
+      const fs = phone() ? 10 : 11, font = `400 ${fs}px Archivo, Helvetica, Arial, sans-serif`;
+      ctx.font = font;
+      const SEP = "\u2003";
+      const tw = ctx.measureText(runs + SEP + stays).width;
+      const cx = clamp(hand.x, tw / 2 + 16, W - tw / 2 - 16);
+      win.cx = cx; win.hw = tw / 2 + (phone() ? 36 : 80);
+      const a = clamp((hand.on - 0.5) / 0.45, 0, 1);
+      // The words hang from the line just above the opening and follow it exactly
+      const upper = lines[(lines.length - 1) / 2];
+      if (a > 0.02) textOnCurve([{ t: runs, c: mix(AMBER, a) }, { t: SEP, c: GROUND }, { t: stays, c: mix(INK, a) }], font, x => lineY(upper, x, time, spread) + (phone() ? 11 : 12), cx, fs);
+    }
+    if (hand.on > 0.45 && spread > 0.95) {
+      const st = nearest(hand.x);
+      if (lens.dataset.team !== st.name) {
+        lens.dataset.team = st.name;
+        const [runs, stays] = STATIONS[st.name];
+        lens.innerHTML = `<b>${st.name}</b><span class="runs">${runs}</span><span class="stays">${stays}</span>`;
+      }
+      lens.hidden = false;
+      const lw = lens.offsetWidth, lh = lens.offsetHeight;
+      const left = clamp(hand.x - lw / 2, 12, W - lw - 12);
+      lens.style.left = `${left}px`;
+      lens.style.top = `${clamp(hand.y - lh / 2, 34, H - lh - 10)}px`;
+      lens.style.opacity = String(clamp((hand.on - 0.45) / 0.4, 0, 1));
+    } else { lens.hidden = true; lens.dataset.team = ""; }
+
+    requestAnimationFrame(frame);
+  }
+
+  const local = (cx, cy) => { const r = cv.getBoundingClientRect(); return { x: cx - r.left, y: cy - r.top }; };
+  const ready = () => state(performance.now() - t0).spread > 0.95;
+  // Desktop: the cursor walks the stream; leaving puts it back on Legal
+  cv.addEventListener("pointermove", e => { if (e.pointerType !== "mouse" || !ready()) return; const p = local(e.clientX, e.clientY); mode = "hand"; hand.tx = p.x; hand.ty = baseY(p.x, performance.now() - t0) + laneSpacing() * 0.5; hand.ton = 1; });
+  cv.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") mode = "rest"; });
+  // Phone: a tap opens the nearest team and it stays open. Scrolling never opens anything.
+  cv.addEventListener("click", e => { if (!ready()) return; const p = local(e.clientX, e.clientY); mode = "hand"; openAt(nearest(p.x), performance.now() - t0); });
+  document.getElementById("replay").addEventListener("click", () => setup());
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(setup, 150); });
+  setup(); requestAnimationFrame(frame);
+})();
+</script>
