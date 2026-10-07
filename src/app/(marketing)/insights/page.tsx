@@ -11,10 +11,10 @@ import { Closing } from "@/components/stream/sections/closing";
 const description = "Perspectives on AI workforce development, from the classroom and the enterprise.";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Why this works",
   description,
   openGraph: {
-    title: "Insights",
+    title: "Why this works",
     description,
   },
 };

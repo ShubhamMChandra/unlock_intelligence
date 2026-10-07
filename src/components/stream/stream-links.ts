@@ -7,7 +7,7 @@
 export const streamLinks = [
   { label: "Program", href: "/#program" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Insights", href: "/insights" },
+  { label: "Why this works", href: "/insights" },
   { label: "Faculty", href: "/team" },
   { label: "Talk to us", href: "/contact" },
 ];

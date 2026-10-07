@@ -26,7 +26,7 @@ export function InsightsIndex() {
 
       <div className="mx-auto max-w-[1160px] px-4 pb-8 pt-6 md:px-8 md:pt-8">
         <header className="max-w-[60ch]">
-          <h1 className={cn(sectionTitle, "text-[40px] md:text-[56px] [font-stretch:80%]")}>Insights</h1>
+          <h1 className={cn(sectionTitle, "text-[40px] md:text-[56px] [font-stretch:80%]")}>Why this works</h1>
           <p className={cn(lead, "max-w-[44ch] text-[17px] md:text-[18px]")}>
             Perspectives on AI workforce development, from the classroom and the enterprise.
           </p>

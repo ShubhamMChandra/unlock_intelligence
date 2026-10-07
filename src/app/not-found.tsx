@@ -40,7 +40,7 @@ export default function NotFound() {
                 textLink,
               )}
             >
-              Insights
+              Why this works
             </Link>
             <Link
               href="/contact"
