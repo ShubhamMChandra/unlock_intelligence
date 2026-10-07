@@ -28,7 +28,7 @@ export function InsightsIndex() {
         <header className="max-w-[60ch]">
           <h1 className={cn(sectionTitle, "text-[40px] md:text-[56px] [font-stretch:80%]")}>Why this works</h1>
           <p className={cn(lead, "max-w-[44ch] text-[17px] md:text-[18px]")}>
-            Perspectives on AI workforce development, from the classroom and the enterprise.
+            Most AI rollouts break in the same four places. Each piece below takes one apart, and the last shows where the program starts instead.
           </p>
           <p className="mt-3 max-w-[60ch] text-[13.5px] leading-relaxed text-haze">
             Written by Shubham Chandra, who teaches AI-driven entrepreneurship at the University of Chicago and builds AI automation systems at Digital Realty.

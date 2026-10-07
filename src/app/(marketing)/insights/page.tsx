@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { InsightsIndex } from "@/components/stream/insights/insights-index";
 import { Closing } from "@/components/stream/sections/closing";
 
-const description = "Perspectives on AI workforce development, from the classroom and the enterprise.";
+const description = "Most AI rollouts break in the same four places. Each piece below takes one apart, and the last shows where the program starts instead.";
 
 export const metadata: Metadata = {
   title: "Why this works",
