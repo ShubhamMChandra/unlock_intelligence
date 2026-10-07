@@ -428,10 +428,12 @@ footer.f { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--rule
       });
       // Work moving along the stream without stopping (ink: it is the work, not the agent)
       const flowN = phone() ? 7 : 12;
+      const hash = k => { const v = Math.sin(k * 12.9898) * 43758.5453; return v - Math.floor(v); };
       for (let q = 0; q < flowN; q++) {
-        const L = lines[(q * 5 + 2) % n]; if (L.sig) continue;
-        const x = ((time * 0.1 + q * (W / flowN) * 1.7) % (W + 40)) - 20;
-        ctx.fillStyle = rgba(INK, 0.9 * spread); ctx.beginPath(); ctx.arc(x, lineY(L, x, time, spread), 2.2, 0, Math.PI * 2); ctx.fill();
+        let li = Math.floor(hash(q + 1) * n); if (lines[li].sig) li = (li + 3) % n;
+        const L = lines[li], pace = 0.03 * (0.65 + 0.7 * hash(q + 21)), drift = Math.sin(time * 0.0004 + q * 2.3) * 30 * hash(q + 41);
+        const x = ((time * pace + drift + hash(q + 61) * (W + 40)) % (W + 40) + (W + 40)) % (W + 40) - 20;
+        ctx.fillStyle = rgba(INK, (0.6 + 0.35 * hash(q + 81)) * spread); ctx.beginPath(); ctx.arc(x, lineY(L, x, time, spread), 1.8 + 0.8 * hash(q + 101), 0, Math.PI * 2); ctx.fill();
       }
     }
 

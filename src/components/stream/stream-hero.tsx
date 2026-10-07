@@ -168,14 +168,21 @@ export function StreamHero() {
           c.stroke();
         }
         // Work moving along the stream without stopping (ink: it is the work, not the agent)
+        // Each piece of work has its own lane, pace and small drift, so the flow never looks like a conveyor
         const flowN = phone() ? 7 : 12;
+        const hash = (k: number) => {
+          const v = Math.sin(k * 12.9898) * 43758.5453;
+          return v - Math.floor(v);
+        };
         for (let q = 0; q < flowN; q++) {
-          const L = lines[(q * 5 + 2) % n];
-          if (L.sig) continue;
-          const x = ((time * 0.03 + q * (W / flowN) * 1.7) % (W + 40)) - 20;
-          c.fillStyle = rgba(C.ink, 0.9 * spread);
+          let li = Math.floor(hash(q + 1) * n);
+          if (lines[li].sig) li = (li + 3) % n;
+          const L = lines[li], pace = 0.03 * (0.65 + 0.7 * hash(q + 21));
+          const drift = Math.sin(time * 0.0004 + q * 2.3) * 30 * hash(q + 41);
+          const x = ((time * pace + drift + hash(q + 61) * (W + 40)) % (W + 40) + (W + 40)) % (W + 40) - 20;
+          c.fillStyle = rgba(C.ink, (0.6 + 0.35 * hash(q + 81)) * spread);
           c.beginPath();
-          c.arc(x, lineY(L, x, time, spread), 2.2, 0, Math.PI * 2);
+          c.arc(x, lineY(L, x, time, spread), 1.8 + 0.8 * hash(q + 101), 0, Math.PI * 2);
           c.fill();
         }
       }
